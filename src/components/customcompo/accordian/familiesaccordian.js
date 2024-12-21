@@ -1,22 +1,9 @@
 import { ExpandMore } from "@mui/icons-material";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import React from "react";
-import LazyImage from "../customimage/customLazyImage";
 import ProductAccHeaderCard from "../cards/productAccHeaderCard";
 
 const FamiliesAccordian = (props) => {
-  let ID = props.id ? props.id : "";
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
   return (
     <Accordion
       expanded={props.IsExpand}
@@ -53,7 +40,8 @@ const FamiliesAccordian = (props) => {
           visibility: "hidden",
           transition: "visibility 0.2s ease-in-out", // Ensure visibility transition is smooth
         },
-      }}>
+      }}
+    >
       <AccordionSummary
         sx={{
           p: 0,
@@ -68,8 +56,8 @@ const FamiliesAccordian = (props) => {
         expandIcon={<ExpandMore />}
         aria-controls="panel1bh-content"
         id="panel1bh-header"
-        style={{ margin: 0 }}>
-
+        style={{ margin: 0 }}
+      >
         <ProductAccHeaderCard
           Title={props.Title}
           Desc={props.Desc}

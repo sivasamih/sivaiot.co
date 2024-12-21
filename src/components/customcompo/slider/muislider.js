@@ -1,43 +1,47 @@
-import Carousel from "react-material-ui-carousel";
+"use client";
+import { Box } from "@mui/material";
+import React from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const MuiSlider = (props) => {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+  if (!props.Content) return;
   return (
     <Carousel
-      sx={{ position: "relative" }}
-      autoPlay={props.autoPlay? props.autoPlay : false}
-      animation="slide"
-      duration={800}
-      height={props.height?props.height:"50vh"}
-      navButtonsAlwaysVisible={
-        props.Content && props.Content.length > 1 ? true : false
-      }
-      navButtonsAlwaysInvisible={
-        props.Content && props.Content.length > 1 ? false : true
-      }
-      indicators={props.indicators ? props.indicators : false}
-      indicatorContainerProps={{
-        style: {
-          position: "absolute",
-          bottom: 10,
-          left: "50%",
-          transform: "translateX(-50%)",
-          textAlign: "center", // 4
-          zIndex: 1,
-        },
-        indicatorIcon: {
-          fontSize: "40px",
-        },
-      }}
-      activeIndicatorIconButtonProps={{
-        style: {},
-      }}
-      navButtonsWrapperProps={{
-        style: {
-          color: "red",
-          fontSize: 30,
-        },
-      }}
-      
+      swipeable={true}
+      draggable={false}
+      showDots={false}
+      responsive={responsive}
+      ssr={true} // means to render carousel on server-side.
+      infinite={true}
+      // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+      autoPlaySpeed={1000}
+      keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={props.duration ? props.duration : 500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      // deviceType={this.props.deviceType}
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
     >
       {props.Content}
     </Carousel>

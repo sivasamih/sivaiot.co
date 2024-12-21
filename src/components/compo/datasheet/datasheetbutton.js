@@ -1,5 +1,5 @@
+"use client";
 import DataSheetDwnldForm from "./datasheetdownload";
-
 import {
   Button,
   Typography,
@@ -10,14 +10,14 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useState, useEffect } from "react";
-import * as APIURLS from "../../../apis/apiconstant";
-import CustomModal from "../../customcompo/modal/custommodal";
-import * as FETCHAPI from "../../../apis/fetchapi";
+import * as APIURLS from "@/apis/apiconstant";
+import CustomModal from "@/components/customcompo/modal/custommodal";
+import * as FETCHAPI from "@/apis/fetchapi";
 import {
   getLocalStorage,
   ValidateIPs,
   ValidateUser_Data,
-} from "../../../helper/helper";
+} from "@/helper/helper";
 import { Box } from "@mui/system";
 
 const DatasheetButton = (props) => {
@@ -160,7 +160,8 @@ const DatasheetButton = (props) => {
           alignItems: "center",
           justifyContent: "center",
           gap: 0.5,
-        }}>
+        }}
+      >
         <Typography
           // variant="button"
           id={props.id}
@@ -186,12 +187,17 @@ const DatasheetButton = (props) => {
             props.Datasheet.length > 0 ? (loading ? true : false) : true
           }
           component={Button}
-          onClick={handleDownloadClick}>
+          onClick={handleDownloadClick}
+        >
           {props.name}
         </Typography>
         {loading && (
           <spna style={{ marginRight: "5px" }}>
-            <CircularProgress color="secondary" size={15} thickness={4} />
+            <CircularProgress
+              color="secondary"
+              size={15}
+              thickness={4}
+            />
           </spna>
         )}
       </Box>
@@ -206,14 +212,16 @@ const DatasheetButton = (props) => {
         transformOrigin={{
           vertical: "center",
           horizontal: "center",
-        }}>
+        }}
+      >
         <List sx={{}}>
           {props.Datasheet.map((item, index) => (
             <ListItem
               button
               key={index}
               onClick={() => handleDatasheetSelect(item.ProductDatashet)}
-              sx={{ py: 0 }}>
+              sx={{ py: 0 }}
+            >
               <ListItemText primary={item.ProductDatasheetName} />
             </ListItem>
           ))}

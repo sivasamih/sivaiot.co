@@ -1,6 +1,5 @@
 "use client";
-import { Box, Container, Divider, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Container } from "@mui/material";
 import { Route_Path } from "@/apis/api";
 import SearchBox from "./searchBox";
 import { useEffect, useState } from "react";
@@ -151,70 +150,56 @@ const ProductListingContainer = (props) => {
                   Title={item.name}
                   Desc={item.desc}
                   Image={APIURLS.BASE_PATH.ProductCategory + item.BannerImage}
-                  // IsExpandAll={this.state.IsExpandAll}
                   onChange={() => handleAccExpand(item.id)}
                   IsExpand={item.IsExpanded}
                   Content={
-                    <>
-                      <Box
-                        sx={{
-                          "& > :last-of-type": {
-                            pb: 0,
-                            mb: 0,
-                          },
-                          display: "grid",
-                          gridTemplateColumns: {
-                            xs: "auto",
-                          },
-                          gap: 4,
-                        }}
-                      >
-                        {item["productList"]
-                          ? item["productList"].map((P, index) => {
-                              // let imageUrl =
-                              //   P.ImageList && P.ImageList.length > 0
-                              //     ? APIURLS.BASE_PATH.ProductImage +
-                              //       P.ImageList[0]["ProductImage"]
-                              //     : "";
-                              let imageALt =
-                                P.ImageList && P.ImageList.length > 0
-                                  ? P.ImageList[0]["Alt"]
-                                  : "Product image";
-                              let url = P.link.startsWith("/")
-                                ? P.link
-                                : Route_Path.PRODUCTS + "/" + P.link;
-                              return (
-                                <Box
-                                  id={P.link}
-                                  key={index}
-                                >
-                                  <ProductCard
-                                    ID={P.ID}
-                                    ProductImage={
-                                      APIURLS.BASE_PATH.Product + P.image
-                                    }
-                                    ProductImageAlt={imageALt}
-                                    ProductName={P.name ? P.name : ""}
-                                    ProductDesc={P.desc ? P.desc : ""}
-                                    Datasheet={P.Datasheets}
-                                    pt={{ xs: 2, md: 3 }}
-                                    url={url}
-                                    // shareUrl={"/" + Route_Path.PRODUCTS + "?name=" + P.link}
-                                    IsClickable={item.IsClickable}
-                                    // link={P.link}
-                                    IsExternalURL={P.IsExternalURL}
-                                    addUpdateFavoriteProduct={
-                                      this.addUpdateFavorite
-                                    }
-                                    IsFavorite={P.IsFavorite}
-                                    IsNew={P.IsNew}
-                                  />
-                                </Box>
-                              );
-                            })
-                          : null}
-                      </Box>
-                    </>
+                    <Box
+                      sx={{
+                        "& > :last-of-type": {
+                          pb: 0,
+                          mb: 0,
+                        },
+                        display: "grid",
+                        gridTemplateColumns: {
+                          xs: "auto",
+                        },
+                        gap: 4,
+                      }}
+                    >
+                      {item["productList"]
+                        ? item["productList"].map((P, index) => {
+                            let imageALt =
+                              P.ImageList && P.ImageList.length > 0
+                                ? P.ImageList[0]["Alt"]
+                                : "Product image";
+                            let url = P.link.startsWith("/")
+                              ? P.link
+                              : Route_Path.PRODUCTS + "/" + P.link;
+                            return (
+                              <Box
+                                id={P.link}
+                                key={index}
+                              >
+                                <ProductCard
+                                  ID={P.ID}
+                                  ProductImage={
+                                    APIURLS.BASE_PATH.Product + P.image
+                                  }
+                                  ProductImageAlt={imageALt}
+                                  ProductName={P.name ? P.name : ""}
+                                  ProductDesc={P.desc ? P.desc : ""}
+                                  Datasheet={P.Datasheets}
+                                  pt={{ xs: 2, md: 3 }}
+                                  url={url}
+                                  IsClickable={item.IsClickable}
+                                  IsExternalURL={P.IsExternalURL}
+                                  IsNew={P.IsNew}
+                                />
+                              </Box>
+                            );
+                          })
+                        : null}
+                    </Box>
                   }
                 />
               </Container>

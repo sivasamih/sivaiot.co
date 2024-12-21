@@ -1,6 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Chip, Container, Divider, Grid, Typography } from "@mui/material";
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
+import { Route_Path } from "@/apis/api";
+import { motion } from "framer-motion";
+import Title5 from "@/components/customcompo/Typo/title5";
+import MuiSlider from "@/components/customcompo/slider/muislider";
+import DatasheetButton from "@/components/compo/datasheet/datasheetbutton";
 
 async function GetProductDetailsByUrlName(url) {
   let data;
@@ -67,9 +72,188 @@ const TestingPage = async ({ params }) => {
   const ProductData = await GetProductDetailsByUrlName(url);
 
   return (
-    <Box sx={{ textAlign: "center", height: 400 }}>
-      <Typography variant="h4">Product url : {url}</Typography>
-    </Box>
+    <>
+      <Box
+        component={motion.div}
+        initial={{ y: 20, opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        whileinview={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+      >
+        <Title5
+          title={ProductData["Name"]}
+          currentPageName={ProductData["Name"]}
+          Breadcrumb={[
+            { name: "Home", url: "/" },
+            { name: "Products", url: Route_Path.PRODUCTS },
+          ]}
+        />
+      </Box>
+      <Container>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 2 }}
+          sx={{ py: 4 }}
+          component={motion.div}
+          initial={{ scale: 0.95, opacity: 0 }}
+          whileinview={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.95, opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={6}
+            lg={6}
+          >
+            <Box
+              sx={{
+                borderRadius: 5,
+                overflow: "hidden",
+              }}
+            >
+              <Box
+                sx={{
+                  overflow: "hidden",
+                  position: "relative",
+                  width: "100%",
+                }}
+              >
+                <MuiSlider
+                  // autoPlay={true}
+                  indicators={false}
+                  duration={1200}
+                  Content={ProductData["ImageList"]?.map((item, index) => {
+                    return (
+                      <Box
+                        key={index}
+                        sx={
+                          {
+                            //   height: { xs: 200, sm: 250, md: 400, lg: 500 },
+                          }
+                        }
+                      >
+                        <img
+                          src={
+                            "https://sivafiles.sivagroup.co/1/images/productpage/" +
+                            item.ProductImage
+                          }
+                          alt={item.alt}
+                          width={"100%"}
+                          height={"100%"}
+                          style={{ objectFit: "cover" }}
+                        />
+                      </Box>
+                    );
+                  })}
+                />
+              </Box>
+              <Box
+                sx={{
+                  bgcolor: "var(--green)",
+                  "& button": {
+                    color: "white",
+                    py: 1.5,
+                    letterSpacing: 1,
+                    width: "100%",
+                    borderRadius: 0,
+                  },
+                  "& .MuiBox-root": {
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  },
+                  cursor: "pointer",
+                }}
+              >
+                <DatasheetButton
+                  id={"DatasheetBtn"}
+                  name={"Download Datasheet"}
+                  path={APIURLS.BASE_PATH.DatasheetsBaseUrl}
+                  Datasheet={
+                    ProductData["Datasheets"] ? ProductData["Datasheets"] : []
+                  }
+                  ProductName={ProductData["Name"]}
+                  ProductImage={
+                    APIURLS.BASE_PATH.ProductImage + ProductData["BannerImage"]
+                  }
+                />
+              </Box>
+            </Box>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={6}
+            lg={6}
+          >
+            <Box sx={{ py: 1, pl: { xs: 0, md: 4 } }}>
+              {ProductData["ProductFamilyName"] && (
+                <Chip
+                  sx={{
+                    bgcolor: "var(--darkGreen)",
+                    color: "white",
+                    fontSize: {
+                      xs: "calc(0.5rem + 1vw)",
+                      md: "calc(0.5rem + 0.5vw)",
+                    },
+                    cursor: "pointer",
+                    mb: 2,
+                  }}
+                  label={ProductData["ProductFamilyName"]}
+                />
+              )}
+
+              {/* -------------------Description --------------- */}
+              <Box sx={{}}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontSize: {
+                      xs: "calc(1rem + 1vw)",
+                      md: "calc(0.5rem + 1vw)",
+                    },
+                    fontWeight: "bold",
+                  }}
+                >
+                  Description
+                </Typography>
+                <Divider sx={{ my: 2 }} />
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontSize: {
+                      xs: "calc(0.5rem + 1vw)",
+                      md: "16px",
+                    },
+                    textAlign: "justify",
+                    color: "black",
+                  }}
+                >
+                  {ProductData["Description"]}
+                </Typography>
+              </Box>
+
+              <Divider sx={{ my: 2, mb: 3 }} />
+
+              <Box
+                dangerouslySetInnerHTML={{
+                  __html: ProductData["Contents"],
+                }}
+                sx={{
+                  "& li": {
+                    ml: 4,
+                  },
+                }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </>
   );
 };
 export default TestingPage;
