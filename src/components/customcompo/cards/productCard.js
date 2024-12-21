@@ -1,13 +1,13 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import LazyImage from "../customimage/customLazyImage";
-import ProductlistWraper from "../../compo/animatedwrapper/productlistwraper";
 import * as APIURLS from "../../../apis/apiconstant";
 import DatasheetButton from "../../compo/datasheet/datasheetbutton";
-import { NavLink } from "react-router-dom";
 import ShareButton from "../button/sharebutton";
 import SnackBar from "../snackbar/snackbar";
 import { useState } from "react";
 import { Favorite } from "@mui/icons-material";
+import ProductlistWraper from "@/components/animatedwrapper/productlistwraper";
+import Link from "next/link";
 
 const ProductCard = (props) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -35,8 +35,9 @@ const ProductCard = (props) => {
             textDecoration: "none",
             color: "inherit",
           }}
-          component={props.IsClickable ? NavLink : "div"}
-          to={props.IsClickable ? props.url : ""}>
+          component={props.IsClickable ? Link : "div"}
+          href={props.IsClickable ? props.url : ""}
+          >
           <Box
             sx={{
               position: "absolute",
@@ -83,8 +84,8 @@ const ProductCard = (props) => {
                 pr: { xs: 1, md: 0 },
                 "&:hover img": { transform: "scale(1.5)" },
               }}
-              component={props.IsClickable ? NavLink : "div"}
-              to={props.IsClickable ? props.url : ""}
+              component={props.IsClickable ? Link : "div"}
+              href={props.IsClickable ? props.url : ""}
               target={props.IsClickable ? "_blank" : ""}
               id="img-box">
               <LazyImage
@@ -156,8 +157,8 @@ const ProductCard = (props) => {
                       display: "block",
                       textDecoration: "none",
                     }}
-                    component={props.IsClickable ? NavLink : "h5"}
-                    to={props.IsClickable ? props.url : ""}
+                    component={props.IsClickable ? Link : "h5"}
+                    href={props.IsClickable ? props.url : ""}
                     target={props.IsExternalURL ? "_blank" : "_self"}
                     dangerouslySetInnerHTML={{ __html: props.ProductName }}
                   />

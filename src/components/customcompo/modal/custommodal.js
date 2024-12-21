@@ -5,12 +5,11 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
-  IconButton,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
-import { Modalvariants } from "../../../animation/animation";
-import CustomIconButton from "../button/CustomIconButton";
+import { Modalvariants } from "@/components/animation/animation";
+import CustomIconButton from "@/components/customcompo/button/CustomIconButton";
 
 const CustomModal = (props) => {
   return (
@@ -38,16 +37,19 @@ const CustomModal = (props) => {
                 transformOrigin: "top center",
                 overflow: "hidden",
                 backgroundColor: "white",
-              }}>
+              }}
+            >
               {children}
             </motion.div>
-          )}>
+          )}
+        >
           <Box
             sx={{
               width: { xs: "90vw", sm: "70vw", md: "50vw", lg: "50vw" },
               // height: "70vh",
               position: "relative",
-            }}>
+            }}
+          >
             <DialogTitle
               id="customized-dialog-title"
               onClose={props.onClose}
@@ -56,7 +58,8 @@ const CustomModal = (props) => {
                 position: "sticky",
                 fontWeight: "bold",
                 fontFamily: "LibreBaskerville",
-              }}>
+              }}
+            >
               {props.Header}
             </DialogTitle>
             <Divider />
@@ -68,7 +71,8 @@ const CustomModal = (props) => {
                 top: 5,
                 color: "var(--allBtnColor)",
               }}
-              onClick={props.onClose}>
+              onClick={props.onClose}
+            >
               <Close />
             </CustomIconButton>
           </Box>

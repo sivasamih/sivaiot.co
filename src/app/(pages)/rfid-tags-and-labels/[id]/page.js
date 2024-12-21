@@ -20,13 +20,12 @@ async function GetProductDetailsByUrlName(url) {
 export async function generateMetadata({ params }) {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
-  const { MetaTitle, MetaDescription, ProductImage, Title } = ProductData;
+  const { MetaTitle, MetaDescription, ImageList, Title } = ProductData;
+  const img = ImageList[0]["ProductImage"];
   return {
     title: MetaTitle,
     description: MetaDescription,
-    robots: "index, follow", // Default is to allow indexing
-
-    // Open Graph (OG) Metadata
+    robots: "index, follow",
     openGraph: {
       type: "website",
       locale: "en_US",
@@ -35,7 +34,7 @@ export async function generateMetadata({ params }) {
       description: MetaDescription,
       images: [
         {
-          url: `https://sivafiles.sivagroup.co/1/images/productpage/${ProductImage}`,
+          url: `https://sivafiles.sivagroup.co/1/images/productpage/${img}`,
           width: 1200,
           height: 630,
           alt: Title,
@@ -50,9 +49,7 @@ export async function generateMetadata({ params }) {
       creator: "@sivaiot.co",
       title: MetaTitle,
       description: MetaDescription,
-      images: [
-        `https://sivafiles.sivagroup.co/1/images/productpage/${ProductImage}`,
-      ],
+      images: [`https://sivafiles.sivagroup.co/1/images/productpage/${img}`],
     },
 
     // Canonical URL

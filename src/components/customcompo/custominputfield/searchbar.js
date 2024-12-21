@@ -97,7 +97,7 @@ const SearchBar = (props) => {
           <FormControlLabel
             checked={props.AccChecked}
             onChange={props.onAccChnage}
-            inputProps={{ "aria-label": "controlled" }}
+            inputprops={{ "aria-label": "controlled" }}
             value="start"
             control={<Switch color="primary" />}
             label="Collapse all"
