@@ -1,5 +1,12 @@
 import { Box, Typography } from "@mui/material";
 
+export async function generateMetadata({ params }) {
+  const ID = (await params).id;
+  return {
+    title: "Product ID : " + ID,
+  };
+}
+
 const TestingPage = async ({ params }) => {
   const ID = (await params).id;
   return (

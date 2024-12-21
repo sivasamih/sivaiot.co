@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const FooterTitle = ({ children, color = "white", sx, ...rest }) => {
   return (
-    <Box>
+    // <Box>
       <Typography
         variant="h5"
         component={"h5"}
@@ -19,7 +19,7 @@ const FooterTitle = ({ children, color = "white", sx, ...rest }) => {
       >
         {children ? children : ""}
       </Typography>
-    </Box>
+    //  </Box> 
   );
 };
 export default FooterTitle;

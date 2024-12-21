@@ -19,8 +19,6 @@ import { useState } from "react";
 import { Navlist, scrollByID } from "../../../helper/helper";
 
 import { AnimatePresence, motion } from "framer-motion";
-import GridContainer from "@/components/customcompo/grid/GridContainer";
-import FullWidthGridItem from "@/components/customcompo/grid/FullWidthGridItem";
 import CustomBox from "@/components/customcompo/box/CustomBox";
 import CustomIconButton from "@/components/customcompo/button/CustomIconButton";
 import CustomDrawer from "@/components/customcompo/drawer/drawer";
