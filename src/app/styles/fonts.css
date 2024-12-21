@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "SourceSans3";
+  src: url(/font/SourceSans3-Regular.ttf);
+}
+@font-face {
+  font-family: "BreeSerif";
+  src: url(/font/BreeSerif-Regular.ttf);
+}
+
+@font-face {
+  font-family: "LibreBaskerville";
+  src: url("/font/LibreBaskerville-Regular.ttf");
+}
+@font-face {
+  font-family: "Spectral";
+  src: url("/font/Spectral-Regular.ttf");
+}
+@font-face {
+  font-family: "Alegreya";
+  src: url("/font/Alegreya-Regular.ttf");
+}
+@font-face {
+  font-family: "LucidaGrande";
+  src: url("/font/LucidaGrande.ttf");
+}
+
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("/font/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Acme";
+  src: url("/font/Acme-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url(/font/Helvetica.ttf);
+}
+@font-face {
+  font-family: "HelveticaNowDisplay-Regular";
+  src: url("/font/HelveticaNowDisplay-Regular.ttf");
+}
+@font-face {
+  font-family: "Nasi";
+  src: url("/font/Nasi.otf");
+}
+
+* {
+  font-family: "TitilliumWeb" !important;
+}
+
+/* #home-desc {
+  font-family: "HelveticaNowDisplay-Regular,Helvetica ,Arial, sans-serif" !important;
+} */
+#home-desc {
+  font-family: Arial, sans-serif !important;
+}
+
+.loader-text {
+  font-family:Nasi, sans-serif  !important;
+}
+
+/* *{
+font-family:'Courier New', Courier, monospace;
+} */

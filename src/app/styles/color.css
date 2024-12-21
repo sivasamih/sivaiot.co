@@ -1,0 +1,21 @@
+:root {
+  --allBtnColor: #39b54a;
+  --white: #ffffff;
+  --blue: #1c73bc;
+  --lightBlue: #1b6eb3e5;
+  --black: #000000;
+  --green: #39b54a;
+  --blurGreen: #39b54ae4;
+  /* --BorderColor: #000000; */
+  --borderColor: #f2f4f7;
+  --blue-grey: #263238;
+  --dark-green: #299d79;
+  --light-green: #299d781c;
+  --cyan-blue: #2ba1f2;
+  --red: #f80b00;
+  /* --lightGray: #423d3d85; */
+  --darkGreen: #299e78;
+  --headerColor: #1e4188;
+  --topAlertText: #f80b00;
+  --lightGray: #455a64;
+}
