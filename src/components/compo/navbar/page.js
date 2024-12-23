@@ -41,8 +41,7 @@ const NavBar = () => {
       <Box
         sx={{
           bgcolor: "white",
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          position: { xs: "sticky", md: "initial" },
+          position: { xs: "sticky", md: "inherit" },
           top: 0,
         }}
         id="NavBar"

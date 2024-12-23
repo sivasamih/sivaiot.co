@@ -3,6 +3,8 @@ import LazyImage from "../customimage/customLazyImage";
 import { Typography } from "@mui/material";
 
 const ProductAccHeaderCard = (props) => {
+  const Title = props.Title ? props.Title:"";
+  const Desc = props.Desc ? props.Desc: "";
   return (
     <Box
       sx={{
@@ -19,11 +21,12 @@ const ProductAccHeaderCard = (props) => {
           transition: "0.5s ease-in-out",
           transform: "scale(1.05)",
         },
-      }}>
+      }}
+    >
       <Box
         sx={{
           px: { xs: 2, sm: 4, md: 2 },
-          pt:{xs:2,sm:0},
+          pt: { xs: 2, sm: 0 },
           width: { xs: "80%", md: "35%" },
           height: { sm: 200, md: "auto" },
           display: "flex",
@@ -36,7 +39,8 @@ const ProductAccHeaderCard = (props) => {
           transform: { xs: "translate(-50%,-30%)", md: "none" },
           bgcolor: { xs: "white", md: "transparent" },
           zIndex: 1,
-        }}>
+        }}
+      >
         <Typography
           variant="h5"
           sx={{
@@ -47,11 +51,12 @@ const ProductAccHeaderCard = (props) => {
             },
             fontWeight: "bold",
           }}
-          dangerouslySetInnerHTML={{ __html: props.Title }}>
+          dangerouslySetInnerHTML={{ __html: Title }}
+        >
           {/* {props.Title} */}
         </Typography>
         <Typography
-        component={"h5"}
+          component={"h5"}
           sx={{
             mt: 1,
             color: "#696969eb",
@@ -61,7 +66,8 @@ const ProductAccHeaderCard = (props) => {
               md: "calc(0.1rem + 1vw)",
             },
           }}
-          dangerouslySetInnerHTML={{ __html: props.Desc }}>
+          dangerouslySetInnerHTML={{ __html: Desc }}
+        >
           {/* {props.Desc} */}
         </Typography>
       </Box>
@@ -76,10 +82,11 @@ const ProductAccHeaderCard = (props) => {
           overflow: "hidden",
           "& img": {
             height: { xs: "100%" },
-            maxHeight:250
+            maxHeight: 250,
           },
         }}
-        id="header-img-box">
+        id="header-img-box"
+      >
         <LazyImage
           // src={item.image}
           src={props.Image}

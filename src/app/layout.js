@@ -4,6 +4,7 @@ import "@/app/styles/fonts.css";
 import NavBar from "@/components/compo/navbar/page";
 import Footer from "@/components/compo/footer/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import CustomLayOut from "./customLayout";
 
 export const metadata = {
   title: "RFID Beyond Boundaries - SIVA IoT",
@@ -13,11 +14,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <NavBar />
+    <html lang="en" >
+      <body suppressHydrationWarning={true}>
+        <CustomLayOut>
         {children}
-        <Footer />
+        </CustomLayOut>
+        {/* <NavBar />
+        {children}
+        <Footer /> */}
       </body>
       <GoogleAnalytics gaId="G-V31SM2QBTW" />
     </html>

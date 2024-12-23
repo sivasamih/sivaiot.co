@@ -1,7 +1,8 @@
+"use client";
 import { Box, Typography } from "@mui/material";
 import LazyImage from "../customimage/customLazyImage";
-import * as APIURLS from "../../../apis/apiconstant";
-import DatasheetButton from "../../compo/datasheet/datasheetbutton";
+import * as APIURLS from "@/apis/apiconstant";
+import DatasheetButton from "@/components/compo/datasheet/datasheetbutton";
 import ProductlistWraper from "@/components/animatedwrapper/productlistwraper";
 import Link from "next/link";
 
@@ -127,14 +128,38 @@ const ProductCard = (props) => {
                 />
               </Box>
               <Box sx={{ mt: 1 }}>
-                <DatasheetButton
+                {/* <DatasheetButton
                   path={APIURLS.BASE_PATH.DatasheetsBaseUrl}
                   name={"Download Datasheet"}
                   // onClick={handleDownloadClick}
                   Datasheet={props.Datasheet}
                   ProductName={props.ProductName}
                   ProductImage={props.ProductImage}
-                />
+                /> */}
+
+                <Typography
+                  sx={{
+                    borderRadius: "30px",
+                    color: "var(--green)",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    fontSize: {
+                      xs: "calc(0.8rem + 1vw)",
+                      md: "calc(0.1rem + 0.9vw)",
+                    },
+                    textTransform: "capitalize",
+                    py: 0,
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                    px: 1,
+                    visibility:
+                      props.Datasheet.length > 0 ? "initial" : "hidden",
+                  }}
+                  component={"h5"}
+                >
+                  Download Datasheet
+                </Typography>
               </Box>
             </Box>
           </Box>

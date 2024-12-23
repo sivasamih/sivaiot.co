@@ -9,7 +9,7 @@ const SearchBox = (props) => {
         borderRight: "3rem solid #F2F4F7",
         borderLeft: "3rem solid transparent",
         position: "sticky",
-        top: 0,
+        top: 40,
         zIndex: 2,
       }}
     >

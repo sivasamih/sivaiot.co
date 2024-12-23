@@ -1,3 +1,4 @@
+'use client'
 import { Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";

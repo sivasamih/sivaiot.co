@@ -1,20 +1,21 @@
-import { Box } from "@mui/system";
+
 import React from "react";
-import ProductAccHeaderCard from "../cards/productAccHeaderCard";
-import { NavLink } from "react-router-dom";
+import ProductAccHeaderCard from "./productAccHeaderCard";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { Box } from "@mui/material";
 
 const IndustriesCard = (props) => {
   return (
     <Box
-      component={NavLink}
-      to={props.UrlName}
+      component={Link}
+      href={props.UrlName}
       sx={{ textDecoration: "none", color: "inherit" }}
     >
       <Box
         component={motion.div}
         initial={{ x: props.id % 2 ? -10 : 10, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
+        whileinview={{ x: 0, opacity: 1 }}
         viewport={{
           once: true,
         }}

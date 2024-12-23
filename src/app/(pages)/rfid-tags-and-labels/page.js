@@ -11,7 +11,42 @@ import ProductListingContainer from "@/components/compo/products/productListingC
 export const metadata = {
   title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
   description:
-    "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels",
+    "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+  keywords:
+    "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: Route_Path.PRODUCTS,
+    title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
+    description:
+      "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+    images: [
+      {
+        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: "sivaiot.co",
+      },
+    ],
+  },
+  // Twitter Metadata
+  twitter: {
+    card: "summary_large_image",
+    site: "@sivaiot.co",
+    creator: "@sivaiot.co",
+    title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
+    description:
+      "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+  },
+  // Canonical URL
+  alternates: {
+    canonical: Route_Path.PRODUCTS,
+  },
+  // Additional Metadata
+  charset: "UTF-8",
 };
 
 async function GetAllCategoriesWithProduct() {

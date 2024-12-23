@@ -37,6 +37,7 @@ const DatasheetButton = (props) => {
           await SetUserImformation();
         }
         const url = "/datasheet/" + datasheet;
+        // const url = props.path + "/" + datasheet;
         console.log("url", url);
         const win = window.open(url, "_blank");
         if (win) {
@@ -162,43 +163,43 @@ const DatasheetButton = (props) => {
           gap: 0.5,
         }}
       >
-        <Typography
-          // variant="button"
-          id={props.id}
-          sx={{
-            borderRadius: "30px",
-            color: "var(--green)",
-            textDecoration: "none",
-            fontWeight: "bold",
-            fontSize: {
-              xs: "calc(0.8rem + 1vw)",
-              md: "calc(0.1rem + 0.9vw)",
-            },
-            textTransform: "capitalize",
-            py: 0,
-            "&:hover": {
-              cursor: "pointer",
-            },
-            px: 1,
-            visibility: props.Datasheet.length > 0 ? "initial" : "hidden",
-          }}
-          style={{ background: "transparet" }}
-          disabled={
-            props.Datasheet.length > 0 ? (loading ? true : false) : true
-          }
-          component={Button}
-          onClick={handleDownloadClick}
-        >
-          {props.name}
-        </Typography>
-        {loading && (
-          <spna style={{ marginRight: "5px" }}>
-            <CircularProgress
-              color="secondary"
-              size={15}
-              thickness={4}
-            />
-          </spna>
+        {!loading ? (
+          <Typography
+            // variant="button"
+            id={props.id}
+            sx={{
+              borderRadius: "30px",
+              color: "var(--green)",
+              textDecoration: "none",
+              fontWeight: "bold",
+              fontSize: {
+                xs: "calc(0.8rem + 1vw)",
+                md: "calc(0.1rem + 0.9vw)",
+              },
+              textTransform: "capitalize",
+              py: 0,
+              "&:hover": {
+                cursor: "pointer",
+              },
+              px: 1,
+              visibility: props.Datasheet.length > 0 ? "initial" : "hidden",
+            }}
+            style={{ background: "transparet" }}
+            disabled={
+              props.Datasheet.length > 0 ? (loading ? true : false) : true
+            }
+            component={Button}
+            onClick={handleDownloadClick}
+          >
+            {props.name}
+          </Typography>
+        ) : (
+          <CircularProgress
+            color="secondary"
+            size={20}
+            thickness={4}
+            sx={{ my: 1.5 }}
+          />
         )}
       </Box>
       <Popover
@@ -217,7 +218,6 @@ const DatasheetButton = (props) => {
         <List sx={{}}>
           {props.Datasheet.map((item, index) => (
             <ListItem
-              button
               key={index}
               onClick={() => handleDatasheetSelect(item.ProductDatashet)}
               sx={{ py: 0 }}

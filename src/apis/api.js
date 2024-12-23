@@ -27,6 +27,7 @@ export const Route_Path = {
   TERMS_OF_USE: "/terms-of-use",
   PRIVACY_POLICY: "/privacy-policy",
   DATASHEET_NAME: "/datasheet/:name",
+  DATASHEET: "/datasheet",
   WB: "wb",
   RFID_ACCESS_CONTROL: "/rfid-access-control",
   THERMAL_RFID_EVENT_TICKETING:'/thermal-rfid-event-ticketing',

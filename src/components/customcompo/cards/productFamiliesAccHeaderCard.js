@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import LazyImage from "../customimage/customLazyImage";
+// import LazyImage from "../customimage/customLazyImage";
 import { Typography } from "@mui/material";
 
 const ProductFamiliesAccHeaderCard = (props) => {
@@ -80,7 +80,8 @@ const ProductFamiliesAccHeaderCard = (props) => {
           },
         }}
         id="header-img-box">
-        <LazyImage
+        {/* <LazyImage */}
+        <img
           // src={item.image}
           src={props.Image}
           alt={props.ImageAlt}

@@ -1,7 +1,6 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { NavLink, useNavigate } from "react-router-dom";
-import LazyImage from "../customimage/customLazyImage";
-import { Route_Path } from "../../../apis/api";
+import { Route_Path } from "@/apis/api";
+import Link from "next/link";
 
 const CardTwo = ({
   title,
@@ -26,32 +25,17 @@ const CardTwo = ({
           bgcolor: "#91abed2f",
           transition: "background-color 0.5s linear",
         },
-      }}>
-  
-      {/* <CardContent
-        component={NavLink}
-        // to={IsExternalURL ? url :"/"+ Route_Path.PRODUCT_FAMILY + "/" + url}
-        to={IsExternalURL ? "/"+ url : "/" + Route_Path.PRODUCT_FAMILY_DETAILS + "?name=" + url}
-        // target={IsExternalURL ? "_blank" : "_self"}
-        sx={{ p: 0, m: 0, display: "block", height: 180 }}>
-        <LazyImage
-          src={image}
-          width="100%"
-          style={{ objectFit: "cover", transition: "transform 0.8s" }}
-        />
-      </CardContent> */}
-
-      <NavLink
-        to={IsExternalURL? "/" + url: "/" + Route_Path.PRODUCT_FAMILY_DETAILS + "?name=" + url}>
+      }}
+    >
+      <Link href={IsExternalURL ? url : Route_Path.PRODUCT_FAMILY + "/" + url}>
         <CardMedia
-          component={'img'}
+          component={"img"}
           image={image}
           height={150}
           alt={title}
-          style={{ objectFit: "cover", transition: "transform 0.8s", }}
+          style={{ objectFit: "cover", transition: "transform 0.8s" }}
         />
-      </NavLink>
-
+      </Link>
 
       <CardContent
         sx={{
@@ -61,23 +45,22 @@ const CardTwo = ({
             transition: "background-color 0.5s linear",
           },
         }}
-        className="details">
+        className="details"
+      >
         <Box sx={{ mb: 1 }}>
           <Typography
-            component={NavLink}
-            // to={IsExternalURL ?  url :"/"+ Route_Path.PRODUCT_FAMILY + "/" + url}
-            to={IsExternalURL ? "/"+  url : "/" + Route_Path.PRODUCT_FAMILY_DETAILS + "?name=" + url}
-            // target={IsExternalURL ? "_blank" : "_self"}
+            component={Link}
+            href={
+              IsExternalURL ? "/" + url : Route_Path.PRODUCT_FAMILY + "/" + url
+            }
             sx={{
               color: titleTextColor || "var(--headerColor)",
               textAlign: titleAlign || "left",
-              // fontWeight: "bold",
               WebkitTextStroke: "0.4px black",
               textDecoration: "none",
               position: "relative",
 
               fontSize: { xs: "calc(0.8em + 1vw)", md: "calc(0.5em + 1vw)" },
-              // "&:hover": { textDecoration: "underline" },
               "&:after": {
                 position: "absolute",
                 bottom: 2,
@@ -97,7 +80,8 @@ const CardTwo = ({
                   md: "calc(0.4rem + 1vw)",
                 },
               },
-            }}>
+            }}
+          >
             {/* {title} */}
             {title.slice(title.length - 1, title.length) === "TM" ? (
               <>
@@ -116,7 +100,8 @@ const CardTwo = ({
               lineHeight: 1.4,
               color: "#455a64",
               fontSize: { xs: "calc(0.5em + 1vw)", md: "calc(0.1em + 1vw)" },
-            }}>
+            }}
+          >
             {desc}
           </Typography>
         )}

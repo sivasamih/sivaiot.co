@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { Box, Skeleton } from "@mui/material";
 import { useInView } from "react-intersection-observer";
@@ -38,7 +39,8 @@ const LazyImage = ({ src, alt, placeholder, style, ...props }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}>
+      }}
+    >
       {isError && inView ? (
         <Skeleton
           variant="rectangular"

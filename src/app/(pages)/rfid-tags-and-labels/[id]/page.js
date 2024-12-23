@@ -31,6 +31,7 @@ export async function generateMetadata({ params }) {
     title: MetaTitle,
     description: MetaDescription,
     robots: "index, follow",
+    keywords: MetaDescription,
     openGraph: {
       type: "website",
       locale: "en_US",
@@ -67,7 +68,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const TestingPage = async ({ params }) => {
+const ProductDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
 
@@ -128,11 +129,7 @@ const TestingPage = async ({ params }) => {
                     return (
                       <Box
                         key={index}
-                        sx={
-                          {
-                            //   height: { xs: 200, sm: 250, md: 400, lg: 500 },
-                          }
-                        }
+                        sx={{ maxHeight: 450 }}
                       >
                         <img
                           src={
@@ -171,7 +168,8 @@ const TestingPage = async ({ params }) => {
                 <DatasheetButton
                   id={"DatasheetBtn"}
                   name={"Download Datasheet"}
-                  path={APIURLS.BASE_PATH.DatasheetsBaseUrl}
+                  // path={APIURLS.BASE_PATH.DatasheetsBaseUrl}
+                  // path = {Route_Path.DATASHEET}
                   Datasheet={
                     ProductData["Datasheets"] ? ProductData["Datasheets"] : []
                   }
@@ -256,4 +254,4 @@ const TestingPage = async ({ params }) => {
     </>
   );
 };
-export default TestingPage;
+export default ProductDetailsPage;

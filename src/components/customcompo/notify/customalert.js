@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Alert";
@@ -43,7 +44,8 @@ export default function CustomAlertMessage(props) {
                 size="small"
                 onClick={(e) => {
                   setIsActiveNotice(false);
-                }}>
+                }}
+              >
                 <CloseIcon fontSize="inherit" />
               </IconButton>
             }
@@ -56,7 +58,8 @@ export default function CustomAlertMessage(props) {
                 color: "var(--topAlertText)",
               },
               py: 0,
-            }}>
+            }}
+          >
             {NotificationText}
           </Alert>
         </Collapse>
