@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { NavLink, useNavigate } from "react-router-dom";
 import LazyImage from "../customimage/customLazyImage";
 import { Route_Path } from "../../../apis/api";
+import Link from "next/link";
 
 const ProductCardSmall = ({
   title,
@@ -26,19 +26,17 @@ const ProductCardSmall = ({
           bgcolor: "#91abed2f",
           transition: "background-color 0.5s linear",
         },
-      }}>
-
-      <NavLink
-        to={url}>
+      }}
+    >
+      <Link href={url}>
         <CardMedia
-          component={'img'}
+          component={"img"}
           image={image}
           height={150}
           alt={title}
-          style={{ objectFit: "cover", transition: "transform 0.8s", }}
+          style={{ objectFit: "cover", transition: "transform 0.8s" }}
         />
-      </NavLink>
-
+      </Link>
 
       <CardContent
         sx={{
@@ -48,11 +46,12 @@ const ProductCardSmall = ({
             transition: "background-color 0.5s linear",
           },
         }}
-        className="details">
+        className="details"
+      >
         <Box sx={{ mb: 1 }}>
           <Typography
-            component={NavLink}
-            to={url}
+            component={Link}
+            href={url}
             sx={{
               color: titleTextColor || "var(--headerColor)",
               textAlign: titleAlign || "left",
@@ -80,7 +79,8 @@ const ProductCardSmall = ({
                   md: "calc(0.4rem + 1vw)",
                 },
               },
-            }}>
+            }}
+          >
             {/* {title} */}
             {title.slice(title.length - 1, title.length) === "TM" ? (
               <>
@@ -99,7 +99,8 @@ const ProductCardSmall = ({
               lineHeight: 1.4,
               color: "#455a64",
               fontSize: { xs: "calc(0.5em + 1vw)", md: "calc(0.1em + 1vw)" },
-            }}>
+            }}
+          >
             {desc}
           </Typography>
         )}

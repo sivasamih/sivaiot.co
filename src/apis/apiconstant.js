@@ -9,8 +9,8 @@ export const APIURL = {
   WebCategoryWiseProducts: domain + "api/Website/WebCategoryWiseProducts",
   ProductDetailsByIndustries: domain + "api/Website/ProductDetailsByIndustries",
   WebFamilyWiseProducts: domain + "api/Website/WebFamilyWiseProducts",
-  GetProductIndustriesDetails:
-    domain + "api/Website/GetProductIndustriesDetails",
+  GetProductIndustriesDetails:domain + "api/Website/GetProductIndustriesDetails",
+  ListProductDetailsByIndustriesID:domain + "api/Website/ListProductDetailsByIndustriesID",
   WebsiteContentBySourceID: domain + "api/WebSite/WebsiteContentBySourceID",
   WebsiteContentByPostURL: domain + "api/WebSite/WebsiteContentByPostURL",
   Registration: domain + "api/Website/Registration",
@@ -34,5 +34,5 @@ export const BASE_PATH = {
   EventsImage: basepath + "images/events/",
   NewsImage: basepath + "images/news/",
   WB: basepath + "images/wb/",
-  Others: basepath +  "others/",
+  Others: basepath + "others/",
 };

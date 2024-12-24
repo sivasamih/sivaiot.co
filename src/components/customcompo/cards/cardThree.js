@@ -1,9 +1,9 @@
 import { Card, CardContent,  Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
 import * as APIURLS from "../../../apis/apiconstant";
 import LazyImage from "../customimage/customLazyImage";
 import { Route_Path } from "../../../apis/api";
+import Link from "next/link";
 
 const CardThree = (props) => {
   return (
@@ -12,16 +12,16 @@ const CardThree = (props) => {
       whileHover={{ scale: 1.04 }}
       transition={{ duration: 0.5 }}>
       <CardContent
-        component={NavLink}
+        component={Link}
         // to={
         //   props.IsExternalURL
         //     ? props.path
         //     : Route_Path.PRODUCT_FAMILY + "/" + props.path
         // }
-        to={
+        href={
           props.IsExternalURL
-            ? "/" + props.path
-            : "/" + Route_Path.PRODUCT_FAMILY_DETAILS + "?name=" + props.path
+            ? props.path
+            : Route_Path.PRODUCT_FAMILY + "/" + props.path
         }
         sx={{
           p: 0,
@@ -48,12 +48,12 @@ const CardThree = (props) => {
       <CardContent sx={{ py: 0 }}>
         <Typography component={"h5"} sx={{ py: 1 }}>
           <Typography
-            component={NavLink}
+            component={Link}
             // to={Route_Path.PRODUCT_FAMILY + "/" + props.path}
-            to={
+            href={
               props.IsExternalURL
-                ? "/" + props.path
-                : "/" + Route_Path.PRODUCT_FAMILY_DETAILS + "?name=" + props.path
+                ?  props.path
+                : Route_Path.PRODUCT_FAMILY_DETAILS + "/" + props.path
             }
             sx={{
               textDecoration: "none",

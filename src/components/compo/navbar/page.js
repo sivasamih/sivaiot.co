@@ -32,7 +32,6 @@ import { usePathname, useRouter } from "next/navigation";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-  // const loginUser = useLoginData();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -43,6 +42,7 @@ const NavBar = () => {
           bgcolor: "white",
           position: { xs: "sticky", md: "inherit" },
           top: 0,
+          zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
         id="NavBar"
       >
@@ -237,10 +237,10 @@ const NavBar = () => {
               <MenuButton
                 name={Navlist[5].name}
                 menuList={[
-                  { name: "About SIVA IoT", url: "/" + Route_Path.ABOUT },
-                  { name: "Leardship", url: "/" + Route_Path.LEADERSHIP },
-                  { name: "Blogs", url: "/" + Route_Path.BLOG },
-                  { name: "Careers", url: "/" + Route_Path.CAREERS },
+                  { name: "About SIVA IoT", url:  Route_Path.ABOUT },
+                  { name: "Leardship", url:  Route_Path.LEADERSHIP },
+                  { name: "Blogs", url:  Route_Path.BLOG },
+                  { name: "Careers", url: Route_Path.CAREERS },
                 ]}
                 type="link"
               />

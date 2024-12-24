@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Title5 from "@/components/customcompo/Typo/title5";
 import MuiSlider from "@/components/customcompo/slider/muislider";
 import DatasheetButton from "@/components/compo/datasheet/datasheetbutton";
+import { notFound } from "next/navigation";
 
 async function GetProductDetailsByUrlName(url) {
   let data;
@@ -71,6 +72,7 @@ export async function generateMetadata({ params }) {
 const ProductDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
+  if (!ProductData) return notFound();
 
   return (
     <>

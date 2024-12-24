@@ -1,12 +1,11 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { motion } from "framer-motion";
-import { NavLink, useNavigate } from "react-router-dom";
 import LazyImage from "../customimage/customLazyImage";
-import * as APIURLS from "../../../apis/apiconstant";
+import * as APIURLS from "@/apis/apiconstant";
 
 const CustomDesignLab = (props) => {
-  const navigate = useNavigate();
+
   return (
     <Card
       sx={{

@@ -1,0 +1,166 @@
+import { Box, Container, Grid, Typography } from "@mui/material";
+import * as APIURLS from "@/apis/apiconstant";
+import * as FETCHAPI from "@/apis/fetchapi";
+import LazyImage from "@/components/customcompo/customimage/customLazyImage";
+import moment from "moment";
+import { Route_Path } from "@/apis/api";
+import { notFound } from "next/navigation";
+
+async function getBlogByURL(URL) {
+  let reqData = { PostURL: URL };
+  let data;
+  try {
+    let res = await FETCHAPI.Fetch(
+      APIURLS.APIURL.WebsiteContentByPostURL,
+      reqData
+    );
+    if (res.status === 200) {
+      data = await res.json();
+    }
+  } catch (ex) {
+    console.log("ex", ex);
+  }
+  return data;
+}
+
+export async function generateMetadata({ params }) {
+  const url = (await params).id;
+  const ProductData = await getBlogByURL(url);
+  const { MetaTitle, MetaDescription, MetaKeywords, BannerImage } = ProductData;
+  return {
+    title: MetaTitle,
+    description: MetaDescription,
+    robots: "index, follow",
+    keywords: MetaKeywords,
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: Route_Path.BLOG + "/" + url,
+      title: MetaTitle,
+      description: MetaDescription,
+      images: [
+        {
+          url: `${BannerImage}`,
+          width: 1200,
+          height: 630,
+          alt: MetaTitle,
+        },
+      ],
+    },
+
+    // Twitter Metadata
+    twitter: {
+      card: "summary_large_image",
+      site: "@sivaiot.co",
+      creator: "@sivaiot.co",
+      title: MetaTitle,
+      description: MetaDescription,
+      images: [`${BannerImage}`],
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: Route_Path.BLOG + "/" + url,
+    },
+
+    // Additional Metadata
+    charset: "UTF-8",
+  };
+}
+
+const BlogDetailsPage = async ({ params }) => {
+  const url = (await params).id;
+  const BlogData = await getBlogByURL(url);
+  const BlogContent = BlogData?.ContentHtml;
+
+  if(!BlogData)return notFound()
+  return (
+    <>
+      <Box sx={{ bgcolor: "var(--green)", py: 4 }}>
+        <Container>
+          <Typography
+            sx={{
+              fontSize: {
+                xs: "calc(1rem + 1vw)",
+                md: "calc(1.2rem + 1vw)",
+              },
+              fontWeight: "bold",
+              color: "white",
+            }}
+            component={"h1"}
+          >
+            {BlogData && BlogData.BlogTitle}
+          </Typography>
+        </Container>
+      </Box>
+      <Container>
+        <Box sx={{ minHeight: { xs: 100, md: 300 }, mt: 4 }}>
+          <LazyImage
+            src={BlogData && BlogData["BannerImage"]}
+            alt={BlogData && BlogData["BlogTitle"]}
+          />
+          <Typography
+            sx={{
+              fontSize: {
+                xs: "calc(.5rem + 1vw)",
+                md: "calc(0.01rem + 1vw)",
+              },
+            }}
+          >
+            <b style={{ padding: "0 0 5px" }}>Posted on</b>{" "}
+            {moment(BlogData && BlogData.PostedDateTime).format("DD/MM/YYYY") +
+              " " +
+              "|" +
+              " "}{" "}
+            <b style={{ padding: "0 5px" }}>Tags</b> {BlogData && BlogData.Tags}
+          </Typography>
+        </Box>
+
+        <Box sx={{ my: 4 }}>
+          <Grid
+            container
+            spacing={0}
+          >
+            <Grid
+              item
+              xs={12}
+              md={12}
+              sx={{
+                "& h6": {
+                  fontSize: {
+                    xs: "calc(1rem + 1vw)",
+                    md: "calc(0.4rem + 1vw)",
+                  },
+                  mt: 2,
+                },
+                "& p": {
+                  fontSize: {
+                    xs: "calc(0.8rem + 1vw)",
+                    md: "calc(0.2rem + 1vw)",
+                  },
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  pr: { xs: 0, md: 1 },
+                  "& a": {
+                    color: "var(--green)",
+                    textDecoration: "none",
+                  },
+                  "& img": {
+                    width: "100%",
+                  },
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: BlogContent,
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </>
+  );
+};
+export default BlogDetailsPage;

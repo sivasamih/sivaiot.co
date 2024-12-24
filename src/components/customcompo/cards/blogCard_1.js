@@ -10,11 +10,10 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { CalendarToday } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { NavLink } from "react-router-dom";
 import moment from "moment";
+import Link from "next/link";
 
 const BlogCard_1 = (props) => {
   const [ref, inView] = useInView({
@@ -42,8 +41,8 @@ const BlogCard_1 = (props) => {
       {/* Top Section: Image */}
       <Box
         sx={{ position: "relative", display: "block" }}
-        component={NavLink}
-        to={props.url}
+        component={Link}
+        href={props.url}
         target={props.url ? "_blank" : "_self"}>
         <CardMedia
           component="img"
@@ -84,8 +83,8 @@ const BlogCard_1 = (props) => {
         sx={{ ":last-child": { pb: 2 } }}>
         <Typography
           variant="h5"
-          component={NavLink}
-          to={props.url}
+          component={Link}
+          href={props.url}
           target={props.url ? "_blank" : "_self"}
           sx={{
             fontWeight: "bold",
@@ -117,8 +116,8 @@ const BlogCard_1 = (props) => {
             {props.Brief}
           </Typography>}
           <Typography
-            component={NavLink}
-            to={props.url}
+            component={Link}
+            href={props.url}
             target={props.url ? "_blank" : "_self"}
             sx={{
               textTransform: "none",

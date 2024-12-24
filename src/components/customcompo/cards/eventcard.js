@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, Typography } from "@mui/material";
-import { NavLink } from "react-router-dom";
-import * as APIURLS from "../../../apis/apiconstant";
+import * as APIURLS from "@/apis/apiconstant";
 import LazyImage from "../customimage/customLazyImage";
 
 const EventCard = (props) => {

@@ -1,17 +1,18 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import LazyImage from "../customimage/customLazyImage";
 import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
 const CardFour = (props) => {
   return (
     <Card
       component={motion.div}
       whileHover={{ scale: 1.04 }}
-      transition={{ duration: 0.5 }}>
+      transition={{ duration: 0.5 }}
+    >
       <CardContent
-        component={NavLink}
-        to={props.url}
+        component={Link}
+        href={props.url}
         target="_blank"
         sx={{
           display: "block",
@@ -20,7 +21,8 @@ const CardFour = (props) => {
           "&  img": {
             height: { xs: 250, lg: 250 },
           },
-        }}>
+        }}
+      >
         <LazyImage
           src={props.Image}
           component="img"
@@ -37,9 +39,10 @@ const CardFour = (props) => {
             "&:hover": { textDecoration: "underline" },
             fontSize: { xs: "calc(1rem + 1vw)", md: "calc(0.1rem + 1vw)" },
           }}
-          component={NavLink}
-          to={props.url}
-          target="_blank">
+          component={Link}
+          href={props.url}
+          target="_blank"
+        >
           {props.Title}
         </Typography>
       </CardContent>

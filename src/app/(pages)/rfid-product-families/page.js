@@ -3,6 +3,7 @@ import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
 import { Route_Path } from "@/apis/api";
 import CardTwo from "@/components/customcompo/cards/cardtwo";
+import { notFound } from "next/navigation";
 
 export const metadata = {
   title:
@@ -61,6 +62,8 @@ async function getProductFamilies() {
 
 const ProductFamiliesPage = async () => {
   const ProductFamilies = await getProductFamilies();
+  if (!ProductFamilies) return notFound();
+
   return (
     <>
       <Box sx={{ bgcolor: "#F2F4F7" }}>

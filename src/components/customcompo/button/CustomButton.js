@@ -5,7 +5,11 @@ import { Box } from "@mui/system";
 
 const CustomButton = ({ children, fullWidth, ...props }) => {
   return (
-    <Box component={motion.button} whiletap={{ scale: 0.8 }} sx={{ border: 0 }}>
+    <Box
+      // component={motion.button}
+      //  whiletap={{ scale: 0.8 }}
+      sx={{ border: 0 }}
+    >
       <Button
         fullWidth={
           fullWidth === false || props.fullWidth === "false" ? false : true
@@ -15,7 +19,10 @@ const CustomButton = ({ children, fullWidth, ...props }) => {
           letterSpacing: 2,
           borderRadius: 0,
         }}
-        {...props}>
+        component={motion.button}
+        whiletap={{ scale: 0.8 }}
+        {...props}
+      >
         {children}
       </Button>
     </Box>

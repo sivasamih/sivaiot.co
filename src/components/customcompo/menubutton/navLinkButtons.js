@@ -1,15 +1,12 @@
-import { Button, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { Box } from "@mui/system";
+import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-
 const NavLinkButtons = (props) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
-    // <Box >
     <ListItem
       key={props.name}
       component={motion.div}
@@ -20,10 +17,8 @@ const NavLinkButtons = (props) => {
         color: "var(--white)",
         py: 0,
         px: 0,
-        "& span": {
-          // fontWeight: "bold",
-        },
-      }}>
+      }}
+    >
       <ListItemButton
         component={props.type === "link" ? Link : "div"}
         href={props.type === "link" ? props.path : null}
@@ -32,18 +27,18 @@ const NavLinkButtons = (props) => {
             alignItems: "center",
             fontWeight: "bold",
           },
-            pathname === "/" + props.path
-              ? {
+          pathname === props.path
+            ? {
                 transition: "0.5s all",
                 bgcolor: "var(--green)",
               }
-              : null)
+            : null)
         }
-        onClick={props.onClick}>
+        onClick={props.onClick}
+      >
         <ListItemText primary={props.name} />
       </ListItemButton>
     </ListItem>
-    // {/* </Box> */}
   );
 };
 export default NavLinkButtons;

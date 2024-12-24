@@ -6,6 +6,7 @@ import WhiteSpace from "@/components/customcompo/box/whiteSpace";
 import ProductCard from "@/components/customcompo/cards/productCard";
 import ProductFamiliesAccHeaderCard from "@/components/customcompo/cards/productFamiliesAccHeaderCard";
 import { Box, Container } from "@mui/material";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const url = (await params).id;
@@ -73,6 +74,8 @@ async function getProductFamilies(url) {
 const FamiliesDetails = async ({ params }) => {
   const { id } = await params;
   const FamiliesData = await getProductFamilies(id);
+    if (!FamiliesData) return notFound();
+  
 
   return (
     <>
