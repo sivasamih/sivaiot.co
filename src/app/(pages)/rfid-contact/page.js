@@ -21,7 +21,7 @@ export const metadata = {
       "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -36,7 +36,7 @@ export const metadata = {
     title: "Contact SIVA IoT | RFID India",
     description:
       "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

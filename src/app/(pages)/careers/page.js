@@ -23,7 +23,7 @@ export const metadata = {
       {
         url:
           APIURLS.BASE_PATH.OthersImage + "career.png" ||
-          `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+          `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -40,7 +40,7 @@ export const metadata = {
       "Siva is always on the lookout to recruit the best talent from Printing & RFID Technologies, Sales & Marketing, Administrative and Operational areas.",
     images: [
       APIURLS.BASE_PATH.OthersImage + "career.png" ||
-        `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
     ],
   },
   // Canonical URL

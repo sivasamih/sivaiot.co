@@ -23,7 +23,7 @@ export const metadata = {
       "SIVA offers a wide range of RFID tags and labels for asset management across various industries. Browse our product families to find the perfect RFID solution for your needs. Visit our website for more details.",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -39,7 +39,7 @@ export const metadata = {
       "RFID & NFC Product Families | Radio-Frequency Identification Tags & Labels - SIVA IoT",
     description:
       "SIVA offers a wide range of RFID tags and labels for asset management across various industries. Browse our product families to find the perfect RFID solution for your needs. Visit our website for more details.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

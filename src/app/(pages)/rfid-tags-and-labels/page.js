@@ -23,7 +23,7 @@ export const metadata = {
       "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -38,7 +38,7 @@ export const metadata = {
     title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
     description:
       "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

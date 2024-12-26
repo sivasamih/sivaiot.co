@@ -20,7 +20,7 @@ export const metadata = {
       "SIVA's standard terms and conditions, outlining the legal guidelines and agreements for using our advanced IoT solutions. Ensure compliance and clarity with our detailed policies",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -35,7 +35,7 @@ export const metadata = {
     title: "Standard Terms & Conditions of Business - SIVA IoT",
     description:
       "SIVA's standard terms and conditions, outlining the legal guidelines and agreements for using our advanced IoT solutions. Ensure compliance and clarity with our detailed policies",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

@@ -19,7 +19,7 @@ export const metadata = {
       "Review SIVA's terms of use for accessing and utilizing our IoT solutions. Understand the rules and responsibilities to ensure a secure and effective experience with our innovative technologies.",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -34,7 +34,7 @@ export const metadata = {
     title: "Terms of Use - SIVA IoT",
     description:
       "Review SIVA's terms of use for accessing and utilizing our IoT solutions. Understand the rules and responsibilities to ensure a secure and effective experience with our innovative technologies.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

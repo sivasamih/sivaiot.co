@@ -23,7 +23,7 @@ export const metadata = {
       "Find answers to common questions about RFID tags & labels for various industries, Get helpful information and insights to make the most of our innovative technologies, Browse SIVA IoT for more details.",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -38,7 +38,7 @@ export const metadata = {
     title: "Frequently Asked Questions | RFID Tags & Labels - SIVA IoT",
     description:
       "Find answers to common questions about RFID tags & labels for various industries, Get helpful information and insights to make the most of our innovative technologies, Browse SIVA IoT for more details.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

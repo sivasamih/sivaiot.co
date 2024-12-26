@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
         "Browse our collection of technical datasheets for SIVA IoT products. Access detailed specifications, features, and capabilities to find the right IoT solution for your needs.",
       images: [
         {
-          url: "https://sivafiles.sivagroup.co/1/images/others/logo.png",
+          url: "https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg",
           width: 1200,
           height: 630,
           alt: "sivaIot",
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
       title: `Datasheet | ${name}`,
       description:
         "Browse our collection of technical datasheets for SIVA IoT products. Access detailed specifications, features, and capabilities to find the right IoT solution for your needs.",
-      images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+      images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
     },
 
     alternates: {

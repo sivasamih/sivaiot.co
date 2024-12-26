@@ -18,7 +18,7 @@ export const metadata = {
     description: "Leadership at Siva IoT | RFID Technology",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -32,7 +32,7 @@ export const metadata = {
     creator: "@sivaiot.co",
     title: "Leadership at Siva IoT | RFID Technology",
     description: "Leadership at Siva IoT | RFID Technology",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {

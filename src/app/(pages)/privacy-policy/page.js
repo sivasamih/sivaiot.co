@@ -22,7 +22,7 @@ export const metadata = {
       "Learn about SIVA's privacy policy, detailing how we collect, use, and protect your personal information. Your privacy is our priority—explore our commitment to safeguarding your data.",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/others/logo.png`,
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
@@ -37,7 +37,7 @@ export const metadata = {
     title: "Privacy Policy - SIVA IoT",
     description:
       "Learn about SIVA's privacy policy, detailing how we collect, use, and protect your personal information. Your privacy is our priority—explore our commitment to safeguarding your data.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/logo.png`],
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
   },
   // Canonical URL
   alternates: {
