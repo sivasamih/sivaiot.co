@@ -579,7 +579,7 @@ export const WristbandsProductList = [
   {
     id: 1,
     name: "Direct Thermal",
-    url: "/" + Route_Path.WB_ULTIMOID_DIRECTTHERMAL,
+    url: Route_Path.WB_ULTIMOID_DIRECTTHERMAL,
     image: "images/UltimoID-Direct-Thermal.jpg",
     alt: "Direct Thermal Wristbands",
     detailsList: [
@@ -600,7 +600,7 @@ export const WristbandsProductList = [
   {
     id: 2,
     name: "EcoDura™",
-    url: "/" + Route_Path.WB_ULTIMOID_ECODURA,
+    url: Route_Path.WB_ULTIMOID_ECODURA,
     image: "images/UltimoID-Ecodura.jpg",
     alt: "Eco Friendly Wristbands",
     detailsList: [
@@ -621,7 +621,7 @@ export const WristbandsProductList = [
   {
     id: 3,
     name: "Silicone",
-    url: "/" + Route_Path.WB_ULTIMOID_SILICON,
+    url: Route_Path.WB_ULTIMOID_SILICON,
     image: "images/Silicone-RFID.jpg",
     alt: "RFID Silicone Wristbands",
     detailsList: [
@@ -642,7 +642,7 @@ export const WristbandsProductList = [
   {
     id: 4,
     name: "Poly in Sheets",
-    url: "/" + Route_Path.WB_POLY_IN_SHEETS,
+    url:  Route_Path.WB_POLY_IN_SHEETS,
     image: "images/poly-in-sheet-card-img.png",
     alt: "RFID Silicone Wristbands",
     detailsList: [
@@ -664,7 +664,7 @@ export const WristbandsProductList = [
   {
     id: 5,
     name: "Poly in Roll",
-    url: "/" + Route_Path.WB_ULTIMOID_POLY,
+    url:  Route_Path.WB_ULTIMOID_POLY,
     image: "images/UltimoID-Poly.jpg",
     alt: "Laminated Wristbands",
     detailsList: [
@@ -685,7 +685,7 @@ export const WristbandsProductList = [
   {
     id: 6,
     name: "Fabric",
-    url: "/" + Route_Path.WB_ULTIMOID_FABRIC,
+    url:  Route_Path.WB_ULTIMOID_FABRIC,
     image: "images/UltimoID-Fabric.jpg",
     alt: "Fabric Wristbands",
     detailsList: [
@@ -706,7 +706,7 @@ export const WristbandsProductList = [
   {
     id: 7,
     name: "Tyband",
-    url: "/" + Route_Path.WB_ULTIMOID_TYVEK,
+    url:  Route_Path.WB_ULTIMOID_TYVEK,
     image: "images/UltimoID-Tyvek.jpg",
     alt: "Tyband",
     detailsList: [

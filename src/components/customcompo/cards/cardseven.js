@@ -1,15 +1,17 @@
 import { Card, CardContent, List, ListItem, Typography } from "@mui/material";
 import * as APIURLS from "../../../apis/apiconstant";
-import { NavLink } from "react-router-dom";
 import LazyImage from "../customimage/customLazyImage";
 import { Box } from "@mui/system";
+import Link from "next/link";
+
 const CardSeven = (props) => {
   return (
     <Card
       sx={{
-        boxShadow: "0 0 10px -2px var(--lightGray)",
+        boxShadow: "0 0 10px 2px rgba(0,0,0,0.2)",
         overflow: "hidden",
         borderRadius: 0,
+        height: "100%",
         position: "relative",
         "&:hover .details": {
           bgcolor: "#EBF0FC",
@@ -23,16 +25,22 @@ const CardSeven = (props) => {
           height: "2%",
           bgcolor: "var(--green)",
         },
-      }}>
+      }}
+    >
       <CardContent
         sx={{ p: 0, display: "block" }}
-        component={NavLink}
-        to={props.url}>
-        <LazyImage src={APIURLS.BASE_PATH.WB + props.image} alt={props.alt} />
+        component={Link}
+        href={props.url}
+      >
+        <LazyImage
+          src={APIURLS.BASE_PATH.WB + props.image}
+          alt={props.alt}
+        />
       </CardContent>
       <CardContent
-        sx={{ px: 4, transition: "0.5s ease-in-out" }}
-        className="details">
+        sx={{ px: 4, transition: "0.5s ease-in-out", height: "100%" }}
+        className="details"
+      >
         <Box>
           <Typography
             variant="h6"
@@ -60,15 +68,19 @@ const CardSeven = (props) => {
                 width: 0,
               },
             }}
-            component={NavLink}
-            to={props.url}>
+            component={Link}
+            href={props.url}
+          >
             {props.name}
           </Typography>{" "}
         </Box>
         <List>
           {props.detailsList.map((L, index) => {
             return (
-              <ListItem sx={{ p: 0, m: 0,alignItems:"flex-start" }}>
+              <ListItem
+                sx={{ p: 0, m: 0, alignItems: "flex-start" }}
+                key={index}
+              >
                 <Typography component={"span"}>✓</Typography>{" "}
                 <Typography sx={{ pl: 1 }}>{L.name}</Typography>
               </ListItem>
@@ -77,8 +89,8 @@ const CardSeven = (props) => {
         </List>
         <Box sx={{ pt: 4, pb: 8 }}>
           <Typography
-            component={NavLink}
-            to={props.url}
+            component={Link}
+            href={props.url}
             sx={{
               color: "var(--green)",
               fontSize: {
@@ -100,7 +112,8 @@ const CardSeven = (props) => {
                 transition: "0.5s ease-in-out",
                 width: 0,
               },
-            }}>
+            }}
+          >
             Know more
           </Typography>
         </Box>

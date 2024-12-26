@@ -115,7 +115,7 @@ const NavBar = () => {
                 component={Link}
                 sx={{ border: 0 }}
                 // onClick={() => navigate("/partners")}
-                href={"/partners"}
+                href={Route_Path.PARTNER_LOGIN}
                 target={"_blank"}
                 title="partners"
               >

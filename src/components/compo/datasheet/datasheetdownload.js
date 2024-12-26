@@ -7,7 +7,7 @@ import { validateEmail } from "../../../helper/helper";
 import SnackBar from "../../customcompo/snackbar/snackbar";
 import * as FETCHAPI from "../../../apis/fetchapi";
 import * as APIURLS from "../../../apis/apiconstant";
-import Loading from "../loading";
+import Loading from "@/app/loading";
 
 const DataSheetDwnldForm = (props) => {
   const [Name, setName] = useState("");

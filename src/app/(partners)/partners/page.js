@@ -1,4 +1,5 @@
 const PartnerPage = () => {
-  return <>Partner Page</>;
+  return <>Parter Dashboard</>;
 };
+
 export default PartnerPage;

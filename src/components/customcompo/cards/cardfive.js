@@ -1,8 +1,8 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import * as APIURLS from "../../../apis/apiconstant";
 import LazyImage from "../customimage/customLazyImage";
-import { NavLink } from "react-router-dom";
 import { Box } from "@mui/system";
+import Link from "next/link";
 
 const CardFive = (props) => {
   return (
@@ -23,19 +23,26 @@ const CardFive = (props) => {
           height: "3%",
           bgcolor: "var(--green)",
         },
-      }}>
+      }}
+    >
       <CardContent
-        component={NavLink}
-        to={props.url}
-        sx={{ display: "block", p: 0, m: 0 }}>
-        <LazyImage src={APIURLS.BASE_PATH.WB + props.image} alt={props.alt} />
+        component={Link}
+        href={props.url}
+        sx={{ display: "block", p: 0, m: 0 }}
+      >
+        <LazyImage
+          src={APIURLS.BASE_PATH.WB + props.image}
+          alt={props.alt}
+        />
       </CardContent>
       <CardContent
         sx={{ textAlign: "center", transition: "0.5s ease-in-out" }}
-        className="details">
+        className="details"
+      >
         <Typography
-          component={NavLink}
-          to={props.url}
+          component={Link}
+          href={props.url}
+          title={props.name}
           target={props.IsExternal ? "_blank" : "_self"}
           sx={{
             textAlign: "center",
@@ -59,13 +66,15 @@ const CardFive = (props) => {
               transition: "0.5s ease-in-out",
               width: 0,
             },
-          }}>
+          }}
+        >
           {props.name}
         </Typography>
         <Box sx={{ mt: 2 }}>
           <Typography
-            component={NavLink}
-            to={props.url}
+            component={Link}
+            href={props.url}
+            title="Know more..."
             target={props.IsExternal ? "_blank" : "_self"}
             sx={{
               textAlign: "center",
@@ -89,7 +98,8 @@ const CardFive = (props) => {
                 transition: "0.5s ease-in-out",
                 width: 0,
               },
-            }}>
+            }}
+          >
             Know more
           </Typography>
         </Box>
