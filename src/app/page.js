@@ -9,6 +9,7 @@ import Families from "@/components/compo/home/families";
 import NewsSection from "@/components/compo/home/newssection";
 import Events from "@/components/compo/home/events";
 import { StructureData } from "@/helper/structuredata";
+import { Route_Path } from "@/apis/api";
 
 async function getFamilyList() {
   let data = [];
@@ -22,6 +23,46 @@ async function getFamilyList() {
   }
   return data;
 }
+export const metadata = {
+  title: "RFID Beyond Boundaries - SIVA IoT",
+  description:
+    "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+  keywords:
+    "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: Route_Path.HOME,
+    title: "RFID Beyond Boundaries - SIVA IoT",
+    description:
+      "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+    images: [
+      {
+        url: `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "sivaiot.co",
+      },
+    ],
+  },
+  // Twitter Metadata
+  twitter: {
+    card: "summary_large_image",
+    site: "@sivaiot.co",
+    creator: "@sivaiot.co",
+    title: "RFID Beyond Boundaries - SIVA IoT",
+    description:
+      "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
+    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
+  },
+  // Canonical URL
+  alternates: {
+    canonical: Route_Path.HOME,
+  },
+  // Additional Metadata
+  charset: "UTF-8",
+};
 
 const HomePage = async () => {
   const FamiliesList = await getFamilyList();
