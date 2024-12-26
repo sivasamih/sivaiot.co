@@ -11,6 +11,7 @@ const IndustriesCard = (props) => {
       component={Link}
       href={props.UrlName}
       sx={{ textDecoration: "none", color: "inherit" }}
+      title={props.Title}
     >
       <Box
         component={motion.div}

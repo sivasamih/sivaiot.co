@@ -16,6 +16,7 @@ const FooterContactInfo = (
   <Link
     href={`mailto: iotsales@sivagroup.co`}
     style={{ textDecoration: "none", color: "var(--green)", margin: "0 5px" }}
+    title="mailto iotsales"
   >
     iotsales@sivagroup.co
   </Link>
@@ -270,6 +271,7 @@ const FooterLink = () => {
                     href={"https://www.linkedin.com/company/sivagrp"}
                     target="_blank"
                     style={{ textDecoration: "none", color: "var(--white)" }}
+                    title="linkedin"
                   >
                     {Icons.LinkedIn}
                   </Link>
@@ -288,6 +290,7 @@ const FooterLink = () => {
                     }
                     target="_blank"
                     style={{ textDecoration: "none", color: "var(--red)" }}
+                    title="youtube"
                   >
                     {Icons.YouTube}
                   </Link>

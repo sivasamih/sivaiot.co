@@ -73,7 +73,7 @@ const RotatingLink = styled(Box)(({ theme }) => ({
 
 const MoreFamiliesButton = () => {
   return (
-    <RotatingLink href={Route_Path.PRODUCT_FAMILY} className="link" component={Link}>
+    <RotatingLink href={Route_Path.PRODUCT_FAMILY} className="link" component={Link} title="View More Families">
       <SvgIcon
         viewBox="0 0 200 200"
         width="200"

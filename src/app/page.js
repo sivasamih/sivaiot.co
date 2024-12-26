@@ -8,6 +8,7 @@ import PageHeading from "@/components/customcompo/Typo/pageHeading";
 import Families from "@/components/compo/home/families";
 import NewsSection from "@/components/compo/home/newssection";
 import Events from "@/components/compo/home/events";
+import { StructureData } from "@/helper/structuredata";
 
 async function getFamilyList() {
   let data = [];
@@ -24,8 +25,14 @@ async function getFamilyList() {
 
 const HomePage = async () => {
   const FamiliesList = await getFamilyList();
+  const jsonLd = StructureData.HOME;
   return (
-    <>
+    <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <ImageSlider />
       <Box sx={{ bgcolor: "var(--darkGreen)" }}>
         <Container>
@@ -84,75 +91,86 @@ const HomePage = async () => {
       </Box>
       {/* ************-********** */}
       <Box
-          id={"news-section"}
-          sx={{
-            bgcolor: "white",
-            borderLeft: "3rem solid var(--borderColor)",
-            borderBottom: "3rem solid var(--borderColor)",
-            borderRight: "3rem solid var(--white)",
-            position: "relative",
-            "&:before": {
-              content: "''",
-              position: "absolute",
-              top: "-3rem",
-              left: "-3rem",
-              width: "3rem",
-              height: "3rem",
-              backgroundColor: "var(--borderColor)",
-            },
-          }}>
-          <Container sx={{ pt: 2 }}>
+        id={"news-section"}
+        sx={{
+          bgcolor: "white",
+          borderLeft: "3rem solid var(--borderColor)",
+          borderBottom: "3rem solid var(--borderColor)",
+          borderRight: "3rem solid var(--white)",
+          position: "relative",
+          "&:before": {
+            content: "''",
+            position: "absolute",
+            top: "-3rem",
+            left: "-3rem",
+            width: "3rem",
+            height: "3rem",
+            backgroundColor: "var(--borderColor)",
+          },
+        }}
+      >
+        <Container sx={{ pt: 2 }}>
+          <Box
+            sx={{
+              marginLeft: "-3rem",
+              marginRight: "-3rem",
+              bgcolor: "white",
+              py: 2,
+            }}
+          >
+            <PageHeading
+              title={"Latest News"}
+              component={"h2"}
+            />
             <Box
               sx={{
-                marginLeft: "-3rem",
-                marginRight: "-3rem",
+                p: 2,
                 bgcolor: "white",
-                py: 2,
-              }}>
-              <PageHeading title={"Latest News"} component={'h2'} />
-              <Box
-                sx={{
-                  p: 2,
-                  bgcolor: "white",
-                }}>
-                <NewsSection header={"News"} />
-              </Box>
+              }}
+            >
+              <NewsSection header={"News"} />
             </Box>
-          </Container>
-        </Box>
-        {/* ************-********** */}
-        <Box
-          sx={{
-            borderRight: "3rem solid var(--borderColor)",
-            borderLeft: "3rem solid transparent",
-            position: "relative",
-            "&:before": {
-              content: "''",
-              position: "absolute",
-              top: "-3rem",
-              right: "-3rem",
-              width: "100%",
-              height: "3rem",
-              backgroundColor: "var(--borderColor)",
-            },
-            py: 2,
-          }}>
-          <Container>
-            <Box
-              sx={{
-                marginLeft: "-3rem",
-                marginRight: "-3rem",
-                bgcolor: "white",
-                py: 2,
-              }}>
-              <PageHeading title={"Upcoming Events"} component={'h2'} />
-              <Box sx={{ p: 2 }}>
-                <Events header={"Events"} />
-              </Box>
+          </Box>
+        </Container>
+      </Box>
+      {/* ************-********** */}
+      <Box
+        sx={{
+          borderRight: "3rem solid var(--borderColor)",
+          borderLeft: "3rem solid transparent",
+          position: "relative",
+          "&:before": {
+            content: "''",
+            position: "absolute",
+            top: "-3rem",
+            right: "-3rem",
+            width: "100%",
+            height: "3rem",
+            backgroundColor: "var(--borderColor)",
+          },
+          py: 2,
+        }}
+      >
+        <Container>
+          <Box
+            sx={{
+              marginLeft: "-3rem",
+              marginRight: "-3rem",
+              bgcolor: "white",
+              py: 2,
+            }}
+          >
+            <PageHeading
+              title={"Upcoming Events"}
+              component={"h2"}
+            />
+            <Box sx={{ p: 2 }}>
+              <Events header={"Events"} />
             </Box>
-          </Container>
-        </Box>
-    </>
+          </Box>
+        </Container>
+      </Box>
+    </section>
   );
 };
 

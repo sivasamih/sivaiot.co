@@ -28,7 +28,10 @@ const ProductCardSmall = ({
         },
       }}
     >
-      <Link href={url}>
+      <Link
+        href={url}
+        title={title}
+      >
         <CardMedia
           component={"img"}
           image={image}
@@ -52,6 +55,7 @@ const ProductCardSmall = ({
           <Typography
             component={Link}
             href={url}
+            title={title}
             sx={{
               color: titleTextColor || "var(--headerColor)",
               textAlign: titleAlign || "left",

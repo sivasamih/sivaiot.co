@@ -58,6 +58,7 @@ const NavBar = () => {
                 ml: { xs: 2, sm: 4, md: 5, lg: 8 },
                 "& img": { width: { xs: "80%", md: "100%" } },
               }}
+              title="sivaiot.co"
             >
               <img
                 src={APIURLS.BASE_PATH.OthersImage + "logo.png"}
@@ -116,6 +117,7 @@ const NavBar = () => {
                 // onClick={() => navigate("/partners")}
                 href={"/partners"}
                 target={"_blank"}
+                title="partners"
               >
                 {BtnName.PARTNER_LOGIN}
               </Button>
@@ -133,7 +135,7 @@ const NavBar = () => {
                   <Link
                     href={"https://www.linkedin.com/company/sivagrp"}
                     target="_blank"
-                    name="linkedin"
+                    title="linkedin"
                     style={{
                       textDecoration: "none",
                       color: "var(--allBtnColor)",
@@ -155,6 +157,7 @@ const NavBar = () => {
                       "https://www.youtube.com/channel/UCVqeFovs3fAmcrIHLmcQnJw"
                     }
                     target="_blank"
+                    title="youtube"
                     name={"youtube"}
                     style={{
                       textDecoration: "none",
@@ -237,9 +240,9 @@ const NavBar = () => {
               <MenuButton
                 name={Navlist[5].name}
                 menuList={[
-                  { name: "About SIVA IoT", url:  Route_Path.ABOUT },
-                  { name: "Leardship", url:  Route_Path.LEADERSHIP },
-                  { name: "Blogs", url:  Route_Path.BLOG },
+                  { name: "About SIVA IoT", url: Route_Path.ABOUT },
+                  { name: "Leardship", url: Route_Path.LEADERSHIP },
+                  { name: "Blogs", url: Route_Path.BLOG },
                   { name: "Careers", url: Route_Path.CAREERS },
                 ]}
                 type="link"
@@ -322,6 +325,7 @@ const NavBar = () => {
                     href={item?.path}
                     target={item.path === "/partners" ? "_blank" : "_self"}
                     onClick={() => setOpenDrawer(false)}
+                    title={item.name}
                     sx={
                       ({ height: "100%", pl: 4 },
                       pathname === "/" + item.path

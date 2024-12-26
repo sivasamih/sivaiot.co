@@ -13,7 +13,8 @@ const Title5 = ({ title = "", Breadcrumb = [], currentPageName = "" }) => {
             fontWeight: "bold",
             color: "white",
           }}
-          component={"h1"}>
+          component={"h1"}
+        >
           {title}
         </Typography>
         <Breadcrumbs aria-label="breadcrumb">
@@ -23,7 +24,9 @@ const Title5 = ({ title = "", Breadcrumb = [], currentPageName = "" }) => {
                 underline="hover"
                 color="inherit"
                 href={item.url}
-                key={index}>
+                title={item.name}
+                key={index}
+              >
                 {item.name}
               </Link>
             );
@@ -33,7 +36,8 @@ const Title5 = ({ title = "", Breadcrumb = [], currentPageName = "" }) => {
               underline="hover"
               color="text.primary"
               aria-current="page"
-              sx={{ cursor: "default" }}>
+              sx={{ cursor: "default" }}
+            >
               {currentPageName}
             </Typography>
           )}

@@ -5,20 +5,21 @@ import Carousel from "react-multi-carousel";
 import * as APIURLS from "@/apis/apiconstant";
 import Link from "next/link";
 import "react-multi-carousel/lib/styles.css";
+import { Route_Path } from "@/apis/api";
 
 const ImageSlider = (props) => {
   let ImageList = [
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Beer-Keg.webp",
       alt: "Metal Cylinder Management",
-      url: "/rfid-tags-and-labels?name=beer-keg-and-gas-canister",
+      url: Route_Path.PRODUCTS + "/beer-keg-and-gas-canister",
       Title: "Metal Cylinder Management",
       desc: "Cyltag™ designed specifically for metal objects with a curved surface like Beer Kegs, cylinders, metal pipes etc. ",
     },
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Ferro-series-Banner.webp",
       alt: "Metal Cylinder Management",
-      url: "/rfid-product-families/on-metal-rfid-labels",
+      url: Route_Path.PRODUCT_FAMILY + "/on-metal-rfid-labels",
       Title: "",
       desc: "",
     },
@@ -26,7 +27,7 @@ const ImageSlider = (props) => {
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "High-Temp.webp",
       alt: "Heavy Duty Industries",
-      url: "/rfid-tags-and-labels?name=uhf-hang-tag-for-metal-asset",
+      url: Route_Path.PRODUCTS + "/uhf-hang-tag-for-metal-asset",
       Title: "Tags For HEAVY DUTY INDUSTRIES",
       Subtitle: "( Metals & Constructions )",
       desc: "Hang-tags designed to provide durability and robustness in harsh environments. Including temperature resistance up to 450°C",
@@ -34,7 +35,7 @@ const ImageSlider = (props) => {
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Flora_Web_Banner.webp",
       alt: "Flora_Web_Banner",
-      url: "/rfid-tags-and-labels?name=loop-lock-plant-tag",
+      url: Route_Path.PRODUCTS + "/loop-lock-plant-tag",
       Title: "Ferro On-Metal Label Series, REDEFINED!",
       desc: "New IC, New antenna design, Improved read range and enhanced printer compatibility",
     },
@@ -80,7 +81,7 @@ const ImageSlider = (props) => {
         {/* slide -1 */}
         <Box
           sx={{
-            height: "-webkit-fill-available",
+            // height: "-webkit-fill-available",
             bgcolor: "white",
             display: "flex",
             justifyContent: "center",
@@ -174,7 +175,7 @@ const ImageSlider = (props) => {
         {/* slide -2 */}
         <Box
           sx={{
-            height: "-webkit-fill-available",
+            // height: "-webkit-fill-available",
             bgcolor: "white",
             display: "flex",
             justifyContent: "center",
@@ -248,7 +249,7 @@ const ImageSlider = (props) => {
 
         <Box
           sx={{
-            height: "-webkit-fill-available",
+            // height: "-webkit-fill-available",
             bgcolor: "white",
             display: "flex",
             justifyContent: "center",
@@ -336,7 +337,7 @@ const ImageSlider = (props) => {
         {/* slide-4 */}
         <Box
           sx={{
-            height: "-webkit-fill-available",
+            // height: "-webkit-fill-available",
             bgcolor: "white",
             display: "flex",
             justifyContent: "center",

@@ -22,6 +22,7 @@ const NavLinkButtons = (props) => {
       <ListItemButton
         component={props.type === "link" ? Link : "div"}
         href={props.type === "link" ? props.path : null}
+        title={props.name}
         sx={
           ({
             alignItems: "center",

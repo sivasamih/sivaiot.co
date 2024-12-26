@@ -55,6 +55,7 @@ const NotFound = () => {
                 </Typography>
                 <Button
                   components={Link}
+                  title="Home"
                   href="/"
                   startIcon={<Home />}
                   variant="contained"

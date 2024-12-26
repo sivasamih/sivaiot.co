@@ -10,15 +10,15 @@ export const metadata = {
   title: "RFID Beyond Boundaries - SIVA IoT",
   description:
     "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels",
+  keywords:
+    "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body suppressHydrationWarning={true}>
-        <CustomLayOut>
-        {children}
-        </CustomLayOut>
+        <CustomLayOut>{children}</CustomLayOut>
         {/* <NavBar />
         {children}
         <Footer /> */}

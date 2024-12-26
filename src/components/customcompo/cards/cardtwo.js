@@ -27,7 +27,7 @@ const CardTwo = ({
         },
       }}
     >
-      <Link href={IsExternalURL ? url : Route_Path.PRODUCT_FAMILY + "/" + url}>
+      <Link href={IsExternalURL ? url : Route_Path.PRODUCT_FAMILY + "/" + url} title="RFID_PRODUCT_FAMILY">
         <CardMedia
           component={"img"}
           image={image}
@@ -53,6 +53,7 @@ const CardTwo = ({
             href={
               IsExternalURL ? "/" + url : Route_Path.PRODUCT_FAMILY + "/" + url
             }
+            title={title}
             sx={{
               color: titleTextColor || "var(--headerColor)",
               textAlign: titleAlign || "left",

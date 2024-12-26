@@ -14,6 +14,7 @@ const CardFour = (props) => {
         component={Link}
         href={props.url}
         target="_blank"
+        title={props.Title}
         sx={{
           display: "block",
           p: 0,
@@ -42,6 +43,7 @@ const CardFour = (props) => {
           component={Link}
           href={props.url}
           target="_blank"
+          title={props.Title}
         >
           {props.Title}
         </Typography>

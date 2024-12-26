@@ -15,7 +15,8 @@ const Copyright = () => {
           "& p , a": {
             fontSize: 12,
           },
-        }}>
+        }}
+      >
         <Typography sx={{ color: "var(--white)" }}>
           Copyright © {moment().year()} by
           <Typography
@@ -28,7 +29,9 @@ const Copyright = () => {
             }}
             component={"a"}
             href="http://sivagroup.co/"
-            target="_blank">
+            target="_blank"
+            title="SIVA Group"
+          >
             SIVA Group
           </Typography>
           - All Rights Reserved.
@@ -43,7 +46,9 @@ const Copyright = () => {
             }}
             component={"a"}
             href="http://sivagroup.co/"
-            target="_blank">
+            target="_blank"
+            title="SIVA Group"
+          >
             SIVA Group
           </Typography>
         </Typography>

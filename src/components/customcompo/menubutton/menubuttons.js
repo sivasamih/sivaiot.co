@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 const AnimatedMenuButton = ({ name, path, menuList }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const handleMouseEnter = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,7 +24,6 @@ const AnimatedMenuButton = ({ name, path, menuList }) => {
   const handleMouseLeave = () => {
     setAnchorEl(null);
   };
-
 
   return (
     // <Box sx={{ position: "relative", }}>
@@ -39,7 +38,8 @@ const AnimatedMenuButton = ({ name, path, menuList }) => {
         width: "100%",
       }}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
+      onMouseLeave={handleMouseLeave}
+    >
       <ListItemButton
         // component={Link}
         // href={path}
@@ -59,7 +59,8 @@ const AnimatedMenuButton = ({ name, path, menuList }) => {
         onMouseEnter={handleMouseEnter}
         aria-expanded={isOpen ? "true" : undefined}
         aria-owns={anchorEl ? "fade-menu" : undefined}
-        aria-haspopup="true">
+        aria-haspopup="true"
+      >
         <ListItemText primary={name} />
       </ListItemButton>
       <Box
@@ -76,7 +77,8 @@ const AnimatedMenuButton = ({ name, path, menuList }) => {
         component={motion.div}
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: isOpen ? 0 : -10, opacity: 1 }}
-        transition={{ duration: 0.5 }}>
+        transition={{ duration: 0.5 }}
+      >
         {menuList &&
           menuList.map((item, index) => (
             <MenuItem
@@ -96,7 +98,9 @@ const AnimatedMenuButton = ({ name, path, menuList }) => {
                 }),
               }}
               component={Link}
-              href={item.url}>
+              href={item.url}
+              title={item.name}
+            >
               {item.name}
             </MenuItem>
           ))}

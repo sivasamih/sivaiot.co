@@ -23,6 +23,7 @@ const CardThree = (props) => {
             ? props.path
             : Route_Path.PRODUCT_FAMILY + "/" + props.path
         }
+        title={props.Name}
         sx={{
           p: 0,
           m: 0,
@@ -55,6 +56,7 @@ const CardThree = (props) => {
                 ?  props.path
                 : Route_Path.PRODUCT_FAMILY_DETAILS + "/" + props.path
             }
+            title={props.Name}
             sx={{
               textDecoration: "none",
               color: "black",
