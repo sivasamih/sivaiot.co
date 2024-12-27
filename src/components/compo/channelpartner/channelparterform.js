@@ -1,15 +1,15 @@
 "use client";
 import { Button, InputAdornment } from "@mui/material";
-import Title4 from "../../customcompo/Typo/title4";
+import Title4 from "@/components/customcompo/Typo/title4";
 import { Box } from "@mui/system";
-import CustomTextField from "../../customcompo/custominputfield/textfield";
+import CustomTextField from "@/components/customcompo/custominputfield/textfield";
 import { useState } from "react";
-import { Countries, validateEmail } from "../../../helper/helper";
-import CustomAutoComplete from "../../customcompo/custominputfield/autocompleate";
-import Loading from "../loading";
-import SnackBar from "../../customcompo/snackbar/snackbar";
-import * as APIURLS from "../../../apis/apiconstant";
-import * as FETCHAPI from "../../../apis/fetchapi";
+import { Countries, validateEmail } from "@/helper/helper";
+import CustomAutoComplete from "@/components/customcompo/custominputfield/autocompleate";
+import Loading from "@/app/loading";
+import SnackBar from "@/components/customcompo/snackbar/snackbar";
+import * as APIURLS from "@/apis/apiconstant";
+import * as FETCHAPI from "@/apis/fetchapi";
 
 const ChannelPartnerForm = () => {
   const [formData, setFormData] = useState({

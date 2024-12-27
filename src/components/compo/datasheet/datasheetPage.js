@@ -1,11 +1,11 @@
 "use client";
 
 import { Typography } from "@mui/material";
-import { Box, Container } from "@mui/system";
+import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import * as APIURLS from "@/apis/apiconstant";
 import { ValidateUser_Data } from "@/helper/helper";
-import Loading from "@/components/compo/loading";
+import Loading from "@/app/loading";
 
 const DatasheetPage = ({ name }) => {
   const [isAutheraize, setIsAuthrize] = useState(true);

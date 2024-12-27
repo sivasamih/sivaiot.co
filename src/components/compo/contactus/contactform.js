@@ -1,14 +1,14 @@
 "use client"
 import { useState } from "react";
 import { Box } from "@mui/system";
-import CustomTextField from "../../customcompo/custominputfield/textfield";
+import CustomTextField from "@/components/customcompo/custominputfield/textfield";
 import { Button, InputAdornment } from "@mui/material";
-import { validateEmail } from "../../../helper/helper";
-import Title4 from "../../customcompo/Typo/title4";
-import Loading from "../loading";
-import SnackBar from "../../customcompo/snackbar/snackbar";
-import * as FETCHAPI from "../../../apis/fetchapi";
-import * as APIURLS from "../../../apis/apiconstant";
+import { validateEmail } from "@/helper/helper";
+import Title4 from "@/components/customcompo/Typo/title4";
+import Loading from "@/app/loading";
+import SnackBar from "@/components/customcompo/snackbar/snackbar";
+import * as FETCHAPI from "@/apis/fetchapi";
+import * as APIURLS from "@/apis/apiconstant";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     Name: "",

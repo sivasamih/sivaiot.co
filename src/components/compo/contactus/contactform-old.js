@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Container } from "@mui/system";
 import { Typography, Grid } from "@mui/material";
-import CustomTextField from "../../customcompo/custominputfield/textfield";
-import FormStep from "../../customcompo/formstep/contactformstep";
-import CustomButton from "../../customcompo/button/CustomButton";
-import Loading from "../loading";
+import CustomTextField from "@/components/customcompo/custominputfield/textfield";
+import FormStep from "@/components/customcompo/formstep/contactformstep";
+import CustomButton from "@/components/customcompo/button/CustomButton";
+import Loading from "@/app/loading";
 
 class ContactForm extends React.Component {
   constructor(props) {
