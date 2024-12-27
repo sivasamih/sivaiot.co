@@ -12,7 +12,8 @@ const DatasheetPage = ({ name }) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleError = () => {
+  const handleError = (e) => {
+    console.log("error on datasheet load",e)
     setError(true);
   };
 

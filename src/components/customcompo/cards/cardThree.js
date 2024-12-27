@@ -53,8 +53,8 @@ const CardThree = (props) => {
             // to={Route_Path.PRODUCT_FAMILY + "/" + props.path}
             href={
               props.IsExternalURL
-                ?  props.path
-                : Route_Path.PRODUCT_FAMILY_DETAILS + "/" + props.path
+            ? props.path
+            : Route_Path.PRODUCT_FAMILY + "/" + props.path
             }
             title={props.Name}
             sx={{
