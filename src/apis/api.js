@@ -42,7 +42,7 @@ export const Route_Path = {
   WB_POLY_IN_SHEETS: "/wb/poly-in-sheets",
   PARTNERS: "/partners",
   PORTAL: "/portal",
-  PARTNER_LOGIN:"/partner-login",
+  PARTNER_LOGIN:"/partners-login",
   PROFILE:'/profile',
   PRICE_LIST:'/price-list',
   WRONG_PATH: "*",

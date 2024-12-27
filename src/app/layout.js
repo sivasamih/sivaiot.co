@@ -4,6 +4,7 @@ import "@/app/styles/fonts.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import CustomLayOut from "./customLayout";
 import { Route_Path } from "@/apis/api";
+import { GoogleAnalyticsID } from "@/apis/apiconstant";
 
 export const metadata = {
   title: "RFID Beyond Boundaries - SIVA IoT",
@@ -55,7 +56,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning={true}>
         <CustomLayOut>{children}</CustomLayOut>
       </body>
-      <GoogleAnalytics gaId="G-V31SM2QBTW" />
+      <GoogleAnalytics gaId={GoogleAnalyticsID} />
     </html>
   );
 }

@@ -4,13 +4,18 @@ let domain = "https://nsimsapi.sivagroup.co/";
 // let domain = "http://10.20.20.18:8082/";
 let basepath = "https://sivafiles.sivagroup.co/1/";
 
+export const GoogleAnalyticsID_Test = "G-V31SM2QBTW";
+export const GoogleAnalyticsID = "G-CH8M97ZF26";
+
 export const APIURL = {
   GetProductFamily: domain + "api/Website/GetProductFamily",
   WebCategoryWiseProducts: domain + "api/Website/WebCategoryWiseProducts",
   ProductDetailsByIndustries: domain + "api/Website/ProductDetailsByIndustries",
   WebFamilyWiseProducts: domain + "api/Website/WebFamilyWiseProducts",
-  GetProductIndustriesDetails:domain + "api/Website/GetProductIndustriesDetails",
-  ListProductDetailsByIndustriesID:domain + "api/Website/ListProductDetailsByIndustriesID",
+  GetProductIndustriesDetails:
+    domain + "api/Website/GetProductIndustriesDetails",
+  ListProductDetailsByIndustriesID:
+    domain + "api/Website/ListProductDetailsByIndustriesID",
   WebsiteContentBySourceID: domain + "api/WebSite/WebsiteContentBySourceID",
   WebsiteContentByPostURL: domain + "api/WebSite/WebsiteContentByPostURL",
   Registration: domain + "api/Website/Registration",
