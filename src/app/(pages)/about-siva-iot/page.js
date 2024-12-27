@@ -21,6 +21,7 @@ export const metadata = {
   keywords:
     "SIVA IoT is a family-owned business specializing in producing niche RFID labels and tags. For the past 30 years, we have been providing asset tracking solutions to various industries worldwide.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

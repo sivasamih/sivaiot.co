@@ -53,6 +53,7 @@ export const metadata = {
   keywords:
     "Discover Siva's high-quality, durable RFID wristbands with photo-like full-color print for impactful branding. UltimoID® Poly bands are waterproof, tearproof, fade-resistant, and feature strong adhesive, ideal for waterparks, theme parks, and more.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

@@ -20,6 +20,7 @@ export const metadata = {
   keywords:
     "RFID Cards and Key Fobs by Siva are compact, convenient, and versatile identification solutions. Designed in standard credit card size, RFID Cards fit easily in wallets or badge holders, while RFID Key Fobs attach to keychains or lanyards.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

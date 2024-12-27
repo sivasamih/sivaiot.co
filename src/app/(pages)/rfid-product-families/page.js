@@ -13,6 +13,7 @@ export const metadata = {
   keywords:
     "SIVA offers a wide range of RFID tags and labels for asset management across various industries. Browse our product families to find the perfect RFID solution for your needs. Visit our website for more details.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

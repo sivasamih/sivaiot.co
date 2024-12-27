@@ -13,6 +13,7 @@ export const metadata = {
   keywords:
     "Learn about SIVA's privacy policy, detailing how we collect, use, and protect your personal information. Your privacy is our priority—explore our commitment to safeguarding your data.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

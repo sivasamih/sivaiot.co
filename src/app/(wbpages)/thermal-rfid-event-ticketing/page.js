@@ -19,6 +19,7 @@ export const metadata = {
   keywords:
     "At SIVA, our mission is to enhance guest experience and security in the leisure and entertainment industry with innovative RFID wristbands, cards, and key fobs for amusement parks, waterparks, and resorts",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

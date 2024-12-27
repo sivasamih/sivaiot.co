@@ -80,6 +80,7 @@ export const metadata = {
   keywords:
     "Achieve on-site variable data printing and encoding with RFID direct thermal printers. Siva's high-quality wristbands are compatible with self-dispensing kiosks and offer excellent durability against soaps, sanitizers, sunscreen, and chlorinated water",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

@@ -42,6 +42,7 @@ export const metadata = {
   keywords:
     "Siva's fabric wristbands are perfect for music festivals and live events. Made from comfortable, durable materials, they feature high-security properties and high-quality, full-color artwork printing & providing seamless access control, cashless payments, and VIP guest management.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

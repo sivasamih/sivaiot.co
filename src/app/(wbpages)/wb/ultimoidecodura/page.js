@@ -43,6 +43,7 @@ export const metadata = {
   keywords:
     "Siva's EcoDura™ wristbands are designed for multi-day use with a durable, permanent snap locking closure. Waterproof, tearproof, and featuring high-quality full-color printing, they offer a soft, premium feel.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

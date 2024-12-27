@@ -1,8 +1,6 @@
 import "./globals.css";
 import "./styles/color.css";
 import "@/app/styles/fonts.css";
-import NavBar from "@/components/compo/navbar/page";
-import Footer from "@/components/compo/footer/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import CustomLayOut from "./customLayout";
 import { Route_Path } from "@/apis/api";
@@ -14,6 +12,7 @@ export const metadata = {
   keywords:
     "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

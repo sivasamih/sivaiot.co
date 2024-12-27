@@ -10,6 +10,7 @@ export const metadata = {
   keywords:
     "Review SIVA's terms of use for accessing and utilizing our IoT solutions. Understand the rules and responsibilities to ensure a secure and effective experience with our innovative technologies.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

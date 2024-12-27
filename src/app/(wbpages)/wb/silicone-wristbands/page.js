@@ -42,6 +42,7 @@ export const metadata = {
   keywords:
     "Siva's re-wearable UltimoID® silicone wristbands feature an adjustable locking mechanism for a secure fit on all wrist sizes. Durable and comfortable, they are ideal for multi-day use, season pass credentials, VIP, and loyalty programs.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

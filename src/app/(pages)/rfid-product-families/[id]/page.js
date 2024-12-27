@@ -17,6 +17,7 @@ export async function generateMetadata({ params }) {
     description: MetaDescription,
     robots: "index, follow",
     keywords: MetaDescription,
+    metadataBase: new URL('https://sivaiot.co'),
     openGraph: {
       type: "website",
       locale: "en_US",

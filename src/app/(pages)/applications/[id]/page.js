@@ -70,6 +70,7 @@ export async function generateMetadata({ params }) {
     title: MetaTitle,
     description: MetaDescription,
     robots: "index, follow",
+    metadataBase: new URL('https://sivaiot.co'),
     keywords: MetaDescription,
     openGraph: {
       type: "website",

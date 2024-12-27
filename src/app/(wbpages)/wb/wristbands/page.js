@@ -13,6 +13,7 @@ export const metadata = {
   keywords:
     "SIVA manufactures high-quality RFID wristbands for seamless access control enhancing guest experience, shipped worldwide. Visit our website for more information on our printed wristbands.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

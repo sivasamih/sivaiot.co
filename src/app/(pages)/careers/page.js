@@ -12,6 +12,7 @@ export const metadata = {
   keywords:
     "Siva is always on the lookout to recruit the best talent from Printing & RFID Technologies, Sales & Marketing, Administrative and Operational areas.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

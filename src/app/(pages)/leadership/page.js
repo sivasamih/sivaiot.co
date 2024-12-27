@@ -10,6 +10,7 @@ export const metadata = {
   description: "Leadership at Siva IoT | RFID Technology",
   keywords: "Leadership at Siva IoT | RFID Technology",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

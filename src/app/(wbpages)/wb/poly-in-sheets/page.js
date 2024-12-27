@@ -52,6 +52,7 @@ export const metadata = {
   //   description: "",
   //   keywords: "",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

@@ -11,6 +11,7 @@ export const metadata = {
   keywords:
     "SIVA's standard terms and conditions, outlining the legal guidelines and agreements for using our advanced IoT solutions. Ensure compliance and clarity with our detailed policies",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

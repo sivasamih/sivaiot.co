@@ -14,6 +14,7 @@ export const metadata = {
   keywords:
     "Find answers to common questions about RFID tags & labels for various industries, Get helpful information and insights to make the most of our innovative technologies, Browse SIVA IoT for more details.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

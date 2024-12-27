@@ -12,6 +12,7 @@ export const metadata = {
   keywords:
     "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",

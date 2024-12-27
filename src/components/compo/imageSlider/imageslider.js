@@ -110,16 +110,16 @@ const ImageSlider = (props) => {
               },
               bgcolor: "#f2f3f7cd",
               // backdropFilter:'blur(5px)',
-              p: 2,
+              p: {xs:1,sm:2}
             }}
           >
             <Typography
               sx={{
                 fontSize: {
-                  xs: "calc(0.8rem + 1vw)",
+                  xs: "calc(0.6rem + 1vw)",
                   md: "calc(0.8rem + 1vw)",
                 },
-                p: 1,
+                // p: 1,
                 color: "#1E4188",
                 // color: "var(--green)",
                 fontFamily: "LibreBaskerville",
@@ -156,7 +156,7 @@ const ImageSlider = (props) => {
                 color: "black",
                 pl: 1,
                 fontSize: {
-                  xs: "calc(0.6rem + 1vw)",
+                  xs: "calc(0.4rem + 1vw)",
                   md: "calc(0.2rem + 1vw)",
                 },
                 display: "block",
@@ -165,8 +165,8 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              component={Link}
-              href={ImageList[0].url}
+              // component={Link}
+              // href={ImageList[0].url}
             >
               {ImageList[0].desc}
             </Typography>
@@ -238,8 +238,8 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              component={Link}
-              href={ImageList[1].url}
+              // component={Link}
+              // href={ImageList[1].url}
             >
               {ImageList[1].desc}
             </Typography>
@@ -277,18 +277,18 @@ const ImageSlider = (props) => {
                 md: "translate(-50% , -50%)",
               },
               bgcolor: "#fffc",
-              p: 2,
+              p: {xs:1,md:2},
             }}
           >
             <Typography
               sx={{
                 fontSize: {
-                  xs: "calc(0.8rem + 1vw)",
+                  xs: "calc(0.6rem + 1vw)",
                   md: "calc(0.8rem + 1vw)",
                 },
                 color: "#1E4188",
                 fontFamily: "LibreBaskerville",
-                lineHeight: 1.2,
+                lineHeight: 1.1,
                 textAlign: "center",
               }}
               variant="h6"
@@ -299,13 +299,13 @@ const ImageSlider = (props) => {
               <Typography
                 sx={{
                   fontSize: {
-                    xs: "calc(0.6rem + 1vw)",
+                    xs: "calc(0.5rem + 1vw)",
                     md: "calc(0.5rem + 1vw)",
                   },
                   color: "#1E4188",
                   // color: "var(--green)",
                   fontFamily: "LibreBaskerville",
-                  mb: 2,
+                  mb: {xs:.5,md:2},
                   textAlign: "center",
                 }}
                 variant={"subtitle1"}
@@ -318,7 +318,7 @@ const ImageSlider = (props) => {
                 color: "black",
                 pl: 1,
                 fontSize: {
-                  xs: "calc(0.6rem + 1vw)",
+                  xs: "calc(0.4rem + 1vw)",
                   md: "calc(0.2rem + 1vw)",
                 },
                 display: "block",
@@ -327,8 +327,8 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              component={Link}
-              href={ImageList[2].url}
+              // component={Link}
+              // href={ImageList[2].url}
             >
               {ImageList[2].desc}
             </Typography>
@@ -400,8 +400,8 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              component={Link}
-              href={ImageList[3].url}
+              // component={Link}
+              // href={ImageList[3].url}
             >
               {ImageList[3].desc}
             </Typography>

@@ -42,6 +42,7 @@ export const metadata = {
   keywords:
     "Tybands by Siva feature a tamper-evident adhesive closure, making them non-transferable. Tearproof and water-resistant, they are economical and can be printed with up to full-color artwork, UID printing, and pre-encoding. Ideal for one-day use applications.",
   robots: "index, follow",
+  metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",
