@@ -5,7 +5,9 @@ let domain = "https://nsimsapi.sivagroup.co/";
 let basepath = "https://sivafiles.sivagroup.co/1/";
 
 export const GoogleAnalyticsID_Test = "G-V31SM2QBTW";
-export const GoogleAnalyticsID = "G-CH8M97ZF26";
+// export const GoogleAnalyticsID = "G-CH8M97ZF26";
+
+export const GoogleAnalyticsID ="G-DH0Q67F6M3";
 
 export const APIURL = {
   GetProductFamily: domain + "api/Website/GetProductFamily",
