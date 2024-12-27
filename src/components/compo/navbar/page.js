@@ -213,13 +213,13 @@ const NavBar = () => {
               />
 
               <NavLinkButtons
-                name={Navlist[2].name}
-                path={Navlist[2].path}
+                name={Navlist[1].name}
+                path={Navlist[1].path}
                 type="link"
               />
               <NavLinkButtons
-                name={Navlist[3].name}
-                path={Navlist[3].path}
+                name={Navlist[2].name}
+                path={Navlist[2].path}
                 type="link"
               />
               {/* <NavLinkButtons
@@ -228,8 +228,8 @@ const NavBar = () => {
                 type="link"
               /> */}
               <NavLinkButtons
-                name={Navlist[4].name}
-                path={Navlist[4].path}
+                name={Navlist[3].name}
+                path={Navlist[3].path}
                 type="button"
                 onClick={(e) => {
                   router.replace("/");
@@ -240,7 +240,7 @@ const NavBar = () => {
               />
 
               <MenuButton
-                name={Navlist[5].name}
+                name={Navlist[4].name}
                 menuList={[
                   { name: "About SIVA IoT", url: Route_Path.ABOUT },
                   { name: "Leardship", url: Route_Path.LEADERSHIP },
@@ -251,8 +251,8 @@ const NavBar = () => {
               />
 
               <NavLinkButtons
-                name={Navlist[8].name}
-                path={Navlist[8].path}
+                name={Navlist[7].name}
+                path={Navlist[7].path}
                 type="link"
               />
             </List>

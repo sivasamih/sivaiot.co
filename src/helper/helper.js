@@ -48,7 +48,7 @@ export const Navlist = [
     name: "Contact",
   },
   {
-    path: Route_Path.PARTNERS,
+    path: Route_Path.PARTNER_LOGIN,
     icon: Icons.Login,
     name: "Partners Login",
   },
