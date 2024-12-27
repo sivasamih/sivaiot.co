@@ -29,11 +29,13 @@ import * as APIURLS from "@/apis/apiconstant";
 import { Route_Path } from "@/apis/api";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useLoginData } from "@/contextapi/loginuserprovider";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const userData = useLoginData();
 
   return (
     <>
@@ -114,13 +116,13 @@ const NavBar = () => {
                 variant="contained"
                 component={Link}
                 sx={{ border: 0 }}
-                // onClick={() => navigate("/partners")}
                 href={Route_Path.PARTNER_LOGIN}
                 target={"_blank"}
                 title="partners"
               >
-                {BtnName.PARTNER_LOGIN}
+                {!userData ? BtnName.PARTNER_LOGIN : "Dashboard"}
               </Button>
+
               <ButtonGroup
                 size="small"
                 sx={{ display: { xs: "none", md: "inline-flex" } }}
@@ -220,11 +222,11 @@ const NavBar = () => {
                 path={Navlist[3].path}
                 type="link"
               />
-              <NavLinkButtons
+              {/* <NavLinkButtons
                 name={Navlist[1].name}
                 path={Navlist[1].path}
                 type="link"
-              />
+              /> */}
               <NavLinkButtons
                 name={Navlist[4].name}
                 path={Navlist[4].path}
