@@ -20,19 +20,30 @@ async function getBlogByURL(URL) {
   } catch (ex) {
     console.log("ex", ex);
   }
+  try {
+    const isArr = Array.isArray(data);
+    if (isArr && data.length > 0) {
+      return data[0];
+    }
+    if (isArr && data.length < 1) {
+      data = null;
+    }
+  } catch (ex) {}
+
   return data;
 }
 
 export async function generateMetadata({ params }) {
   const url = (await params).id;
-  const ProductData = await getBlogByURL(url);
-  const { MetaTitle, MetaDescription, MetaKeywords, BannerImage } = ProductData;
+  const BlogData = await getBlogByURL(url);
+  if (!BlogData) return notFound();
+  const { MetaTitle, MetaDescription, MetaKeywords, BannerImage } = BlogData;
   return {
     title: MetaTitle,
     description: MetaDescription,
     robots: "index, follow",
     keywords: MetaKeywords,
-    metadataBase: new URL('https://sivaiot.co'),
+    metadataBase: new URL("https://sivaiot.co"),
     openGraph: {
       type: "website",
       locale: "en_US",
@@ -74,7 +85,7 @@ const BlogDetailsPage = async ({ params }) => {
   const BlogData = await getBlogByURL(url);
   const BlogContent = BlogData?.ContentHtml;
 
-  if(!BlogData)return notFound()
+  if (!BlogData) return notFound();
   return (
     <>
       <Box sx={{ bgcolor: "var(--green)", py: 4 }}>

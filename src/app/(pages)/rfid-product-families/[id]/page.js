@@ -11,13 +11,14 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params }) {
   const url = (await params).id;
   const FamiliesData = await getProductFamilies(url);
+  if (!FamiliesData) return notFound();
   const { MetaTitle, MetaDescription, name, Images } = FamiliesData;
   return {
     title: MetaTitle,
     description: MetaDescription,
     robots: "index, follow",
     keywords: MetaDescription,
-    metadataBase: new URL('https://sivaiot.co'),
+    metadataBase: new URL("https://sivaiot.co"),
     openGraph: {
       type: "website",
       locale: "en_US",
@@ -62,21 +63,32 @@ async function getProductFamilies(url) {
     UrlName: url,
   };
   try {
-    let res = await FETCHAPI.Fetch( APIURLS.APIURL.WebFamilyWiseProducts,reqData);
+    let res = await FETCHAPI.Fetch(
+      APIURLS.APIURL.WebFamilyWiseProducts,
+      reqData
+    );
     if (res.status === 200) {
       data = await res.json();
     }
   } catch (ex) {
     return null;
   }
+  try {
+    const isArr = Array.isArray(data);
+    if (isArr && data.length > 0) {
+      return data[0];
+    }
+    if (isArr && data.length < 1) {
+      data = null;
+    }
+  } catch (ex) {}
   return data;
 }
 
 const FamiliesDetails = async ({ params }) => {
   const { id } = await params;
   const FamiliesData = await getProductFamilies(id);
-    if (!FamiliesData) return notFound();
-  
+  if (!FamiliesData) return notFound();
 
   return (
     <>

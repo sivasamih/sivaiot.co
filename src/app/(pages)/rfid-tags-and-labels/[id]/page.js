@@ -20,12 +20,22 @@ async function GetProductDetailsByUrlName(url) {
       data = await res.json();
     }
   } catch (ex) {}
+  try {
+    const isArr = Array.isArray(data);
+    if (isArr && data.length > 0) {
+      return data[0];
+    }
+    if (isArr && data.length < 1) {
+      data = null;
+    }
+  } catch (ex) {}
   return data;
 }
 
 export async function generateMetadata({ params }) {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
+  if (!ProductData) return notFound();
   const { MetaTitle, MetaDescription, ImageList, Title } = ProductData;
   const img = ImageList[0]["ProductImage"];
   return {
@@ -33,7 +43,7 @@ export async function generateMetadata({ params }) {
     description: MetaDescription,
     robots: "index, follow",
     keywords: MetaDescription,
-    metadataBase: new URL('https://sivaiot.co'),
+    metadataBase: new URL("https://sivaiot.co"),
     openGraph: {
       type: "website",
       locale: "en_US",
