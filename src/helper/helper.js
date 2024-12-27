@@ -7,11 +7,11 @@ export const Navlist = [
     icon: Icons.Home,
     name: "Home",
   },
-  {
-    path:  Route_Path.Application,
-    icon: Icons.Factory,
-    name: "Applications",
-  },
+  // {
+  //   path:  Route_Path.Application,
+  //   icon: Icons.Factory,
+  //   name: "Applications",
+  // },
   {
     path: Route_Path.PRODUCTS,
     icon: Icons.Stroller,
