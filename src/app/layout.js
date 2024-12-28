@@ -6,6 +6,8 @@ import CustomLayOut from "./customLayout";
 import { Route_Path } from "@/apis/api";
 import { GoogleAnalyticsID, GoogleAnalyticsID_Test } from "@/apis/apiconstant";
 import RedirectionPage from "@/components/compo/redirection/redirection";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: "RFID Beyond Boundaries - SIVA IoT",
@@ -14,7 +16,7 @@ export const metadata = {
   keywords:
     "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
   robots: "index, follow",
-  metadataBase: new URL('https://sivaiot.co'),
+  metadataBase: new URL("https://sivaiot.co"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -39,9 +41,7 @@ export const metadata = {
     title: "RFID Beyond Boundaries - SIVA IoT",
     description:
       "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
-    images: [
-      "/images/Logo-1200x630.jpg",
-    ],
+    images: ["/images/Logo-1200x630.jpg"],
   },
   // Canonical URL
   alternates: {
@@ -55,8 +55,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <RedirectionPage/>
-        <CustomLayOut>{children}</CustomLayOut>
+        <Suspense fallback={<Loading />}>
+          <RedirectionPage />
+          <CustomLayOut>{children}</CustomLayOut>
+        </Suspense>
       </body>
       <GoogleAnalytics gaId={GoogleAnalyticsID} />
     </html>
