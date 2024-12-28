@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning={true}>
         <CustomLayOut>{children}</CustomLayOut>
       </body>
-      <GoogleAnalytics gaId={GoogleAnalyticsID_Test} />
+      <GoogleAnalytics gaId={GoogleAnalyticsID} />
     </html>
   );
 }
