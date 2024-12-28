@@ -35,7 +35,11 @@ const SnackBar = (props) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           zIndex: 1400,
-        }}>
+        }}
+        sx={{
+          width: { xs: "80%", sm: "auto" },
+        }}
+      >
         <Alert
           onClose={props.onClose}
           variant="filled"
@@ -43,7 +47,7 @@ const SnackBar = (props) => {
           // icon={false}
           sx={{
             width: "100%",
-            fontSize: "1.2rem",
+            fontSize: "calc(0.6rem + 1vw)",
             // height: "100px",
             display: "flex",
             alignItems: "center",
@@ -57,10 +61,10 @@ const SnackBar = (props) => {
             // position:"absolute",
             // top:0,right:10
             // }
-          }}>
+          }}
+        >
           {props.message}
         </Alert>
-    
       </Snackbar>
     </>
   );

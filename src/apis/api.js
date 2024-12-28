@@ -45,6 +45,7 @@ export const Route_Path = {
   PARTNER_LOGIN:"/partners-login",
   PROFILE:'/profile',
   PRICE_LIST:'/price-list',
+  NDA:'/nda',
   WRONG_PATH: "*",
 };
 

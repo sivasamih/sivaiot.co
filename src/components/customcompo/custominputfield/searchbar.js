@@ -85,7 +85,7 @@ const SearchBar = (props) => {
           // boxShadow: "1px 0 15px var(--lightGray)  ",
           display: { xs: "none", md: "flex" },
           justifyContent: "center",
-          minWidth: { xs: "30%", md: "20%" },
+          minWidth: { xs: "30%", md: "25%",lg:"20%" },
           alignItems: "center",
           borderBottomRightRadius: 15,
           borderTopLeftRadius: 20,

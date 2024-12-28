@@ -5,6 +5,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import CustomLayOut from "./customLayout";
 import { Route_Path } from "@/apis/api";
 import { GoogleAnalyticsID, GoogleAnalyticsID_Test } from "@/apis/apiconstant";
+import RedirectionPage from "@/components/compo/redirection/redirection";
 
 export const metadata = {
   title: "RFID Beyond Boundaries - SIVA IoT",
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
+        <RedirectionPage/>
         <CustomLayOut>{children}</CustomLayOut>
       </body>
       <GoogleAnalytics gaId={GoogleAnalyticsID} />

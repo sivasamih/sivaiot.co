@@ -2,14 +2,14 @@
 import SearchBar from "@/components/customcompo/custominputfield/searchbar";
 import { Box, Container } from "@mui/material";
 
-const SearchBox = (props) => {
+const ProductSearchBox = (props) => {
   return (
     <Box
       sx={{
         borderRight: "3rem solid #F2F4F7",
         borderLeft: "3rem solid transparent",
         position: "sticky",
-        top: {xs:70,md:40},
+        top: 0,
         zIndex: 2,
       }}
     >
@@ -18,20 +18,21 @@ const SearchBox = (props) => {
           marginRight: "-3rem",
           marginLeft: "-3rem",
           // mt: 2,
-          py: 2,
+          p: 2,
+          px: 4,
           bgcolor: "white",
         }}
       >
-        <Container>
+        <div>
           <SearchBar
             value={props.searchQuery}
             onChange={(e) => props.setSearchQuery(e.target.value)}
             AccChecked={props.IsExpandAll}
             onAccChnage={(e) => props.expandAllACC(e.target.checked)}
           />
-        </Container>
+        </div>
       </Box>
     </Box>
   );
 };
-export default SearchBox;
+export default ProductSearchBox;

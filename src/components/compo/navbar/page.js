@@ -15,7 +15,7 @@ import {
 import * as Animation from "@/components/animation/animation";
 import Icons from "@/constants/icon";
 import BtnName from "@/constants/buttonName";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navlist, scrollByID } from "../../../helper/helper";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -33,10 +33,19 @@ import { useLoginData } from "@/contextapi/loginuserprovider";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [userData, setUserData] = useState(null);
+
   const pathname = usePathname();
   const router = useRouter();
-  const userData = useLoginData();
+  const IOT_PU = useLoginData();
 
+  useEffect(() => {
+    if (IOT_PU) {
+      setUserData(IOT_PU);
+    } else {
+      setUserData(null);
+    }
+  }, [pathname, IOT_PU]);
   return (
     <>
       <Box
@@ -175,7 +184,7 @@ const NavBar = () => {
         </Box>
       </Box>
 
-      <AppBar sx={{ top: 0, position: { xs: "initial", md: "sticky" } }}>
+      <AppBar sx={{ top: -1, position: { xs: "initial", md: "sticky" } }}>
         <Box
           sx={{
             bgcolor: "var(--blue)",

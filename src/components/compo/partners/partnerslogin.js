@@ -51,20 +51,20 @@ const PartnersLogIn = () => {
           emailid: Email,
           Password: Password,
         };
-        // let res = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerLogin, reqData);
-        // if (res.status === 200) {
-        //   let data = await res.json();
-        //   setIsLoading(false);
-        //   showSnackbar("Login Successfull", "success");
-        //   console.log("res>>>>", data);
-        //   setLocalStorage(data);
-        //   setEmail("");
-        //   setPassword("");
-        //   router.push(Route_Path.PARTNERS);
-        // } else {
-        //   setIsLoading(false);
-        //   showSnackbar("Invalid Email or Password", "error");
-        // }
+        let res = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerLogin, reqData);
+        if (res.status === 200) {
+          let data = await res.json();
+          setIsLoading(false);
+          showSnackbar("Login Successfull", "success");
+          console.log("res>>>>", data);
+          setLocalStorage(data);
+          setEmail("");
+          setPassword("");
+          router.push(Route_Path.PARTNERS);
+        } else {
+          setIsLoading(false);
+          showSnackbar("Invalid Email or Password", "error");
+        }
       }
     } catch (ex) {
       console.log(ex);

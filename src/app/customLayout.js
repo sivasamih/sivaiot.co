@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Route_Path } from "@/apis/api";
 import { useEffect } from "react";
 import LoginProvider from "@/contextapi/loginuserprovider";
+import GotQuestion from "@/components/compo/GotQuestion/gotquestions";
 
 export default function CustomLayOut({ children }) {
   const pathName = usePathname();
@@ -29,6 +30,7 @@ export default function CustomLayOut({ children }) {
     <>
       <LoginProvider>
         {!hideNavBar.some((path) => pathName.includes(path)) && <NavBar />}
+        <GotQuestion/>
         <Box
           component={motion.div}
           initial={{ opacity: 0 }}
