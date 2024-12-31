@@ -7,6 +7,7 @@ import Title5 from "@/components/customcompo/Typo/title5";
 import { Box, Container, Typography } from "@mui/material";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
 async function ListProductDetailsByIndustriesID(ID) {
   let data = [];
   try {

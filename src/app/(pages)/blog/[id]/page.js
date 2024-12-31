@@ -6,6 +6,9 @@ import moment from "moment";
 import { Route_Path } from "@/apis/api";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
+
 async function getBlogByURL(URL) {
   let reqData = { PostURL: URL };
   let data;

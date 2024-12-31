@@ -5,6 +5,7 @@ import IndustriesCard from "@/components/customcompo/cards/industriesCard";
 import { Route_Path } from "@/apis/api";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
 async function ProductDetailsByIndustries() {
   let data;
   try {

@@ -3,6 +3,7 @@ import * as FETCHAPI from "@/apis/fetchapi";
 import PartnerProductListing from "@/components/compo/partners/partnerproductPage";
 import { NewProduct } from "@/helper/helper";
 
+export const dynamic = "force-dynamic";
 async function GetAllCategoriesWithProduct() {
   let data;
   try {

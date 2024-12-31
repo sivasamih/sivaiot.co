@@ -4,6 +4,7 @@ import * as FETCHAPI from "@/apis/fetchapi";
 import { Route_Path } from "@/apis/api";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Blogs | SIVA IoT",
   description:

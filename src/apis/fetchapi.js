@@ -9,6 +9,5 @@ export const Fetch = async (
     method: "post",
     headers: headers,
     body: JSON.stringify(params),
-    cache: 'no-store'
   });
 };

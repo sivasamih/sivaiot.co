@@ -5,6 +5,9 @@ import { Route_Path } from "@/apis/api";
 import CardTwo from "@/components/customcompo/cards/cardtwo";
 import { notFound } from "next/navigation";
 
+
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title:
     "RFID & NFC Product Families | Radio-Frequency Identification Tags & Labels - SIVA IoT",

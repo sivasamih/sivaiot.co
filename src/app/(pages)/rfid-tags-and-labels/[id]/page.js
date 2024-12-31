@@ -8,6 +8,9 @@ import MuiSlider from "@/components/customcompo/slider/muislider";
 import DatasheetButton from "@/components/compo/datasheet/datasheetbutton";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
+
 async function GetProductDetailsByUrlName(url) {
   let data;
   const reqData = { UrlName: url };

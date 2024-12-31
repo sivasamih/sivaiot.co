@@ -8,6 +8,8 @@ import ProductFamiliesAccHeaderCard from "@/components/customcompo/cards/product
 import { Box, Container } from "@mui/material";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }) {
   const url = (await params).id;
   const FamiliesData = await getProductFamilies(url);

@@ -7,6 +7,7 @@ import TopContent from "@/components/compo/products/topcontent";
 import ProductListingContainer from "@/components/compo/products/productListingContainer";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
   description:

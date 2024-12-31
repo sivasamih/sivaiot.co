@@ -3,6 +3,8 @@ import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
 import PartnerProductFamilies from "@/components/compo/partners/partnerProductFamilies";
 
+
+export const dynamic = "force-dynamic";
 async function getProductFamilies() {
   let data;
   try {
