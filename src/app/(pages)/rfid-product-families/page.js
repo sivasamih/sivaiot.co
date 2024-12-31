@@ -13,7 +13,7 @@ export const metadata = {
   keywords:
     "SIVA offers a wide range of RFID tags and labels for asset management across various industries. Browse our product families to find the perfect RFID solution for your needs. Visit our website for more details.",
   robots: "index, follow",
-  metadataBase: new URL('https://sivaiot.co'),
+  metadataBase: new URL("https://sivaiot.co"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -40,7 +40,9 @@ export const metadata = {
       "RFID & NFC Product Families | Radio-Frequency Identification Tags & Labels - SIVA IoT",
     description:
       "SIVA offers a wide range of RFID tags and labels for asset management across various industries. Browse our product families to find the perfect RFID solution for your needs. Visit our website for more details.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
+    images: [
+      `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
+    ],
   },
   // Canonical URL
   alternates: {
@@ -56,6 +58,8 @@ async function getProductFamilies() {
     let res = await FETCHAPI.Fetch(APIURLS.APIURL.GetProductFamily);
     if (res.status === 200) {
       data = await res.json();
+      console.log("product>>>API", APIURLS.APIURL.WebCategoryWiseProducts);
+      console.log("product>>>", data);
     }
   } catch (ex) {}
   return data;

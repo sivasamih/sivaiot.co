@@ -14,7 +14,7 @@ export const metadata = {
   keywords:
     "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
   robots: "index, follow",
-  metadataBase: new URL('https://sivaiot.co'),
+  metadataBase: new URL("https://sivaiot.co"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -39,7 +39,9 @@ export const metadata = {
     title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
     description:
       "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
-    images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
+    images: [
+      `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
+    ],
   },
   // Canonical URL
   alternates: {
@@ -55,6 +57,9 @@ async function GetAllCategoriesWithProduct() {
     let res = await FETCHAPI.Fetch(APIURLS.APIURL.WebCategoryWiseProducts);
     if (res.status === 200) {
       data = await res.json();
+      console.log("product>>>API", APIURLS.APIURL.WebCategoryWiseProducts);
+      console.log("product>>>", data);
+
       let id = 1;
       try {
         for (let L of data) {
