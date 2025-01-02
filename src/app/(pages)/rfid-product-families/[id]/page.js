@@ -140,6 +140,8 @@ const FamiliesDetails = async ({ params }) => {
               url={Route_Path.PRODUCTS + "/" + product.link}
               IsNew={product.IsNew}
               IsClickable={true}
+              Icon={APIURLS.BASE_PATH.Product + product.Icon}
+              IsShowIcon={product.IsShowIcon}
             />
           </AnimatedBox>
         ))}

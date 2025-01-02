@@ -8,6 +8,8 @@ import { GoogleAnalyticsID, GoogleAnalyticsID_Test } from "@/apis/apiconstant";
 import RedirectionPage from "@/components/compo/redirection/redirection";
 import { Suspense } from "react";
 import Loading from "./loading";
+import CookiesController from "@/components/compo/cookies/cookies";
+import AccessDenied from "@/components/compo/AccessDenied/AccessDenied";
 
 export const metadata = {
   title: "RFID Beyond Boundaries - SIVA IoT",
@@ -56,7 +58,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <Suspense fallback={<Loading />}>
+          <AccessDenied />
           <RedirectionPage />
+          <CookiesController />
           <CustomLayOut>{children}</CustomLayOut>
         </Suspense>
       </body>

@@ -15,12 +15,15 @@ export default function CustomLayOut({ children }) {
     Route_Path.PARTNERS,
     Route_Path.PARTNER_LOGIN,
     Route_Path.DATASHEET,
+    Route_Path.BLOCK,
   ];
   const hideFooter = [
     Route_Path.PARTNERS,
     Route_Path.PARTNER_LOGIN,
     Route_Path.DATASHEET,
+    Route_Path.BLOCK,
   ];
+  const hideGotQuestion = [Route_Path.BLOCK, Route_Path.DATASHEET];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -30,7 +33,9 @@ export default function CustomLayOut({ children }) {
     <>
       <LoginProvider>
         {!hideNavBar.some((path) => pathName.includes(path)) && <NavBar />}
-        <GotQuestion/>
+        {!hideGotQuestion.some((path) => pathName.includes(path)) && (
+          <GotQuestion />
+        )}
         <Box
           component={motion.div}
           initial={{ opacity: 0 }}

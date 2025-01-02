@@ -85,6 +85,7 @@ const ProductCard = (props) => {
                 bgcolor: "white",
                 p: { xs: 1, md: 2 },
                 py: { md: 1 },
+                pt: { md: 0 },
                 transition: "0.5s ease-in-out",
                 position: "relative",
                 display: "flex",
@@ -94,24 +95,51 @@ const ProductCard = (props) => {
               }}
               className="details"
             >
-              <Box sx={{ pr: 5 }}>
-                <Typography
-                  variant="h5"
+              <Box sx={{ pr: { xs: 0, md: 5 } }}>
+                <Box
                   sx={{
-                    fontFamily: "LibreBaskerville",
-                    color: "var(--headerColor)",
-                    fontSize: {
-                      xs: "calc(1rem + 1vw)",
-                      md: "calc(0.4rem + 1vw)",
-                    },
-                    fontWeight: "bold",
-                    mt: -1,
-                    transition: "0.5s ease-in-out",
-                    display: "block",
-                    textDecoration: "none",
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                    gap: 1,
                   }}
-                  dangerouslySetInnerHTML={{ __html: props.ProductName }}
-                />
+                >
+                  <Typography
+                    component="h5"
+                    sx={{
+                      fontFamily: "LibreBaskerville",
+                      color: "var(--headerColor)",
+                      fontSize: {
+                        xs: "calc(1rem + 1vw)",
+                        md: "calc(0.4rem + 1vw)",
+                      },
+                      // lineHeight:1,
+                      fontWeight: "bold",
+                      transition: "0.5s ease-in-out",
+                      display: "block",
+                      textDecoration: "none",
+                      position: "relative",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: props.ProductName }}
+                    ref={(el) => (this.productNameElement = el)}
+                  />
+
+                  {props.IsShowIcon && (
+                    <Box
+                      component="img"
+                      src={props.Icon}
+                      sx={{
+                        width: this.productNameElement?.offsetHeight || "30px",
+                        // maxWidth: "25px",
+                        // height: this.productNameElement?.offsetHeight + "10" || "auto",
+                        height: this.productNameElement?.offsetHeight || "30px",
+                        transition: "height 0.5s ease-in-out",
+                        display: props.Icon ? "block" : "none",
+                      }}
+                    />
+                  )}
+                </Box>
+
                 <Typography
                   sx={{
                     mt: 1,

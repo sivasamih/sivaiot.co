@@ -10,12 +10,12 @@ import ProductSearchBox from "./productsearchBox";
 const PartnerProductListing = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [IsExpandAll, setIsExpandAll] = useState(false);
-  const [Category, setCategories] = useState([]);
+  const [Category, setCategories] = useState(props.Categories ? props.Categories : []);
 
   useEffect(() => {
     const C = props.Categories ? props.Categories : [];
     setCategories(C);
-  }, []);
+  }, [props.Categories]);
 
   const filterData = () => {
     let filterList = [];
@@ -118,7 +118,7 @@ const PartnerProductListing = (props) => {
         {filterData().map((item, i) => {
           return (
             <Box
-              key={'header-' +i}
+              key={"header-" + i}
               sx={{
                 borderTop: (i + 1) % 2 === 0 ? "3rem solid #F2F4F7" : "nooe",
                 borderRight:
@@ -178,7 +178,7 @@ const PartnerProductListing = (props) => {
                             return (
                               <Box
                                 id={P.link}
-                                key={'productList-' + index}
+                                key={"productList-" + index}
                               >
                                 <ProductCard
                                   ID={P.ID}

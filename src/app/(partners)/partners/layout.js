@@ -73,182 +73,186 @@ const ParterLayout = ({ children }) => {
   return (
     <>
       <AnimatePresence>
-        <div ref={navRef}>
-          <PartnerNavBar />
-        </div>
-        <Grid
-          container
-          spacing={0}
-          justifyContent={"stretch"}
-        >
+        <div>
+          <div ref={navRef}>
+            <PartnerNavBar />
+          </div>
           <Grid
-            item
-            xs={2}
-            sm={3}
-            md={2.5}
-            lg={2}
-            position={"relative"}
-            sx={{
-              overflow: "hidden",
-              bgcolor: "#42a5f5",
-              background:
-                "linear-gradient(185deg, rgba(28,115,188,1) 0%, rgba(41,129,203,1) 58%, rgba(57,181,74,1) 100%)",
-              display: { xs: "none", md: "block" },
-              height: "100%",
-            }}
+            container
+            spacing={0}
+            justifyContent={"stretch"}
           >
-            <Box height={`calc(100vh - ${boxHeight}px)`}>
-              <Box sx={{ px: 2 }}>
-                <List sx={{ color: "white" }}>
-                  <CustomListButton
-                    currentpath={PathName}
-                    url={"/partners"}
-                    onClick={() => {
-                      // router.push("/partners");
-                      router.push("/partners");
-                    }}
-                  >
-                    <ListItemText primary="Products" />
-                  </CustomListButton>
-                  <Divider />
-                  <CustomListButton
-                    currentpath={PathName}
-                    url={"/partners/rfid-product-families"}
-                    onClick={() => {
-                      router.push("/partners/rfid-product-families");
-                    }}
-                  >
-                    <ListItemText primary="Product Families" />
-                  </CustomListButton>
-                  <Divider />
-                  <CustomListButton
-                    currentpath={PathName}
-                    url={"/partners/nda"}
-                    onClick={() => {
-                      router.push("/partners/nda");
-                    }}
-                  >
-                    <ListItemText primary="NDA" />
-                  </CustomListButton>
-                  <Divider />
-                  <CustomListButton
-                    currentpath={PathName}
-                    url={"/partners/price-list"}
-                    onClick={() => {
-                      router.push("/partners/price-list");
-                    }}
-                  >
-                    <ListItemText primary="Price List" />
-                  </CustomListButton>
-                  <Divider />
-                </List>
-              </Box>
-            </Box>
-            {/* ************------------**************** */}
-            <Box
+            <Grid
+              item
+              xs={2}
+              sm={3}
+              md={2.5}
+              lg={2}
+              position={"relative"}
               sx={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                width: "100%",
-                bgcolor: "#37b056ca",
-                boxShadow: "0px -5px 5px rgba(0, 0, 0, 0.5)",
+                overflow: "hidden",
+                bgcolor: "#42a5f5",
+                background:
+                  "linear-gradient(185deg, rgba(28,115,188,1) 0%, rgba(41,129,203,1) 58%, rgba(57,181,74,1) 100%)",
+                display: { xs: "none", md: "block" },
+                height: "100%",
               }}
             >
-              <List
+              <Box height={`calc(100vh - ${boxHeight}px)`}>
+                <Box sx={{ px: 2 }}>
+                  <List sx={{ color: "white" }}>
+                    <CustomListButton
+                      currentpath={PathName}
+                      url={"/partners"}
+                      onClick={() => {
+                        // router.push("/partners");
+                        router.push("/partners");
+                      }}
+                    >
+                      <ListItemText primary="Products" />
+                    </CustomListButton>
+                    <Divider />
+                    <CustomListButton
+                      currentpath={PathName}
+                      url={"/partners/rfid-product-families"}
+                      onClick={() => {
+                        router.push("/partners/rfid-product-families");
+                      }}
+                    >
+                      <ListItemText primary="Product Families" />
+                    </CustomListButton>
+                    <Divider />
+                    <CustomListButton
+                      currentpath={PathName}
+                      url={"/partners/nda"}
+                      onClick={() => {
+                        router.push("/partners/nda");
+                      }}
+                    >
+                      <ListItemText primary="NDA" />
+                    </CustomListButton>
+                    <Divider />
+                    <CustomListButton
+                      currentpath={PathName}
+                      url={"/partners/price-list"}
+                      onClick={() => {
+                        router.push("/partners/price-list");
+                      }}
+                    >
+                      <ListItemText primary="Price List" />
+                    </CustomListButton>
+                    <Divider />
+                  </List>
+                </Box>
+              </Box>
+              {/* ************------------**************** */}
+              <Box
                 sx={{
-                  display: "flex",
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
                   width: "100%",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  px: 4,
-                  gap: 2,
+                  bgcolor: "#37b056ca",
+                  boxShadow: "0px -5px 5px rgba(0, 0, 0, 0.5)",
                 }}
               >
-                {/* SIVA Group Link */}
-                <ListItem
+                <List
                   sx={{
-                    "--size": "6px",
-                    p: 0,
-                    pl: 1,
-                    textAlign: "center",
-                    position: "relative",
-                    textDecoration: "none",
-                    color: "black",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
-                    "&:before": {
-                      content: '""',
-                      position: "absolute",
-                      display: "block",
-                      width: "var(--size)",
-                      height: "var(--size)",
-                      borderRadius: "50%",
-                      bgcolor: "black",
-                      top: "50%",
-                      left: -5,
-                      transform: "translate(0, -50%)",
-                    },
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    px: 4,
+                    gap: 2,
                   }}
-                  component={Link}
-                  href="https://sivagroup.co/"
-                  title="SIVA Group"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
-                  SIVA Group
-                </ListItem>
+                  {/* SIVA Group Link */}
+                  <ListItem
+                    sx={{
+                      "--size": "6px",
+                      p: 0,
+                      pl: 1,
+                      textAlign: "center",
+                      position: "relative",
+                      textDecoration: "none",
+                      color: "black",
+                      fontSize: "calc(.5rem + 0.5vw)",
+                      "&:hover": {
+                        textDecoration: "underline",
+                      },
+                      "&:before": {
+                        content: '""',
+                        position: "absolute",
+                        display: "block",
+                        width: "var(--size)",
+                        height: "var(--size)",
+                        borderRadius: "50%",
+                        bgcolor: "black",
+                        top: "50%",
+                        left: -5,
+                        transform: "translate(0, -50%)",
+                      },
+                    }}
+                    component={Link}
+                    href="https://sivagroup.co/"
+                    title="SIVA Group"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    SIVA Group
+                  </ListItem>
 
-                {/* Contact Item */}
-                <ListItem
-                  sx={{
-                    "--size": "6px",
-                    p: 0,
-                    pl: 1,
-                    cursor: "pointer",
-                    position: "relative",
-                    textAlign: "center",
-                    color: "black",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
-                    "&:before": {
-                      content: '""',
-                      position: "absolute",
-                      display: "block",
-                      width: "var(--size)",
-                      height: "var(--size)",
-                      borderRadius: "50%",
-                      bgcolor: "black",
-                      top: "50%",
-                      left: -5,
-                      transform: "translate(0, -50%)",
-                    },
-                  }}
-                  onClick={() => setOpenContactInfo(true)}
-                  title="Contact"
-                >
-                  Contact
-                </ListItem>
-              </List>
-            </Box>
+                  {/* Contact Item */}
+                  <ListItem
+                    sx={{
+                      "--size": "6px",
+                      p: 0,
+                      pl: 1,
+                      cursor: "pointer",
+                      position: "relative",
+                      textAlign: "center",
+                      color: "black",
+                      fontSize: "calc(.5rem + 0.5vw)",
+                      "&:hover": {
+                        textDecoration: "underline",
+                      },
+                      "&:before": {
+                        content: '""',
+                        position: "absolute",
+                        display: "block",
+                        width: "var(--size)",
+                        height: "var(--size)",
+                        borderRadius: "50%",
+                        bgcolor: "black",
+                        top: "50%",
+                        left: -5,
+                        transform: "translate(0, -50%)",
+                      },
+                    }}
+                    onClick={() => setOpenContactInfo(true)}
+                    title="Contact"
+                  >
+                    Contact
+                  </ListItem>
+                </List>
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={9.5}
+              lg={10}
+              height={`calc(100vh - ${boxHeight}px)`}
+              overflow={"auto"}
+              sx={{
+                transition: "0.3s linear",
+              }}
+            >
+              <Box>{children}</Box>
+            </Grid>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={9.5}
-            lg={10}
-            height={`calc(100vh - ${boxHeight}px)`}
-            overflow={"auto"}
-            sx={{
-              transition: "0.3s linear",
-            }}
-          >
-            <Box>{children}</Box>
-          </Grid>
-        </Grid>
+        </div>
       </AnimatePresence>
 
       <CustomModal2
@@ -258,7 +262,7 @@ const ParterLayout = ({ children }) => {
         }}
         Header={"Contact Info"}
         Content={
-          <Box sx={{p:2}}>
+          <Box sx={{ p: 2 }}>
             <ContactInfo />
           </Box>
         }

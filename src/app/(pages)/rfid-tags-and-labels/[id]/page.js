@@ -10,7 +10,6 @@ import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
-
 async function GetProductDetailsByUrlName(url) {
   let data;
   const reqData = { UrlName: url };
@@ -86,6 +85,7 @@ export async function generateMetadata({ params }) {
 const ProductDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
+  console.log("ProductData>>>1",ProductData)
   if (!ProductData) return notFound();
 
   return (
@@ -99,11 +99,10 @@ const ProductDetailsPage = async ({ params }) => {
       >
         <Title5
           title={ProductData["Name"]}
+          Icon={APIURLS.BASE_PATH.Product + ProductData["Icon"]}
+          IsShowIcon={ProductData["IsShowIcon"]}
           currentPageName={ProductData["Name"]}
-          Breadcrumb={[
-            { name: "Home", url: "/" },
-            { name: "Products", url: Route_Path.PRODUCTS },
-          ]}
+          Breadcrumb={[{ name: "Home", url: "/" }, {name: "Products",url: Route_Path.PRODUCTS }]}
         />
       </Box>
       <Container>
@@ -148,10 +147,7 @@ const ProductDetailsPage = async ({ params }) => {
                         sx={{ maxHeight: 450 }}
                       >
                         <img
-                          src={
-                            "https://sivafiles.sivagroup.co/1/images/productpage/" +
-                            item.ProductImage
-                          }
+                          src={APIURLS.BASE_PATH.Product + item.ProductImage}
                           alt={item.alt}
                           width={"100%"}
                           height={"100%"}

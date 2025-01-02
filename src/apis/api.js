@@ -11,8 +11,8 @@ export const Route_Path = {
   PRODUCT_FAMILY: "/rfid-product-families",
   PRODUCT_FAMILY_DETAILS: "/rfid-product-families-details",
   // PRODUCT_FAMILY_URL: "/rfid-product-families/:URL",
-  Application:"/applications",
-  Applications_details:'/applications-details',
+  Application: "/applications",
+  Applications_details: "/applications-details",
   ABOUT: "/about-siva-iot",
   CAREERS: "/careers",
   LEADERSHIP: "/leadership",
@@ -30,7 +30,7 @@ export const Route_Path = {
   DATASHEET: "/datasheet",
   WB: "/wb",
   RFID_ACCESS_CONTROL: "/rfid-access-control",
-  THERMAL_RFID_EVENT_TICKETING:'/thermal-rfid-event-ticketing',
+  THERMAL_RFID_EVENT_TICKETING: "/thermal-rfid-event-ticketing",
   WB_WRISTBANDS: "/wb/wristbands",
   WB_CARD_KEYS_FOBS: "/wb/card-keys-fobs",
   WB_ULTIMOID_DIRECTTHERMAL: "/wb/ultimoiddirectthermal",
@@ -42,11 +42,13 @@ export const Route_Path = {
   WB_POLY_IN_SHEETS: "/wb/poly-in-sheets",
   PARTNERS: "/partners",
   PORTAL: "/portal",
-  PARTNER_LOGIN:"/partners-login",
-  PROFILE:'/profile',
-  PRICE_LIST:'/price-list',
-  NDA:'/nda',
+  PARTNER_LOGIN: "/partners-login",
+  PROFILE: "/profile",
+  PRICE_LIST: "/price-list",
+  NDA: "/nda",
+  BLOCK: "/block",
   WRONG_PATH: "*",
 };
 
 export const IPList = ["27.107.144.250", "103.245.70.171"];
+export const restrictedCountries = ["CN"];

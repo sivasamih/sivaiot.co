@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Card, Fab, Typography, Button, InputAdornment } from "@mui/material";
 import { Box } from "@mui/system";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,7 +34,6 @@ export default function GotQuestion(props) {
   };
 
   useEffect(() => {
-    console.log("window.location",window.location.href)
     if (IOT_PU) {
       setName(IOT_PU.UserName);
       setEmail(IOT_PU.EmailID);
@@ -120,7 +119,8 @@ export default function GotQuestion(props) {
           phone: "",
           message: message,
           company_website: "",
-          visitingPage:window.location.href}),
+          visitingPage: window.location.href,
+        }),
       },
     };
     setIsLoading(true);
@@ -197,13 +197,19 @@ export default function GotQuestion(props) {
           position: "fixed",
           bottom: "4%",
           right: "2%",
-          zIndex: 999,
-        }}>
+          zIndex: 1100,
+        }}
+        component={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+      >
         {/* <ClickAwayListener onClickAway={() => setIsOpen(false)}> */}
         <motion.div
           initial={false}
           animate={isOpen ? { marginBottom: "20px" } : { marginBottom: 0 }}
-          transition={{ duration: 0.5 }}>
+          transition={{ duration: 0.5 }}
+        >
           <Box
             sx={{
               display: "flex",
@@ -212,7 +218,8 @@ export default function GotQuestion(props) {
               gap: 1,
               justifyContent: "end",
               alignItems: "center",
-            }}>
+            }}
+          >
             {!isOpen && (
               <Button
                 onClick={() => setIsOpen((prev) => !prev)}
@@ -227,14 +234,16 @@ export default function GotQuestion(props) {
                   color: "var(--white)",
                   textTransform: "capitalize",
                 }}
-                style={{ backgroundColor: "var(--blue)" }}>
+                style={{ backgroundColor: "var(--blue)" }}
+              >
                 Any questions?
               </Button>
             )}
             <Fab
               color="primary"
               aria-label="notify"
-              onClick={() => setIsOpen((prev) => !prev)}>
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               {isOpen ? (
                 <Close />
               ) : (
@@ -256,14 +265,16 @@ export default function GotQuestion(props) {
                   p: 0,
                   maxWidth: { xs: 280, md: 300 },
                   overflow: "hidden",
-                }}>
+                }}
+              >
                 <Box sx={{ p: 2 }}>
                   <Typography
                     sx={{
                       borderBottom: 1,
                       mb: 1,
                       fontSize: "calc(0.5rem + 1vw)",
-                    }}>
+                    }}
+                  >
                     Got a question?
                   </Typography>
                   <Typography>
@@ -293,12 +304,14 @@ export default function GotQuestion(props) {
                           endAdornment: (
                             <InputAdornment
                               position="end"
-                              sx={{ pr: 0, mr: -1 }}>
+                              sx={{ pr: 0, mr: -1 }}
+                            >
                               {!IsEmailValidate && (
                                 <Button
                                   size="small"
                                   variant="outlined"
-                                  onClick={handleEmailVerify}>
+                                  onClick={handleEmailVerify}
+                                >
                                   Verify
                                 </Button>
                               )}
@@ -319,11 +332,13 @@ export default function GotQuestion(props) {
                           endAdornment: (
                             <InputAdornment
                               position="end"
-                              sx={{ pr: 0, mr: -1 }}>
+                              sx={{ pr: 0, mr: -1 }}
+                            >
                               <Button
                                 size="small"
                                 variant="outlined"
-                                onClick={handleOtpValidate}>
+                                onClick={handleOtpValidate}
+                              >
                                 Validate
                               </Button>
                             </InputAdornment>
@@ -356,7 +371,8 @@ export default function GotQuestion(props) {
                       size="small"
                       sx={{ mt: 1 }}
                       onClick={handleSubmit}
-                      disabled={!IsEmailValidate}>
+                      disabled={!IsEmailValidate}
+                    >
                       Submit
                     </Button>{" "}
                     <Button
@@ -364,7 +380,8 @@ export default function GotQuestion(props) {
                       fullWidth
                       size="small"
                       sx={{ mt: 1 }}
-                      onClick={handleReset}>
+                      onClick={handleReset}
+                    >
                       Reset
                     </Button>
                   </Box>

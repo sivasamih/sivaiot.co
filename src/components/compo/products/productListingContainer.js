@@ -130,15 +130,16 @@ const ProductListingContainer = (props) => {
                     ? "3rem solid #F2F4F7"
                     : "3rem solid transparent",
                 borderBottom: (i + 1) % 2 === 0 ? "3rem solid #F2F4F7" : "nooe",
+                borderWidth:{xs:'1.5rem',md:'3rem'},
                 position: "relative",
                 "&:before": {
                   content: "''",
                   position: "absolute",
-                  top: "-3rem",
-                  right: "-3rem",
+                  top: {xs:'-1.5rem',md:'-3rem'},
+                  right: {xs:'-1.5rem',md:'-3rem'},
                   bgcolor: "#F2F4F7",
-                  width: { xs: "3rem", md: "3rem" },
-                  height: "3rem",
+                  width:  {xs:'1.5rem',md:'3rem'},
+                  height:  {xs:'1.5rem',md:'3rem'},
                 },
                 py: 3,
               }}
@@ -194,6 +195,8 @@ const ProductListingContainer = (props) => {
                                   IsClickable={item.IsClickable}
                                   IsExternalURL={P.IsExternalURL}
                                   IsNew={P.IsNew}
+                                  Icon={APIURLS.BASE_PATH.Product + P.Icon}
+                                  IsShowIcon={P.IsShowIcon}
                                 />
                               </Box>
                             );
