@@ -121,7 +121,6 @@ const ProductCard = (props) => {
                       position: "relative",
                     }}
                     dangerouslySetInnerHTML={{ __html: props.ProductName }}
-                    ref={(el) => (this.productNameElement = el)}
                   />
 
                   {props.IsShowIcon && (
@@ -129,10 +128,8 @@ const ProductCard = (props) => {
                       component="img"
                       src={props.Icon}
                       sx={{
-                        width: this.productNameElement?.offsetHeight || "30px",
-                        // maxWidth: "25px",
-                        // height: this.productNameElement?.offsetHeight + "10" || "auto",
-                        height: this.productNameElement?.offsetHeight || "30px",
+                        width: "30px",
+                        height: "30px",
                         transition: "height 0.5s ease-in-out",
                         display: props.Icon ? "block" : "none",
                       }}
