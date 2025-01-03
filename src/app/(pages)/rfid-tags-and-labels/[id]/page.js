@@ -85,7 +85,6 @@ export async function generateMetadata({ params }) {
 const ProductDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
-  console.log("ProductData>>>1",ProductData)
   if (!ProductData) return notFound();
 
   return (
@@ -102,7 +101,7 @@ const ProductDetailsPage = async ({ params }) => {
           Icon={APIURLS.BASE_PATH.Product + ProductData["Icon"]}
           IsShowIcon={ProductData["IsShowIcon"]}
           currentPageName={ProductData["Name"]}
-          Breadcrumb={[{ name: "Home", url: "/" }, {name: "Products",url: Route_Path.PRODUCTS }]}
+          Breadcrumb={[{ name: "Home", url: "/" },{ name: "Products", url: Route_Path.PRODUCTS }]}
         />
       </Box>
       <Container>
@@ -143,17 +142,15 @@ const ProductDetailsPage = async ({ params }) => {
                   Content={ProductData["ImageList"]?.map((item, index) => {
                     return (
                       <Box
+                        component={"img"}
                         key={index}
                         sx={{ maxHeight: 450 }}
-                      >
-                        <img
-                          src={APIURLS.BASE_PATH.Product + item.ProductImage}
-                          alt={item.alt}
-                          width={"100%"}
-                          height={"100%"}
-                          style={{ objectFit: "cover" }}
-                        />
-                      </Box>
+                        src={APIURLS.BASE_PATH.ProductImage + item.ProductImage}
+                        alt={item.alt}
+                        width={"100%"}
+                        height={"100%"}
+                        style={{ objectFit: "cover" }}
+                      />
                     );
                   })}
                 />
