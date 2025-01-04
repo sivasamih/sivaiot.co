@@ -63,7 +63,8 @@ const PartnerNavBar = () => {
             px: { xs: 0, md: 4 },
             py: 2,
             top: 0,
-            zIndex: (theme) => theme.zIndex.drawer + 1,
+            // zIndex: (theme) => theme.zIndex.drawer + 1,
+            zIndex:1000,
           }}
         >
           <Toolbar>
@@ -111,8 +112,8 @@ const PartnerNavBar = () => {
                   size="small"
                   onClick={() => {
                     removeLocalStorage();
-                    window.close()
-                    // router.push("/");
+                    // window.close()
+                    router.push(Route_Path.PARTNER_LOGIN);
                   }}
                 >
                   Logout

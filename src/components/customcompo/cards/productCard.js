@@ -5,6 +5,8 @@ import * as APIURLS from "@/apis/apiconstant";
 import DatasheetButton from "@/components/compo/datasheet/datasheetbutton";
 import ProductlistWraper from "@/components/animatedwrapper/productlistwraper";
 import Link from "next/link";
+import NewIcon from "../images/newicon";
+import TitleIcons from "../images/titleicons";
 
 const ProductCard = (props) => {
   return (
@@ -123,18 +125,8 @@ const ProductCard = (props) => {
                     dangerouslySetInnerHTML={{ __html: props.ProductName }}
                   />
 
-                  {props.IsShowIcon && (
-                    <Box
-                      component="img"
-                      src={props.Icon}
-                      sx={{
-                        width: "30px",
-                        height: "30px",
-                        transition: "height 0.5s ease-in-out",
-                        display: props.Icon ? "block" : "none",
-                      }}
-                    />
-                  )}
+                  {props.IsShowIcon && <TitleIcons Icon={props.Icon} />}
+                  {props.IsNew && <NewIcon />}
                 </Box>
 
                 <Typography

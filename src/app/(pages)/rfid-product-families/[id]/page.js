@@ -132,7 +132,7 @@ const FamiliesDetails = async ({ params }) => {
             id={product.link}
           >
             <ProductCard
-              ProductImage={`${APIURLS.BASE_PATH.ProductImage}${product.ImageList?.[0]?.ProductImage}`}
+              ProductImage={ APIURLS.BASE_PATH.Product + product.image}
               ProductImageAlt={product.ImageList?.[0]?.Alt || ""}
               ProductName={product.name}
               ProductDesc={product.desc}
