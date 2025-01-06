@@ -125,8 +125,8 @@ const ProductCard = (props) => {
                   />
 
                   {props.IsShowIcon && <TitleIcons Icon={props.Icon} />}
-                  {props.IsShowIcon && <NewIcon />}
-                  {props.IsNew && <NewIcon />}
+                  {/* {props.IsShowIcon && <NewIcon />} */}
+                  {props.IsNew === true ? <NewIcon /> : null}
                 </Box>
 
                 <Box
