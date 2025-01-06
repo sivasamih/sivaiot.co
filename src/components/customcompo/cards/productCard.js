@@ -106,8 +106,7 @@ const ProductCard = (props) => {
                     gap: 1,
                   }}
                 >
-                  <Typography
-                    component="h5"
+                  <Box
                     sx={{
                       fontFamily: "LibreBaskerville",
                       color: "var(--headerColor)",
@@ -129,7 +128,7 @@ const ProductCard = (props) => {
                   {props.IsNew && <NewIcon />}
                 </Box>
 
-                <Typography
+                <Box
                   sx={{
                     mt: 1,
                     fontFamily: "LucidaGrande",
