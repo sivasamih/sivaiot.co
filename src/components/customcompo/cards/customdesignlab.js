@@ -3,9 +3,10 @@ import { Box } from "@mui/system";
 import { motion } from "framer-motion";
 import LazyImage from "../customimage/customLazyImage";
 import * as APIURLS from "@/apis/apiconstant";
+import Link from "next/link";
+import { Route_Path } from "@/apis/api";
 
 const CustomDesignLab = (props) => {
-
   return (
     <Card
       sx={{
@@ -19,16 +20,20 @@ const CustomDesignLab = (props) => {
       }}
       component={motion.div}
       whileHover={{ scale: 1.04 }}
-      transition={{ duration: 0.5 }}>
+      transition={{ duration: 0.5 }}
+    >
       <Typography
         gutterBottom
         variant="h5"
-        component="div"
         sx={{
           textAlign: "center",
           fontSize: "calc(1rem + 1vw)",
           color: "var(--headerColor)",
-        }}>
+          textDecoration: "none",
+        }}
+        component={Link}
+        href={Route_Path.DESIGN_LAB}
+      >
         {props.Title}
       </Typography>
 
@@ -41,8 +46,8 @@ const CustomDesignLab = (props) => {
             position: "relative",
             // "&:hover": { cursor: "pointer" },
           }}
-          // component={NavLink} to={"/design-lab"}
-          // onClick={() => navigate("/design-lab")}
+          component={Link}
+          href={Route_Path.DESIGN_LAB}
         >
           <LazyImage
             src={APIURLS.BASE_PATH.OthersImage + "design_lab_160_160px.webp"}
@@ -63,7 +68,11 @@ const CustomDesignLab = (props) => {
             lineHeight: 1.2,
             textAlign: "center",
             color: "var(--headerColor)",
-          }}>
+            textDecoration: "none",
+          }}
+          component={Link}
+          href={Route_Path.DESIGN_LAB}
+        >
           {props.Description}
         </Typography>
       </CardContent>

@@ -8,9 +8,12 @@ import { Route_Path } from "@/apis/api";
 import { useEffect } from "react";
 import LoginProvider from "@/contextapi/loginuserprovider";
 import GotQuestion from "@/components/compo/GotQuestion/gotquestions";
+import useMobileLandscape from "./hooks/mobileLandscape";
+import RotateWarning from "@/components/compo/roratewarning/rotatewarning";
 
 export default function CustomLayOut({ children }) {
   const pathName = usePathname();
+  const isMobileLandscape = useMobileLandscape();
   const hideNavBar = [
     Route_Path.PARTNERS,
     Route_Path.PARTNER_LOGIN,
@@ -28,6 +31,14 @@ export default function CustomLayOut({ children }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathName]);
+
+  if (isMobileLandscape) {
+    return (
+      <>
+        <RotateWarning />
+      </>
+    );
+  }
 
   return (
     <>

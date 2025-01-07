@@ -106,7 +106,7 @@ const ProductCard = (props) => {
                     gap: 1,
                   }}
                 >
-                  <Box
+                  <Typography
                     sx={{
                       fontFamily: "LibreBaskerville",
                       color: "var(--headerColor)",
@@ -117,16 +117,28 @@ const ProductCard = (props) => {
                       // lineHeight:1,
                       fontWeight: "bold",
                       transition: "0.5s ease-in-out",
-                      display: "block",
                       textDecoration: "none",
                       position: "relative",
                     }}
-                    dangerouslySetInnerHTML={{ __html: props.ProductName }}
-                  />
-
-                  {props.IsShowIcon && <TitleIcons Icon={props.Icon} />}
-                  {/* {props.IsShowIcon && <NewIcon />} */}
-                  {props.IsNew === true ? <NewIcon /> : null}
+                    // dangerouslySetInnerHTML={{ __html: props.ProductName }}
+                  >
+                    {props.ProductName}
+                    {props.IsShowIcon && (
+                      <img
+                        src={props.Icon}
+                        style={{
+                          width: "30px",
+                          height: "30px",
+                          transition: "height 0.5s ease-in-out",
+                          verticalAlign: "bottom",
+                          margin: "0 0 0 5px",
+                        }}
+                      />
+                    )}
+                    {props.IsNew === true ? (
+                      <img src={APIURLS.BASE_PATH.Others + "new_icon.gif"} style={{margin: "0 0 0 5px",}} />
+                    ) : null}
+                  </Typography>
                 </Box>
 
                 <Box

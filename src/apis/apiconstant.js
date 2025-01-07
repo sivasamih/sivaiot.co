@@ -42,4 +42,5 @@ export const BASE_PATH = {
   NewsImage: basepath + "images/news/",
   WB: basepath + "images/wb/",
   Others: basepath + "others/",
+  DesignLabImages: basepath + "images/design-lab/",
 };

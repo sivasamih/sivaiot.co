@@ -1,5 +1,6 @@
 import Icons from "../constants/icon";
 import { IPList, Route_Path } from "../apis/api";
+import { BASE_PATH } from "@/apis/apiconstant";
 
 export const Navlist = [
   {
@@ -788,3 +789,31 @@ export const HighlightText = (text, query) => {
   const regex = new RegExp(`(${query})`, "gi");
   return text.replace(regex, "<mark>$1</mark>");
 };
+
+export const CustomizedServiceList = [
+  {
+    Title: "Antenna Designing",
+    Description:
+      "SIVA deploys the absolute best in antenna design software + RF engineers to design finely tuned UHF/NFC antennas and can also offer antenna on alternative substrates like paper. SIVA offers a wide variety of IC’s from NXP / Impinj / STM / EM / RF Micron and others.",
+    Image: BASE_PATH.DesignLabImages +"design-lab-2.png",
+  },
+  {
+    Title: "Fast Prototyping",
+    Description:
+      "Our R&D lab is equipped to provide fast prototyping. Samples with custom designed antenna can be offered within days. Hard tag prototyping is also possible, and our setup enables lower cost prototyping. Prototyping gives customers a good sense of the look & feel of the tag and its performance prior to scaling up for commercial production.",
+    Image: BASE_PATH.DesignLabImages + "design-lab-1.png",
+    video: BASE_PATH.DesignLabImages + "video.mp4",
+  },
+  {
+    Title: "R&D based in the factory",
+    Description:
+      "Our R&D team is based within the factory, close to production machinery and this enables R&D on production machines, obtaining critical feedback from production teams, vital to the successful development of custom labels & tags. Whether it is converting or personalisation related, development needs to be done ensuring end-to-end process compatibility.",
+    Image: BASE_PATH.DesignLabImages + "rnd.png",
+  },
+  {
+    Title: "Alternative substrates",
+    Description:
+      "SIVA can develop labels made using a variety of flexible substrates, but can also offer eco-friendly sustainable labels such as Plastic-Free Paper labels. Such labels eliminate the need for the transparent PET carrier antenna film. For several specific applications, SIVA can apply antennas “direct-to-substrate”.  This provides a wide scope of development.",
+    Image: BASE_PATH.DesignLabImages + "Personaliztion.png",
+  },
+];
