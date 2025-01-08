@@ -61,7 +61,8 @@ const ProductListingContainer = (props) => {
   const highlightText = (text, query) => {
     if (!query) return text;
     const regex = new RegExp(`(${query})`, "gi");
-    return text.replace(regex, "<mark>$1</mark>");
+    // return text.replace(regex, "<mark>$1</mark>");
+    return text;
   };
 
   const handleAccExpand = (id) => {
