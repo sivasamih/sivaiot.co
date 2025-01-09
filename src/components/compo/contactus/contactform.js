@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { Box } from "@mui/system";
 import CustomTextField from "@/components/customcompo/custominputfield/textfield";
@@ -98,21 +98,18 @@ const ContactForm = () => {
           isChecked: false,
           JsonData: JSON.stringify({
             email: formData["Email"],
-            name: formData["Name"].slice(0,50),
-            subject: formData["Subject"].slice(0,220),
-            company: formData["CompanyName"].slice(0,50),
-            phone: formData["Phone"].slice(0,20),
+            name: formData["Name"].slice(0, 50),
+            subject: formData["Subject"].slice(0, 220),
+            company: formData["CompanyName"].slice(0, 50),
+            phone: formData["Phone"].slice(0, 20),
             message: formData["Message"],
-            company_website: formData["CompanyWebsite"].slice(0,50),
+            company_website: formData["CompanyWebsite"].slice(0, 50),
           }),
         },
       };
       setIsLoading(true);
 
-      let res = await FETCHAPI.Fetch(
-        APIURLS.APIURL.Add_Update_WebsiteData,
-        reqData
-      );
+      let res = await FETCHAPI.Fetch(APIURLS.APIURL.Add_Update_WebsiteData, reqData);
       if (res.status === 200) {
         setTimeout(() => {
           setIsLoading(false);
@@ -151,10 +148,7 @@ const ContactForm = () => {
         let res = await FETCHAPI.Fetch(APIURLS.APIURL.Registration, reqData);
         if (res.status === 200) {
           setIsLoading(false);
-          showSnackbar(
-            "A One Time Password has been sent to your Email",
-            "success"
-          );
+          showSnackbar("A One Time Password has been sent to your Email", "success");
           setIsOTPvisiable(true);
         } else {
           setIsLoading(false);
@@ -181,10 +175,7 @@ const ContactForm = () => {
         setIsLoading(false);
         setIsOTPvisiable(false);
         setIsEmailValidate(true);
-        showSnackbar(
-          "One Time Password successfully validated. Please fill in the details below",
-          "success"
-        );
+        showSnackbar("One Time Password successfully validated. Please fill in the details below", "success");
       } else {
         showSnackbar("OTP is not valid", "error");
         setIsLoading(false);
@@ -215,7 +206,10 @@ const ContactForm = () => {
         message={snackbarMessage}
       />
       <Loading open={isLoading} />
-      <Box component="form" sx={{ width: "100%" }} onSubmit={handleSubmit}>
+      <Box
+        component="form"
+        sx={{ width: "100%" }}
+        onSubmit={handleSubmit}>
         <Title4 text={"Write to us"} />
         <Box
           sx={{
@@ -249,7 +243,9 @@ const ContactForm = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Button variant="contained" onClick={handleVarify}>
+                    <Button
+                      variant="contained"
+                      onClick={handleVarify}>
                       Verify
                     </Button>
                   </InputAdornment>
@@ -270,7 +266,9 @@ const ContactForm = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Button variant="contained" onClick={handleValidate}>
+                    <Button
+                      variant="contained"
+                      onClick={handleValidate}>
                       Validate
                     </Button>
                   </InputAdornment>

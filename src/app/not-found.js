@@ -1,101 +1,137 @@
 "use client";
-import { Box, Button, Grid, Grow, Typography } from "@mui/material";
-import Image from "next/image";
-import { Clear, Home } from "@mui/icons-material";
+import { Box, Grid, Typography } from "@mui/material";
+import { Route_Path } from "@/apis/api";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { scrollByID } from "@/helper/helper";
+import { motion } from "framer-motion";
+import { BASE_PATH } from "@/apis/apiconstant";
 
 const NotFound = () => {
+  const imageVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
+  const textContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
   return (
     <>
-      <Grow
-        in={true}
-        style={{ transformOrigin: "center" }}
-        timeout={1000}
-      >
+      <Grid
+        container
+        spacing={0}
+        sx={{ overflow: "hidden" }}>
         <Grid
-          container
-          spacing={0}
-          sx={{ maxHeight: "100vh", overflow: "hidden" }}
-        >
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{ bgcolor: "#9ca0db9a", color: "white" }}
-          >
+          item
+          xs={12}
+          md={7}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={imageVariants}>
             <Box
-              sx={{
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <Box sx={{ py: 12 }}>
-                <Typography>
-                  <Clear
-                    color="error"
-                    sx={{ fontSize: 150, pb: 5 }}
-                  />
-                </Typography>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    textTransform: "uppercase",
-                    color: "#ED2027",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Page not found !
-                </Typography>
-                <Typography sx={{ py: 2, color: "black" }}>
-                  The page are you looking for was moved,removed,renamed or
-                  might never existed
-                </Typography>
-                <Button
-                  components={Link}
-                  title="Home"
-                  href="/"
-                  startIcon={<Home />}
-                  variant="contained"
-                  sx={{
-                    borderRadius: 20,
-                    bgcolor: "#2F358F",
-                    "&:hover": {
-                      bgcolor: "#2F358F",
-                    },
-                  }}
-                >
-                  {" "}
-                  Home
-                </Button>
-              </Box>
-            </Box>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{ display: { xs: "none", md: "block" } }}
-          >
-            <Box sx={{ p: 10 }}>
-              <Image
-                alt="page_not_found"
-                src={"/images/page-not-found.png"}
-                layout="responsive"
-                width={0}
-                height={0}
-                priorit={"true"}
-                loading="eager"
-                fetchPriority="high"
-                style={{ width: "100%" }}
-              />
-            </Box>
-          </Grid>
+              component={"img"}
+              alt="ErrorImage"
+              src={BASE_PATH.Others + "error_backgroud.png"}
+              width={"100%"}
+            />
+          </motion.div>
         </Grid>
-      </Grow>
+        <Grid
+          item
+          xs={12}
+          md={5}
+          sx={{ color: "white" }}>
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              bgcolor: "#e3effa",
+              p: 4,
+            }}>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={textContainerVariants}>
+              <motion.div variants={textVariants}>
+                <Typography
+                  sx={{
+                    color: "var(--headerColor)",
+                    fontWeight: "bold",
+                    fontSize: { xs: "calc(1rem + 1vw)", md: "calc(1rem + 1vw)" },
+                  }}>
+                  You ended at the wrong place!
+                </Typography>
+              </motion.div>
+              <motion.div variants={textVariants}>
+                <Typography
+                  sx={{
+                    color: "black",
+                    fontSize: { xs: "calc(0.7rem + 1vw)", md: "calc(0.5rem + 1vw)" },
+                  }}>
+                  Feel free to
+                  <Typography
+                    component={"span"}
+                    sx={{
+                      textDecoration: "none",
+                      color: "var(--green)",
+                      fontSize: { xs: "calc(0.7rem + 1vw)", md: "calc(0.5rem + 1vw)" },
+                      px: 0.5,
+                      cursor: "pointer",
+                    }}
+                    onClick={() => {
+                      setTimeout(() => {
+                        scrollByID("Contact_us");
+                      }, 150);
+                      redirect(Route_Path.RFID_CONTACT);
+                    }}>
+                    reach out
+                  </Typography>
+                  to us with your queries!
+                </Typography>
+              </motion.div>
+              <motion.div variants={textVariants}>
+                <Typography
+                  sx={{
+                    color: "black",
+                    fontSize: { xs: "calc(0.7rem + 1vw)", md: "calc(0.5rem + 1vw)" },
+                  }}>
+                  Visit
+                  <Typography
+                    component={Link}
+                    sx={{
+                      textDecoration: "none",
+                      color: "var(--green)",
+                      fontSize: { xs: "calc(0.7rem + 1vw)", md: "calc(0.5rem + 1vw)" },
+                      px: 0.5,
+                    }}
+                    href={Route_Path.HOME}>
+                    Home
+                  </Typography>
+                  to explore us.
+                </Typography>
+              </motion.div>
+            </motion.div>
+          </Box>
+        </Grid>
+      </Grid>
     </>
   );
 };
+
 export default NotFound;

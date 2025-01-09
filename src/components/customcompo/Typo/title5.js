@@ -1,14 +1,10 @@
 "use client";
 import { Box, Breadcrumbs, Container, Link, Typography } from "@mui/material";
 import { useState } from "react";
+import NewIcon from "../images/newicon";
+import TitleIcons from "../images/titleicons";
 
-const Title5 = ({
-  title = "",
-  Breadcrumb = [],
-  currentPageName = "",
-  IsShowIcon = false,
-  Icon = "",
-}) => {
+const Title5 = ({ title = "", Breadcrumb = [], currentPageName = "", IsShowIcon = false, Icon = "", IsNew = false }) => {
   const [titleHeight, setTitleHight] = useState(null);
   return (
     <Box sx={{ bgcolor: "var(--green)", py: 4 }}>
@@ -19,9 +15,8 @@ const Title5 = ({
             justifyContent: "start",
             alignItems: "center",
             gap: 1,
-          }}
-        >
-          <Typography
+          }}>
+          <Box
             sx={{
               fontSize: {
                 xs: "calc(1rem + 1vw)",
@@ -29,27 +24,16 @@ const Title5 = ({
               },
               fontWeight: "bold",
               color: "white",
+              display: { xs: "initial", md: "flex" },
+              justifyContent: "start",
+              alignItems: "center",
             }}
             component={"h1"}
-            ref={(el) => setTitleHight(el)}
-          >
+            ref={(el) => setTitleHight(el)}>
             {title}
-          </Typography>
-          {IsShowIcon && (
-            <Box
-              component="img"
-              src={Icon}
-              sx={{
-                width: titleHeight?.offsetHeight || "30px",
-                // maxWidth: "25px",
-                // height: this.productNameElement?.offsetHeight + "10" || "auto",
-                height: titleHeight?.offsetHeight || "30px",
-                transition: "height 0.5s ease-in-out",
-                display: Icon ? "block" : "none",
-
-              }}
-            />
-          )}
+            {IsShowIcon && <TitleIcons Icon={Icon} />}
+            {IsNew === true ? <NewIcon /> : null}
+          </Box>
         </Box>
         <Breadcrumbs aria-label="breadcrumb">
           {Breadcrumb?.map((item, index) => {
@@ -59,8 +43,7 @@ const Title5 = ({
                 color="inherit"
                 href={item.url}
                 title={item.name}
-                key={index}
-              >
+                key={index}>
                 {item.name}
               </Link>
             );
@@ -70,8 +53,7 @@ const Title5 = ({
               underline="hover"
               color="text.primary"
               aria-current="page"
-              sx={{ cursor: "default" }}
-            >
+              sx={{ cursor: "default" }}>
               {currentPageName}
             </Typography>
           )}

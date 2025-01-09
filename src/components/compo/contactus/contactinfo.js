@@ -10,7 +10,7 @@ const ContactInfo = () => {
       <Box>
         <Title4 text={"Get In Touch"} />
 
-        <Box sx={{ my: 2 }}>
+        <Box sx={{ mt: 2 }}>
           <Typography
             component={"h1"}
             paragraph
@@ -33,7 +33,7 @@ const ContactInfo = () => {
               columnGap: 2,
             }}
           >
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: 2 }}>
               <Typography
                 sx={{
                   fontSize: {

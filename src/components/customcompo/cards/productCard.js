@@ -9,6 +9,14 @@ import NewIcon from "../images/newicon";
 import TitleIcons from "../images/titleicons";
 
 const ProductCard = (props) => {
+  const ProdutNameWithIcons = (
+    <>
+      <span dangerouslySetInnerHTML={{ __html: props?.ProductName }} />
+      {props.IsShowIcon && <TitleIcons Icon={props.Icon} />}
+      {props.IsNew === true ? <NewIcon /> : null}
+    </>
+  );
+
   return (
     <ProductlistWraper id={props.id}>
       <Box
@@ -19,16 +27,14 @@ const ProductCard = (props) => {
           color: "inherit",
         }}
         component={props.IsClickable && props.url ? Link : "div"}
-        href={props.IsClickable ? props.url : null}
-      >
+        href={props.IsClickable ? props.url : null}>
         <Box
           sx={{
             display: "flex",
             transition: "0.5s ease-out",
             position: "relative",
             flexDirection: { xs: "column", md: "row" },
-          }}
-        >
+          }}>
           <Box
             sx={{
               display: "flex",
@@ -39,8 +45,7 @@ const ProductCard = (props) => {
               pr: { xs: 1, md: 0 },
               "&:hover img": { transform: "scale(1.5)" },
             }}
-            id="img-box"
-          >
+            id="img-box">
             <LazyImage
               src={props.ProductImage}
               alt={props.ProductImageAlt}
@@ -79,8 +84,7 @@ const ProductCard = (props) => {
                 zIndex: 1,
               },
             }}
-            className="details-box"
-          >
+            className="details-box">
             <Box
               sx={{
                 width: "100%",
@@ -95,50 +99,27 @@ const ProductCard = (props) => {
                 justifyContent: "space-between",
                 alignItems: "start",
               }}
-              className="details"
-            >
+              className="details">
               <Box sx={{ pr: { xs: 0, md: 5 } }}>
                 <Box
                   sx={{
-                    display: "flex",
+                    display: { xs: "initial", md: "flex" },
                     justifyContent: "start",
                     alignItems: "center",
-                    gap: 1,
+                    fontFamily: "LibreBaskerville",
+                    color: "var(--headerColor)",
+                    fontSize: {
+                      xs: "calc(1rem + 1vw)",
+                      md: "calc(0.4rem + 1vw)",
+                    },
+                    fontWeight: "bold",
+                    transition: "0.5s ease-in-out",
+                    textDecoration: "none",
+                    position: "relative",
                   }}
+                  // dangerouslySetInnerHTML={{ __html: props.ProductName }}
                 >
-                  <Typography
-                    sx={{
-                      fontFamily: "LibreBaskerville",
-                      color: "var(--headerColor)",
-                      fontSize: {
-                        xs: "calc(1rem + 1vw)",
-                        md: "calc(0.4rem + 1vw)",
-                      },
-                      // lineHeight:1,
-                      fontWeight: "bold",
-                      transition: "0.5s ease-in-out",
-                      textDecoration: "none",
-                      position: "relative",
-                    }}
-                    // dangerouslySetInnerHTML={{ __html: props.ProductName }}
-                  >
-                    {props.ProductName}
-                    {props.IsShowIcon && (
-                      <img
-                        src={props.Icon}
-                        style={{
-                          width: "30px",
-                          height: "30px",
-                          transition: "height 0.5s ease-in-out",
-                          verticalAlign: "bottom",
-                          margin: "0 0 0 5px",
-                        }}
-                      />
-                    )}
-                    {props.IsNew === true ? (
-                      <img src={APIURLS.BASE_PATH.Others + "new_icon.gif"} style={{margin: "0 0 0 5px",}} />
-                    ) : null}
-                  </Typography>
+                  {ProdutNameWithIcons}
                 </Box>
 
                 <Box
@@ -182,11 +163,9 @@ const ProductCard = (props) => {
                         cursor: "pointer",
                       },
                       px: 1,
-                      visibility:
-                        props.Datasheet.length > 0 ? "initial" : "hidden",
+                      visibility: props.Datasheet.length > 0 ? "initial" : "hidden",
                     }}
-                    component={"h5"}
-                  >
+                    component={"h5"}>
                     Download Datasheet
                   </Typography>
                 )}

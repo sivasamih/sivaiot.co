@@ -1,17 +1,18 @@
-import { Box } from "@mui/material";
-
 const TitleIcons = (props) => {
   return (
-    <Box
-      component="img"
+    <img
       src={props.Icon}
-      sx={{
+      alt={props.alt || "icon"}
+      style={{
         width: "30px",
         height: "30px",
         transition: "height 0.5s ease-in-out",
-        display: props.Icon ? "block" : "none",
+        verticalAlign: "bottom",
+        margin: "0 0 0 5px",
+        border: "none",
       }}
     />
   );
 };
+
 export default TitleIcons;

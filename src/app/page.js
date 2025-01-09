@@ -30,7 +30,7 @@ export const metadata = {
   keywords:
     "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
   robots: "index, follow",
-  metadataBase: new URL('https://sivaiot.co'),
+  metadataBase: new URL("https://sivaiot.co"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -82,8 +82,7 @@ const HomePage = async () => {
             sx={{
               py: 3,
               textAlign: { xs: "justify", sm: "left" },
-            }}
-          >
+            }}>
             <TopContent />
           </CustomBox>
         </Container>
@@ -107,8 +106,7 @@ const HomePage = async () => {
             height: "3rem",
             backgroundColor: "var(--borderColor)",
           },
-        }}
-      >
+        }}>
         <Container>
           <Box
             sx={{
@@ -116,8 +114,7 @@ const HomePage = async () => {
               marginRight: "-3rem",
               bgcolor: "white",
               py: 2,
-            }}
-          >
+            }}>
             <PageHeading
               title={"Product Families"}
               component={"h2"}
@@ -149,8 +146,7 @@ const HomePage = async () => {
             height: "3rem",
             backgroundColor: "var(--borderColor)",
           },
-        }}
-      >
+        }}>
         <Container sx={{ pt: 2 }}>
           <Box
             sx={{
@@ -158,8 +154,7 @@ const HomePage = async () => {
               marginRight: "-3rem",
               bgcolor: "white",
               py: 2,
-            }}
-          >
+            }}>
             <PageHeading
               title={"Latest News"}
               component={"h2"}
@@ -168,8 +163,7 @@ const HomePage = async () => {
               sx={{
                 p: 2,
                 bgcolor: "white",
-              }}
-            >
+              }}>
               <NewsSection header={"News"} />
             </Box>
           </Box>
@@ -191,8 +185,7 @@ const HomePage = async () => {
             backgroundColor: "var(--borderColor)",
           },
           py: 2,
-        }}
-      >
+        }}>
         <Container>
           <Box
             sx={{
@@ -200,8 +193,7 @@ const HomePage = async () => {
               marginRight: "-3rem",
               bgcolor: "white",
               py: 2,
-            }}
-          >
+            }}>
             <PageHeading
               title={"Upcoming Events"}
               component={"h2"}

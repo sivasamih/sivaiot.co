@@ -100,6 +100,7 @@ const ProductDetailsPage = async ({ params }) => {
           title={ProductData["Name"]}
           Icon={APIURLS.BASE_PATH.Product + ProductData["Icon"]}
           IsShowIcon={ProductData["IsShowIcon"]}
+          IsNew={ProductData["IsNew"]}
           currentPageName={ProductData["Name"]}
           Breadcrumb={[{ name: "Home", url: "/" },{ name: "Products", url: Route_Path.PRODUCTS }]}
         />

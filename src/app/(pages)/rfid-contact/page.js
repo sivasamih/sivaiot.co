@@ -12,7 +12,7 @@ export const metadata = {
   keywords:
     "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
   robots: "index, follow",
-  metadataBase: new URL('https://sivaiot.co'),
+  metadataBase: new URL("https://sivaiot.co"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -53,17 +53,15 @@ const ContactUsPage = () => {
       <Container sx={{ p: 0 }}>
         <Grid
           container
-          spacing={0}
-        >
+          spacing={0}>
           <Grid
             item
             xs={12}
             sm={12}
             sx={{
-              py: { xs: 3, md: 4 },
+              pt: { xs: 3, md: 4 },
               px: { xs: 3, md: 0 },
-            }}
-          >
+            }}>
             <ContactInfo />
           </Grid>
 
@@ -72,10 +70,10 @@ const ContactUsPage = () => {
             xs={12}
             sm={12}
             sx={{
-              my: 2,
+              py:  { xs: 3, md: 6 },
               px: { xs: 3, md: 0 },
             }}
-          >
+            id="Contact_us">
             <ContactForm />
           </Grid>
 
@@ -84,12 +82,11 @@ const ContactUsPage = () => {
             xs={12}
             sm={12}
             sx={{
-              my: 5,
+              mb: 5,
               borderTop: "1px solid black",
               py: 2,
               px: { xs: 3, md: 0 },
-            }}
-          >
+            }}>
             <Address />
           </Grid>
         </Grid>
