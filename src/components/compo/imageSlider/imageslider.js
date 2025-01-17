@@ -35,7 +35,7 @@ const ImageSlider = (props) => {
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Flora_Web_Banner.webp",
       alt: "Flora_Web_Banner",
-      url: Route_Path.PRODUCTS + "/loop-lock-plant-tag",
+      url: Route_Path.PRODUCTS + "/horticulture-rfid-tag",
       Title: "Ferro On-Metal Label Series, REDEFINED!",
       desc: "New IC, New antenna design, Improved read range and enhanced printer compatibility",
     },
