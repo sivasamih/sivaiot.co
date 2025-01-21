@@ -19,6 +19,7 @@ import {
   ValidateUser_Data,
 } from "@/helper/helper";
 import { Box } from "@mui/system";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const DatasheetButton = (props) => {
   const [open, setOpen] = useState(false);
@@ -26,6 +27,8 @@ const DatasheetButton = (props) => {
   const [IsUpdatedURL, setIsUpdatedURL] = useState(false);
   const [popoverAnchor, setPopoverAnchor] = useState(null);
   const [loading, setLoading] = useState(false);
+      const isMobileLandscape = useMobileLandscape();
+  
   const Timer = 15; // Timer duration in minutes
   const currentTime = new Date();
 
@@ -173,7 +176,7 @@ const DatasheetButton = (props) => {
               textDecoration: "none",
               fontWeight: "bold",
               fontSize: {
-                xs: "calc(0.8rem + 1vw)",
+                xs: isMobileLandscape?"calc(0.4rem + 1vw)":"calc(0.8rem + 1vw)",
                 md: "calc(0.1rem + 0.9vw)",
               },
               textTransform: "capitalize",

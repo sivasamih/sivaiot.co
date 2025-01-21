@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import FamiliesAccordian from "@/components/customcompo/accordian/familiesaccordian";
 import * as APIURLS from "@/apis/apiconstant";
 import ProductCard from "@/components/customcompo/cards/productCard";
+import { highlightText } from "@/helper/helper";
 
 const ProductListingContainer = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -58,11 +59,11 @@ const ProductListingContainer = (props) => {
     return filterList.length > 0 ? filterList : Category;
   };
 
-  const highlightText = (text, query) => {
-    if (!query) return text;
-    const regex = new RegExp(`(${query})`, "gi");
-    return text.replace(regex, "<mark>$1</mark>");
-  };
+  // const highlightText = (text, query) => {
+  //   if (!query) return text;
+  //   const regex = new RegExp(`(${query})`, "gi");
+  //   return text.replace(regex, "<mark>$1</mark>");
+  // };
 
   const handleAccExpand = (id) => {
     const List = Category;

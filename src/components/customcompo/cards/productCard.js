@@ -7,8 +7,11 @@ import ProductlistWraper from "@/components/animatedwrapper/productlistwraper";
 import Link from "next/link";
 import NewIcon from "../images/newicon";
 import TitleIcons from "../images/titleicons";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const ProductCard = (props) => {
+  const isMobileLandscape = useMobileLandscape();
+
   const ProdutNameWithIcons = (
     <>
       <span dangerouslySetInnerHTML={{ __html: props?.ProductName }} />
@@ -33,14 +36,14 @@ const ProductCard = (props) => {
             display: "flex",
             transition: "0.5s ease-out",
             position: "relative",
-            flexDirection: { xs: "column", md: "row" },
+            flexDirection: { xs: isMobileLandscape ? "row" : "column", md: "row" },
           }}>
           <Box
             sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: { xs: "100%", md: "20%" },
+              width: { xs: isMobileLandscape ? "35%" : "100%", md: "20%" },
               transition: "0.5s ease-in-out",
               pr: { xs: 1, md: 0 },
               "&:hover img": { transform: "scale(1.5)" },
@@ -109,7 +112,7 @@ const ProductCard = (props) => {
                     fontFamily: "LibreBaskerville",
                     color: "var(--headerColor)",
                     fontSize: {
-                      xs: "calc(1rem + 1vw)",
+                      xs: isMobileLandscape ? "calc(0.5rem + 1vw)" : "calc(1rem + 1vw)",
                       md: "calc(0.4rem + 1vw)",
                     },
                     fontWeight: "bold",
@@ -117,7 +120,7 @@ const ProductCard = (props) => {
                     textDecoration: "none",
                     position: "relative",
                   }}
-                  // dangerouslySetInnerHTML={{ __html: props.ProductName }}
+                // dangerouslySetInnerHTML={{ __html: props.ProductName }}
                 >
                   {ProdutNameWithIcons}
                 </Box>
@@ -127,7 +130,7 @@ const ProductCard = (props) => {
                     mt: 1,
                     fontFamily: "LucidaGrande",
                     fontSize: {
-                      xs: "calc(0.8rem + 1vw)",
+                      xs: isMobileLandscape ? "calc(0.4rem + 1vw)" : "calc(0.8rem + 1vw)",
                       md: "calc(0.1rem + 1vw)",
                     },
                     transition: "0.5s ease-in-out",
@@ -154,7 +157,7 @@ const ProductCard = (props) => {
                       textDecoration: "none",
                       fontWeight: "bold",
                       fontSize: {
-                        xs: "calc(0.8rem + 1vw)",
+                        xs: isMobileLandscape ? "calc(0.4rem + 1vw)" : "calc(0.8rem + 1vw)",
                         md: "calc(0.1rem + 0.9vw)",
                       },
                       textTransform: "capitalize",

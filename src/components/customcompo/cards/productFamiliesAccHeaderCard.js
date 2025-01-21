@@ -1,8 +1,12 @@
+"use client"
 import { Box } from "@mui/system";
 // import LazyImage from "../customimage/customLazyImage";
 import { Typography } from "@mui/material";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const ProductFamiliesAccHeaderCard = (props) => {
+  const isMobileLandscape = useMobileLandscape();
+
   return (
     <Box
       sx={{
@@ -23,7 +27,7 @@ const ProductFamiliesAccHeaderCard = (props) => {
       <Box
         sx={{
           px: { xs: 2, sm: 4, md: 2 },
-          pt:{xs:2,sm:0},
+          pt: { xs: 2, sm: 0 },
           width: { xs: "80%", md: "35%" },
           height: { sm: 200, md: "auto" },
           display: "flex",
@@ -42,7 +46,7 @@ const ProductFamiliesAccHeaderCard = (props) => {
           sx={{
             textAlign: "left",
             fontSize: {
-              xs: "calc(1rem + 1vw)",
+              xs: isMobileLandscape ? "calc(0.5rem + 1vw)" : "calc(1rem + 1vw)",
               md: "calc(0.6rem + 1vw)",
             },
             fontWeight: "bold",
@@ -51,7 +55,7 @@ const ProductFamiliesAccHeaderCard = (props) => {
           {/* {props.Title} */}
         </Typography>
         <Typography
-        component={"h1"}
+          component={"h1"}
           sx={{
             mt: 1,
             color: "#696969eb",
@@ -76,7 +80,7 @@ const ProductFamiliesAccHeaderCard = (props) => {
           overflow: "hidden",
           "& img": {
             height: { xs: "-webkit-fill-available", sm: "auto" },
-            maxHeight:250
+            maxHeight: 250
           },
         }}
         id="header-img-box">

@@ -38,15 +38,16 @@ const LazyImage = ({ src, alt, placeholder, style, ...props }) => {
         overflow: "hidden",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "stretch",
       }}
     >
       {isError && inView ? (
         <Skeleton
           variant="rectangular"
           width={"100%"}
-          height={"-webkit-fill-available"}
+          height={"150px"}
           sx={{ bgcolor: "gray.300" }}
+          animation="wave"
         />
       ) : (
         <LazyLoadImage

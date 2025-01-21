@@ -3,38 +3,61 @@ import CardNine from "@/components/customcompo/cards/cardNine";
 import { Box } from "@mui/material";
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomModal2 from "@/components/customcompo/modal/modal2";
 import PartnersFamiliesDetails from "./familiesdetails";
+import { getLocalStorage } from "@/helper/helper";
+import Loading from "@/app/loading";
+import { notFound } from "next/navigation";
 
-async function GetFamiliesProductsByURL(URL) {
-  let data;
-  let reqData = {
-    UrlName: URL,
-  };
-  try {
-    let res = await FETCHAPI.Fetch(
-      APIURLS.APIURL.WebFamilyWiseProducts,
-      reqData
-    );
-    if (res.status === 200) {
-      data = await res.json();
+
+
+const PartnerProductFamilies = () => {
+  const [ProductFamilies, setProductFamilies] = useState([])
+  const [userData, setUserData] = useState(null);
+  const [IsLoading, setIsLoading] = useState(false);
+  const [RMDC, setRMDC] = useState({ open: false, header: "", URL: "" });
+
+  useEffect(() => {
+    const IOT_PU = getLocalStorage();
+    if (IOT_PU) {
+      setUserData(IOT_PU);
     }
-  } catch (ex) {}
-  return data;
-}
+  }, []);
 
-const PartnerProductFamilies = (props) => {
-  const [RMDC, setRMDC] = useState({
-    open: false,
-    header: "",
-    URL: "",
-  });
-  const [FamiliesWiseProduct, setFamiliesWiseProduct] = useState([]);
+  useEffect(() => {
+    if (userData) {
+      getProductFamilies();
+    }
+  }, [userData]);
+
+  async function getProductFamilies() {
+    const reqData = {
+      PartnerID: userData?.PartnerID,
+      WebsiteID: APIURLS.WebsiteID,
+    }
+    try {
+      setIsLoading(true)
+      let res = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerProductFamily, reqData);
+      if (res.status === 200) {
+        let data = await res.json();
+        setProductFamilies(data)
+        setIsLoading(false)
+      } else {
+        setIsLoading(false)
+        setProductFamilies([])
+      }
+    } catch (ex) {
+      setIsLoading(false)
+      setProductFamilies([])
+      notFound();
+    }
+
+  }
+
+
 
   const openRMDC = async (url, name) => {
-    const data = await GetFamiliesProductsByURL(url);
-    setFamiliesWiseProduct(data);
     setRMDC({
       open: true,
       header: "Product Families",
@@ -44,6 +67,7 @@ const PartnerProductFamilies = (props) => {
 
   return (
     <>
+      <Loading open={IsLoading} />
       <Box
         sx={{
           px: { xs: 4, md: 5, lg: 10 },
@@ -59,11 +83,12 @@ const PartnerProductFamilies = (props) => {
           gap: 4,
         }}
       >
-        {props.ProductFamilies?.map((item, index) => {
+        {ProductFamilies?.map((item, index) => {
           return (
             <div
               key={index}
               onClick={() => openRMDC(item.UrlName, item.Name)}
+
             >
               <CardNine
                 title={item.Name}
@@ -90,8 +115,7 @@ const PartnerProductFamilies = (props) => {
           <>
             <PartnersFamiliesDetails
               URL={RMDC.URL}
-              FamiliesWiseProduct={FamiliesWiseProduct}
-              //   addUpdateFavoriteProduct={this.addUpdateFavorite}
+              userData={userData}
             />
           </>
         }

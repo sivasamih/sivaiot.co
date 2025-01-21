@@ -1,15 +1,18 @@
 "use client";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 import SearchBar from "@/components/customcompo/custominputfield/searchbar";
 import { Box, Container } from "@mui/material";
 
 const SearchBox = (props) => {
+  const isMobileLandscape = useMobileLandscape();
+
   return (
     <Box
       sx={{
         borderRight: "3rem solid #F2F4F7",
         borderLeft: "3rem solid transparent",
-        position: "sticky",
-        top: {xs:70,md:40},
+        position: isMobileLandscape ?  "initial" :"sticky",
+        top: { xs: 70, md: 40 },
         zIndex: 2,
       }}
     >

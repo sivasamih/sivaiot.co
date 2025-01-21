@@ -1,10 +1,14 @@
+'use client'
 import { Box } from "@mui/system";
 import LazyImage from "../customimage/customLazyImage";
 import { Typography } from "@mui/material";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const ProductAccHeaderCard = (props) => {
-  const Title = props.Title ? props.Title:"";
-  const Desc = props.Desc ? props.Desc: "";
+  const isMobileLandscape = useMobileLandscape();
+
+  const Title = props.Title ? props.Title : "";
+  const Desc = props.Desc ? props.Desc : "";
   return (
     <Box
       sx={{
@@ -16,7 +20,7 @@ const ProductAccHeaderCard = (props) => {
           xs: "0 0 4px #6f6f707b inset",
         },
         position: "relative",
-        mb: { xs: 15, sm: 20, md: 0 },
+        mb: { xs: 15, sm: isMobileLandscape ? 5 : 20, md: 0 },
         "&:hover #header-img-box  img": {
           transition: "0.5s ease-in-out",
           transform: "scale(1.05)",
@@ -28,13 +32,13 @@ const ProductAccHeaderCard = (props) => {
           px: { xs: 2, sm: 4, md: 2 },
           pt: { xs: 2, sm: 0 },
           width: { xs: "80%", md: "35%" },
-          height: { sm: 200, md: "auto" },
+          height: { sm: isMobileLandscape ? 100 : 200, md: "auto" },
           display: "flex",
           justifyContent: "center",
           alignItems: "start",
           flexDirection: "column",
           position: { xs: "absolute", md: "initial" },
-          top: { xs: "100%", md: "initial" },
+          top: { xs: isMobileLandscape ? "80%" : "100%", md: "initial" },
           left: { xs: "50%", md: "initial" },
           transform: { xs: "translate(-50%,-30%)", md: "none" },
           bgcolor: { xs: "white", md: "transparent" },
@@ -46,14 +50,14 @@ const ProductAccHeaderCard = (props) => {
           sx={{
             textAlign: "left",
             fontSize: {
-              xs: "calc(1rem + 1vw)",
+              xs: isMobileLandscape ? "calc(0.8rem + 1vw)" : "calc(1rem + 1vw)",
               md: "calc(0.6rem + 1vw)",
             },
             fontWeight: "bold",
           }}
-          dangerouslySetInnerHTML={{ __html: Title }}
+        // dangerouslySetInnerHTML={{ __html: Title }}
         >
-          {/* {props.Title} */}
+          {Title}
         </Typography>
         <Typography
           component={"h5"}
@@ -62,13 +66,13 @@ const ProductAccHeaderCard = (props) => {
             color: "#696969eb",
             lineHeight: 1.2,
             fontSize: {
-              xs: "calc(0.8rem + 1vw)",
+              xs: isMobileLandscape ? "calc(0.5rem + 1vw)" : "calc(0.8rem + 1vw)",
               md: "calc(0.1rem + 1vw)",
             },
           }}
-          dangerouslySetInnerHTML={{ __html: Desc }}
+        // dangerouslySetInnerHTML={{ __html: Desc }}
         >
-          {/* {props.Desc} */}
+          {Desc}
         </Typography>
       </Box>
       <Box

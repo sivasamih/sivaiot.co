@@ -1,3 +1,4 @@
+'use client'
 import { Box, IconButton, Typography } from "@mui/material";
 import LazyImage from "../customimage/customLazyImage";
 import ProductlistWraper from "@/components/animatedwrapper/productlistwraper";
@@ -5,9 +6,11 @@ import * as APIURLS from "@/apis/apiconstant";
 import DatasheetButton from "@/components/compo/datasheet/datasheetbutton";
 import SnackBar from "../snackbar/snackbar";
 import { useState } from "react";
-import { Favorite } from "@mui/icons-material";
+import { Favorite, Star } from "@mui/icons-material";
 import PartnerShareButton from "../button/partnerSharebutton";
 import Link from "next/link";
+import TitleIcons from "../images/titleicons";
+import NewIcon from "../images/newicon";
 
 const PartnerProductCard = (props) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -19,6 +22,13 @@ const PartnerProductCard = (props) => {
     setSnackbarType(type);
     setSnackbarOpen(true);
   };
+  const ProdutNameWithIcons = (
+    <>
+      <span >{props?.ProductName}</span>
+      {props.IsShowIcon && <TitleIcons Icon={props.Icon} />}
+      {props.IsNew === true ? <NewIcon /> : null}
+    </>
+  );
   return (
     <>
       <SnackBar
@@ -50,8 +60,8 @@ const PartnerProductCard = (props) => {
                 "&:hover img": { transform: "scale(1.5)" },
               }}
               component={props.IsClickable ? Link : "div"}
-              href={props.IsClickable ? props.url : ""}
-              target={props.IsClickable ? "_blank" : ""}
+              href={props.IsClickable ? props.url : null}
+              target={props.IsClickable ? "_blank" : null}
               id="img-box">
               <LazyImage
                 src={props.ProductImage}
@@ -99,16 +109,15 @@ const PartnerProductCard = (props) => {
                   p: { xs: 1, md: 2 },
                   py: { md: 1 },
                   transition: "0.5s ease-in-out",
-                  position: "relative",
+                  position: { xs: 'inherit', md: "relative" },
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   alignItems: "start",
                 }}
                 className="details">
-                <Box sx={{ pr: { xs: 0, md: 5 } }}>
-                  <Typography
-                    variant="h5"
+                <Box sx={{ pr: { xs: 0, md: 5, }, }}>
+                  <Box
                     sx={{
                       fontFamily: "LibreBaskerville",
                       color: "var(--headerColor)",
@@ -117,16 +126,18 @@ const PartnerProductCard = (props) => {
                         md: "calc(0.4rem + 1vw)",
                       },
                       fontWeight: "bold",
-                      mt: -1,
+                      mt: { xs: 1, md: -1 },
                       transition: "0.5s ease-in-out",
                       display: "block",
                       textDecoration: "none",
                     }}
-                    // component={props.IsClickable ? Link : "h5"}
-                    // href={props.IsClickable ? props.url : ""}
-                    // target={props.IsExternalURL ? "_blank" : "_self"}
-                    dangerouslySetInnerHTML={{ __html: props.ProductName }}
-                  />
+                  // component={props.IsClickable ? Link : "h5"}
+                  // href={props.IsClickable ? props.url : ""}
+                  // target={props.IsExternalURL ? "_blank" : "_self"}
+                  // dangerouslySetInnerHTML={{ __html: props.ProductName }}
+                  >
+                    {ProdutNameWithIcons}
+                  </Box>
                   <Typography
                     sx={{
                       mt: 1,
@@ -139,8 +150,10 @@ const PartnerProductCard = (props) => {
                       lineHeight: 1.2,
                     }}
                     variant="subtitle1"
-                    dangerouslySetInnerHTML={{ __html: props.ProductDesc }}
-                  />
+                  // dangerouslySetInnerHTML={{ __html: props.ProductDesc }}
+                  >
+                    {props.ProductDesc}
+                  </Typography>
                 </Box>
                 <Box sx={{ mt: 1 }}>
                   <DatasheetButton
@@ -154,16 +167,16 @@ const PartnerProductCard = (props) => {
                 </Box>
                 <Box
                   sx={{
-                    position: {xs:"initial",md:"absolute"},
-                    right: 5,
+                    position: { xs: "absolute", md: "absolute" },
+                    right: 10,
                     top: 2,
                     zIndex: 1,
                     transition: "0.5s ease-in-out",
                     display: "flex",
-                    flexDirection: {xs:'row',md:"column"},
-                    gap:{xs:1,md:0}
+                    flexDirection: { xs: 'row', md: "column" },
+                    gap: { xs: 1, md: 0 }
                   }}>
-                  <Box id={"shareBtn"}>
+                  {/* <Box id={"shareBtn"}>
                     <PartnerShareButton
                       title={props.ProductName}
                       desc={props.ProductDesc}
@@ -171,25 +184,22 @@ const PartnerProductCard = (props) => {
                       showSnackbar={showSnackbar}
                       BaseURl={props.BaseURl}
                     />
-                  </Box>
-                  {/* <IconButton
+                  </Box> */}
+                  <IconButton
                     size="small"
                     onClick={(e) => {
                       props.addUpdateFavoriteProduct(
                         props.ID,
                         !props.IsFavorite
                       );
-                      console.log(
-                        "(props.ID, !props.IsFavorite",
-                        props.ID,
-                        !props.IsFavorite
-                      );
-                    }}>
-                    <Favorite
+                    }}
+                    sx={{ bgcolor: "#e6e7e8b8" }}
+                  >
+                    <Star
                       size="small"
-                      sx={{ color: props.IsFavorite ? "red" : "inherit" }}
+                      sx={{ color: props.IsFavorite ? "var(--green)" : "inherit", fontSize: { xs: '1rem', md: '1.2rem' } }}
                     />
-                  </IconButton> */}
+                  </IconButton>
                 </Box>
               </Box>
             </Box>

@@ -6,6 +6,7 @@ import { getLocalStorage } from "@/helper/helper";
 import { BASE_PATH } from "@/apis/apiconstant";
 import moment from "moment";
 import { Typography } from "@mui/material";
+import LazyImage from "@/components/customcompo/customimage/customLazyImage";
 
 const NDAPage = () => {
   const [NDA, setNDA] = useState("");
@@ -17,6 +18,7 @@ const NDAPage = () => {
         if (!useData || !Array.isArray(useData.NDAList)) {
           throw new Error("Invalid data structure from local storage");
         }
+        
         const NDA = useData.NDAList;
         const ActiveNDA = NDA.find((item) => {
           const isActive = item.IsActive;
@@ -25,11 +27,12 @@ const NDAPage = () => {
             moment(item.EndDate).isAfter(moment(item.StartDate));
           return isActive && isDateValid;
         });
-        if (!ActiveNDA) {
-          throw new Error("No valid active NDA found");
+
+        if (ActiveNDA) {
+          const FileURL = BASE_PATH.PartnersDatasheetsUrl + ActiveNDA.FileName;
+          setNDA(FileURL);
         }
-        const FileURL = BASE_PATH.PartnersDatasheetsUrl + ActiveNDA.FileName;
-        setNDA(FileURL);
+
       } catch (error) {
         console.error("Error NDA data:", error);
         setNDA(null);
@@ -45,14 +48,14 @@ const NDAPage = () => {
       <Box
         sx={{
           width: "100%",
-          height: "80vh",
-          minHeight: "83vh",
+          height: "70vh",
+          minHeight: "70vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Typography
+        {/* <Typography
           variant="h4"
           sx={{
             textAlign: "center",
@@ -62,7 +65,16 @@ const NDAPage = () => {
           }}
         >
           NDA not assigned
-        </Typography>
+        </Typography> */}
+         <LazyImage
+          src={BASE_PATH.Others + "no-data.png"}
+          alt="No Data"
+          style={{
+            width: "50%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
       </Box>
     );
   }

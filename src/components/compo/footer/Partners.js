@@ -1,8 +1,12 @@
+'use client'
 import { Box, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import * as APIURLS from "@/apis/apiconstant";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const Partners = () => {
+  const isMobileLandscape = useMobileLandscape()
+
   const PartnersLogo = [
     {
       logo: APIURLS.BASE_PATH.OthersImage + "IMPINJ.png",
@@ -48,7 +52,7 @@ const Partners = () => {
                 placeItems: "center",
                 gridTemplateColumns: {
                   xs: "auto",
-                  sm: "repeat(2,1fr)",
+                  sm: isMobileLandscape?"repeat(3,1fr)":"repeat(2,1fr)",
                   md: "repeat(3,1fr)",
                   lg: "repeat(6,1fr)",
                 },
@@ -68,7 +72,7 @@ const Partners = () => {
                     src={item.logo}
                     alt={item.name}
                     width={"100%"}
-                    // height={"100%"}
+                  // height={"100%"}
                   />
                 );
               })}

@@ -28,7 +28,7 @@ const Title5 = ({ title = "", Breadcrumb = [], currentPageName = "", IsShowIcon 
               justifyContent: "start",
               alignItems: "center",
             }}
-            component={"h1"}
+            component={"h2"}
             ref={(el) => setTitleHight(el)}>
             {title}
             {IsShowIcon && <TitleIcons Icon={Icon} />}

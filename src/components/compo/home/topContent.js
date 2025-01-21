@@ -1,19 +1,21 @@
+'use client'
 import { Box, Grid, Typography } from "@mui/material";
 import FullWidthGridItem from "../../customcompo/grid/FullWidthGridItem";
 import GridContainer from "../../customcompo/grid/GridContainer";
 import { motion } from "framer-motion";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const TopContent = (props) => {
+  const isMobileLandscape = useMobileLandscape()
   return (
     <GridContainer>
       <FullWidthGridItem>
         <Grid container spacing={4}>
-          <Grid item xs={12} md={7} sx={{ minHeight: 180 }}>
+          <Grid item xs={12} md={7} sx={{ minHeight: isMobileLandscape?100: 180 }}>
             <Box component={motion.div}>
               <Typography
                 sx={{
                   fontSize: { xs: "calc(1em + 1vw)", md: "calc(1rem + 1vw)" },
-
                   color: "var(--white)",
                   lineHeight: 1.2,
                 }}

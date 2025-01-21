@@ -31,7 +31,7 @@ async function getBlogByURL(URL) {
     if (isArr && data.length < 1) {
       data = null;
     }
-  } catch (ex) {}
+  } catch (ex) { }
 
   return data;
 }
@@ -87,6 +87,12 @@ const BlogDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const BlogData = await getBlogByURL(url);
   const BlogContent = BlogData?.ContentHtml;
+
+  const cleanHTMLString = (html) => {
+    return html?.replace(/\\n/g, "").replace(/\\"/g, '"');
+  };
+
+  const cleanedHtmal = cleanHTMLString(BlogContent)
 
   if (!BlogData) return notFound();
   return (
@@ -154,6 +160,11 @@ const BlogDetailsPage = async ({ params }) => {
                     md: "calc(0.2rem + 1vw)",
                   },
                 },
+                "& .css-q8j5sq img": {
+                  width: "auto"
+                }
+
+
               }}
             >
               <Box
@@ -167,14 +178,19 @@ const BlogDetailsPage = async ({ params }) => {
                     width: "100%",
                   },
                 }}
+                // dangerouslySetInnerHTML={{
+                //   __html: BlogContent,
+                // }}
                 dangerouslySetInnerHTML={{
-                  __html: BlogContent,
+                  __html: cleanedHtmal,
                 }}
+
+
               />
             </Grid>
           </Grid>
         </Box>
-      </Container>
+      </Container >
     </>
   );
 };

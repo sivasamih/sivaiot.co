@@ -1,17 +1,8 @@
 "use client";
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  List,
-  ListItemButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, Button, IconButton, List, ListItemButton, Toolbar, Typography } from "@mui/material";
 import * as Animation from "@/components/animation/animation";
 import * as APIURLS from "@/apis/apiconstant";
-import { removeLocalStorage } from "@/helper/helper";
+import { PartnerSideBarButtonList, removeLocalStorage } from "@/helper/helper";
 import { useEffect, useState } from "react";
 import { useLoginData } from "@/contextapi/loginuserprovider";
 import CustomAlertMessage from "@/components/customcompo/notify/customalert";
@@ -36,7 +27,7 @@ const PartnerNavBar = () => {
     } else {
       setUserData(null);
     }
-  }, [pathname,IOT_PU]);
+  }, [pathname, IOT_PU]);
 
   return (
     <>
@@ -47,13 +38,9 @@ const PartnerNavBar = () => {
           top: 0,
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
-        id="NavBar"
-      >
+        id="NavBar">
         {!pathname.includes(Route_Path.PARTNER_LOGIN) && <CustomAlertMessage />}
-        <Box
-          height={10}
-          sx={{ bgcolor: "#299E78" }}
-        >
+        <Box height={10} sx={{ bgcolor: "#299E78" }}>
           &nbsp;
         </Box>
         <AppBar
@@ -64,24 +51,19 @@ const PartnerNavBar = () => {
             py: 2,
             top: 0,
             // zIndex: (theme) => theme.zIndex.drawer + 1,
-            zIndex:1000,
-          }}
-        >
+            zIndex: 1000,
+          }}>
           <Toolbar>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
                 onClick={(e) => {
                   setOpenDrawer(!openDrawer);
-                }}
-              >
+                }}>
                 {openDrawer ? <Close /> : <Menu />}
               </IconButton>
             </Box>
             <Box sx={{ flexGrow: 1 }}>
-              <Box
-                component={Link}
-                href={"/partners"}
-              >
+              <Box component={Link} href={"/partners"}>
                 <Box
                   component={"img"}
                   sx={{ width: { xs: "90%", sm: "30%", md: "20%" } }}
@@ -100,8 +82,7 @@ const PartnerNavBar = () => {
                   fontWeight: "bold",
                   letterSpacing: 2,
                   color: "black",
-                }}
-              >
+                }}>
                 Partners
               </Typography>
               {userData ? (
@@ -114,8 +95,7 @@ const PartnerNavBar = () => {
                     removeLocalStorage();
                     // window.close()
                     router.push(Route_Path.PARTNER_LOGIN);
-                  }}
-                >
+                  }}>
                   Logout
                 </Button>
               ) : null}
@@ -163,20 +143,8 @@ const PartnerNavBar = () => {
                     color: "var(--white)",
                   },
                 },
-              }}
-            >
-              {[
-                { path: Route_Path.PARTNERS, name: "Products" },
-                {
-                  path: Route_Path.PARTNERS + Route_Path.PRODUCT_FAMILY,
-                  name: "Products Families",
-                },
-                { path: Route_Path.PARTNERS + Route_Path.NDA, name: "NDA" },
-                {
-                  path: Route_Path.PARTNERS + Route_Path.PRICE_LIST,
-                  name: "Price List",
-                },
-              ]?.map((item, index) => (
+              }}>
+              {PartnerSideBarButtonList?.map((item, index) => (
                 <Box
                   component={motion.div}
                   key={index}
@@ -194,24 +162,22 @@ const PartnerNavBar = () => {
                     m: 0,
                     height: "100%",
                     p: 0,
-                  }}
-                >
+                  }}>
                   <ListItemButton
                     component={Link}
-                    href={item?.path}
+                    href={item?.url}
                     onClick={() => setOpenDrawer(false)}
                     title={item.name}
                     sx={
                       ({ height: "100%", pl: 4 },
-                      pathname === item.path
-                        ? {
+                        pathname === item.url
+                          ? {
                             bgcolor: "#39b54a",
                             "& span , svg": { color: "white" },
                           }
-                        : null)
-                    }
-                  >
-                    <Typography>{item.name}</Typography>
+                          : null)
+                    }>
+                    <Typography>{item.title}</Typography>
                   </ListItemButton>
                 </Box>
               ))}

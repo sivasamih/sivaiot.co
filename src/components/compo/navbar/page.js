@@ -30,6 +30,7 @@ import { Route_Path } from "@/apis/api";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useLoginData } from "@/contextapi/loginuserprovider";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -38,6 +39,7 @@ const NavBar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const IOT_PU = useLoginData();
+  const isMobileLandscape = useMobileLandscape();
 
   useEffect(() => {
     if (IOT_PU) {
@@ -67,7 +69,7 @@ const NavBar = () => {
               href={"/"}
               sx={{
                 ml: { xs: 2, sm: 4, md: 5, lg: 8 },
-                "& img": { width: { xs: "80%", md: "100%" } },
+                "& img": { width: isMobileLandscape ? "50%" : { xs: "80%", md: "100%" } },
               }}
               title="sivaiot.co"
             >
@@ -231,11 +233,11 @@ const NavBar = () => {
                 path={Navlist[2].path}
                 type="link"
               />
-              {/* <NavLinkButtons
-                name={Navlist[1].name}
-                path={Navlist[1].path}
+              <NavLinkButtons
+                name={'Application'}
+                path={'/applications'}
                 type="link"
-              /> */}
+              />
               <NavLinkButtons
                 name={Navlist[3].name}
                 path={Navlist[3].path}
@@ -339,12 +341,12 @@ const NavBar = () => {
                     title={item.name}
                     sx={
                       ({ height: "100%", pl: 4 },
-                      pathname === "/" + item.path
-                        ? {
+                        pathname === "/" + item.path
+                          ? {
                             bgcolor: "#39b54a",
                             "& span , svg": { color: "white" },
                           }
-                        : null)
+                          : null)
                     }
                   >
                     <ListItemIcon

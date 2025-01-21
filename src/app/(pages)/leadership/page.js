@@ -4,6 +4,7 @@ import LazyImage from "@/components/customcompo/customimage/customLazyImage";
 import * as APIURLS from "@/apis/apiconstant";
 import { Route_Path } from "@/apis/api";
 import { StructureData } from "@/helper/structuredata";
+import LeaderCard from "@/components/customcompo/cards/leaderCard";
 
 export const metadata = {
   title: "Leadership at Siva IoT | RFID Technology",
@@ -55,6 +56,43 @@ const LeaderShipPage = () => {
 
         <Container sx={{ py: 4 }}>
           <Box sx={{ mb: 4 }}>
+            <LeaderCard
+              name={"Rajiv K. Aggarwal"}
+              image={APIURLS.BASE_PATH.OthersImage + "rajiv-aggarwal.jpg"}
+              position={"Founder & CEO"}
+              description={"Rajiv founded SIVA in 1986 and made it a major player in the tag, labels & ticketing industry."}
+              description_one={"He has over 30 years of in-depth experience in New product & Business development, hands on with machines & tooling, knowledge of materials & processes. Strong foundations in Accounting & Finance. Rajiv also heads SIVA 'Horizon 3' initiative which focusses on Products & Services to be offered by SIVA to the market in 2-3 years. India."}
+              description_two={"Rajiv graduated from Sri Ram College of Commerce(SRCC) one of India's top business schools with a degree in B.Com. He lives in Goa, India."}
+              isImageLeft={true}
+            />
+          </Box>
+
+          <Box sx={{ mb: 4 }}>
+            <LeaderCard
+              name={"Arjun Aggarwal"}
+              image={APIURLS.BASE_PATH.OthersImage + "Arjun-Aggarwal-COO.jpg"}
+              position={"Executive Vice President, Group Sales"}
+              description={"Arjun joined SIVA in Apr 2010. In his role Arjun spearheads the function of Sales across the entire SIVA Group"}
+              description_one={"He has over 9 years of experience working on products for industries such as Amusement, Parking & Transportation, Smart industries & Healthcare. Arjun is also involved in group strategy formulation, new market developments, product management and overall group operations. Techinical, Arjun is also hands on with machines, materials, tooling & production processes."}
+              description_two={"Arjun holds a degree in Accounting and Management from Cardiff University. He lives in Goa, India."}
+              isImageLeft={false}
+            />
+          </Box>
+
+          <Box sx={{ mb: 4 }}>
+            <LeaderCard
+              name={"Pradeep Mangal"}
+              image={APIURLS.BASE_PATH.OthersImage + "Pradeep-Mangal.jpg"}
+              position={"Vice President, Finance"}
+              description={"Pradeep joined SIVA in 2001 and is responsible for accounting & finance functions of the company"}
+              description_one={"He has over 25 years of rich experience managing finance, taxation, legal and accounting functions and cash flow management. As a senior member of the team, Pradeep also adds value towards the corporate governance practices in the Group."}
+              description_two={"Prior to his association with SIVA, he has worked at senior positions with multi-national trading companies.Pradeep has a degree in B /com, Chartered Accountancy and lives in Noida, India."}
+              isImageLeft={true}
+            />
+          </Box>
+
+
+          {/* <Box sx={{ mb: 4 }}>
             <Grid
               container
               spacing={0}
@@ -189,9 +227,9 @@ const LeaderShipPage = () => {
                 </Box>
               </Grid>
             </Grid>
-          </Box>
+          </Box> */}
 
-          <Box sx={{}}>
+          {/* <Box sx={{}}>
             <Grid
               container
               spacing={0}
@@ -333,9 +371,9 @@ const LeaderShipPage = () => {
                 </Box>
               </Grid>
             </Grid>
-          </Box>
+          </Box> */}
 
-          <Box>
+          {/* <Box>
             <Grid
               container
               spacing={0}
@@ -485,7 +523,7 @@ const LeaderShipPage = () => {
                 </Box>
               </Grid>
             </Grid>
-          </Box>
+          </Box> */}
         </Container>
       </section>
     </>

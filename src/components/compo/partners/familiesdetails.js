@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import WhiteSpace from "@/components/customcompo/box/whiteSpace";
 import * as APIURLS from "@/apis/apiconstant";
@@ -7,20 +8,84 @@ import AnimatedBox from "@/components/customcompo/box/animatedBox";
 import ProductFamiliesAccHeaderCard from "@/components/customcompo/cards/productFamiliesAccHeaderCard";
 import PartnerProductCard from "@/components/customcompo/cards/partnerProductCard";
 import { Route_Path } from "@/apis/api";
+import Loading from "@/app/loading";
 
 const PartnersFamiliesDetails = (props) => {
-  const families = props.FamiliesWiseProduct;
+  const [FamiliesWiseProduct, setFamiliesWiseProduct] = useState([]);
+  const [IsLoading, setIsLoading] = useState(false);
+
+
+  useEffect(() => {
+    GetFamiliesProductsByURL()
+  }, [props.URL])
+
+  async function GetFamiliesProductsByURL(productID) {
+    let data;
+    let reqData = {
+      PartnerID: props.userData?.PartnerID,
+      WebsiteID: APIURLS.WebsiteID,
+      UrlName: props.URL,
+    };
+    try {
+      setIsLoading(true)
+      let res = await FETCHAPI.Fetch(
+        APIURLS.APIURL.PartnerWebFamilyWiseProducts,
+        reqData
+      );
+      if (res.status === 200) {
+        data = await res.json();
+        if (productID) {
+          const FData = data.productList.find(F => F.ID === productID)
+          console.log("FData", FData)
+          if (FData) {
+            setFamiliesWiseProduct((prev) => ({
+              ...prev,
+              productList: prev.productList.map((product) =>
+                product.ID === productID ? { ...product, IsFavorite: FData.IsFavorite } : product
+              ),
+            })
+            )
+
+          }
+        } else {
+          setFamiliesWiseProduct(data)
+        }
+      } else {
+        setFamiliesWiseProduct(data)
+      }
+
+    } catch (ex) { } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const AddUpdateFavoriteProduct = async (productID, IsFavorite) => {
+    const reqData = {
+      PartnerID: props.userData?.PartnerID,
+      ProdID: productID,
+      WebsiteID: APIURLS.WebsiteID,
+      IsFavorite: IsFavorite,
+    };
+    try {
+      const responce = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerFavoriteProduct, reqData);
+      if (responce.status === 200) {
+        GetFamiliesProductsByURL(productID);
+      }
+    } catch (ex) { }
+  };
+
   return (
     <div>
       <>
+        <Loading open={IsLoading} />
         <Box sx={{ mt: 4, overflow: "hidden" }}>
           <Box sx={{ "& img": { maxHeight: 350, minHeight: 200 } }}>
-            {families && (
+            {FamiliesWiseProduct && (
               <ProductFamiliesAccHeaderCard
-                Title={families.name}
-                Desc={families.desc}
-                Image={APIURLS.BASE_PATH.ProductFamily + families.BannerImage}
-                ImageAlt={families.BannerImageAlt}
+                Title={FamiliesWiseProduct.name}
+                Desc={FamiliesWiseProduct.desc}
+                Image={APIURLS.BASE_PATH.ProductFamily + FamiliesWiseProduct.BannerImage}
+                ImageAlt={FamiliesWiseProduct.BannerImageAlt}
               />
             )}
           </Box>
@@ -46,30 +111,32 @@ const PartnersFamiliesDetails = (props) => {
             gap: 4,
           }}
         >
-          {families
-            ? families["productList"]?.map((P, index) => {
-                return (
-                  <AnimatedBox
-                    key={"id" + index}
-                    id={P.link}
-                  >
-                    <PartnerProductCard
-                      ID={P.ID}
-                      ProductImage={
-                        APIURLS.BASE_PATH.ProductImage +
-                        P.ImageList[0]["ProductImage"]
-                      }
-                      ProductImageAlt={P.ImageList[0]["Alt"]}
-                      ProductName={P.name}
-                      ProductDesc={P.desc}
-                      Datasheet={P.Datasheets}
-                      url={P.link}
-                      BaseURl={Route_Path.PRODUCTS}
-                      addUpdateFavoriteProduct={props.addUpdateFavoriteProduct}
-                    />
-                  </AnimatedBox>
-                );
-              })
+          {FamiliesWiseProduct
+            ? FamiliesWiseProduct["productList"]?.map((P, index) => {
+              return (
+                <AnimatedBox
+                  key={"id" + index}
+                  id={P.link}
+                >
+                  <PartnerProductCard
+                    ID={P.ID}
+                    ProductImage={APIURLS.BASE_PATH.Product + P.image}
+                    ProductImageAlt={P.ImageList[0]["Alt"]}
+                    ProductName={P.name}
+                    ProductDesc={P.desc}
+                    Datasheet={P.Datasheets}
+                    url={P.link}
+                    BaseURl={Route_Path.PRODUCTS}
+                    addUpdateFavoriteProduct={AddUpdateFavoriteProduct}
+                    IsFavorite={P.IsFavorite}
+                    Icon={APIURLS.BASE_PATH.Product + P.Icon}
+                    IsShowIcon={P.IsShowIcon}
+                    IsExternalURL={P.IsExternalURL}
+                    IsNew={P.IsNew}
+                  />
+                </AnimatedBox>
+              );
+            })
             : null}
         </Box>
         <WhiteSpace

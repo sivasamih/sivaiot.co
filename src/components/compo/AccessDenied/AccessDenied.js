@@ -13,7 +13,6 @@ const AccessDenied = () => {
       try {
         const response = await fetch("https://get.geojs.io/v1/ip/geo.json");
         const data = await response.json();
-        console.log("IP-Based Location:", data);
         const countryCode = data.country_code;
 
         if (restrictedCountries.includes(countryCode)) {
@@ -40,7 +39,6 @@ const AccessDenied = () => {
                 `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
               );
               const data = await response.json();
-              console.log("User Location:", data);
 
               const countryCode = data.countryCode;
 
@@ -53,7 +51,7 @@ const AccessDenied = () => {
             }
           },
           (error) => {
-            console.error("Geolocation error:", error);
+            console.log("Geolocation error:", error);
             handleLocationFallback();
           }
         );

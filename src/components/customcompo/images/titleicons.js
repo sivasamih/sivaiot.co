@@ -1,4 +1,13 @@
+'use client'
+
+import { useState } from "react";
+
 const TitleIcons = (props) => {
+  const [isImageError, setIsImageError] = useState(false)
+
+  const handleImageError = () => {
+    setIsImageError(true)
+  }
   return (
     <img
       src={props.Icon}
@@ -10,7 +19,9 @@ const TitleIcons = (props) => {
         verticalAlign: "bottom",
         margin: "0 0 0 5px",
         border: "none",
+        display: isImageError ? 'none' : "initial"
       }}
+      onError={handleImageError}
     />
   );
 };

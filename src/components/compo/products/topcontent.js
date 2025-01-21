@@ -10,6 +10,7 @@ import {
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
 import DataSheetDwnldForm from "@/components/compo/datasheet/datasheetdownload";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const comparisonChartURL =
   "https://sivafiles.sivagroup.co/1/comparison-chart.pdf";
@@ -19,6 +20,8 @@ const TopContent = () => {
     Open: false,
     ProductName: "Comparison Guide",
   });
+  const isMobileLandscape = useMobileLandscape()
+
   const Timer = 15; // Timer duration in minutes
   const currentTime = new Date();
 
@@ -108,6 +111,7 @@ const TopContent = () => {
             <Grid
               item
               xs={12}
+              sm={isMobileLandscape ? 8 : 12}
               md={8}
               sx={{ py: 0 }}
             >
@@ -115,7 +119,7 @@ const TopContent = () => {
                 <Typography
                   sx={{
                     fontSize: {
-                      xs: "calc(0.8rem + 1vw)",
+                      xs: isMobileLandscape ? "calc(0.5rem + 1vw)" : "calc(0.8rem + 1vw)",
                       md: "calc(0.5rem + 1vw)",
                     },
                     color: "var(--lightGray)",
@@ -133,7 +137,8 @@ const TopContent = () => {
                       mx: 1,
                       color: "var(--green)",
                       fontSize: {
-                        xs: "calc(0.8rem + 1vw)",
+                        xs: isMobileLandscape ? "calc(0.5rem + 1vw)" : "calc(0.8rem + 1vw)",
+
                         md: "calc(0.5rem + 1vw)",
                       },
                     }}
@@ -148,6 +153,7 @@ const TopContent = () => {
             <Grid
               item
               xs={12}
+              sm={isMobileLandscape ? 4 : 12}
               md={4}
               sx={{
                 display: "flex",

@@ -4,43 +4,94 @@ import { Route_Path } from "@/apis/api";
 import { useEffect, useState } from "react";
 import FamiliesAccordian from "@/components/customcompo/accordian/familiesaccordian";
 import * as APIURLS from "@/apis/apiconstant";
-import ProductCard from "@/components/customcompo/cards/productCard";
-import ProductSearchBox from "./productsearchBox";
+import ProductSearchBox from "@/components/compo/partners/productsearchBox";
 import * as FETCHAPI from "@/apis/fetchapi";
-import { getLocalStorage } from "@/helper/helper";
 import PartnerProductCard from "@/components/customcompo/cards/partnerProductCard";
-import { useRouter } from "next/navigation";
+import { notFound } from "next/navigation";
+import Loading from "@/app/loading";
+import { getLocalStorage, highlightText } from "@/helper/helper";
 
 const PartnerProductListing = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [IsExpandAll, setIsExpandAll] = useState(false);
-  const [Category, setCategories] = useState(props.Categories ? props.Categories : []);
-  const router= useRouter()
+  const [Category, setCategories] = useState([]);
+  const [IsLoading, setIsLoading] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const C = props.Categories ? props.Categories : [];
-    setCategories(C);
-  }, [props.Categories]);
-
-
-  async function PartnerWebCategoryWiseProducts() {
-    const IOT_PU = getLocalStorage()
-    // console.log("IOT_PU",)
-    let data;
-    const reqData = {
-      PartnerID: 1,
-      WebsiteID: 3
+    const IOT_PU = getLocalStorage();
+    if (IOT_PU) {
+      setUserData(IOT_PU);
     }
+  }, []);
+
+  useEffect(() => {
+    if (userData) {
+      PartnerWebCategoryWiseProducts();
+    }
+  }, [userData]);
+
+  async function PartnerWebCategoryWiseProducts(productID) {
+    const reqData = {
+      PartnerID: userData?.PartnerID,
+      WebsiteID: APIURLS.WebsiteID,
+    };
+
     try {
-      let res = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerWebCategoryWiseProducts, reqData);
+      setIsLoading(true);
+      const res = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerWebCategoryWiseProducts, reqData);
       if (res.status === 200) {
-        data = await res.json(); 
+        const data = await res.json();
+
+        if (productID) {
+          try {
+            const categoryData = data.filter((item) => item.productList.some((product) => product.ID === productID));
+            const productList = categoryData.map((item) => item.productList.find((product) => product.ID === productID));
+            const productData = productList.find((product) => product?.ID === productID);
+
+            if (productData) {
+              setCategories((prev) =>
+                prev.map((item) => ({
+                  ...item,
+                  productList: item.productList.map((product) =>
+                    product.ID === productID ? { ...product, IsFavorite: productData.IsFavorite } : product
+                  ),
+                }))
+              );
+            }
+          } catch (ex) {
+            console.log("ex", ex);
+          } finally {
+            setIsLoading(false);
+          }
+        } else {
+          try {
+            const CategoryData = data.map((item, index) => ({
+              ...item,
+              IsExpanded: false,
+              IsClickable: true,
+              IsExternalURL: false,
+              id: index + 1,
+            }));
+            setCategories(CategoryData);
+          } catch (ex) {
+            console.log("ex", ex);
+            setCategories(data);
+          } finally {
+            setIsLoading(false);
+          }
+        }
+      } else {
+        setCategories([]);
+        setIsLoading(false);
+        notFound();
       }
     } catch (ex) {
-      console.log("ex>>>", ex);
+      console.log("ex", ex);
+      setCategories([]);
+      setIsLoading(false);
+      notFound();
     }
-  
-    return data;
   }
 
   const filterData = () => {
@@ -49,15 +100,12 @@ const PartnerProductListing = (props) => {
     try {
       filterList = Category.map((category) => {
         const isCategoryMatch =
-          category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          category.desc.toLowerCase().includes(searchQuery.toLowerCase());
+          category.name.toLowerCase().includes(searchQuery.toLowerCase()) || category.desc.toLowerCase().includes(searchQuery.toLowerCase());
 
         const filteredList = isCategoryMatch
           ? category.productList
           : category.productList.filter(
-            (item) =>
-              item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-              item.desc.toLowerCase().includes(searchQuery.toLowerCase())
+            (item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()) || item.desc.toLowerCase().includes(searchQuery.toLowerCase())
           );
 
         const isExpanded = isCategoryMatch || filteredList.length > 0;
@@ -73,10 +121,7 @@ const PartnerProductListing = (props) => {
           isCategoryMatch,
           IsExpanded: isExpanded,
         };
-      }).filter(
-        (category) =>
-          category.isCategoryMatch || category.productList.length > 0
-      );
+      }).filter((category) => category.isCategoryMatch || category.productList.length > 0);
     } catch (ex) {
       console.error("Error in filtering data:", ex);
     }
@@ -84,18 +129,12 @@ const PartnerProductListing = (props) => {
     return filterList.length > 0 ? filterList : Category;
   };
 
-  const highlightText = (text, query) => {
-    if (!query) return text;
-    const regex = new RegExp(`(${query})`, "gi");
-    return text.replace(regex, "<mark>$1</mark>");
-  };
+
 
   const handleAccExpand = (id) => {
     const List = Category;
     try {
-      let category = List.map((item) =>
-        item.id === id ? { ...item, IsExpanded: !item.IsExpanded } : item
-      );
+      let category = List.map((item) => (item.id === id ? { ...item, IsExpanded: !item.IsExpanded } : item));
       if (IsExpandAll) {
         let index = List.findIndex((item) => item.IsExpanded === false);
         if (index) {
@@ -116,25 +155,26 @@ const PartnerProductListing = (props) => {
   };
 
   const AddUpdateFavoriteProduct = async (productID, IsFavorite) => {
-    const IOT_PU = getLocalStorage()
+    const IOT_PU = getLocalStorage();
     if (!IOT_PU) return;
     const reqData = {
-      "PartnerID": IOT_PU.id,
-      "ProdID": productID,
-      "WebsiteID": 3,
-      "IsFavorite": IsFavorite
-    }
-    console.log("reqData", reqData)
+      PartnerID: userData?.PartnerID,
+      ProdID: productID,
+      WebsiteID: APIURLS.WebsiteID,
+      IsFavorite: IsFavorite,
+    };
+    console.log("reqData", reqData);
     try {
-      const responce = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerFavoriteProduct, reqData)
+      const responce = await FETCHAPI.Fetch(APIURLS.APIURL.PartnerFavoriteProduct, reqData);
       if (responce.status === 200) {
-        router.refresh()
+        PartnerWebCategoryWiseProducts(productID);
       }
     } catch (ex) { }
-  }
+  };
 
   return (
     <>
+      <Loading open={IsLoading} />
       <ProductSearchBox
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -157,22 +197,15 @@ const PartnerProductListing = (props) => {
             // borderBottom: 0,
           },
           "& > :first-of-type ": {},
-        }}
-      >
+        }}>
         {filterData().map((item, i) => {
           return (
             <Box
               key={"header-" + i}
               sx={{
                 borderTop: (i + 1) % 2 === 0 ? "3rem solid #F2F4F7" : "nooe",
-                borderRight:
-                  (i + 1) % 2 === 0
-                    ? "3rem solid transparent"
-                    : "3rem solid #F2F4F7",
-                borderLeft:
-                  (i + 1) % 2 === 0
-                    ? "3rem solid #F2F4F7"
-                    : "3rem solid transparent",
+                borderRight: (i + 1) % 2 === 0 ? "3rem solid transparent" : "3rem solid #F2F4F7",
+                borderLeft: (i + 1) % 2 === 0 ? "3rem solid #F2F4F7" : "3rem solid transparent",
                 borderBottom: (i + 1) % 2 === 0 ? "3rem solid #F2F4F7" : "nooe",
                 position: "relative",
                 "&:before": {
@@ -186,8 +219,7 @@ const PartnerProductListing = (props) => {
                 },
                 py: 3,
               }}
-              className="header-box"
-            >
+              className="header-box">
               <Box style={{ padding: "0 0" }}>
                 <FamiliesAccordian
                   id={i + 1}
@@ -208,28 +240,16 @@ const PartnerProductListing = (props) => {
                           xs: "auto",
                         },
                         gap: 4,
-                      }}
-                    >
+                      }}>
                       {item["productList"]
                         ? item["productList"].map((P, index) => {
-                          let imageALt =
-                            P.ImageList && P.ImageList.length > 0
-                              ? P.ImageList[0]["Alt"]
-                              : "Product image";
-                          let url = P.link.startsWith("/")
-                            ? P.link
-                            : Route_Path.PRODUCTS + "/" + P.link;
+                          let imageALt = P.ImageList && P.ImageList.length > 0 ? P.ImageList[0]["Alt"] : "Product image";
+                          let url = P.link.startsWith("/") ? P.link : Route_Path.PRODUCTS + "/" + P.link;
                           return (
-                            <Box
-                              id={P.link}
-                              key={"productList-" + index}
-                            >
-
+                            <Box id={P.link} key={"productList-" + index}>
                               <PartnerProductCard
                                 ID={P.ID}
-                                ProductImage={
-                                  APIURLS.BASE_PATH.Product + P.image
-                                }
+                                ProductImage={APIURLS.BASE_PATH.Product + P.image}
                                 ProductImageAlt={imageALt}
                                 ProductName={P.name ? P.name : ""}
                                 ProductDesc={P.desc ? P.desc : ""}
@@ -243,6 +263,8 @@ const PartnerProductListing = (props) => {
                                 BaseURl={Route_Path.PRODUCTS}
                                 addUpdateFavoriteProduct={AddUpdateFavoriteProduct}
                                 IsFavorite={P.IsFavorite}
+                                Icon={APIURLS.BASE_PATH.Product + P.Icon}
+                                IsShowIcon={P.IsShowIcon}
                               />
                             </Box>
                           );
@@ -260,3 +282,5 @@ const PartnerProductListing = (props) => {
   );
 };
 export default PartnerProductListing;
+
+// export default PartnerPage;

@@ -11,6 +11,7 @@ import { scrollByID } from "../../../helper/helper";
 import { Route_Path } from "../../../apis/api";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const FooterContactInfo = (
   <Link
@@ -32,25 +33,27 @@ const FooterContactInfoPolyInSheets = (
 );
 
 const updateContactInfoPage = [
-  "/" + Route_Path.WB,
-  "/" + Route_Path.RFID_ACCESS_CONTROL,
-  "/" + Route_Path.THERMAL_RFID_EVENT_TICKETING,
-  "/" + Route_Path.WB_WRISTBANDS,
-  "/" + Route_Path.WB_CARD_KEYS_FOBS,
-  "/" + Route_Path.WB_ULTIMOID_DIRECTTHERMAL,
-  "/" + Route_Path.WB_ULTIMOID_ECODURA,
-  "/" + Route_Path.WB_ULTIMOID_SILICON,
-  "/" + Route_Path.WB_ULTIMOID_POLY,
-  "/" + Route_Path.WB_ULTIMOID_FABRIC,
-  "/" + Route_Path.WB_ULTIMOID_TYVEK,
-  "/" + Route_Path.WB_POLY_IN_SHEETS,
+  Route_Path.WB,
+  Route_Path.RFID_ACCESS_CONTROL,
+  Route_Path.THERMAL_RFID_EVENT_TICKETING,
+  Route_Path.WB_WRISTBANDS,
+  Route_Path.WB_CARD_KEYS_FOBS,
+  Route_Path.WB_ULTIMOID_DIRECTTHERMAL,
+  Route_Path.WB_ULTIMOID_ECODURA,
+  Route_Path.WB_ULTIMOID_SILICON,
+  Route_Path.WB_ULTIMOID_POLY,
+  Route_Path.WB_ULTIMOID_FABRIC,
+  Route_Path.WB_ULTIMOID_TYVEK,
+  Route_Path.WB_POLY_IN_SHEETS,
 ];
 
 const FooterLink = () => {
   const router = useRouter();
-  const  pathname  = usePathname();
+  const pathname = usePathname();
 
   const [IsActive, setIsActive] = useState(false);
+  const isMobileLandscape = useMobileLandscape()
+
 
   useEffect(() => {
     if (updateContactInfoPage.includes(pathname)) {
@@ -130,7 +133,7 @@ const FooterLink = () => {
         <Grid
           item
           xs={12}
-          sm={12}
+          sm={isMobileLandscape?6:12}
           md={4}
           xl={4}
         >
@@ -213,7 +216,7 @@ const FooterLink = () => {
         <Grid
           item
           xs={12}
-          sm={12}
+          sm={isMobileLandscape?6:12}
           md={4}
           xl={4}
         >

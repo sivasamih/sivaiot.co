@@ -29,6 +29,7 @@ const ProductSearchBox = (props) => {
             onChange={(e) => props.setSearchQuery(e.target.value)}
             AccChecked={props.IsExpandAll}
             onAccChnage={(e) => props.expandAllACC(e.target.checked)}
+            isExpandSwitchHide={props.isExpandSwitchHide}
           />
         </div>
       </Box>

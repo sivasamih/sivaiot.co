@@ -129,7 +129,8 @@ export const setLocalStorage = (value = {}, key = "IOT_PU") => {
     };
 
     localStorage.setItem(key, JSON.stringify(data));
-  } catch (ex) {}
+
+  } catch (ex) { }
 };
 
 export const getLocalStorage = (key = "IOT_PU") => {
@@ -179,7 +180,7 @@ export const ValidateUser_Data = async () => {
 
       isValid = currentTime >= startTime && currentTime <= endTime;
     }
-  } catch (ex) {}
+  } catch (ex) { }
   return isValid || (await ValidateIPs());
 };
 
@@ -188,7 +189,7 @@ export async function ValidateIPs() {
   let isValidIP = false;
   try {
     let response = await fetch("https://api.ipify.org?format=json")
-    // let response = await fetch("https://ap.org?format=json")
+      // let response = await fetch("https://ap.org?format=json")
       .then((response) => response.json())
       .catch((error) => {
         console.error("Error fetching IP address:", error);
@@ -197,7 +198,7 @@ export async function ValidateIPs() {
     if (response?.ip) {
       isValidIP = IPs.some((ip) => ip === response.ip);
     }
-  } catch (error) {}
+  } catch (error) { }
 
   return isValidIP;
 }
@@ -643,7 +644,7 @@ export const WristbandsProductList = [
   {
     id: 4,
     name: "Poly in Sheets",
-    url:  Route_Path.WB_POLY_IN_SHEETS,
+    url: Route_Path.WB_POLY_IN_SHEETS,
     image: "images/poly-in-sheet-card-img.png",
     alt: "RFID Silicone Wristbands",
     detailsList: [
@@ -665,7 +666,7 @@ export const WristbandsProductList = [
   {
     id: 5,
     name: "Poly in Roll",
-    url:  Route_Path.WB_ULTIMOID_POLY,
+    url: Route_Path.WB_ULTIMOID_POLY,
     image: "images/UltimoID-Poly.jpg",
     alt: "Laminated Wristbands",
     detailsList: [
@@ -686,7 +687,7 @@ export const WristbandsProductList = [
   {
     id: 6,
     name: "Fabric",
-    url:  Route_Path.WB_ULTIMOID_FABRIC,
+    url: Route_Path.WB_ULTIMOID_FABRIC,
     image: "images/UltimoID-Fabric.jpg",
     alt: "Fabric Wristbands",
     detailsList: [
@@ -707,7 +708,7 @@ export const WristbandsProductList = [
   {
     id: 7,
     name: "Tyband",
-    url:  Route_Path.WB_ULTIMOID_TYVEK,
+    url: Route_Path.WB_ULTIMOID_TYVEK,
     image: "images/UltimoID-Tyvek.jpg",
     alt: "Tyband",
     detailsList: [
@@ -784,10 +785,27 @@ export const NewProduct = [
   },
 ];
 
-export const HighlightText = (text, query) => {
+// export const HighlightText = (text, query) => {
+//   if (!query) return text;
+//   const regex = new RegExp(`(${query})`, "gi");
+//   return text.replace(regex, "<mark>$1</mark>");
+// };
+
+export const escapeRegExp = (string) => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
+export const highlightText = (text, query) => {
   if (!query) return text;
-  const regex = new RegExp(`(${query})`, "gi");
-  return text.replace(regex, "<mark>$1</mark>");
+  const escapedQuery = escapeRegExp(query);
+  const parts = text.split(new RegExp(`(${escapedQuery})`, "gi"));
+  return parts.map((T, index) =>
+    T.toLowerCase() === query.toLowerCase() ? (
+      <mark key={index}>{T}</mark>
+    ) : (
+      T
+    )
+  );
 };
 
 export const CustomizedServiceList = [
@@ -795,7 +813,7 @@ export const CustomizedServiceList = [
     Title: "Antenna Designing",
     Description:
       "SIVA deploys the absolute best in antenna design software + RF engineers to design finely tuned UHF/NFC antennas and can also offer antenna on alternative substrates like paper. SIVA offers a wide variety of IC’s from NXP / Impinj / STM / EM / RF Micron and others.",
-    Image: BASE_PATH.DesignLabImages +"design-lab-2.png",
+    Image: BASE_PATH.DesignLabImages + "design-lab-2.png",
   },
   {
     Title: "Fast Prototyping",
@@ -815,5 +833,32 @@ export const CustomizedServiceList = [
     Description:
       "SIVA can develop labels made using a variety of flexible substrates, but can also offer eco-friendly sustainable labels such as Plastic-Free Paper labels. Such labels eliminate the need for the transparent PET carrier antenna film. For several specific applications, SIVA can apply antennas “direct-to-substrate”.  This provides a wide scope of development.",
     Image: BASE_PATH.DesignLabImages + "Personaliztion.png",
+  },
+];
+
+export const PartnerSideBarButtonList = [
+  {
+    title: "My Favorite",
+    url: Route_Path.PARTNERS,
+  },
+  {
+    title: "Products",
+    url: Route_Path.PARTNERS_PRODUCTS,
+  },
+  {
+    title: "Product Families",
+    url: Route_Path.PARTNERS_PRODUCT_FAMILY,
+  },
+  {
+    title: "NDA",
+    url: Route_Path.PARTNERS_NDA,
+  },
+  {
+    title: "Price List",
+    url: Route_Path.PARTNERS_PRICE_LIST,
+  },
+  {
+    title: "Contact Us",
+    url: Route_Path.PARTNERS_RFID_CONTACT,
   },
 ];

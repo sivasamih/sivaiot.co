@@ -2,8 +2,11 @@ import { ExpandMore } from "@mui/icons-material";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import React from "react";
 import ProductAccHeaderCard from "../cards/productAccHeaderCard";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 const FamiliesAccordian = (props) => {
+    const isMobileLandscape = useMobileLandscape();
+  
   return (
     <Accordion
       expanded={props.IsExpand}
@@ -32,13 +35,14 @@ const FamiliesAccordian = (props) => {
           zIndex: 1,
           position: "absolute",
           right: { xs: 0, sm: 20 },
-          bottom: "8%",
+          bottom: isMobileLandscape?"20%":"8%",
           color: "white",
           borderRadius: "50%",
           p: { xs: 1, sm: 2 },
           bgcolor: "#3d3d3d7b",
           visibility: "hidden",
           transition: "visibility 0.2s ease-in-out", // Ensure visibility transition is smooth
+
         },
       }}
     >

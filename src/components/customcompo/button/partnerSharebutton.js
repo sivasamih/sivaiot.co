@@ -4,11 +4,12 @@ import React from "react";
 
 const PartnerShareButton = (props) => {
   let origin = window.location.origin;
-  let pathname = props.BaseURl + "/";
-  const URL = origin   + pathname
+  let pathname = props.BaseURl 
+  const URL = origin   + props.BaseURl
 
   const handleShare = async () => {
-    const urlToCopy = URL + "/"  + props.shareUrl;
+    const urlToCopy = URL + props.shareUrl;
+    console.log("props.BaseURl", props.BaseURl);
     console.log("location", urlToCopy);
 
     try {

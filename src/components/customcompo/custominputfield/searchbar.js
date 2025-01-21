@@ -31,7 +31,7 @@ const SearchBar = (props) => {
         overflow: "hidden",
         flexDirection: { xs: "row" },
         "& input": {
-          py: 2,
+          py: 1.6,
         },
       }}>
       <TextField
@@ -51,7 +51,7 @@ const SearchBar = (props) => {
                     // color: "var(--white)",
                     fontSize: {
                       xs: "calc(1.8rem + 1vw)",
-                      md: "calc(2rem + 1vw)",
+                      md: "calc(1.5rem + 1vw)",
                     },
                   }}
                 />
@@ -72,11 +72,11 @@ const SearchBar = (props) => {
               border: "none",
             },
             // color: "var(--white)",
-            fontSize: { xs: "calc(1rem + 1vw)", md: "calc(0.5rem + 1vw)" },
+            fontSize: { xs: "calc(1rem + 1vw)", md: "calc(0.3rem + 1vw)" },
           },
         }}
       />
-      <Box
+      {!props.isExpandSwitchHide && <Box
         sx={{
           bgcolor: 'white',
           // m: 0.5,
@@ -105,7 +105,7 @@ const SearchBar = (props) => {
             sx={{ m: 0 }}
           />
         </FormControl>
-      </Box>
+      </Box>}
     </Box>
   );
 };

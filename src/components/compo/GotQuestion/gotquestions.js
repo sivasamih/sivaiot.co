@@ -11,6 +11,7 @@ import SnackBar from "@/components/customcompo/snackbar/snackbar";
 import * as FETCHAPI from "@/apis/fetchapi";
 import * as APIURLS from "@/apis/apiconstant";
 import { useLoginData } from "@/contextapi/loginuserprovider";
+import useMobileLandscape from "@/app/hooks/mobileLandscape";
 
 export default function GotQuestion(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +27,8 @@ export default function GotQuestion(props) {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarType, setSnackbarType] = useState("info");
   const IOT_PU = useLoginData();
+
+  const isMobileLandscape = useMobileLandscape();
 
   const showSnackbar = (message, type) => {
     setSnackbarMessage(message);
@@ -156,7 +159,7 @@ export default function GotQuestion(props) {
         setCompanyName("");
         setMessage("");
       }
-    } catch (ex) {}
+    } catch (ex) { }
   };
   const cardVariants = {
     open: {
@@ -243,6 +246,7 @@ export default function GotQuestion(props) {
               color="primary"
               aria-label="notify"
               onClick={() => setIsOpen((prev) => !prev)}
+              size={isMobileLandscape ? "small" : "large"}
             >
               {isOpen ? (
                 <Close />
@@ -261,9 +265,10 @@ export default function GotQuestion(props) {
                 exit="closed"
                 sx={{
                   mr: 2,
+                  ml: 2,
                   boxShadow: "0 0 5px 1px #9d9d9ed5",
                   p: 0,
-                  maxWidth: { xs: 280, md: 300 },
+                  maxWidth: { xs: isMobileLandscape ? '100%' : 280, md: 300 },
                   overflow: "hidden",
                 }}
               >
@@ -281,7 +286,7 @@ export default function GotQuestion(props) {
                     Ask your question and we will get back to you as soon as
                     possible.
                   </Typography>
-                  <Box>
+                  <Box sx={{ display: isMobileLandscape ? "grid" : 'block', gridTemplateColumns: '1fr 1fr 1fr', columnGap: 1 }}>
                     <CustomTextField
                       variant="outlined"
                       name="Name"
@@ -358,7 +363,7 @@ export default function GotQuestion(props) {
                       required
                       variant="outlined"
                       multiline
-                      rows={3}
+                      rows={isMobileLandscape ? 1 : 3}
                       size="small"
                       label="Message"
                       value={message}

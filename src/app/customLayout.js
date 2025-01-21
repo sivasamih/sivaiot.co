@@ -13,7 +13,6 @@ import RotateWarning from "@/components/compo/roratewarning/rotatewarning";
 
 export default function CustomLayOut({ children }) {
   const pathName = usePathname();
-  const isMobileLandscape = useMobileLandscape();
   const hideNavBar = [
     Route_Path.PARTNERS,
     Route_Path.PARTNER_LOGIN,
@@ -32,13 +31,13 @@ export default function CustomLayOut({ children }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathName]);
 
-  if (isMobileLandscape) {
-    return (
-      <>
-        <RotateWarning />
-      </>
-    );
-  }
+  // if (isMobileLandscape) {
+  //   return (
+  //     <>
+  //       <RotateWarning />
+  //     </>
+  //   );
+  // }
 
   return (
     <>
@@ -49,7 +48,7 @@ export default function CustomLayOut({ children }) {
         )}
         <Box
           component={motion.div}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           exit={{ opacity: 0 }}
