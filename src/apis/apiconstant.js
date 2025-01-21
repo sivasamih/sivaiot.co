@@ -1,24 +1,24 @@
-// let domain = "https://nsimsapi.sivagroup.co/";
+let domain = "https://nsimsapi.sivagroup.co/";
 
 // let domain = "http://172.16.10.109:8082/"; // old local domain
 // let domain = "http://10.20.20.18:8082/"
-// let basepath = "https://sivafiles.sivagroup.co/1/";
-// export const GoogleAnalyticsID = "G-DH0Q67F6M3";
-// export const WebsiteID = 3
+let basepath = "https://sivafiles.sivagroup.co/1/";
+export const GoogleAnalyticsID = "G-DH0Q67F6M3";
+export const WebsiteID = 3
 
-let domain, GoogleAnalyticsID, WebsiteID, basepath;
-if (process.env.NODE_ENV === "production") {
-  domain = process.env.NEXT_PUBLIC_LIVE_DOMAIN;
-  GoogleAnalyticsID = process.env.NEXT_PUBLIC_GoogleAnalyticsID;
-  WebsiteID = process.env.NEXT_PUBLIC_WebsiteID;
-  basepath = process.env.NEXT_PUBLIC_BASE_PATH;
-} else {
-  domain = process.env.NEXT_PUBLIC_LOCAL_DOMAN;
-  // domain = process.env.NEXT_PUBLIC_LIVE_DOMAIN;
-  GoogleAnalyticsID = process.env.NEXT_PUBLIC_GoogleAnalyticsID_Test;
-  WebsiteID = process.env.NEXT_PUBLIC_WebsiteID;
-  basepath = process.env.NEXT_PUBLIC_BASE_PATH;
-}
+// let domain, GoogleAnalyticsID, WebsiteID, basepath;
+// if (process.env.NODE_ENV === "production") {
+//   domain = process.env.NEXT_PUBLIC_LIVE_DOMAIN;
+//   GoogleAnalyticsID = process.env.NEXT_PUBLIC_GoogleAnalyticsID;
+//   WebsiteID = process.env.NEXT_PUBLIC_WebsiteID;
+//   basepath = process.env.NEXT_PUBLIC_BASE_PATH;
+// } else {
+//   domain = process.env.NEXT_PUBLIC_LOCAL_DOMAN;
+//   // domain = process.env.NEXT_PUBLIC_LIVE_DOMAIN;
+//   GoogleAnalyticsID = process.env.NEXT_PUBLIC_GoogleAnalyticsID_Test;
+//   WebsiteID = process.env.NEXT_PUBLIC_WebsiteID;
+//   basepath = process.env.NEXT_PUBLIC_BASE_PATH;
+// }
 
 export { domain, GoogleAnalyticsID, WebsiteID, basepath };
 
