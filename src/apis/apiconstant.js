@@ -6,21 +6,7 @@ let basepath = "https://sivafiles.sivagroup.co/1/";
 export const GoogleAnalyticsID = "G-DH0Q67F6M3";
 export const WebsiteID = 3
 
-// let domain, GoogleAnalyticsID, WebsiteID, basepath;
-// if (process.env.NODE_ENV === "production") {
-//   domain = process.env.NEXT_PUBLIC_LIVE_DOMAIN;
-//   GoogleAnalyticsID = process.env.NEXT_PUBLIC_GoogleAnalyticsID;
-//   WebsiteID = process.env.NEXT_PUBLIC_WebsiteID;
-//   basepath = process.env.NEXT_PUBLIC_BASE_PATH;
-// } else {
-//   domain = process.env.NEXT_PUBLIC_LOCAL_DOMAN;
-//   // domain = process.env.NEXT_PUBLIC_LIVE_DOMAIN;
-//   GoogleAnalyticsID = process.env.NEXT_PUBLIC_GoogleAnalyticsID_Test;
-//   WebsiteID = process.env.NEXT_PUBLIC_WebsiteID;
-//   basepath = process.env.NEXT_PUBLIC_BASE_PATH;
-// }
 
-export { domain, GoogleAnalyticsID, WebsiteID, basepath };
 
 export const APIURL = {
   GetProductFamily: domain + "api/Website/GetProductFamily",
