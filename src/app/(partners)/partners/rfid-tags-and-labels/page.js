@@ -9,7 +9,7 @@ import * as FETCHAPI from "@/apis/fetchapi";
 import PartnerProductCard from "@/components/customcompo/cards/partnerProductCard";
 import { notFound } from "next/navigation";
 import Loading from "@/app/loading";
-import { getLocalStorage, highlightText } from "@/helper/helper";
+import { getLocalStorage,  } from "@/helper/helper";
 
 const PartnerProductListing = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -129,7 +129,11 @@ const PartnerProductListing = (props) => {
     return filterList.length > 0 ? filterList : Category;
   };
 
-
+  const highlightText = (text, query) => {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, "gi");
+    return text.replace(regex, "<mark>$1</mark>");
+  };
 
   const handleAccExpand = (id) => {
     const List = Category;

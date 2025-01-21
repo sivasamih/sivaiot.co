@@ -55,9 +55,9 @@ const ProductAccHeaderCard = (props) => {
             },
             fontWeight: "bold",
           }}
-        // dangerouslySetInnerHTML={{ __html: Title }}
+        dangerouslySetInnerHTML={{ __html: Title }}
         >
-          {Title}
+          {/* {Title} */}
         </Typography>
         <Typography
           component={"h5"}

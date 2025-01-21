@@ -24,7 +24,7 @@ const PartnerProductCard = (props) => {
   };
   const ProdutNameWithIcons = (
     <>
-      <span >{props?.ProductName}</span>
+      <span dangerouslySetInnerHTML={{ __html: props?.ProductName }}/>
       {props.IsShowIcon && <TitleIcons Icon={props.Icon} />}
       {props.IsNew === true ? <NewIcon /> : null}
     </>
