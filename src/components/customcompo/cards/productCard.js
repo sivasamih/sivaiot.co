@@ -30,7 +30,8 @@ const ProductCard = (props) => {
           color: "inherit",
         }}
         component={props.IsClickable && props.url ? Link : "div"}
-        href={props.IsClickable ? props.url : null}>
+        href={props.IsClickable ? props.url : null}
+        target={props.IsExternalURL ? "_blank" : '_self'}>
         <Box
           sx={{
             display: "flex",

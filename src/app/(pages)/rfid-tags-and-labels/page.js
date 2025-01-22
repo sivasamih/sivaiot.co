@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
 import { Route_Path } from "@/apis/api";
-import { NewProduct } from "@/helper/helper";
+// import { NewProduct } from "@/helper/helper";
 import TopContent from "@/components/compo/products/topcontent";
 import ProductListingContainer from "@/components/compo/products/productListingContainer";
 import { notFound } from "next/navigation";
@@ -66,31 +66,29 @@ async function GetAllCategoriesWithProduct() {
         for (let L of data) {
           L.IsExpanded = false;
           L.IsClickable = true;
-          L.IsExternalURL = false;
+          // L.IsExternalURL = false;
           L.id = id;
           id++;
         }
-      } catch (ex) {}
+      } catch (ex) { }
 
-      try {
-        let hardCodeedProcuct = NewProduct ? NewProduct : [];
-        if (hardCodeedProcuct.length > 0) {
-          for (let L of hardCodeedProcuct) {
-            L.IsExpanded = false;
-            L.IsClickable = true;
-            L.IsExternalURL = false;
-            L.id = id;
-            id++;
-          }
-        }
-        data = [...data, ...hardCodeedProcuct];
-      } catch (ex) {}
+      // try {
+      //   let hardCodeedProcuct = NewProduct ? NewProduct : [];
+      //   if (hardCodeedProcuct.length > 0) {
+      //     for (let L of hardCodeedProcuct) {
+      //       L.IsExpanded = false;
+      //       L.IsClickable = true;
+      //       L.IsExternalURL = false;
+      //       L.id = id;
+      //       id++;
+      //     }
+      //   }
+      //   data = [...data, ...hardCodeedProcuct];
+      // } catch (ex) {}
     }
   } catch (ex) {
     console.log("ex>>>", ex);
   }
-  // console.log("data>>>", data);
-  // console.log("data>>>productList", data[0].productList[0]);
   return data;
 }
 

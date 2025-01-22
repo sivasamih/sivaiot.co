@@ -64,7 +64,7 @@ async function getProductFamilies() {
       console.log("product>>>API", APIURLS.APIURL.WebCategoryWiseProducts);
       console.log("product>>>", data);
     }
-  } catch (ex) {}
+  } catch (ex) { }
   return data;
 }
 
@@ -103,17 +103,19 @@ const ProductFamiliesPage = async () => {
         }}
       >
         {ProductFamilies.map((item, index) => {
+          const { Name, UrlName, Description, ImageAlt, IsExternalURL, Images } = item
+          const url = UrlName?.startsWith("/") ? UrlName : Route_Path.PRODUCT_FAMILY + "/" + UrlName
           return (
             <CardTwo
               key={index}
-              title={item.Name}
-              desc={item.Description}
-              alt={item.ImageAlt}
-              IsExternalURL={item.IsExternalURL}
-              image={APIURLS.BASE_PATH.ProductFamily + item["Images"]}
+              title={Name}
+              desc={Description}
+              alt={ImageAlt}
+              IsExternalURL={IsExternalURL}
+              image={APIURLS.BASE_PATH.ProductFamily + Images}
               titleTextColor={"#263238"}
               titleAlign={"left"}
-              url={item.UrlName}
+              url={url}
             />
           );
         })}

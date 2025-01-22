@@ -23,7 +23,7 @@ const CardTwo = ({ title, desc, url, image, titleTextColor, titleAlign, IsExtern
           transition: "background-color 0.5s linear",
         },
       }}>
-      <Link href={IsExternalURL ? url : Route_Path.PRODUCT_FAMILY + "/" + url} title="RFID_PRODUCT_FAMILY" style={{ display: "block" }}>
+      <Link href={url} title={title} target={IsExternalURL ? "_blank" : '_self'} style={{ display: "block" }}>
         {/* <CardMedia
           component={"img"}
           image={image}
@@ -47,7 +47,8 @@ const CardTwo = ({ title, desc, url, image, titleTextColor, titleAlign, IsExtern
         <Box sx={{ mb: 1 }}>
           <Typography
             component={Link}
-            href={IsExternalURL ? url : Route_Path.PRODUCT_FAMILY + "/" + url}
+            href={url} 
+            target={IsExternalURL ? "_blank" : '_self'}
             title={title}
             sx={{
               color: titleTextColor || "var(--headerColor)",

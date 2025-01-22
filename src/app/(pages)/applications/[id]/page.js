@@ -1,6 +1,7 @@
 import { Route_Path } from "@/apis/api";
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
+import CardTwo from "@/components/customcompo/cards/cardtwo";
 import ProductCardSmall from "@/components/customcompo/cards/productcardsmall";
 import LazyImage from "@/components/customcompo/customimage/customLazyImage";
 import Title5 from "@/components/customcompo/Typo/title5";
@@ -140,7 +141,7 @@ const ApplicationDetails = async ({ params }) => {
       <Container>
         <Box
           sx={{
-            minHeight: { xs: 100, md: 300 },
+            minHeight: { xs: 100, md: 'auto' },
             mt: 4,
             "& img": { maxHeight: "400px" },
           }}
@@ -174,7 +175,7 @@ const ApplicationDetails = async ({ params }) => {
             />
           </Box>
 
-          <Box sx={{ my: 5 }}>
+          {Array.isArray(IndustriesProduct) && IndustriesProduct.length > 0 ? < Box sx={{ my: 5 }}>
             <Typography
               variant="h5"
               sx={{
@@ -212,7 +213,18 @@ const ApplicationDetails = async ({ params }) => {
 
                 return (
                   <div key={index}>
-                    <ProductCardSmall
+                    <CardTwo
+                      key={index}
+                      title={item.Name}
+                      desc={desc}
+                      alt={item.ImageAlt}
+                      IsExternalURL={item.IsExternalURL}
+                      image={APIURLS.BASE_PATH.Product + item["ThumbnailImage"]}
+                      titleAlign={"left"}
+                      url={url}
+                    />
+
+                    {/* <ProductCardSmall
                       key={index}
                       title={item.Name}
                       desc={desc}
@@ -221,14 +233,14 @@ const ApplicationDetails = async ({ params }) => {
                       image={APIURLS.BASE_PATH.Product + item["ThumbnailImage"]}
                       titleAlign={"left"}
                       url={url}
-                    />
+                    /> */}
                   </div>
                 );
               })}
             </Box>
-          </Box>
-        </Container>
-      </Box>
+          </Box> : null}
+        </Container >
+      </Box >
     </>
   );
 };

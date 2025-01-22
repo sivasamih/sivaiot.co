@@ -30,10 +30,10 @@ const ProductListingContainer = (props) => {
         const filteredList = isCategoryMatch
           ? category.productList
           : category.productList.filter(
-              (item) =>
-                item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                item.desc.toLowerCase().includes(searchQuery.toLowerCase())
-            );
+            (item) =>
+              item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+              item.desc.toLowerCase().includes(searchQuery.toLowerCase())
+          );
 
         const isExpanded = isCategoryMatch || filteredList.length > 0;
         return {
@@ -78,7 +78,7 @@ const ProductListingContainer = (props) => {
         }
       }
       setCategories(category);
-    } catch (ex) {}
+    } catch (ex) { }
   };
 
   const expandAllACC = (value) => {
@@ -87,7 +87,7 @@ const ProductListingContainer = (props) => {
       List.map((item) => (item.IsExpanded = value));
       setCategories(List);
       setIsExpandAll(value);
-    } catch (ex) {}
+    } catch (ex) { }
   };
 
   return (
@@ -170,38 +170,38 @@ const ProductListingContainer = (props) => {
                     >
                       {item["productList"]
                         ? item["productList"].map((P, index) => {
-                            let imageALt =
-                              P.ImageList && P.ImageList.length > 0
-                                ? P.ImageList[0]["Alt"]
-                                : "Product image";
-                            let url = P.link.startsWith("/")
-                              ? P.link
-                              : Route_Path.PRODUCTS + "/" + P.link;
-                            return (
-                              <Box
-                                id={P.link}
-                                key={index}
-                              >
-                                <ProductCard
-                                  ID={P.ID}
-                                  ProductImage={
-                                    APIURLS.BASE_PATH.Product + P.image
-                                  }
-                                  ProductImageAlt={imageALt}
-                                  ProductName={P.name ? P.name : ""}
-                                  ProductDesc={P.desc ? P.desc : ""}
-                                  Datasheet={P.Datasheets}
-                                  pt={{ xs: 2, md: 3 }}
-                                  url={url}
-                                  IsClickable={item.IsClickable}
-                                  IsExternalURL={P.IsExternalURL}
-                                  IsNew={P.IsNew}
-                                  Icon={APIURLS.BASE_PATH.Product + P.Icon}
-                                  IsShowIcon={P.IsShowIcon}
-                                />
-                              </Box>
-                            );
-                          })
+                          let imageALt =
+                            P.ImageList && P.ImageList.length > 0
+                              ? P.ImageList[0]["Alt"]
+                              : "Product image";
+                          let url = P.link.startsWith("/")
+                            ? P.link
+                            : Route_Path.PRODUCTS + "/" + P.link;
+                          return (
+                            <Box
+                              id={P.link}
+                              key={index}
+                            >
+                              <ProductCard
+                                ID={P.ID}
+                                ProductImage={
+                                  APIURLS.BASE_PATH.Product + P.image
+                                }
+                                ProductImageAlt={imageALt}
+                                ProductName={P.name ? P.name : ""}
+                                ProductDesc={P.desc ? P.desc : ""}
+                                Datasheet={P.Datasheets}
+                                pt={{ xs: 2, md: 3 }}
+                                url={url}
+                                IsClickable={item.IsClickable}
+                                IsExternalURL={P.IsExternalURL}
+                                IsNew={P.IsNew}
+                                Icon={APIURLS.BASE_PATH.Product + P.Icon}
+                                IsShowIcon={P.IsShowIcon}
+                              />
+                            </Box>
+                          );
+                        })
                         : null}
                     </Box>
                   }

@@ -233,11 +233,11 @@ const NavBar = () => {
                 path={Navlist[2].path}
                 type="link"
               />
-              <NavLinkButtons
+              {/* <NavLinkButtons
                 name={'Application'}
                 path={'/applications'}
                 type="link"
-              />
+              /> */}
               <NavLinkButtons
                 name={Navlist[3].name}
                 path={Navlist[3].path}
