@@ -49,7 +49,8 @@ export const metadata = {
   },
   // Canonical URL
   alternates: {
-    canonical: Route_Path.PRODUCT_FAMILY,
+    canonical: 'https://sivaiot.co',
+
   },
   // Additional Metadata
   charset: "UTF-8",

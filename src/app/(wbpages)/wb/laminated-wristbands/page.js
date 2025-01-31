@@ -82,7 +82,7 @@ export const metadata = {
   },
   // Canonical URL
   alternates: {
-    canonical: Route_Path.WB_ULTIMOID_POLY,
+    canonical: 'https://sivaiot.co',
   },
   // Additional Metadata
   charset: "UTF-8",

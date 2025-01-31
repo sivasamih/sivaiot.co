@@ -36,7 +36,9 @@ export async function generateMetadata({ params }) {
     },
 
     alternates: {
-      canonical: `${Route_Path.DATASHEET}/${name}`,
+      // canonical: `${Route_Path.DATASHEET}/${name}`,
+      canonical: `https://sivaiot.co`,
+      
     },
 
     charset: "UTF-8",

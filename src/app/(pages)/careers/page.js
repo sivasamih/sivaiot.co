@@ -46,7 +46,7 @@ export const metadata = {
   },
   // Canonical URL
   alternates: {
-    canonical: Route_Path.CAREERS,
+    canonical: 'https://sivaiot.co',
   },
   // Additional Metadata
   charset: "UTF-8",

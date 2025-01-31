@@ -79,7 +79,8 @@ export const metadata = {
   },
   // Canonical URL
   alternates: {
-    canonical: Route_Path.WB_POLY_IN_SHEETS,
+    canonical: 'https://sivaiot.co',
+
   },
   // Additional Metadata
   charset: "UTF-8",

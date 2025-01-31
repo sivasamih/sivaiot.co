@@ -48,7 +48,8 @@ export const metadata = {
   },
   // Canonical URL
   alternates: {
-    canonical: Route_Path.THERMAL_RFID_EVENT_TICKETING,
+    canonical: 'https://sivaiot.co',
+
   },
   // Additional Metadata
   charset: "UTF-8",

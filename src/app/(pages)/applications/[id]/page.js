@@ -104,7 +104,7 @@ export async function generateMetadata({ params }) {
 
     // Canonical URL
     alternates: {
-      canonical: Route_Path.Application + "/" + UrlName,
+      canonical: 'https://sivaiot.co',
     },
 
     // Additional Metadata

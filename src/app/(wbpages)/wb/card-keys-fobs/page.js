@@ -49,7 +49,7 @@ export const metadata = {
   },
   // Canonical URL
   alternates: {
-    canonical: Route_Path.WB_CARD_KEYS_FOBS,
+    canonical: 'https://sivaiot.co',
   },
   // Additional Metadata
   charset: "UTF-8",

@@ -77,7 +77,7 @@ export async function generateMetadata({ params }) {
 
     // Canonical URL
     alternates: {
-      canonical: `https://sivaiot.co/rfid-tags-and-labels/${url}`,
+      canonical: `https://sivaiot.co/`,
     },
 
     // Additional Metadata
