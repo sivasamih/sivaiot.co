@@ -89,9 +89,15 @@ const ProductDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
   if (!ProductData) return notFound();
+  const StructuredData = JSON.stringify(ProductData["StructuredData"])
 
   return (
-    <>
+    <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: StructuredData }}
+      />
+
       <Box
         component={motion.div}
         initial={{ y: 20, opacity: 0 }}
@@ -122,7 +128,7 @@ const ProductDetailsPage = async ({ params }) => {
 
 
       </Container>
-    </>
+    </section>
   );
 };
 export default ProductDetailsPage;

@@ -93,104 +93,110 @@ const BlogDetailsPage = async ({ params }) => {
   };
 
   const cleanedHtmal = cleanHTMLString(BlogContent)
+  const StructureData = BlogData && BlogData.StructuredData
 
   if (!BlogData) return notFound();
   return (
     <>
-      <Box sx={{ bgcolor: "var(--green)", py: 4 }}>
-        <Container>
-          <Typography
-            sx={{
-              fontSize: {
-                xs: "calc(1rem + 1vw)",
-                md: "calc(1.2rem + 1vw)",
-              },
-              fontWeight: "bold",
-              color: "white",
-            }}
-            component={"h1"}
-          >
-            {BlogData && BlogData.BlogTitle}
-          </Typography>
-        </Container>
-      </Box>
-      <Container>
-        <Box sx={{ minHeight: { xs: 100, md: 300 }, mt: 4 }}>
-          <LazyImage
-            src={BlogData && BlogData["BannerImage"]}
-            alt={BlogData && BlogData["BlogTitle"]}
-          />
-          <Typography
-            sx={{
-              fontSize: {
-                xs: "calc(.5rem + 1vw)",
-                md: "calc(0.01rem + 1vw)",
-              },
-            }}
-          >
-            <b style={{ padding: "0 0 5px" }}>Posted on</b>{" "}
-            {moment(BlogData && BlogData.PostedDateTime).format("DD/MM/YYYY") +
-              " " +
-              "|" +
-              " "}{" "}
-            <b style={{ padding: "0 5px" }}>Tags</b> {BlogData && BlogData.Tags}
-          </Typography>
+      <section>
+        <script type="application/ld+json">{StructureData}</script>
+
+        <Box sx={{ bgcolor: "var(--green)", py: 4 }}>
+          <Container>
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: "calc(1rem + 1vw)",
+                  md: "calc(1.2rem + 1vw)",
+                },
+                fontWeight: "bold",
+                color: "white",
+              }}
+              component={"h1"}
+            >
+              {BlogData && BlogData.BlogTitle}
+            </Typography>
+          </Container>
         </Box>
 
-        <Box sx={{ my: 4 }}>
-          <Grid
-            container
-            spacing={0}
-          >
-            <Grid
-              item
-              xs={12}
-              md={12}
+        <Container>
+          <Box sx={{ minHeight: { xs: 100, md: 300 }, mt: 4 }}>
+            <LazyImage
+              src={BlogData && BlogData["BannerImage"]}
+              alt={BlogData && BlogData["BlogTitle"]}
+            />
+            <Typography
               sx={{
-                "& h6": {
-                  fontSize: {
-                    xs: "calc(1rem + 1vw)",
-                    md: "calc(0.4rem + 1vw)",
-                  },
-                  mt: 2,
+                fontSize: {
+                  xs: "calc(.5rem + 1vw)",
+                  md: "calc(0.01rem + 1vw)",
                 },
-                "& p": {
-                  fontSize: {
-                    xs: "calc(0.8rem + 1vw)",
-                    md: "calc(0.2rem + 1vw)",
-                  },
-                },
-                "& .css-q8j5sq img": {
-                  width: "auto"
-                }
-
-
               }}
             >
-              <Box
+              <b style={{ padding: "0 0 5px" }}>Posted on</b>{" "}
+              {moment(BlogData && BlogData.PostedDateTime).format("DD/MM/YYYY") +
+                " " +
+                "|" +
+                " "}{" "}
+              <b style={{ padding: "0 5px" }}>Tags</b> {BlogData && BlogData.Tags}
+            </Typography>
+          </Box>
+
+          <Box sx={{ my: 4 }}>
+            <Grid
+              container
+              spacing={0}
+            >
+              <Grid
+                item
+                xs={12}
+                md={12}
                 sx={{
-                  pr: { xs: 0, md: 1 },
-                  "& a": {
-                    color: "var(--green)",
-                    textDecoration: "none",
+                  "& h6": {
+                    fontSize: {
+                      xs: "calc(1rem + 1vw)",
+                      md: "calc(0.4rem + 1vw)",
+                    },
+                    mt: 2,
                   },
-                  "& img": {
-                    width: "100%",
+                  "& p": {
+                    fontSize: {
+                      xs: "calc(0.8rem + 1vw)",
+                      md: "calc(0.2rem + 1vw)",
+                    },
                   },
-                }}
-                // dangerouslySetInnerHTML={{
-                //   __html: BlogContent,
-                // }}
-                dangerouslySetInnerHTML={{
-                  __html: cleanedHtmal,
-                }}
+                  "& .css-q8j5sq img": {
+                    width: "auto"
+                  }
 
 
-              />
+                }}
+              >
+                <Box
+                  sx={{
+                    pr: { xs: 0, md: 1 },
+                    "& a": {
+                      color: "var(--green)",
+                      textDecoration: "none",
+                    },
+                    "& img": {
+                      width: "100%",
+                    },
+                  }}
+                  // dangerouslySetInnerHTML={{
+                  //   __html: BlogContent,
+                  // }}
+                  dangerouslySetInnerHTML={{
+                    __html: cleanedHtmal,
+                  }}
+
+
+                />
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
-      </Container >
+          </Box>
+        </Container >
+      </section>
     </>
   );
 };

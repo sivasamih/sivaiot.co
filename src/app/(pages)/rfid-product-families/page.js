@@ -62,8 +62,6 @@ async function getProductFamilies() {
     let res = await FETCHAPI.Fetch(APIURLS.APIURL.GetProductFamily);
     if (res.status === 200) {
       data = await res.json();
-      console.log("product>>>API", APIURLS.APIURL.WebCategoryWiseProducts);
-      console.log("product>>>", data);
     }
   } catch (ex) { }
   return data;
