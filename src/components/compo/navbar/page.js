@@ -5,10 +5,12 @@ import {
   Button,
   ButtonGroup,
   Container,
+  Fade,
   IconButton,
   List,
   ListItemButton,
   ListItemIcon,
+  Tooltip,
   Typography,
 } from "@mui/material";
 
@@ -31,6 +33,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useLoginData } from "@/contextapi/loginuserprovider";
 import useMobileLandscape from "@/app/hooks/mobileLandscape";
+import { Language } from "@mui/icons-material";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -112,75 +115,122 @@ const NavBar = () => {
               </AnimatePresence>
             </CustomBox>
 
+
+
+
+
             <CustomBox
               className={"text-center"}
               sx={{
                 display: { xs: "none", md: "flex" },
+                // justifyContent: "center",
+                alignItems: "end",
+                // flexDirection: "column",
+                pr: 8,
+                gap: 4
+              }}
+            >
+
+              <Box sx={{
+                display: { xs: "none", md: "flex" },
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                pr: 8,
-              }}
-            >
-              <Button
-                className={"btn-bg-green border-redius-none"}
-                variant="contained"
-                component={Link}
-                sx={{ border: 0 }}
-                href={Route_Path.PARTNER_LOGIN}
-                target={"_blank"}
-                title="partners"
-              >
-                {!userData ? BtnName.PARTNER_LOGIN : "Dashboard"}
-              </Button>
-
-              <ButtonGroup
-                size="small"
-                sx={{ display: { xs: "none", md: "inline-flex" } }}
-              >
-                <CustomIconButton
-                  sx={{
-                    color: "var(--allBtnColor)",
-                    "&:hover svg": { color: "var(--blue)" },
-                  }}
+              }}>
+                <Button
+                  className={"btn-bg-green border-redius-none"}
+                  variant="contained"
+                  component={Link}
+                  sx={{ border: 0 }}
+                  href={Route_Path.PARTNER_LOGIN}
+                  target={"_blank"}
+                  title="partners"
                 >
-                  {" "}
-                  <Link
-                    href={"https://www.linkedin.com/company/sivagrp"}
-                    target="_blank"
-                    title="linkedin"
-                    style={{
-                      textDecoration: "none",
+                  {!userData ? BtnName.PARTNER_LOGIN : "Dashboard"}
+                </Button>
+
+                <ButtonGroup
+                  size="small"
+                  sx={{ display: { xs: "none", md: "inline-flex" } }}
+                >
+                  <CustomIconButton
+                    sx={{
                       color: "var(--allBtnColor)",
+                      "&:hover svg": { color: "var(--blue)" },
                     }}
                   >
-                    {Icons.LinkedIn}
-                  </Link>
-                </CustomIconButton>
+                    <Tooltip title="Visit Our Corporate Website" arrow
+                      slots={{
+                        transition: Fade,
+                      }}>
+                      <Link
+                        href={"https://sivagroup.co/"}
+                        target="_blank"
+                        // title="linkedin"
+                        style={{
+                          textDecoration: "none",
+                          color: "var(--allBtnColor)",
+                        }}
+                      >
+                        <Language />
+                      </Link>
+                    </Tooltip>
+                  </CustomIconButton>
 
-                <CustomIconButton
-                  sx={{
-                    color: "var(--allBtnColor)",
-                    "&:hover svg": { color: "var(--red)" },
-                  }}
-                >
-                  {" "}
-                  <Link
-                    href={
-                      "https://www.youtube.com/channel/UCVqeFovs3fAmcrIHLmcQnJw"
-                    }
-                    target="_blank"
-                    title="youtube"
-                    name={"youtube"}
-                    style={{
-                      textDecoration: "none",
+                  <CustomIconButton
+                    sx={{
                       color: "var(--allBtnColor)",
+                      "&:hover svg": { color: "var(--blue)" },
                     }}
                   >
-                    {Icons.YouTube}
-                  </Link>
-                </CustomIconButton>
-              </ButtonGroup>
+                    <Tooltip title="Linkedin" arrow
+                      slots={{
+                        transition: Fade,
+                      }}>
+                      <Link
+                        href={"https://www.linkedin.com/company/sivagrp"}
+                        target="_blank"
+                        // title="linkedin"
+                        style={{
+                          textDecoration: "none",
+                          color: "var(--allBtnColor)",
+                        }}
+                      >
+                        {Icons.LinkedIn}
+                      </Link>
+                    </Tooltip>
+
+                  </CustomIconButton>
+
+                  <CustomIconButton
+                    sx={{
+                      color: "var(--allBtnColor)",
+                      "&:hover svg": { color: "var(--red)" },
+                    }}
+                  >
+                    <Tooltip title="YouTube" arrow
+                      slots={{
+                        transition: Fade,
+                      }}>
+                      <Link
+                        href={
+                          "https://www.youtube.com/channel/UCVqeFovs3fAmcrIHLmcQnJw"
+                        }
+                        target="_blank"
+
+                        name={"youtube"}
+                        style={{
+                          textDecoration: "none",
+                          color: "var(--allBtnColor)",
+                        }}
+                      >
+                        {Icons.YouTube}
+                      </Link>
+                    </Tooltip>
+
+                  </CustomIconButton>
+                </ButtonGroup>
+              </Box>
             </CustomBox>
           </CustomBox>
         </Box>
