@@ -277,7 +277,7 @@ const ImageSlider = (props) => {
                 md: "translate(-50% , -50%)",
               },
               bgcolor: "#fffc",
-              p: {xs:1,md:2},
+              p: { xs: 1, md: 2 },
             }}
           >
             <Typography
@@ -305,7 +305,7 @@ const ImageSlider = (props) => {
                   color: "#1E4188",
                   // color: "var(--green)",
                   fontFamily: "LibreBaskerville",
-                  mb: {xs:.5,md:2},
+                  mb: { xs: .5, md: 2 },
                   textAlign: "center",
                 }}
                 variant={"subtitle1"}
@@ -327,8 +327,8 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              // component={Link}
-              // href={ImageList[2].url}
+            // component={Link}
+            // href={ImageList[2].url}
             >
               {ImageList[2].desc}
             </Typography>
@@ -400,8 +400,8 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              // component={Link}
-              // href={ImageList[3].url}
+            // component={Link}
+            // href={ImageList[3].url}
             >
               {ImageList[3].desc}
             </Typography>

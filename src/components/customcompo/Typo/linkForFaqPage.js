@@ -7,7 +7,7 @@ const LinkForFAQPage = ({ title, url }) => {
         <Typography
             component={Link}
             href={url}
-            title="Cintura Loop-Tag"
+            title={title}
             target="_blank"
             style={{
                 textDecoration: "none",
