@@ -6,7 +6,7 @@ import Address from "@/components/compo/contactus/address";
 import { Route_Path } from "@/apis/api";
 
 export const metadata = {
-  title: "Contact SIVA IoT | RFID India",
+  title: "Contact SIVA IoT | RFID Label Manufactures in India",
   description:
     "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
   keywords:
@@ -17,7 +17,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: Route_Path.RFID_CONTACT,
-    title: "Contact SIVA IoT | RFID India",
+    title: "Contact SIVA IoT | RFID Label Manufactures in India",
     description:
       "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
     images: [
@@ -34,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     site: "@sivaiot.co",
     creator: "@sivaiot.co",
-    title: "Contact SIVA IoT | RFID India",
+    title: "Contact SIVA IoT | RFID Label Manufactures in India",
     description:
       "Contact Siva Iot at (+91) 832-6621000 for best-in-class RFID products for assets management. We have been supplying our products across the globe for the past 35 years to various industries.",
     images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],

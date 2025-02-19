@@ -15,7 +15,7 @@ import Link from "next/link";
 import { Route_Path } from "@/apis/api";
 
 export const metadata = {
-  title: "About SIVA IoT | RFID & NFC Tracking Solutions",
+  title: "About SIVA IoT | RFID Label Manufactures in India",
   description:
     "SIVA IoT is a family-owned business specializing in producing niche RFID labels and tags. For the past 30 years, we have been providing asset tracking solutions to various industries worldwide.",
   keywords:
@@ -26,7 +26,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: Route_Path.ABOUT,
-    title: "About SIVA IoT | RFID & NFC Tracking Solutions",
+    title: "About SIVA IoT | RFID Label Manufactures in India",
     description:
       "SIVA IoT is a family-owned business specializing in producing niche RFID labels and tags. For the past 30 years, we have been providing asset tracking solutions to various industries worldwide.",
     images: [
@@ -43,7 +43,7 @@ export const metadata = {
     card: "summary_large_image",
     site: "@sivaiot.co",
     creator: "@sivaiot.co",
-    title: "About SIVA IoT | RFID & NFC Tracking Solutions",
+    title: "About SIVA IoT | RFID Label Manufactures in India",
     description:
       "SIVA IoT is a family-owned business specializing in producing niche RFID labels and tags. For the past 30 years, we have been providing asset tracking solutions to various industries worldwide.",
     images: [`https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`],
