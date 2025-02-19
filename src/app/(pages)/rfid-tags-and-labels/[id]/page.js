@@ -89,14 +89,16 @@ const ProductDetailsPage = async ({ params }) => {
   const url = (await params).id;
   const ProductData = await GetProductDetailsByUrlName(url);
   if (!ProductData) return notFound();
-  const StructuredData = JSON.stringify(ProductData["StructuredData"])
+
+  const cleanHTMLString = (html) => {
+    return html?.replace(/\\n/g, "").replace(/\\"/g, '""');
+  };
+  // const StructuredData = JSON.stringify(ProductData["StructuredData"])
+  const StructuredData = cleanHTMLString(ProductData["StructuredData"])
 
   return (
     <section>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: StructuredData }}
-      />
+      {StructuredData && <script type="application/ld+json">{StructuredData}</script>}
 
       <Box
         component={motion.div}

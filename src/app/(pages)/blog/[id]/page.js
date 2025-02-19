@@ -89,7 +89,7 @@ const BlogDetailsPage = async ({ params }) => {
   const BlogContent = BlogData?.ContentHtml;
 
   const cleanHTMLString = (html) => {
-    return html?.replace(/\\n/g, "").replace(/\\"/g, '"');
+    return html?.replace(/\\n/g, "").replace(/\\"/g, '""');
   };
 
   const cleanedHtmal = cleanHTMLString(BlogContent)
