@@ -10,11 +10,11 @@ import { Route_Path } from "@/apis/api";
 const ImageSlider = (props) => {
   let ImageList = [
     {
-      ImgPath: APIURLS.BASE_PATH.SlidesImage + "Beer-Keg.webp",
-      alt: "Metal Cylinder Management",
-      url: Route_Path.PRODUCTS + "/beer-keg-and-gas-canister",
-      Title: "Metal Cylinder Management",
-      desc: "Cyltag™ designed specifically for metal objects with a curved surface like Beer Kegs, cylinders, metal pipes etc. ",
+      ImgPath: APIURLS.BASE_PATH.SlidesImage + "HTP-Header-banner.webp",
+      alt: "HTP-Header-banner",
+      url: Route_Path.PRODUCTS + "/high-temperature-uhf-label",
+      Title: "",
+      desc: "",
     },
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Ferro-series-Banner.webp",
@@ -79,7 +79,7 @@ const ImageSlider = (props) => {
         itemClass="carousel-item-padding-40-px"
       >
         {/* slide -1 */}
-        {/* <Box
+        <Box
           sx={{
             // height: "-webkit-fill-available",
             bgcolor: "white",
@@ -97,23 +97,24 @@ const ImageSlider = (props) => {
             width={"100%"}
             height={"100%"}
           />
-          <Box
-            sx={{
-              width: { xs: "80%", sm: "35%" },
-              position: "absolute",
-              left: { xs: "50%", sm: "65%", md: "50%" },
-              top: { xs: "50%", sm: "55%", md: "50%" },
-              transform: {
-                xs: "translate(-50% , -50%)",
-                sm: "translate(-30%,-30%)",
-                md: "translate(25%)",
-              },
-              bgcolor: "#f2f3f7cd",
-              // backdropFilter:'blur(5px)',
-              p: {xs:1,sm:2}
-            }}
-          >
-            <Typography
+          {ImageList[0].Title || ImageList[0].Subtitle
+            || ImageList[0].desc ? <Box
+              sx={{
+                width: { xs: "80%", sm: "35%" },
+                position: "absolute",
+                left: { xs: "50%", sm: "65%", md: "50%" },
+                top: { xs: "50%", sm: "55%", md: "50%" },
+                transform: {
+                  xs: "translate(-50% , -50%)",
+                  sm: "translate(-30%,-30%)",
+                  md: "translate(25%)",
+                },
+                bgcolor: "#f2f3f7cd",
+                // backdropFilter:'blur(5px)',
+                p: { xs: 1, sm: 2 }
+              }}
+            >
+            {ImageList[0].Title && <Typography
               sx={{
                 fontSize: {
                   xs: "calc(0.6rem + 1vw)",
@@ -130,7 +131,7 @@ const ImageSlider = (props) => {
               variant="h6"
             >
               {ImageList[0].Title}
-            </Typography>
+            </Typography>}
             {ImageList[0].Subtitle && (
               <Typography
                 sx={{
@@ -151,7 +152,7 @@ const ImageSlider = (props) => {
                 {ImageList[0].Subtitle}
               </Typography>
             )}
-            <Typography
+            {ImageList[0].desc && <Typography
               sx={{
                 color: "black",
                 pl: 1,
@@ -165,13 +166,13 @@ const ImageSlider = (props) => {
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
-              // component={Link}
-              // href={ImageList[0].url}
+            // component={Link}
+            // href={ImageList[0].url}
             >
               {ImageList[0].desc}
-            </Typography>
-          </Box>
-        </Box> */}
+            </Typography>}
+          </Box> : null}
+        </Box>
         {/* slide -2 */}
         {/* <Box
           sx={{
