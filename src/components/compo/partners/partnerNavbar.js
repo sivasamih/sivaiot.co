@@ -1,5 +1,5 @@
 "use client";
-import { AppBar, Box, Button, IconButton, List, ListItemButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Avatar, Box, IconButton, List, ListItemButton, Stack, Toolbar, Typography } from "@mui/material";
 import * as Animation from "@/components/animation/animation";
 import * as APIURLS from "@/apis/apiconstant";
 import { PartnerSideBarButtonList, removeLocalStorage } from "@/helper/helper";
@@ -18,8 +18,13 @@ const PartnerNavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   let IOT_PU = useLoginData();
+  const userName = IOT_PU?.UserName || "Guest";
+  const userInitials = userName
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase();
   const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     if (IOT_PU) {
@@ -50,7 +55,6 @@ const PartnerNavBar = () => {
             px: { xs: 0, md: 4 },
             py: 2,
             top: 0,
-            // zIndex: (theme) => theme.zIndex.drawer + 1,
             zIndex: 1000,
           }}>
           <Toolbar>
@@ -66,14 +70,14 @@ const PartnerNavBar = () => {
               <Box component={Link} href={"/partners"}>
                 <Box
                   component={"img"}
-                  sx={{ width: { xs: "90%", sm: "30%", md: "20%" } }}
-                  src={APIURLS.BASE_PATH.OthersImage + "logo.png"}
+                  sx={{ width: { xs: "50%", sm: "30%", md: "10%" } }}
+                  src={APIURLS.BASE_PATH.OthersImage + "logo-1.jpg"}
                   alt="SIVA's Partners"
                 />
               </Box>
             </Box>
-            <Box>
-              <Typography
+            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {/* <Typography
                 sx={{
                   fontSize: {
                     xs: "calc(1.5rem + 1vw)",
@@ -83,21 +87,60 @@ const PartnerNavBar = () => {
                   letterSpacing: 2,
                   color: "black",
                 }}>
-                Partners
-              </Typography>
+                Partner
+              </Typography> */}
+
               {userData ? (
-                <Button
-                  variant="contained"
-                  style={{ background: "var(--green)", borderRadius: 0 }}
-                  fullWidth
-                  size="small"
-                  onClick={() => {
-                    removeLocalStorage();
-                    // window.close()
-                    router.push(Route_Path.PARTNER_LOGIN);
-                  }}>
-                  Logout
-                </Button>
+                <>
+                  {" "}
+                  <Box sx={{ color: "var(--headerColor)" }}>
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      <Avatar
+                        sx={{
+                          width: { xs: 30, md: 40 },
+                          height: { xs: 30, md: 40 },
+                          bgcolor: "var(--green)",
+                          fontSize: { xs: 16, md: 20 },
+                          fontWeight: "bold",
+                          color: "white",
+                          letterSpacing: 1,
+                        }}>
+                        {userInitials}
+                      </Avatar>
+                      <Box sx={{ textWrap: "nowrap", textAlign: "left" }}>
+                        <Typography
+                          variant="h6"
+                          fontWeight="bold"
+                          sx={{ letterSpacing: 1, fontSize: { xs: "calc(0.5rem + 0.5vw)", md: "calc(0.2rem + 0.5vw)" } }}>
+                          Welcome !
+                        </Typography>
+                        <Typography
+                          variant="h6"
+                          fontWeight="bold"
+                          sx={{ letterSpacing: 1, fontSize: { xs: "calc(0.7rem + 0.5vw)", md: "calc(0.4rem + 0.5vw)" } }}>
+                          {userName}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </Box>
+                  <Typography
+                    sx={{
+                      color: "var(--green)",
+                      textTransform: "capitalize",
+                      textDecoration: "none",
+                      ":hover": {
+                        textDecoration: "underline",
+                      },
+                    }}
+                    component={Link}
+                    onClick={() => {
+                      removeLocalStorage();
+                      // router.push(Route_Path.PARTNER_LOGIN);
+                    }}
+                    href={Route_Path.PARTNER_LOGIN}>
+                    Logout
+                  </Typography>
+                </>
               ) : null}
             </Box>
           </Toolbar>
@@ -170,12 +213,12 @@ const PartnerNavBar = () => {
                     title={item.name}
                     sx={
                       ({ height: "100%", pl: 4 },
-                        pathname === item.url
-                          ? {
+                      pathname === item.url
+                        ? {
                             bgcolor: "#39b54a",
                             "& span , svg": { color: "white" },
                           }
-                          : null)
+                        : null)
                     }>
                     <Typography>{item.title}</Typography>
                   </ListItemButton>

@@ -1,20 +1,58 @@
 "use client";
-
-import CustomModal2 from "@/components/customcompo/modal/modal2";
-import { Box, List, ListItem } from "@mui/material";
-import Link from "next/link";
-import ContactInfo from "../contactus/contactinfo";
+import { Avatar, Box, Divider, List, Paper, Stack, Typography } from "@mui/material";
 import CustomListButton from "@/components/customcompo/button/customListButton";
-import { Route_Path } from "@/apis/api";
 import { PartnerSideBarButtonList } from "@/helper/helper";
+import { useLoginData } from "@/contextapi/loginuserprovider";
 
 const PartnerSideBar = () => {
-    // const [openContatInfo, setOpenContactInfo] = useState(false);
-
+    const IOT_PU = useLoginData();
+    const userName = IOT_PU?.UserName || "Guest";
+    const userInitials = userName.split(" ").map((n) => n[0]).join("").toUpperCase();
 
 
     return (
         <>
+            {/* <Box sx={{ p: 1, pb: 1 }}>
+                <Paper
+                    elevation={2}
+                    sx={{
+                        p: 1,
+                        px: 2,
+                        borderRadius: 3,
+                        backgroundColor: 'var(--green)',
+                        color: 'white',
+                        maxWidth: 400,
+                        mx: 'auto',
+                        transition: 'transform 0.3s',
+                    }}
+                >
+                    <Stack direction="row" alignItems="center" spacing={2}>
+                        <Avatar
+                            sx={{
+                                width: 40,
+                                height: 40,
+                                bgcolor: 'rgba(255, 255, 255, 0.3)',
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                color: 'white',
+                            }}
+                        >
+                            {userInitials}
+                        </Avatar>
+                        <Box >
+
+                            <Typography variant="h6" fontWeight="bold" sx={{ fontSize: 'calc(0.1rem + 1vw)', letterSpacing: 2 }}>
+                                Welcome
+                            </Typography>
+                            <Typography variant="h5" fontWeight="bold" sx={{ letterSpacing: 1 }}>
+                                {userName}
+                            </Typography>
+                        </Box>
+
+                    </Stack>
+                </Paper>
+            </Box>
+            <Divider /> */}
             <Box sx={{ px: 2 }}>
                 <List sx={{ color: "white" }}>
                     {PartnerSideBarButtonList?.map((item, index) => {

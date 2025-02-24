@@ -41,10 +41,12 @@ export default function GotQuestion(props) {
       setName(IOT_PU.UserName);
       setEmail(IOT_PU.EmailID);
       setIsEmailValidate(true);
+      setCompanyName("Email")
     } else {
       setName("");
       setEmail("");
       setIsEmailValidate(false);
+      setCompanyName("")
     }
   }, [isOpen]);
 
@@ -235,11 +237,11 @@ export default function GotQuestion(props) {
                   display: { xs: "none", md: "block" },
 
                   color: "var(--white)",
-                  textTransform: "capitalize",
+                  textTransform: 'inherit',
                 }}
                 style={{ backgroundColor: "var(--blue)" }}
               >
-                Any questions?
+                Got a questions?
               </Button>
             )}
             <Fab
@@ -351,14 +353,14 @@ export default function GotQuestion(props) {
                         }}
                       />
                     )}
-                    <CustomTextField
+                    {!IOT_PU['UserName'] && <CustomTextField
                       required
                       variant="outlined"
                       label="Company Name"
                       value={companyName}
                       onChange={(e) => setCompanyName(e.target.value)}
                       disabled={!IsEmailValidate}
-                    />
+                    />}
                     <CustomTextField
                       required
                       variant="outlined"

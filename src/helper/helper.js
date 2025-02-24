@@ -838,23 +838,23 @@ export const CustomizedServiceList = [
 
 export const PartnerSideBarButtonList = [
   {
-    title: "My Favorite",
+    title: "My Favorites",
     url: Route_Path.PARTNERS,
   },
   {
-    title: "Products",
+    title: "Explore Products",
     url: Route_Path.PARTNERS_PRODUCTS,
   },
   {
-    title: "Product Families",
+    title: "Explore Product Families",
     url: Route_Path.PARTNERS_PRODUCT_FAMILY,
   },
   {
-    title: "NDA",
+    title: "Non-Disclosure Agreement",
     url: Route_Path.PARTNERS_NDA,
   },
   {
-    title: "Price List",
+    title: "Your Price List",
     url: Route_Path.PARTNERS_PRICE_LIST,
   },
   {

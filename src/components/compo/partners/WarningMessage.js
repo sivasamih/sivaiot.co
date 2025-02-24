@@ -55,16 +55,16 @@ const WarningMessage = () => {
 
       if (NDAWillExpiring && nearestExpiringNDA) {
         let remainingDays = calculateRemainingDays(nearestExpiringNDA.EndDate);
-        setNDA_Notice(remainingDays === 0 ? `NDA will expire today` : `NDA will expire within ${remainingDays} days`);
+        setNDA_Notice(remainingDays === 0 ? `Non-Disclosure Agreement will expire today` : `Non-Disclosure Agreement will expire within ${remainingDays} days`);
         return false;
       }
 
       if (NDAIsExpired) {
-        setNDA_Notice("NDA expired");
+        setNDA_Notice("Non-Disclosure Agreement expired");
         return false;
       }
       if (NDAList.length > 0 && !iSNDAsAssign) {
-        setNDA_Notice("NDA not yet signed");
+        setNDA_Notice("Non-Disclosure Agreement not yet signed");
         return false;
       }
     } catch (ex) {

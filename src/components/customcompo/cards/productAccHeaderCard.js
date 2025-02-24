@@ -26,6 +26,7 @@ const ProductAccHeaderCard = (props) => {
           transform: "scale(1.05)",
         },
       }}
+      id={"header_wrapper"}
     >
       <Box
         sx={{
@@ -55,7 +56,7 @@ const ProductAccHeaderCard = (props) => {
             },
             fontWeight: "bold",
           }}
-        dangerouslySetInnerHTML={{ __html: Title }}
+          dangerouslySetInnerHTML={{ __html: Title }}
         >
           {/* {Title} */}
         </Typography>

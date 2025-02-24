@@ -1,5 +1,5 @@
 "use client";
-import { Box } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { Route_Path } from "@/apis/api";
 import { useEffect, useState } from "react";
 import FamiliesAccordian from "@/components/customcompo/accordian/familiesaccordian";
@@ -9,7 +9,7 @@ import * as FETCHAPI from "@/apis/fetchapi";
 import PartnerProductCard from "@/components/customcompo/cards/partnerProductCard";
 import { notFound } from "next/navigation";
 import Loading from "@/app/loading";
-import { getLocalStorage,  } from "@/helper/helper";
+import { getLocalStorage } from "@/helper/helper";
 
 const PartnerProductListing = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -179,6 +179,20 @@ const PartnerProductListing = (props) => {
   return (
     <>
       <Loading open={IsLoading} />
+      <Box sx={{ bgcolor: "#F2F4F7" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            textAlign: "center",
+            fontSize: "calc(1.2rem + 1vw)",
+            py: 4,
+            letterSpacing: 1,
+            color: "var(--headerColor)",
+          }}
+        >
+          Explore Products
+        </Typography>
+      </Box>
       <ProductSearchBox
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -221,10 +235,11 @@ const PartnerProductListing = (props) => {
                   width: { xs: "3rem", md: "3rem" },
                   height: "3rem",
                 },
-                py: 3,
+                py: 2,
+                px: 2
               }}
               className="header-box">
-              <Box style={{ padding: "0 0" }}>
+              <Box style={{ padding: "0 0" }} sx={{ "& #header_wrapper": { maxHeight: { xs: "auto", md: 150 } } }}>
                 <FamiliesAccordian
                   id={i + 1}
                   Title={item.name}
