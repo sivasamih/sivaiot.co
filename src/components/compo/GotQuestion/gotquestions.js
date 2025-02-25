@@ -353,7 +353,7 @@ export default function GotQuestion(props) {
                         }}
                       />
                     )}
-                    {!IOT_PU['UserName'] && <CustomTextField
+                    {!IOT_PU  && <CustomTextField
                       required
                       variant="outlined"
                       label="Company Name"

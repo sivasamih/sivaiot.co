@@ -57,7 +57,7 @@ const PriceListPage = () => {
       <Box
         sx={{
           width: "100%",
-          // height: "70vh",
+          height: "70vh",
           minHeight: "70vh",
           display: "flex",
           alignItems: "center",
