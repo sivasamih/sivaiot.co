@@ -135,7 +135,7 @@ const HomePage = async () => {
         sx={{
           bgcolor: "white",
           borderLeft: "3rem solid var(--borderColor)",
-          borderBottom: "3rem solid var(--borderColor)",
+          // borderBottom: "3rem solid var(--borderColor)",
           borderRight: "3rem solid var(--white)",
           position: "relative",
           "&:before": {
@@ -170,8 +170,8 @@ const HomePage = async () => {
           </Box>
         </Container>
       </Box>
-      {/* ************-********** */}
-      <Box
+      {/* ************Events********** */}
+      {/* <Box
         sx={{
           borderRight: "3rem solid var(--borderColor)",
           borderLeft: "3rem solid transparent",
@@ -204,7 +204,7 @@ const HomePage = async () => {
             </Box>
           </Box>
         </Container>
-      </Box>
+      </Box> */}
     </section>
   );
 };
