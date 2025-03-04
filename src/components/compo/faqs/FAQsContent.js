@@ -112,4 +112,13 @@ const FAQ4 = () => (
   </>
 );
 
-export { FAQ1, FAQ2, FAQ3, FAQ4 };
+const FAQ5 = () => (
+  <>
+    <Paragraph4>
+      Healthcare facilities can use <LinkForFAQPage title={"ceramic RFID tags"} url={Route_Path.BLOG + "/ceramic-rfid-tag"} /> to tag and track surgical and dental instruments efficiently. These tags are small and durable, allowing seamless integration with medical tools, along with resisting high temperature cycling operations, chemical washes and sterilization.
+    </Paragraph4>
+  </>
+);
+
+
+export { FAQ1, FAQ2, FAQ3, FAQ4, FAQ5 };

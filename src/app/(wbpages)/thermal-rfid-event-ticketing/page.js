@@ -13,45 +13,42 @@ import { Route_Path } from "@/apis/api";
 
 
 export const metadata = {
-  title: "RFID Wristbands Manufacturer | RFID Cards & Key Fobs - SIVA IoT",
+  title: "Smart NFC Tickets for Events, Festivals, Stadiums, 7 Social Gatherings - SIVA IoT",
   description:
-    "At SIVA, our mission is to enhance guest experience and security in the leisure and entertainment industry with innovative RFID wristbands, cards, and key fobs for amusement parks, waterparks, and resorts",
+    "Streamline event entry with SIVA’s thermal RFID event ticketing solutions. Ensure fast, secure, and contactless access control with high-quality RFID-enabled tickets. Learn more today!",
   keywords:
-    "At SIVA, our mission is to enhance guest experience and security in the leisure and entertainment industry with innovative RFID wristbands, cards, and key fobs for amusement parks, waterparks, and resorts",
+    "Streamline event entry with SIVA’s thermal RFID event ticketing solutions. Ensure fast, secure, and contactless access control with high-quality RFID-enabled tickets. Learn more today!",
   robots: "index, follow",
   metadataBase: new URL('https://sivaiot.co'),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: Route_Path.THERMAL_RFID_EVENT_TICKETING,
-    title: "RFID Wristbands Manufacturer | RFID Cards & Key Fobs - SIVA IoT",
+    title: "Smart NFC Tickets for Events, Festivals, Stadiums, 7 Social Gatherings - SIVA IoT",
     description:
-      "At SIVA, our mission is to enhance guest experience and security in the leisure and entertainment industry with innovative RFID wristbands, cards, and key fobs for amusement parks, waterparks, and resorts",
+      "Streamline event entry with SIVA’s thermal RFID event ticketing solutions. Ensure fast, secure, and contactless access control with high-quality RFID-enabled tickets. Learn more today!",
     images: [
       {
-        url: `https://sivafiles.sivagroup.co/1/images/wb/wb-index-banner.jpg`,
+        url: `https://sivafiles.sivagroup.co/1/images/wb/images/RFID-Event-ticketing.jpg`,
         width: 1200,
         height: 630,
         alt: "sivaiot.co",
       },
     ],
   },
-  // Twitter Metadata
   twitter: {
     card: "summary_large_image",
     site: "@sivaiot.co",
     creator: "@sivaiot.co",
-    title: "RFID Wristbands Manufacturer | RFID Cards & Key Fobs - SIVA IoT",
+    title: "Smart NFC Tickets for Events, Festivals, Stadiums, 7 Social Gatherings - SIVA IoT",
     description:
-      "At SIVA, our mission is to enhance guest experience and security in the leisure and entertainment industry with innovative RFID wristbands, cards, and key fobs for amusement parks, waterparks, and resorts",
-    images: [`https://sivafiles.sivagroup.co/1/images/wb/wb-index-banner.jpg`],
+      "Streamline event entry with SIVA’s thermal RFID event ticketing solutions. Ensure fast, secure, and contactless access control with high-quality RFID-enabled tickets. Learn more today!",
+    images: [`https://sivafiles.sivagroup.co/1/images/wb/images/RFID-Event-ticketing.jpg`],
   },
-  // Canonical URL
   alternates: {
     canonical: 'https://sivaiot.co',
 
   },
-  // Additional Metadata
   charset: "UTF-8",
 };
 

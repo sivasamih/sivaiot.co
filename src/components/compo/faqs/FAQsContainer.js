@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FAQ1, FAQ2, FAQ3, FAQ4 } from "./FAQsContent";
+import { FAQ1, FAQ2, FAQ3, FAQ4, FAQ5 } from "./FAQsContent";
 import FAQAccordian from "@/components/customcompo/accordian/faqAccordian";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
@@ -25,6 +25,11 @@ const FAQs = [
         id: 4,
         Question: "What are RFID Hard Tags?",
         Answer: <FAQ4 />,
+    },
+    {
+        id: 5,
+        Question: "How can healthcare facilities ensure proper tracking of surgical and dental instruments?",
+        Answer: <FAQ5 />,
     },
 ];
 

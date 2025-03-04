@@ -1,6 +1,49 @@
 import { Box, Container } from "@mui/system";
 import { Typography } from "@mui/material";
 import CardEight from "@/components/customcompo/cards/cardeight";
+import { Route_Path } from "@/apis/api";
+
+
+
+export const metadata = {
+  title: "Access Control Wristbands & NFC Tickets - SIVA IoT",
+  description:
+    "Explore SIVA's access control solutions like RFID wristbands, NFC tickets, cards, & key fobs for seamless entry management in events, healthcare, and workplaces. Visit website for more details",
+  keywords:
+    "Explore SIVA's access control solutions like RFID wristbands, NFC tickets, cards, & key fobs for seamless entry management in events, healthcare, and workplaces. Visit website for more details",
+  robots: "index, follow",
+  metadataBase: new URL("https://sivaiot.co"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: Route_Path.RFID_ACCESS_CONTROL,
+    title: "Access Control Wristbands & NFC Tickets - SIVA IoT",
+    description:
+      "Explore SIVA's access control solutions like RFID wristbands, NFC tickets, cards, & key fobs for seamless entry management in events, healthcare, and workplaces. Visit website for more details",
+    images: [
+      {
+        url: "/images/Logo-1200x630.jpg",
+        width: 1200,
+        height: 630,
+        alt: "sivaiot.co",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@sivaiot.co",
+    creator: "@sivaiot.co",
+    title: "Access Control Wristbands & NFC Tickets - SIVA IoT",
+    description:
+      "Explore SIVA's access control solutions like RFID wristbands, NFC tickets, cards, & key fobs for seamless entry management in events, healthcare, and workplaces. Visit website for more details",
+    images: ["/images/Logo-1200x630.jpg"],
+  },
+  alternates: {
+    canonical: 'https://sivaiot.co',
+
+  },
+  charset: "UTF-8",
+};
 
 const RFIDAccessControl = () => {
   return (
