@@ -71,7 +71,7 @@ const ContactUsPage = () => {
             xs={12}
             sm={12}
             sx={{
-              py:  { xs: 3, md: 6 },
+              py: { xs: 3, md: 6 },
               px: { xs: 3, md: 0 },
             }}
             id="Contact_us">
@@ -85,7 +85,7 @@ const ContactUsPage = () => {
             sx={{
               mb: 5,
               borderTop: "1px solid black",
-              py: 2,
+              py: 4,
               px: { xs: 3, md: 0 },
             }}>
             <Address />
