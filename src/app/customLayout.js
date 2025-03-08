@@ -10,6 +10,7 @@ import LoginProvider from "@/contextapi/loginuserprovider";
 import GotQuestion from "@/components/compo/GotQuestion/gotquestions";
 import useMobileLandscape from "./hooks/mobileLandscape";
 import RotateWarning from "@/components/compo/roratewarning/rotatewarning";
+import CustomSpeedDial from "@/components/compo/GotQuestion/speedDaial";
 
 export default function CustomLayOut({ children }) {
   const pathName = usePathname();
@@ -44,7 +45,8 @@ export default function CustomLayOut({ children }) {
       <LoginProvider>
         {!hideNavBar.some((path) => pathName.includes(path)) && <NavBar />}
         {!hideGotQuestion.some((path) => pathName.includes(path)) && (
-          <GotQuestion />
+          // <GotQuestion />
+          <CustomSpeedDial/>
         )}
         <Box
           component={motion.div}
