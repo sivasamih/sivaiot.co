@@ -38,6 +38,8 @@ const CustomSpeedDial = () => {
                     <Box sx={{ display: "flex", alignItems: "end", gap: 1 }}>
                         <Button
                             onClick={() => setSpeedDialOpen((prev) => !prev)}
+                            // onMouseEnter={() => setSpeedDialOpen(true)}
+                            // onMouseLeave={() => setSpeedDialOpen(false)}
                             variant="text"
                             sx={{
                                 p: 0.5,
@@ -49,6 +51,19 @@ const CustomSpeedDial = () => {
                                 textTransform: "inherit",
                                 mb: 1,
                                 backgroundColor: "var(--blue)",
+                                position: "relative",
+                                ":after": {
+                                    content: '""',
+                                    position: "absolute",
+                                    top: "50%",
+                                    right: -3,
+                                    transform: "translate(0, -50%) rotate(45deg)",
+                                    borderTop: "8px solid var(--blue)",
+                                    borderRight: "8px solid var(--blue)",
+                                    borderBottom: "8px solid transparent",
+                                    borderLeft: "8px solid transparent",
+                                    zIndex: -1,
+                                },
                             }}>
                             Got a question?
                         </Button>
@@ -56,9 +71,10 @@ const CustomSpeedDial = () => {
                             ariaLabel="Contact Options"
                             icon={speedDialOpen ? <Close sx={{ fontSize: "calc(1rem + 1vw)" }} /> : <HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
                             onClose={() => setSpeedDialOpen(false)}
-                            // onOpen={() => setSpeedDialOpen(true)}
+                            onOpen={() => setSpeedDialOpen(true)}
                             open={speedDialOpen}
-                            onClick={() => setSpeedDialOpen((prev) => !prev)}>
+                        // onClick={() => setSpeedDialOpen((prev) => !prev)}
+                        >
                             <SpeedDialAction
                                 icon={<WhatsApp sx={{ color: "white" }} />}
                                 tooltipTitle="WhatsApp"
