@@ -27,8 +27,8 @@ const EventCard = (props) => {
 
       <CardContent>
         <Typography
-          component={Link}
-          href={props.URL}
+          component={props.url ? Link : "h5"}
+          href={props.URL ? props.url : ""}
           title={props.Title}
           target={props.isExternal ? "_blank" : "_self"}
           sx={{

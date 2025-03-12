@@ -59,8 +59,8 @@ const CardFour = (props) => {
             "&:hover": { textDecoration: "underline" },
             fontSize: { xs: isMobileLandscape ? "calc(0.4rem + 1vw)" : "calc(1rem + 1vw)", md: "calc(0.1rem + 1vw)" },
           }}
-          component={Link}
-          href={props.url}
+          component={props.url ? Link : "h5"}
+          href={props.url ? props.url : ""}
           title={props.Title}
           target={props.isExternal ? "_blank" : "_self"}
         >
