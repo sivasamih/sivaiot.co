@@ -28,6 +28,7 @@ export const APIURL = {
   PartnerProductFamily: domain + "api/Website/PartnerProductFamily",
   PartnerWebFamilyWiseProducts: domain + "api/Website/PartnerWebFamilyWiseProducts",
   PartnerFavoriteWebProducts: domain + "api/Website/PartnerFavoriteWebProducts",
+  GetPulsePosts: domain + "api/WebSite/GetPulsePosts",
 };
 
 export const BASE_PATH = {

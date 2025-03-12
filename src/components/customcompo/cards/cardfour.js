@@ -61,8 +61,8 @@ const CardFour = (props) => {
           }}
           component={Link}
           href={props.url}
-          target="_blank"
           title={props.Title}
+          target={props.isExternal ? "_blank" : "_self"}
         >
           {props.Title}
         </Typography>

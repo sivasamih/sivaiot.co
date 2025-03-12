@@ -4,6 +4,7 @@ import * as FETCHAPI from "@/apis/fetchapi";
 import { Route_Path } from "@/apis/api";
 import CardTwo from "@/components/customcompo/cards/cardtwo";
 import { notFound } from "next/navigation";
+import FamiliesPageSkeleton from "@/components/customcompo/skeleton/familesPageSkeleton";
 
 
 export const dynamic = "force-dynamic";

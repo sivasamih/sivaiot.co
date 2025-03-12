@@ -4,6 +4,7 @@ import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import * as APIURLS from "@/apis/apiconstant";
 import LazyImage from "../customimage/customLazyImage";
 import useMobileLandscape from "@/app/hooks/mobileLandscape";
+import Link from "next/link";
 
 const EventCard = (props) => {
   const isMobileLandscape = useMobileLandscape();
@@ -26,11 +27,15 @@ const EventCard = (props) => {
 
       <CardContent>
         <Typography
-          component={"h5"}
+          component={Link}
+          href={props.URL}
+          title={props.Title}
+          target={props.isExternal ? "_blank" : "_self"}
           sx={{
             fontWeight: "bold",
             color: "#455a64",
-            fontSize: { xs: isMobileLandscape ? "calc(0.4rem + 1vw)" : "calc(1rem + 1vw)", md: "calc(0.1rem + 1vw)" },
+            fontSize: { xs: isMobileLandscape ? "calc(0.4rem + 1vw)" : "calc(1rem + 1vw)", md: "calc(0.1rem + 1vw)" }, textDecoration: "none",
+            "&:hover": { textDecoration: "underline" },
           }}>
           {props.title}
         </Typography>

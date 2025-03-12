@@ -48,12 +48,24 @@ export const metadata = {
   charset: "UTF-8",
 };
 
+
+// ****** ContentType****
+// name: "Blog", value: 1 name: "Event", value: 2  name: "News", value: 2
+
+// *******Source*********
+// name: "SivaIot", value: 1 name: "SIVA Group", value: 2  name: "IdenPro", value: 3 name: "Tourni-s", value: 4 
+
+
 async function getBlog() {
-  let reqData = { SourceID: 1, opt: 1 };
+  let reqData = {
+    SourceID: 1,
+    ContentType: 1
+  };
+
   let data;
   try {
     let res = await FETCHAPI.Fetch(
-      APIURLS.APIURL.WebsiteContentBySourceID,
+      APIURLS.APIURL.GetPulsePosts,
       reqData
     );
     if (res.status === 200) {

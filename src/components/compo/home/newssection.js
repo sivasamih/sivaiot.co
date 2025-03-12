@@ -1,72 +1,87 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import AnimatedPageWrapper from "@/components/animatedwrapper/animatepagewrapper";
 import CardFour from "@/components/customcompo/cards/cardfour";
 import * as APIURLS from "@/apis/apiconstant";
+import * as FETCHAPI from "@/apis/fetchapi";
+import PageHeading from "@/components/customcompo/Typo/pageHeading";
+import SectionWrapper from "@/components/animatedwrapper/sectionWrapper";
 
-const NewsSection = () => {
-  let newsList = [
-    {
-      title: "Ferro On-Metal labels receive major upgrades",
-      url: "https://wiot-group.com/think/en/news/sivas-on-metal-labels-receive-several-major-updates/",
-      image: APIURLS.BASE_PATH.NewsImage + "MoM-3520.webp",
-      description: "",
-      date: "March 2024",
-    },
-    {
-      title: "Quality in the making since 1986",
-      url: "https://wiot-group.com/think/en/news/siva-iot-quality-in-the-making-since-1986/",
-      image: APIURLS.BASE_PATH.NewsImage + "Quality-in-the-making.jpg",
-      description: "",
-      date: "March 2024",
-    },
+// ****** ContentType****
+// (name: "Blog", value: 1) ,(name: "Event", value: 2 ) ,(name: "News", value: 3)
 
-    {
-      title: "Elevating Patient Care: Pat-Track UHF Wristband",
-      url: "https://www.einpresswire.com/article/678753111/elevating-patient-care-siva-s-rain-rfid-pat-track-uhf-wristband",
-      image:
-        APIURLS.BASE_PATH.NewsImage + "Pat-Track-UHF-RFID-wristband_2nd.jpg",
-      description: "",
-      date: "March 2024",
-    },
-    {
-      title: "SIVA IoT Fills the Gap for Track & Trace of Metal Cylinders",
-      url: "https://wiot-group.com/think/en/news/siva-iot-fills-the-gap-for-track-trace-of-metal-cylinders/",
-      image: APIURLS.BASE_PATH.NewsImage + "Metal-Cylinders.png",
-      description: "",
-      date: "March 2024",
-    },
-  ];
+// *******Source*********
+// (name: "SivaIot" value: 1), (name: "SIVA Group", value: 2) , (name: "IdenPro", value: 3),( name: "Tourni-s", value: 4 )
+
+
+async function getNews() {
+  let reqData = {
+    SourceID: 1,
+    ContentType: 3
+  };
+
+  let data;
+  try {
+    let res = await FETCHAPI.Fetch(
+      APIURLS.APIURL.GetPulsePosts,
+      reqData
+    );
+    if (res.status === 200) {
+      data = await res.json();
+    }
+  } catch (ex) {
+    console.log("ex", ex);
+  }
+  return data;
+}
+
+const NewsSection = async () => {
+  let newsList = await getNews()
+  if (!Array.isArray(newsList) || newsList.length < 1) return null;
+
+
   return (
     <>
-      <AnimatedPageWrapper>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "repeat(1,1fr)",
-              sm: "repeat(2,1fr)",
-              md: "repeat(4,1fr)",
-              lg: "repeat(4,1fr)",
-            },
-            gap: 4,
-            bgcolor: "transparent",
-          }}
-        >
-          {newsList.map((item, index) => {
-            return (
-              <div key={index}>
-                <CardFour
-                  key={index}
-                  Image={item.image}
-                  Title={item.title}
-                  url={item.url}
-                />
-              </div>
-            );
-          })}
-        </Box>
-      </AnimatedPageWrapper>
+      <SectionWrapper borderLeft={true} borderBottom={true}>
+        <AnimatedPageWrapper>
+          <Container>
+            <PageHeading
+              title={"Latest News"}
+              component={"h2"}
+            />
+
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "repeat(1,1fr)",
+                  sm: "repeat(2,1fr)",
+                  md: "repeat(4,1fr)",
+                  lg: "repeat(4,1fr)",
+                },
+                gap: 4,
+                bgcolor: "transparent",
+                p: 2,
+                bgcolor: "white",
+              }}
+            >
+              {newsList.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <CardFour
+                      key={index}
+                      Image={item.FeatureImage}
+                      Title={item.BlogTitle}
+                      url={item.PostUrl}
+                      isExternal={item.IsExternalURL}
+                    />
+                  </div>
+                );
+              })}
+            </Box>
+          </Container>
+        </AnimatedPageWrapper>
+      </SectionWrapper>
     </>
   );
 };

@@ -146,8 +146,12 @@ const BlogCard_1 = (props) => {
                   xs: "calc(0.6rem + 1vw)",
                   md: "calc(0.1rem + 0.9vw)",
                 },
-                pb: 1,
+                mb: 1,
                 color: "var(--lightGray)",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+                display: "-webkit-box",
+                overflow: "hidden",
               }}
             >
               {props.Brief}

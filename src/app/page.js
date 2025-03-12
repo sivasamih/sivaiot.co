@@ -10,6 +10,7 @@ import NewsSection from "@/components/compo/home/newssection";
 import Events from "@/components/compo/home/events";
 import { StructureData } from "@/helper/structuredata";
 import { Route_Path } from "@/apis/api";
+import SectionWrapper from "@/components/animatedwrapper/sectionWrapper";
 
 async function getFamilyList() {
   let data = [];
@@ -89,122 +90,26 @@ const HomePage = async () => {
         </Container>
       </Box>
       {/* **********-********* */}
-      <Box
-        sx={{
-          bgcolor: "#fff",
-          border: "3rem solid var(--borderColor)",
-          borderTopColor: "var(--borderColor)",
-          borderRightColor: "var(--borderColor)",
-          borderBottomColor: "var(--borderColor)",
-          borderLeftColor: "white",
-          position: "relative",
-          "&:before": {
-            content: "''",
-            position: "absolute",
-            top: "-3rem",
-            left: "-3rem",
-            width: "100%",
-            height: "3rem",
-            backgroundColor: "var(--borderColor)",
-          },
-        }}>
+      <SectionWrapper borderRight={true} borderBottom={true}>
         <Container>
-          <Box
-            sx={{
-              marginLeft: "-3rem",
-              marginRight: "-3rem",
-              bgcolor: "white",
-              py: 2,
-            }}>
-            <PageHeading
-              title={"Product Families"}
-              component={"h2"}
+          <PageHeading
+            title={"Product Families"}
+            component={"h2"}
+          />
+          <Box sx={{ p: 2 }}>
+            <Families
+              header={"Industries"}
+              FamiliesList={FamiliesList}
             />
-            <Box sx={{ p: 2 }}>
-              <Families
-                header={"Industries"}
-                FamiliesList={FamiliesList}
-              />
-            </Box>
           </Box>
         </Container>
-      </Box>
+      </SectionWrapper>
+
       {/* ************-********** */}
-      <Box
-        id={"news-section"}
-        sx={{
-          bgcolor: "white",
-          borderLeft: "3rem solid var(--borderColor)",
-          // borderBottom: "3rem solid var(--borderColor)",
-          borderRight: "3rem solid var(--white)",
-          position: "relative",
-          "&:before": {
-            content: "''",
-            position: "absolute",
-            top: "-3rem",
-            left: "-3rem",
-            width: "3rem",
-            height: "3rem",
-            backgroundColor: "var(--borderColor)",
-          },
-        }}>
-        <Container sx={{ pt: 2 }}>
-          <Box
-            sx={{
-              marginLeft: "-3rem",
-              marginRight: "-3rem",
-              bgcolor: "white",
-              py: 2,
-            }}>
-            <PageHeading
-              title={"Latest News"}
-              component={"h2"}
-            />
-            <Box
-              sx={{
-                p: 2,
-                bgcolor: "white",
-              }}>
-              <NewsSection header={"News"} />
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+      <NewsSection />
+
       {/* ************Events********** */}
-      {/* <Box
-        sx={{
-          borderRight: "3rem solid var(--borderColor)",
-          borderLeft: "3rem solid transparent",
-          position: "relative",
-          "&:before": {
-            content: "''",
-            position: "absolute",
-            top: "-3rem",
-            right: "-3rem",
-            width: "100%",
-            height: "3rem",
-            backgroundColor: "var(--borderColor)",
-          },
-          py: 2,
-        }}>
-        <Container>
-          <Box
-            sx={{
-              marginLeft: "-3rem",
-              marginRight: "-3rem",
-              bgcolor: "white",
-              py: 2,
-            }}>
-            <PageHeading
-              title={"Upcoming Events"}
-              component={"h2"}
-            />
-            <Box sx={{ p: 2 }}>
-              <Events header={"Events"} />
-            </Box>
-          </Box>
-        </Container>
-      </Box> */}
+      <Events />
     </section>
   );
 };

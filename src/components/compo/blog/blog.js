@@ -35,7 +35,7 @@ const BlogPage = ({ Data }) => {
 
   return (
     <>
-      <Loading open={loading} />
+      {/* <Loading open={loading} /> */}
       {blog.length > 0 && (
         <Box>
           <Box sx={{ bgcolor: "var(--green)", py: 4 }}>

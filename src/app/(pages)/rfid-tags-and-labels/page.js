@@ -59,9 +59,6 @@ async function GetAllCategoriesWithProduct() {
     let res = await FETCHAPI.Fetch(APIURLS.APIURL.WebCategoryWiseProducts);
     if (res.status === 200) {
       data = await res.json();
-      console.log("product>>>API", APIURLS.APIURL.WebCategoryWiseProducts);
-      console.log("product>>>", data);
-
       let id = 1;
       try {
         for (let L of data) {
