@@ -6,6 +6,7 @@ import SectionWrapper from "@/components/animatedwrapper/sectionWrapper";
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
 import PageHeading from "@/components/customcompo/Typo/pageHeading";
+export const dynamic = "force-dynamic";
 
 // ****** ContentType****
 // (name: "Blog", value: 1) ,(name: "Event", value: 2 ) ,(name: "News", value: 3)
