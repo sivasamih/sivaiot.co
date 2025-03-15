@@ -6,7 +6,14 @@ import { useEffect } from "react";
 
 const RedirectionList = [
   { from: "/rfid-product-families/on-metal-rfid-labels", to: "/rfid-product-families/on-metal-uhf-labels" },
-  { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" }
+  { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" },
+  { from: "/RFID-Supply-Chain-Manufacturing-and-Logistics.html", to: "/rfid-product-families/general-rfid-tags-supply-chain-logistics" },
+  { from: "/product-families?product=robust-rfid-hard-tags", to: "/rfid-product-families/robust-rfid-hard-tags" },
+  { from: "/beer-keg-and-gas-caniter.html", to: "/rfid-tags-and-labels/beer-keg-and-gas-canister" },
+  { from: "/rfid-tags-and-labels-list.html", to: "/rfid-tags-and-labels" },
+  { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" },
+  // { from: "", to: "" },
+
 ];
 
 const RedirectionPage = () => {
