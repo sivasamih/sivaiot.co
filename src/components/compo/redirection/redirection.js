@@ -4,7 +4,10 @@ import { Route_Path } from "@/apis/api";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-const RedirectionList = [{ from: "/rfid-product-families/on-metal-rfid-labels", to: "/rfid-product-families/on-metal-uhf-labels" }];
+const RedirectionList = [
+  { from: "/rfid-product-families/on-metal-rfid-labels", to: "/rfid-product-families/on-metal-uhf-labels" },
+  { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" }
+];
 
 const RedirectionPage = () => {
   const PathName = usePathname();
