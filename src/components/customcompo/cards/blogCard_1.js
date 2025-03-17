@@ -52,9 +52,10 @@ const BlogCard_1 = (props) => {
           component="img"
           image={props.image}
           sx={{
-            height: { xs: 200, md: 250 },
+            height: { xs: 200, md: 200 },
             borderRadius: "4px 4px 0 0",
             display: props.image ? "block" : "none",
+            objectFit: "cover",
           }}
         />
         {!props.image && (

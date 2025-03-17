@@ -8,7 +8,7 @@ import GotQuestion from "./gotquestions";
 
 const CustomSpeedDial = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [speedDialOpen, setSpeedDialOpen] = useState(false);
+    const [speedDialOpen, setSpeedDialOpen] = useState(true);
 
     return (
         <Box
@@ -69,7 +69,8 @@ const CustomSpeedDial = () => {
                         </Button>
                         <SpeedDial
                             ariaLabel="Contact Options"
-                            icon={speedDialOpen ? <Close sx={{ fontSize: "calc(1rem + 1vw)" }} /> : <HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
+                            // icon={speedDialOpen ? <Close sx={{ fontSize: "calc(1rem + 1vw)" }} /> : <HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
+                            icon={ <HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
                             onClose={() => setSpeedDialOpen(false)}
                             onOpen={() => setSpeedDialOpen(true)}
                             open={speedDialOpen}

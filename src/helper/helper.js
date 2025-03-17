@@ -643,7 +643,7 @@ export const WristbandsProductList = [
   },
   {
     id: 4,
-    name: "Poly in Sheets",
+    name: "Poly Wristbands in Sheets",
     url: Route_Path.WB_POLY_IN_SHEETS,
     image: "images/poly-in-sheet-card-img.png",
     alt: "RFID Silicone Wristbands",

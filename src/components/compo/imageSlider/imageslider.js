@@ -79,7 +79,7 @@ const ImageSlider = (props) => {
         itemClass="carousel-item-padding-40-px"
       >
         {/* slide -1 */}
-        <Box
+        {/* <Box
           sx={{
             // height: "-webkit-fill-available",
             bgcolor: "white",
@@ -172,7 +172,7 @@ const ImageSlider = (props) => {
               {ImageList[0].desc}
             </Typography>}
           </Box> : null}
-        </Box>
+        </Box> */}
         {/* slide -2 */}
         {/* <Box
           sx={{

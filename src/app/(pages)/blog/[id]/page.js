@@ -101,7 +101,8 @@ const BlogDetailsPage = async ({ params }) => {
       <section>
         <script type="application/ld+json">{StructureData}</script>
 
-        <Box sx={{ bgcolor: "var(--green)", py: 4 }}>
+
+        <Box sx={{ bgcolor: "var(--green)", py: 4, display: { xs: "block", md: "none" } }}>
           <Container>
             <Typography
               sx={{
@@ -111,6 +112,7 @@ const BlogDetailsPage = async ({ params }) => {
                 },
                 fontWeight: "bold",
                 color: "white",
+
               }}
               component={"h1"}
             >
@@ -119,12 +121,69 @@ const BlogDetailsPage = async ({ params }) => {
           </Container>
         </Box>
 
+        <Box sx={{ position: "relative", px: { xs: 2, md: 10 }, py: 2 }}>
+          <Box
+            sx={{
+              width: "100%",
+              minHeight: { xs: 150, sm: 300, md: 500 },
+              background: `url(${BlogData["BannerImage"]})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              position: "relative",
+              backgroundPosition: "center",
+              zIndex: -1,
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.3)",
+              },
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                top: "0%",
+                left: "0%",
+                maxWidth: "40%",
+                height: "100%",
+                bgcolor: "rgba(57, 181, 74, 0.88)",
+                display: { xs: "none", md: "flex" },
+                alignItems: "center",
+                p: 4,
+              }}>
+              <Box >
+                <Typography
+                  component="h1"
+                  sx={{
+                    // color: "var(--headerColor)",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: { xs: 'calc(0.6rem + 1vw)', md: "1.8rem" }, lineHeight: 1.2
+                  }}>
+                  {BlogData && BlogData.BlogTitle}
+                </Typography>
+
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+
+
+
         <Container>
-          <Box sx={{ minHeight: { xs: 100, md: 300 }, mt: 4 }}>
-            <LazyImage
+          <Box
+          // sx={{ minHeight: { xs: 100, md: 300 }, mt: 4, }}
+          >
+            {/* <LazyImage
               src={BlogData && BlogData["BannerImage"]}
               alt={BlogData && BlogData["BlogTitle"]}
-            />
+              style={{ maxHeight: 500 }}
+            /> */}
+
             <Typography
               sx={{
                 fontSize: {

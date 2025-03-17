@@ -89,7 +89,7 @@ export const metadata = {
 const PolyInSheets = () => {
   return (
     <>
-      <PageHeader title={"UltimoID® Poly in Sheets"} />
+      <PageHeader title={"UltimoID® Poly Wristbands in Sheets"} />
       <Container>
         <Box sx={{ mt: 4 }}>
           <LazyImage
