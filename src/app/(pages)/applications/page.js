@@ -4,6 +4,8 @@ import * as FETCHAPI from "@/apis/fetchapi";
 import IndustriesCard from "@/components/customcompo/cards/industriesCard";
 import { Route_Path } from "@/apis/api";
 import { notFound } from "next/navigation";
+import CardTwo from "@/components/customcompo/cards/cardtwo";
+import IndustriesCardTwo from "@/components/customcompo/cards/industriesCardTwo";
 
 export const dynamic = "force-dynamic";
 async function ProductDetailsByIndustries() {
@@ -13,7 +15,7 @@ async function ProductDetailsByIndustries() {
     if (res.status === 200) {
       data = await res.json();
     }
-  } catch (ex) {}
+  } catch (ex) { }
   return data;
 }
 
@@ -44,18 +46,30 @@ const ApplicationsPage = async () => {
             sx={{
               my: 4,
               display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
               gap: 4,
             }}
           >
             {productsIndustries?.map((item, index) => {
               return (
                 <Box key={index}>
-                  <IndustriesCard
+                  {/* <IndustriesCard
                     id={index}
                     Title={item.Name}
                     Desc={item.Description}
                     Image={APIURLS.BASE_PATH.ProductIndustries + item.Images}
                     UrlName={Route_Path.Application + "/" + item.UrlName}
+                  /> */}
+                  <IndustriesCardTwo
+                    key={index}
+                    title={item.Name}
+                    desc={item.Description}
+                    alt={item.ImageAlt}
+                    IsExternalURL={item.IsExternalURL}
+                    image={APIURLS.BASE_PATH.ProductIndustries + item.Images}
+                    titleTextColor={"#263238"}
+                    titleAlign={"left"}
+                    url={Route_Path.Application + "/" + item.UrlName}
                   />
                 </Box>
               );

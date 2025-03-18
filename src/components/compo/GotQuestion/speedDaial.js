@@ -70,11 +70,11 @@ const CustomSpeedDial = () => {
                         <SpeedDial
                             ariaLabel="Contact Options"
                             // icon={speedDialOpen ? <Close sx={{ fontSize: "calc(1rem + 1vw)" }} /> : <HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
-                            icon={ <HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
-                            onClose={() => setSpeedDialOpen(false)}
-                            onOpen={() => setSpeedDialOpen(true)}
+                            icon={<HeadsetMic sx={{ fontSize: "calc(1rem + 1vw)" }} />}
+                            // onClose={() => setSpeedDialOpen(false)}
+                            // onOpen={() => setSpeedDialOpen(true)}
                             open={speedDialOpen}
-                        // onClick={() => setSpeedDialOpen((prev) => !prev)}
+                            onClick={() => setSpeedDialOpen((prev) => !prev)}
                         >
                             <SpeedDialAction
                                 icon={<WhatsApp sx={{ color: "white" }} />}

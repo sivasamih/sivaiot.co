@@ -2,6 +2,7 @@ import { Route_Path } from "@/apis/api";
 import * as APIURLS from "@/apis/apiconstant";
 import * as FETCHAPI from "@/apis/fetchapi";
 import CardTwo from "@/components/customcompo/cards/cardtwo";
+import IndustriesCardTwo from "@/components/customcompo/cards/industriesCardTwo";
 import ProductCardSmall from "@/components/customcompo/cards/productcardsmall";
 import LazyImage from "@/components/customcompo/customimage/customLazyImage";
 import Title5 from "@/components/customcompo/Typo/title5";
@@ -125,7 +126,6 @@ const ApplicationDetails = async ({ params }) => {
     IndustriesProduct,
   } = Industries;
 
-  console.log("Industries", Industries);
   return (
     <>
       <Box>
@@ -194,9 +194,7 @@ const ApplicationDetails = async ({ params }) => {
                 gridTemplateColumns: {
                   xs: "repeat(1,1fr)",
                   sm: "repeat(2,1fr)",
-                  md: "repeat(4,1fr)",
-                  lg: "repeat(4,1fr)",
-                  xl: "repeat(4,1fr)",
+                  md: "repeat(3,1fr)",
                 },
                 gap: 4,
               }}
@@ -213,7 +211,7 @@ const ApplicationDetails = async ({ params }) => {
 
                 return (
                   <div key={index}>
-                    <CardTwo
+                    <IndustriesCardTwo
                       key={index}
                       title={item.Name}
                       desc={desc}
@@ -222,18 +220,9 @@ const ApplicationDetails = async ({ params }) => {
                       image={APIURLS.BASE_PATH.Product + item["ThumbnailImage"]}
                       titleAlign={"left"}
                       url={url}
+                      ProductFamilyName={item.productFamily}
+                      productFamilyUrl={item.ProductFamilyUrl}
                     />
-
-                    {/* <ProductCardSmall
-                      key={index}
-                      title={item.Name}
-                      desc={desc}
-                      alt={item.ImageAlt}
-                      IsExternalURL={false}
-                      image={APIURLS.BASE_PATH.Product + item["ThumbnailImage"]}
-                      titleAlign={"left"}
-                      url={url}
-                    /> */}
                   </div>
                 );
               })}
