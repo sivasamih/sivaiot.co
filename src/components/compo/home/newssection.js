@@ -42,10 +42,10 @@ const NewsSection = async () => {
 
 
   return (
-    <>
-      <SectionWrapper borderLeft={true} borderBottom={true}>
+    <Box id="news-section">
+      <SectionWrapper borderLeft={true} borderBottom={true} >
         <AnimatedPageWrapper>
-          <Container>
+          <Container >
             <PageHeading
               title={"Latest News"}
               component={"h2"}
@@ -83,7 +83,7 @@ const NewsSection = async () => {
           </Container>
         </AnimatedPageWrapper>
       </SectionWrapper>
-    </>
+    </Box>
   );
 };
 

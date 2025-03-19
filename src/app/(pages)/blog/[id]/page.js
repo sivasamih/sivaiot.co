@@ -114,7 +114,7 @@ const BlogDetailsPage = async ({ params }) => {
                 color: "white",
 
               }}
-              component={"h1"}
+              component={"h2"}
             >
               {BlogData && BlogData.BlogTitle}
             </Typography>
