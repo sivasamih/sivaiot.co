@@ -125,25 +125,64 @@ const BlogDetailsPage = async ({ params }) => {
           <Box
             sx={{
               width: "100%",
-              minHeight: { xs: 150, sm: 300, md: 500 },
-              background: `url(${BlogData["BannerImage"]})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-              backgroundPosition: "center",
-              zIndex: -1,
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0, 0, 0, 0.3)",
-              },
+              // minHeight: { xs: 150, sm: 300, md: 500 },
+              // background: `url(${BlogData["BannerImage"]})`,
+              // backgroundSize: "cover",
+              // backgroundRepeat: "no-repeat",
+              // position: "relative",
+              // backgroundPosition: "center",
+              // zIndex: -1,
+              // "&::before": {
+              //   content: '""',
+              //   position: "absolute",
+              //   top: 0,
+              //   left: 0,
+              //   width: "100%",
+              //   height: "100%",
+              //   backgroundColor: "rgba(0, 0, 0, 0.3)",
+              // },
             }}
           >
-            <Box
+            <Grid container spacing={0}>
+              <Grid xs={12} md={5}  sx={{
+                display: { xs: 'none', md: 'block' },
+                background: `url(${BlogData["BannerImage"]})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center"
+              }}>
+                < Box sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  justifyContent: "center",
+                  alignItems: "start",
+                  p: { xs: 4, md: 6 },
+                  backdropFilter: 'blur(4px)',
+                  bgcolor: "#f2f4f7da",
+                }}>
+
+                  <Typography
+                    component="h1"
+                    sx={{
+                      color: "var(--headerColor)",
+                      fontWeight: "bold",
+                      display: { xs: "none", md: "block" },
+                      alignItems: "center",
+                      fontSize: { xs: 'calc(0.6rem + 1vw)', md: "1.8rem" }, lineHeight: 1.2
+                    }}>
+                    {BlogData && BlogData.BlogTitle}
+                  </Typography>
+
+                </Box>
+              </Grid>
+              <Grid xs={12} md={7}>
+                <img src={BlogData["BannerImage"]}
+                  width={'100%'} height={'100%'} alt={BlogData && BlogData.BlogTitle} />
+              </Grid>
+            </Grid>
+
+            {/* <Box
               sx={{
                 position: "absolute",
                 top: "0%",
@@ -168,7 +207,7 @@ const BlogDetailsPage = async ({ params }) => {
                 </Typography>
 
               </Box>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
 
