@@ -10,18 +10,11 @@ import { Route_Path } from "@/apis/api";
 const ImageSlider = (props) => {
   let ImageList = [
     {
-      ImgPath: APIURLS.BASE_PATH.SlidesImage + "HTP-Header-banner.webp",
-      alt: "HTP-Header-banner",
-      url: Route_Path.PRODUCTS + "/high-temperature-uhf-label",
-      Title: "",
-      desc: "",
-    },
-    {
-      ImgPath: APIURLS.BASE_PATH.SlidesImage + "Ferro-series-Banner.webp",
-      alt: "Metal Cylinder Management",
-      url: Route_Path.PRODUCT_FAMILY + "/on-metal-rfid-labels",
-      Title: "",
-      desc: "",
+      ImgPath: APIURLS.BASE_PATH.SlidesImage + "design-lab-banner-1.webp",
+      alt: "SIVA Design Lab- RFID labels/tags fabricated to your specific project needs.",
+      url: Route_Path.DESIGN_LAB,
+      Title: "SIVA Design Lab - RFID labels/tags fabricated to your specific project needs.",
+      desc: "A consultative approach to fabricating a custom RFID label/tag around the unique needs of the customer",
     },
 
     {
@@ -36,8 +29,8 @@ const ImageSlider = (props) => {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Flora_Web_Banner.webp",
       alt: "Flora_Web_Banner",
       url: Route_Path.PRODUCTS + "/horticulture-rfid-tag",
-      Title: "Ferro On-Metal Label Series, REDEFINED!",
-      desc: "New IC, New antenna design, Improved read range and enhanced printer compatibility",
+      Title: "",
+      desc: "",
     },
   ];
   const responsive = {
@@ -76,338 +69,99 @@ const ImageSlider = (props) => {
         removeArrowOnDeviceType={["tablet", "mobile"]}
         // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {/* slide -1 */}
-        {/* <Box
-          sx={{
-            // height: "-webkit-fill-available",
-            bgcolor: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-          }}
-          component={Link}
-          href={ImageList[0].url}
-        >
-          <img
-            src={ImageList[0].ImgPath}
-            alt={ImageList[0].alt}
-            width={"100%"}
-            height={"100%"}
-          />
-          {ImageList[0].Title || ImageList[0].Subtitle
-            || ImageList[0].desc ? <Box
-              sx={{
-                width: { xs: "80%", sm: "35%" },
-                position: "absolute",
-                left: { xs: "50%", sm: "65%", md: "50%" },
-                top: { xs: "50%", sm: "55%", md: "50%" },
-                transform: {
-                  xs: "translate(-50% , -50%)",
-                  sm: "translate(-30%,-30%)",
-                  md: "translate(25%)",
-                },
-                bgcolor: "#f2f3f7cd",
-                // backdropFilter:'blur(5px)',
-                p: { xs: 1, sm: 2 }
-              }}
-            >
-            {ImageList[0].Title && <Typography
-              sx={{
-                fontSize: {
-                  xs: "calc(0.6rem + 1vw)",
-                  md: "calc(0.8rem + 1vw)",
-                },
-                // p: 1,
-                color: "#1E4188",
-                // color: "var(--green)",
-                fontFamily: "LibreBaskerville",
-                lineHeight: 1.2,
-                mb: { xs: 1, md: 1 },
-                textAlign: "center",
-              }}
-              variant="h6"
-            >
-              {ImageList[0].Title}
-            </Typography>}
-            {ImageList[0].Subtitle && (
-              <Typography
+        itemClass="carousel-item-padding-40-px">
+        {ImageList?.map((item, index) => {
+          return (
+            <Link key={index} href={item.url}>
+              <Box
+                key={index}
                 sx={{
-                  fontSize: {
-                    xs: "calc(0.5rem + 1vw)",
-                    md: "calc(0.8rem + 1vw)",
-                  },
-                  p: 1,
-                  color: "#1E4188",
-                  // color: "var(--green)",
-                  fontFamily: "LibreBaskerville",
-                  lineHeight: 1.2,
-                  mb: 2,
-                  textAlign: "center",
+                  bgcolor: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "relative",
                 }}
-                variant={"subtitle1"}
               >
-                {ImageList[0].Subtitle}
-              </Typography>
-            )}
-            {ImageList[0].desc && <Typography
-              sx={{
-                color: "black",
-                pl: 1,
-                fontSize: {
-                  xs: "calc(0.4rem + 1vw)",
-                  md: "calc(0.2rem + 1vw)",
-                },
-                display: "block",
-                textDecoration: "none",
-                fontFamily: "BreeSerif",
-                lineHeight: 1.2,
-                textAlign: "center",
-              }}
-            // component={Link}
-            // href={ImageList[0].url}
-            >
-              {ImageList[0].desc}
-            </Typography>}
-          </Box> : null}
-        </Box> */}
-        {/* slide -2 */}
-        {/* <Box
-          sx={{
-            // height: "-webkit-fill-available",
-            bgcolor: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-          }}
-          component={Link}
-          href={ImageList[1].url}
-        >
-          <img
-            src={ImageList[1].ImgPath}
-            alt={ImageList[1].alt}
-            width={"100%"}
-            height={"100%"}
-          />
-          <Box
-            sx={{
-              display: "none",
-              width: { xs: "80%", sm: "30%" },
-              position: "absolute",
-              left: { xs: "50%", sm: "5%" },
-              top: { xs: "50%", sm: "40%" },
-              transform: {
-                xs: "translate(-50% , -70%)",
-                sm: "translate(-20%)",
-                md: "translate(0% , -50%)",
-              },
-              bgcolor: "#fffc",
-              p: 1,
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "calc(0.8rem + 1vw)",
-                  md: "calc(0.8rem + 1vw)",
-                },
-                p: 1,
-                color: "#1E4188",
-                fontFamily: "LibreBaskerville",
-                lineHeight: 1.2,
-                mb: 2,
-                textAlign: "center",
-              }}
-              variant="h6"
-            >
-              {ImageList[1].Title}
-            </Typography>
-            <Typography
-              sx={{
-                color: "black",
-                pl: 1,
-                fontSize: {
-                  xs: "calc(0.6rem + 1vw)",
-                  md: "calc(0.8rem + 1vw)",
-                },
-                display: "block",
-                textDecoration: "none",
-                fontFamily: "BreeSerif",
-                lineHeight: 1.2,
-                textAlign: "center",
-              }}
-              // component={Link}
-              // href={ImageList[1].url}
-            >
-              {ImageList[1].desc}
-            </Typography>
-          </Box>
-        </Box> */}
-        {/* slide-3 */}
+                <img src={item.ImgPath} alt={item.alt} width={"100%"} height={"100%"} />
+                {item.Title || item.Subtitle || item.desc ? (
+                  <Box
+                    sx={{
+                      width: { xs: "80%", sm: "45%", md: '35%' },
+                      position: "absolute",
+                      left: { xs: "50%", sm: "50%" },
+                      top: { xs: "50%", sm: "50%" },
+                      transform: {
+                        xs: "translate(-50% , -50%)",
+                        md: "translate(-50% , -50%)",
+                      },
+                      bgcolor: "#f2f3f7cd",
+                      backdropFilter: 'blur(2px)',
+                      p: { xs: 2, sm: 2 },
+                    }}>
+                    {item.Title && (
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "calc(0.6rem + 1vw)",
+                            md: "calc(0.8rem + 1vw)",
+                          },
+                          color: "#1E4188",
+                          fontFamily: "LibreBaskerville",
+                          lineHeight: 1.2,
+                          mb: { xs: 1, md: 1 },
+                          textAlign: "center",
+                        }}
+                        variant="h6">
+                        {item.Title}
+                      </Typography>
+                    )}
+                    {item.Subtitle && (
+                      <Typography
+                        sx={{
+                          fontSize: {
+                            xs: "calc(0.3rem + 1vw)",
+                            md: "calc(0.4rem + 1vw)",
+                          },
+                          color: "#1E4188",
+                          // color: "var(--green)",
+                          fontFamily: "LibreBaskerville",
+                          lineHeight: 1.2,
+                          mt: { xs: -1, md: 0 },
+                          mb: 2,
+                          textAlign: "center",
+                        }}
+                        variant={"subtitle1"}>
+                        {item.Subtitle}
+                      </Typography>
+                    )}
+                    {item.desc && (
+                      <Typography
+                        sx={{
+                          color: "black",
+                          pl: 1,
+                          fontSize: {
+                            xs: "calc(0.4rem + 1vw)",
+                            md: "calc(0.2rem + 1vw)",
+                          },
+                          display: "block",
+                          textDecoration: "none",
+                          fontFamily: "BreeSerif",
+                          lineHeight: 1.2,
+                          textAlign: "center",
+                        }}
+                      >
+                        {item.desc}
+                      </Typography>
+                    )}
+                  </Box>
+                ) : null}
+              </Box>
+            </Link>
+          );
+        })}
 
-        <Box
-          sx={{
-            // height: "-webkit-fill-available",
-            bgcolor: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-          }}
-          component={Link}
-          href={ImageList[2].url}
-        >
-          <img
-            src={ImageList[2].ImgPath}
-            alt={ImageList[2].alt}
-            width={"100%"}
-            height={"100%"}
-          />
-          <Box
-            sx={{
-              width: { xs: "80%", sm: "40%" },
-              position: "absolute",
-              left: { xs: "50%", sm: "50%" },
-              top: { xs: "50%", sm: "50%" },
-              transform: {
-                xs: "translate(-50% , -50%)",
-                sm: "translate(-20%)",
-                md: "translate(-50% , -50%)",
-              },
-              bgcolor: "#fffc",
-              p: { xs: 1, md: 2 },
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "calc(0.6rem + 1vw)",
-                  md: "calc(0.8rem + 1vw)",
-                },
-                color: "#1E4188",
-                fontFamily: "LibreBaskerville",
-                lineHeight: 1.1,
-                textAlign: "center",
-              }}
-              variant="h6"
-            >
-              {ImageList[2].Title}
-            </Typography>
-            {ImageList[2].Subtitle && (
-              <Typography
-                sx={{
-                  fontSize: {
-                    xs: "calc(0.5rem + 1vw)",
-                    md: "calc(0.5rem + 1vw)",
-                  },
-                  color: "#1E4188",
-                  // color: "var(--green)",
-                  fontFamily: "LibreBaskerville",
-                  mb: { xs: .5, md: 2 },
-                  textAlign: "center",
-                }}
-                variant={"subtitle1"}
-              >
-                {ImageList[2].Subtitle}
-              </Typography>
-            )}
-            <Typography
-              sx={{
-                color: "black",
-                pl: 1,
-                fontSize: {
-                  xs: "calc(0.4rem + 1vw)",
-                  md: "calc(0.2rem + 1vw)",
-                },
-                display: "block",
-                textDecoration: "none",
-                fontFamily: "BreeSerif",
-                lineHeight: 1.2,
-                textAlign: "center",
-              }}
-            // component={Link}
-            // href={ImageList[2].url}
-            >
-              {ImageList[2].desc}
-            </Typography>
-          </Box>
-        </Box>
-        {/* slide-4 */}
-        <Box
-          sx={{
-            // height: "-webkit-fill-available",
-            bgcolor: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            position: "relative",
-          }}
-          component={Link}
-          href={ImageList[3].url}
-        >
-          <img
-            src={ImageList[3].ImgPath}
-            alt={ImageList[3].alt}
-            width={"100%"}
-            height={"100%"}
-          />
-          <Box
-            sx={{
-              display: "none",
-              width: { xs: "80%", sm: "30%" },
-              position: "absolute",
-              left: { xs: "50%", sm: "5%" },
-              top: { xs: "50%", sm: "40%" },
-              transform: {
-                xs: "translate(-50% , -70%)",
-                sm: "translate(-20%)",
-                md: "translate(0% , -50%)",
-              },
-              bgcolor: "#fffc",
-              p: 1,
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "calc(0.8rem + 1vw)",
-                  md: "calc(0.8rem + 1vw)",
-                },
-                p: 1,
-                color: "#1E4188",
-                fontFamily: "LibreBaskerville",
-                lineHeight: 1.2,
-                mb: 2,
-                textAlign: "center",
-              }}
-              variant="h6"
-            >
-              {ImageList[3].Title}
-            </Typography>
-            <Typography
-              sx={{
-                color: "black",
-                pl: 1,
-                fontSize: {
-                  xs: "calc(0.6rem + 1vw)",
-                  md: "calc(0.8rem + 1vw)",
-                },
-                display: "block",
-                textDecoration: "none",
-                fontFamily: "BreeSerif",
-                lineHeight: 1.2,
-                textAlign: "center",
-              }}
-            // component={Link}
-            // href={ImageList[3].url}
-            >
-              {ImageList[3].desc}
-            </Typography>
-          </Box>
-        </Box>
+
       </Carousel>
     </>
   );
