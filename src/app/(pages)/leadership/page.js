@@ -50,10 +50,11 @@ const LeaderShipPage = () => {
   return (
     <>
       <section>
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        /> */}
+        <script type="application/ld+json">{jsonLd}</script>
 
         <Container sx={{ py: 4 }}>
           <Box sx={{ mb: 4 }}>

@@ -51,7 +51,8 @@ const FAQsPage = () => {
   const jsonLd = StructureData.FAQ;
   return (
     <section>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {/* <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /> */}
+      <script type="application/ld+json">{jsonLd}</script>
 
       <Box sx={{ my: 4 }}>
         <Container>

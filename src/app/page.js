@@ -72,10 +72,11 @@ const HomePage = async () => {
   const jsonLd = StructureData.HOME;
   return (
     <section>
-      <script
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      /> */}
+      <script type="application/ld+json">{jsonLd}</script>
 
       <ImageSlider />
       <Box sx={{ bgcolor: "var(--darkGreen)" }}>
