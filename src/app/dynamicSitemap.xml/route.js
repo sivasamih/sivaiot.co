@@ -19,7 +19,7 @@ const pageUrls = [
     Route_Path.DESIGN_LAB,
     Route_Path.FAQ,
     Route_Path.PRIVACY_POLICY,
-    Route_Path.RFID_ACCESS_CONTROL,
+    // Route_Path.RFID_ACCESS_CONTROL,
     Route_Path.RFID_CONTACT,
     Route_Path.TERMS_OF_USE,
     Route_Path.WB,
