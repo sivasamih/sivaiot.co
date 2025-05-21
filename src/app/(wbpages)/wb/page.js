@@ -8,6 +8,7 @@ import CardSix from "@/components/customcompo/cards/cardsix";
 import { Download } from "@mui/icons-material";
 import Link from "next/link";
 import { Route_Path } from "@/apis/api";
+import BtnWrapperWithOTPVerify from "@/components/compo/datasheet/BtnWrapperWithOTPVerify";
 
 export const metadata = {
   title: "RFID Wristbands Manufacturer | RFID Cards & Key Fobs - SIVA IoT",
@@ -60,7 +61,6 @@ const UltimoIDPage = () => {
         <Box sx={{ my: 4 }}>
           <LazyImage
             src={APIURLS.BASE_PATH.WB + "wb-index-banner.jpg"}
-            // src={APIURLS.BASE_PATH.OthersImage + 'wb/images/wb-index-banner.jpg'}
             alt="ultimoID"
           />
         </Box>
@@ -159,50 +159,16 @@ const UltimoIDPage = () => {
           })}
         </Box>
 
-        <Box sx={{ my: 4 }}>
-          <Typography
-            sx={{
-              bgcolor: "#F1F8E9",
-              textAlign: "center",
-              fontSize: { xs: "calc(0.8rem + 1vw)", md: "calc(1.3rem + 1vw)" },
-              color: "var(--headerColor)",
-              fontWeight: "bold",
-              p: 1,
-            }}
-            component={"h5"}
-          >
-            Why use RFID wristbands/cards/key fobs?
-          </Typography>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: { xs: "auto", md: "repeat(3,1fr)" },
-              gap: 2,
-              my: 10,
-            }}
-          >
-            {WristbandsCardsKeyList.map((item, index) => {
-              return (
-                <CardSix
-                  key={index}
-                  name={item.name}
-                  desc={item.desc}
-                  image={item.image}
-                />
-              );
-            })}
-          </Box>
-        </Box>
         {/* *********************-----------***************** */}
         <Box
           sx={{
             p: { xs: 3, md: 5 },
             // bgcolor:  "#F1F8E9",
             borderRadius: 3,
-            boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+            // boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
             mx: "auto",
-            my: { xs: 3, md: 6 },
-            border: "1px solid #39b54a",
+            my: { xs: 3, md: 10 },
+            border: "1px solid rgba(57, 181, 74, 0.32)",
           }}
         >
           <Box
@@ -263,34 +229,78 @@ const UltimoIDPage = () => {
                 xs={12}
                 md={6}
               >
-                <Button
-                  variant="contained"
-                  startIcon={<Download />}
-                  sx={{
-                    background: "linear-gradient(160deg,  #00C6FF,#007AFF)",
-                    color: "#fff",
-                    fontWeight: "bold",
-                    px: 4,
-                    py: 1.8,
-                    borderRadius: 3,
-                    boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.07)",
-                      boxShadow: "0px 6px 18px rgba(0, 0, 0, 0.3)",
-                    },
-                  }}
-                  href="https://sivafiles.sivagroup.co/1/catalogues/RFID-Wrsitband-Brochure.pdf"
-                  target="_blank"
+                <BtnWrapperWithOTPVerify
+                  ModalFormImage={APIURLS.BASE_PATH.WB + "brochure-form-thumbnail.png"}
+                  ModalTitle={"RFID Wristbands Brochure"}
+                  DocumentURL={APIURLS.BASE_PATH.Catalogues + "RFID-Wristbands-Brochure-2025.pdf"}
                 >
-                  Download Brochure
-                </Button>
+
+                  <Button
+                    variant="contained"
+                    startIcon={<Download />}
+                    sx={{
+                      background: "linear-gradient(160deg,  #00C6FF,#007AFF)",
+                      color: "#fff",
+                      fontWeight: "bold",
+                      px: 4,
+                      py: 1.8,
+                      borderRadius: 3,
+                      boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                      "&:hover": {
+                        transform: "scale(1.07)",
+                        boxShadow: "0px 6px 18px rgba(0, 0, 0, 0.3)",
+                      },
+                    }}
+                  >
+                    Download Brochure
+                  </Button>
+                </BtnWrapperWithOTPVerify>
+
               </Grid>
             </Grid>
           </Box>
         </Box>
+
+        {/* -----**********************------- */}
+
+        <Box sx={{ my: 4 }}>
+          <Typography
+            sx={{
+              bgcolor: "#F1F8E9",
+              textAlign: "center",
+              fontSize: { xs: "calc(0.8rem + 1vw)", md: "calc(1.3rem + 1vw)" },
+              color: "var(--headerColor)",
+              fontWeight: "bold",
+              p: 1,
+            }}
+            component={"h5"}
+          >
+            Why use RFID wristbands/cards/key fobs?
+          </Typography>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "auto", md: "repeat(3,1fr)" },
+              gap: 2,
+              my: 10,
+            }}
+          >
+            {WristbandsCardsKeyList.map((item, index) => {
+              return (
+                <CardSix
+                  key={index}
+                  name={item.name}
+                  desc={item.desc}
+                  image={item.image}
+                />
+              );
+            })}
+          </Box>
+        </Box>
+
         {/*  */}
-      </Container>
+      </Container >
     </>
   );
 };
