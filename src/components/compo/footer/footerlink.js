@@ -28,7 +28,8 @@ const FooterContactInfoPolyInSheets = (
     variant="span"
     style={{ color: "var(--green)", margin: "0 5px" }}
   >
-    rfidwb@sivagroup.co / +14077218489
+    {/* rfidwb@sivagroup.co / +14077218489 */}
+    rfidwb@sivagroup.co / +1(402)2141497
   </Typography>
 );
 
@@ -117,13 +118,6 @@ const FooterLink = () => {
                 its partners and offering a consultative approach to assist
                 partners in selecting the right tag, is paramount to success.
                 Please contact us at
-                {/* <Link
-                  href={`mailto:${email}`}
-                  style={{ textDecoration: "none", color: "var(--green)" }}
-                >
-                   iotsales@sivagroup.co 
-                  
-                </Link> */}
                 {IsActive ? FooterContactInfoPolyInSheets : FooterContactInfo}
                 to schedule an in-depth discussion of your use case.
               </Typography>
@@ -133,7 +127,7 @@ const FooterLink = () => {
         <Grid
           item
           xs={12}
-          sm={isMobileLandscape?6:12}
+          sm={isMobileLandscape ? 6 : 12}
           md={4}
           xl={4}
         >
@@ -216,7 +210,7 @@ const FooterLink = () => {
         <Grid
           item
           xs={12}
-          sm={isMobileLandscape?6:12}
+          sm={isMobileLandscape ? 6 : 12}
           md={4}
           xl={4}
         >
