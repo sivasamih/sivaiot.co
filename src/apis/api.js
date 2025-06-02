@@ -44,7 +44,7 @@ export const Route_Path = {
   PARTNERS_PRODUCT_FAMILY: "/partners/rfid-product-families",
   PARTNERS_PRODUCTS: "/partners/rfid-tags-and-labels",
   PORTAL: "/portal",
-  PARTNER_LOGIN: "/partners-login",
+  PARTNER_LOGIN: "/partner",
   PROFILE: "/profile",
   PARTNERS_PRICE_LIST: "/partners/price-list",
   PARTNERS_NDA: "/partners/nda",
