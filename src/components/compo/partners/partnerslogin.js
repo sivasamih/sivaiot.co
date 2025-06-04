@@ -60,7 +60,7 @@ const PartnersLogIn = () => {
           setLocalStorage(data);
           setEmail("");
           setPassword("");
-          router.push(Route_Path.PARTNERS);
+          router.push(Route_Path.PARTNERS_PRODUCT_FAMILY);
         } else {
           setIsLoading(false);
           showSnackbar("Invalid Email or Password", "error");

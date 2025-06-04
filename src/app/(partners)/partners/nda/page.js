@@ -10,6 +10,7 @@ import LazyImage from "@/components/customcompo/customimage/customLazyImage";
 
 const NDAPage = () => {
   const [NDA, setNDA] = useState("");
+  const [NDAExpDate, setNDAExpDate] = useState("");
 
   useEffect(() => {
     const fetchNDA = () => {
@@ -18,24 +19,23 @@ const NDAPage = () => {
         if (!useData || !Array.isArray(useData.NDAList)) {
           throw new Error("Invalid data structure from local storage");
         }
-        
+
         const NDA = useData.NDAList;
         const ActiveNDA = NDA.find((item) => {
           const isActive = item.IsActive;
-          const isDateValid =
-            moment(item.EndDate).isAfter(moment()) &&
-            moment(item.EndDate).isAfter(moment(item.StartDate));
+          const isDateValid = moment(item.EndDate).isAfter(moment()) && moment(item.EndDate).isAfter(moment(item.StartDate));
           return isActive && isDateValid;
         });
 
-        if (ActiveNDA) {
+        if (!!ActiveNDA) {
           const FileURL = BASE_PATH.PartnersDatasheetsUrl + ActiveNDA.FileName;
           setNDA(FileURL);
+          setNDAExpDate(ActiveNDA.EndDate);
         }
-
       } catch (error) {
         console.error("Error NDA data:", error);
         setNDA(null);
+        setNDAExpDate("");
       }
     };
 
@@ -53,8 +53,7 @@ const NDAPage = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        }}
-      >
+        }}>
         {/* <Typography
           variant="h4"
           sx={{
@@ -66,7 +65,7 @@ const NDAPage = () => {
         >
           NDA not assigned
         </Typography> */}
-         <LazyImage
+        <LazyImage
           src={BASE_PATH.Others + "no-data.png"}
           alt="No Data"
           style={{
@@ -81,11 +80,15 @@ const NDAPage = () => {
 
   // Render PDF Viewer when NDA is available
   return (
-    <Box sx={{ width: "100%", height: "80vh", minHeight: "83vh" }}>
-      <PDFViewer
-        src={NDA}
-        key="NDA"
-      />
+    <Box sx={{ width: "100%", height: "80vh", minHeight: "83vh", position: "relative" }}>
+      {NDAExpDate && (
+        <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", bgcolor: "white", zIndex: 100, p: { xs: 1, md: 2 } }}>
+          <Typography align="center" sx={{ fontSize: { xs: "10px", md: "15px" },color:"#F80B00" }}>
+           NDA Valid Until <b>{moment(NDAExpDate).format("DD-MM-YYYY")}</b>
+          </Typography>
+        </Box>
+      )}
+      <PDFViewer src={NDA} key="NDA" />
     </Box>
   );
 };
