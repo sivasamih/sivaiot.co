@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
+  <url>
     <loc>https://sivaiot.co</loc>
   </url>
   <url>
@@ -648,6 +648,12 @@
   <url>
     <loc>https://sivaiot.co/rfid-access-control</loc>
     <lastmod>2025-04-29T08:45:15.623Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sivaiot.co/blog/uhf-hard-tags-for-tracking-non-metallic-rti</loc>
+    <lastmod>2025-06-05T18:30:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
