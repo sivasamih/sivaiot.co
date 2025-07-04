@@ -856,6 +856,7 @@ export const PartnerSideBarButtonList = [
 ];
 
 export const RedirectionLinkList = [
+  { from: "/rfid-tags-and-labels", to: "/products" },
   { from: "/rfid-product-families/on-metal-rfid-labels", to: "/rfid-product-families/on-metal-uhf-labels" },
   { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" },
   { from: "/RFID-Supply-Chain-Manufacturing-and-Logistics.html", to: "/rfid-product-families/general-rfid-tags-supply-chain-logistics" },
