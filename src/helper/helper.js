@@ -72,8 +72,7 @@ export const EventListData = new Array(10).fill("").map((_, index) => ({
   url: "#",
   IsNew: index % 2 === 0 ? true : false,
   image: `https://picsum.photos/200/150?random=${index}`,
-  description:
-    "When customers are working with SIVA, they feel assured of working with a high-quality manufacturer with technological.",
+  description: "When customers are working with SIVA, they feel assured of working with a high-quality manufacturer with technological.",
 }));
 
 export const FamiliesProductList = new Array(20).fill("").map((_, index) => ({
@@ -129,7 +128,6 @@ export const setLocalStorage = (value = {}, key = "IOT_PU") => {
     };
 
     localStorage.setItem(key, JSON.stringify(data));
-
   } catch (ex) { }
 };
 
@@ -799,13 +797,7 @@ export const highlightText = (text, query) => {
   if (!query) return text;
   const escapedQuery = escapeRegExp(query);
   const parts = text.split(new RegExp(`(${escapedQuery})`, "gi"));
-  return parts.map((T, index) =>
-    T.toLowerCase() === query.toLowerCase() ? (
-      <mark key={index}>{T}</mark>
-    ) : (
-      T
-    )
-  );
+  return parts.map((T, index) => (T.toLowerCase() === query.toLowerCase() ? <mark key={index}>{T}</mark> : T));
 };
 
 export const CustomizedServiceList = [
@@ -860,5 +852,348 @@ export const PartnerSideBarButtonList = [
   {
     title: "Contact Us",
     url: Route_Path.PARTNERS_RFID_CONTACT,
+  },
+];
+
+export const RedirectionLinkList = [
+  { from: "/rfid-product-families/on-metal-rfid-labels", to: "/rfid-product-families/on-metal-uhf-labels" },
+  { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" },
+  { from: "/RFID-Supply-Chain-Manufacturing-and-Logistics.html", to: "/rfid-product-families/general-rfid-tags-supply-chain-logistics" },
+  { from: "/product-families?product=robust-rfid-hard-tags", to: "/rfid-product-families/robust-rfid-hard-tags" },
+  { from: "/beer-keg-and-gas-caniter.html", to: "/rfid-tags-and-labels/beer-keg-and-gas-canister" },
+  { from: "/rfid-tags-and-labels-list.html", to: "/rfid-tags-and-labels" },
+  { from: "/pat-track-uhf-rfid-wristband.html", to: "/rfid-tags-and-labels/patient-id-wristbands" },
+  // { from: "", to: "" },
+  {
+    from: "/rfid-tags-and-labels/all-surface-uhf-label",
+    to: "/products/All-Surface-10024",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-mount-on-metal-tags-and-labels",
+    to: "/products/MoM-6024-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/on-metal-rfid-label-for-automotive",
+    to: "/products/MoM-6024-VDA-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/tamper-roof-rfid-label-for-metal-assets",
+    to: "/products/MoM-6024-TP",
+  },
+  {
+    from: "/rfid-tags-and-labels/all-surface-rfid-label",
+    to: "/products/MoM-8035-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/on-metal-rfid-label",
+    to: "/products/MoM-5316-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/metal-mount-rfid-label",
+    to: "/products/MoM-3520",
+  },
+  {
+    from: "/rfid-tags-and-labels/uhf-hang-tag-for-metal-asset",
+    to: "/products/i200T-Hang-Tag",
+  },
+  {
+    from: "/rfid-tags-and-labels/on-metal-durable-uhf-hang-tag",
+    to: "/products/i200T-SA",
+  },
+  {
+    from: "/rfid-tags-and-labels/on-metal-uhf-hang-tag",
+    to: "/products/i500T-Hang-Tag",
+  },
+  {
+    from: "/rfid-tags-and-labels/nfc-label-for-metal-surface",
+    to: "/products/All-Surface-NFC-30",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-hard-tag-for-asset-tracking",
+    to: "/products/HT-3915",
+  },
+  {
+    from: "/rfid-tags-and-labels/all-surface-rfid-hard-tag",
+    to: "/products/HT-10431",
+  },
+  {
+    from: "/rfid-tags-and-labels/hard-tag-for-plastic-crates-and-wooden-pallets",
+    to: "/products/HT-12017-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/hard-tag-for-plastic-containers-pallets-and-metal-rti",
+    to: "/products/HT-10534-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/dual-frequency-rfid-and-nfc-hard-tag",
+    to: "/products/HT-10534-Duo-Fre-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/on-metal-rfid-hard-tag",
+    to: "/products/HT-6520-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-hard-tag-for-supply-chain-logistics-and-manufacturing-assets",
+    to: "/products/HT-11025-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-hard-tag-with-magnet",
+    to: "/products/HT-11025M-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-hard-tag-for-metal-asset-management",
+    to: "/products/HT-5050-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/hard-tag-for-automotive-industry",
+    to: "/products/HT-5050-VDA-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/dual-frequency-rfid-tag-for-metal-assets",
+    to: "/products/HT-5050-Duo-Fre-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/beer-keg-and-gas-canister",
+    to: "/products/CylTag",
+  },
+  {
+    from: "/rfid-tags-and-labels/chemical-resistant-rfid-tag",
+    to: "/products/HT-HTP-7525",
+  },
+  {
+    from: "/rfid-tags-and-labels/high-temperature-resistant-rugged-tag",
+    to: "/products/HT-HTP-7525-Xtreme",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-tool-tracking-tag",
+    to: "/products/HT-CER-52",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-hard-tag-for-industrial-assets",
+    to: "/products/HT-CER-102",
+  },
+  {
+    from: "/rfid-tags-and-labels/small-rfid-hard-tag",
+    to: "/products/HT-CER-105",
+  },
+  {
+    from: "/rfid-tags-and-labels/heat-resistance-rfid-tag",
+    to: "/products/HT-CER-139",
+  },
+  {
+    from: "/rfid-tags-and-labels/smallest-rfid-hard-tag",
+    to: "/products/HT-CER-259",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-hard-tag-for-high-pressure-and-high-temperature",
+    to: "/products/HT-CER-2525",
+  },
+  {
+    from: "/rfid-tags-and-labels/tiny-rfid-tag-for-tool-tracking",
+    to: "/products/HT-63",
+  },
+  {
+    from: "/rfid-tags-and-labels/miniature-sized-uhf-hard-tag",
+    to: "/products/HT-104",
+  },
+  {
+    from: "/rfid-tags-and-labels/uhf-hard-tag-supplier",
+    to: "/products/HT-186",
+  },
+  {
+    from: "/rfid-tags-and-labels/thin-and-slim-uhf-tag",
+    to: "/products/HT-2510",
+  },
+  {
+    from: "/rfid-tags-and-labels/horticulture-rfid-tag",
+    to: "/products/Loop-Lock-Plant-Tag",
+  },
+  {
+    from: "/rfid-tags-and-labels/small-sized-washable-rfid-label",
+    to: "/products/Re-Load-Pro-2714",
+  },
+  {
+    from: "/rfid-tags-and-labels/low-surface-energy-plastic-rfid-tag",
+    to: "/products/Re-Load-Pro-4620",
+  },
+  {
+    from: "/rfid-tags-and-labels/chemical-washing-resistant-label",
+    to: "/products/Re-Load-Pro-7320",
+  },
+  {
+    from: "/rfid-tags-and-labels/rti-tracking-dual-frequency-tags",
+    to: "/products/Re-Load-Pro-7320-Duo-Fre-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/plastic-crates-and-other-returnable-transport-items-label",
+    to: "/products/Re-Load-Pro-9026",
+  },
+  {
+    from: "/rfid-tags-and-labels/rti-tracking-label-with-vda-complaint",
+    to: "/products/Re-Load-Pro-9026-VDA",
+  },
+  {
+    from: "/rfid-tags-and-labels/temperature-and-moisture-monitoring-uhf-label",
+    to: "/products/Sense-T-9928",
+  },
+  {
+    from: "/rfid-tags-and-labels/temperature-and-moisture-sensing-uhf-label",
+    to: "/products/Sense-T-6050",
+  },
+  {
+    from: "/rfid-tags-and-labels/small-rfid-label",
+    to: "/products/Aerial-Micro-2714",
+  },
+  {
+    from: "/rfid-tags-and-labels/apparel-retail-and-brand-protection-rfid-label",
+    to: "/products/Aerial-Lite-4620",
+  },
+  {
+    from: "/rfid-tags-and-labels/non-metallic-asset-tracking-rfid-label",
+    to: "/products/Aerial-Mini-7320",
+  },
+  {
+    from: "/rfid-tags-and-labels/non-metallic-asset-tracking-label",
+    to: "/products/Aerial-9814",
+  },
+  {
+    from: "/rfid-tags-and-labels/long-range-rfid-label",
+    to: "/products/Dumbel-9026",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-label-for-non-metallic-applications",
+    to: "/products/Quadwave-5050",
+  },
+  {
+    from: "/rfid-tags-and-labels/shipping-rfid-label",
+    to: "/products/GP-42",
+  },
+  {
+    from: "/rfid-tags-and-labels/general-purpose-rfid-label",
+    to: "/products/GP-46",
+  },
+  {
+    from: "/rfid-tags-and-labels/tyre-tread-label",
+    to: "/products/Tyre-Label-46",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-retail-inventory-management",
+    to: "/products/Aerial-6024TP",
+  },
+  {
+    from: "/rfid-tags-and-labels/dual-frequency-labels",
+    to: "/products/6326-TP-Duo-Fre-Global",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-flag-label",
+    to: "/products/Dumbel-T-Flag-Label",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-tag-for-cables-pipes-and-ropes",
+    to: "/products/Cintura-Loop-Label",
+  },
+  {
+    from: "/rfid-tags-and-labels/nfc-tag-for-non-metallic-surface",
+    to: "/products/NFC-25",
+  },
+  {
+    from: "/rfid-tags-and-labels/item-level-retail-tags",
+    to: "/products/Aerial-Elite-6040",
+  },
+  {
+    from: "/rfid-tags-and-labels/jewellery-and-eyewear-tag",
+    to: "/products/jewellery-and-eyewear-label",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-flag-tag-supplier",
+    to: "/products/Flagpole",
+  },
+  {
+    from: "/rfid-tags-and-labels/race-number-bib-suppliers",
+    to: "/products/Dumbel-Foam-Tag",
+  },
+  {
+    from: "/rfid-tags-and-labels/race-bib-manufacturer",
+    to: "/products/Dogbone-Foam-Tag",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-vehicle-tag",
+    to: "/products/Windshield-TE",
+  },
+  {
+    from: "/rfid-tags-and-labels/tamper-proof-rfid-windshield-label",
+    to: "/products/Windshield-TP",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-tags-for-car",
+    to: "/products/Windshield-TP-DNA",
+  },
+  {
+    from: "/rfid-tags-and-labels/tamperproof-rfid-headlight-label",
+    to: "/products/Headlight-TP",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-headlight-sticker",
+    to: "/products/Headlight-TP-DNA",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-car-tag-for-automatic-vehicle-identification",
+    to: "/products/3rd-License-Plate-TP-DNA",
+  },
+  {
+    from: "/rfid-tags-and-labels/rfid-windshield-tag-manufacturer",
+    to: "/products/3rd-License-Plate-TP",
+  },
+  {
+    from: "/rfid-tags-and-labels/patient-id-wristbands",
+    to: "/products/patient-id-wristbands",
+  },
+  {
+    from: "/rfid-product-families",
+    to: "/product-families",
+  },
+  {
+    from: "/rfid-product-families/on-metal-uhf-labels",
+    to: "/product-families/Ferro-On-Metal-UHF-NFC-All-Surface-Labels",
+  },
+  {
+    from: "/rfid-product-families/robust-rfid-hard-tags",
+    to: "/product-families/Rhino-UHF-Hard-Tags",
+  },
+  {
+    from: "/rfid-product-families/plant-inventory-management",
+    to: "/product-families/Flora-UHF-Plant-Tags",
+  },
+  {
+    from: "/rfid-product-families/washable-rfid-labels-for-returnable-transport-items",
+    to: "/product-families/Re-Load-Pro-UHF-RTI-Tracking",
+  },
+  {
+    from: "/rfid-product-families/moisture-temperature-sensing-rfid-tags",
+    to: "/product-families/Reveal",
+  },
+  {
+    from: "/rfid-product-families/apparel-and-item-level-retail-rfid-tags",
+    to: "/product-families/Emporio-UHF-Item-Level-Tracking",
+  },
+  {
+    from: "/rfid-product-families/automatic-vehicle-identification",
+    to: "/product-families/Voyager-UHF-Vehicle-Identification-Tags",
+  },
+  {
+    from: "/rfid-product-families/general-rfid-tags-supply-chain-logistics",
+    to: "/product-families/Uni-Supply-Chain-UHF-Labels",
+  },
+  {
+    from: "/rfid-product-families/content-sharing-nfc-labels-tags",
+    to: "/product-families/Contshare",
+  },
+  {
+    from: "/rfid-product-families/rfid-race-timing-products",
+    to: "/product-families/Sprintt",
+  },
+  {
+    from: "/rfid-product-families/innovative-rfid-labels",
+    to: "/product-families/Innotag",
   },
 ];
