@@ -3,6 +3,7 @@ import { List, ListItemText, Typography } from "@mui/material";
 import Paragraph4 from "@/components/customcompo/Typo/paragraph4";
 import LazyImage from "@/components/customcompo/customimage/customLazyImage";
 import ChannelPartnerForm from "@/components/compo/channelpartner/channelparterform";
+import { BASE_PATH } from "@/apis/apiconstant";
 
 const ChannelPartner = () => {
   return (
@@ -11,8 +12,8 @@ const ChannelPartner = () => {
         <Container>
           {/* <PageHeading title={"FAQs"} /> */}
           <Box>
-            <LazyImage
-              src={"/img/other/Become-SIVA-RFID-Channel-Partner.jpg"}
+            <img
+              src={BASE_PATH.OthersImage + "Become-SIVA-RFID-Channel-Partner.jpg"}
               alt={"Become-SIVA-RFID-Channel-Partner"}
             />
           </Box>

@@ -1,3 +1,4 @@
+import { ModernSwitch } from "@/components/Customstyled/customStyledt";
 import { Search } from "@mui/icons-material";
 import {
   FormControl,
@@ -85,7 +86,7 @@ const SearchBar = (props) => {
           // boxShadow: "1px 0 15px var(--lightGray)  ",
           display: { xs: "none", md: "flex" },
           justifyContent: "center",
-          minWidth: { xs: "30%", md: "25%",lg:"20%" },
+          minWidth: { xs: "30%", md: "25%", lg: "20%" },
           alignItems: "center",
           borderBottomRightRadius: 15,
           borderTopLeftRadius: 20,
@@ -93,13 +94,24 @@ const SearchBar = (props) => {
             gap: 2,
           },
         }}>
-        <FormControl component="fieldset" sx={{ m: 0 }} size="medium">
+        {/* <FormControl component="fieldset" sx={{ m: 0 }} size="medium">
           <FormControlLabel
             checked={props.AccChecked}
             onChange={props.onAccChnage}
             inputprops={{ "aria-label": "controlled" }}
             value="start"
             control={<Switch color="primary" />}
+            label="Collapse all"
+            labelPlacement="start"
+            sx={{ m: 0 }}
+          />
+        </FormControl> */}
+        <FormControl component="fieldset" sx={{ m: 0 }} size="medium">
+          <FormControlLabel
+            checked={props.AccChecked}
+            onChange={props.onAccChnage}
+            inputprops={{ "aria-label": "controlled" }}
+            control={<ModernSwitch checked={props.AccChecked} color="primary" />}
             label="Collapse all"
             labelPlacement="start"
             sx={{ m: 0 }}

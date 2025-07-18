@@ -16,7 +16,6 @@ const ImageSlider = (props) => {
       Title: "SIVA Design Lab - RFID labels/tags fabricated to your specific project needs.",
       desc: "A consultative approach to fabricating a custom RFID label/tag around the unique needs of the customer",
     },
-
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "High-Temp.webp",
       alt: "Heavy Duty Industries",
@@ -33,6 +32,7 @@ const ImageSlider = (props) => {
       desc: "",
     },
   ];
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1024 },
@@ -51,6 +51,7 @@ const ImageSlider = (props) => {
       items: 1,
     },
   };
+
   return (
     <>
       <Carousel
@@ -58,18 +59,19 @@ const ImageSlider = (props) => {
         draggable={false}
         showDots={false}
         responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
+        ssr={true}
         infinite={true}
-        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-        autoPlaySpeed={1000}
+        autoPlay={props.deviceType !== "mobile" ? true : false}
+        autoPlaySpeed={3000}
         keyBoardControl={true}
-        customTransition="all .5"
+        // customTransition="all .5s ease-in-out" // Keep this for the slide movement
+        customTransition={`transform ${props.duration ? props.duration : 500}ms ease-in-out`}
         transitionDuration={props.duration ? props.duration : 500}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
-        // deviceType={this.props.deviceType}
         dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px">
+        itemClass="carousel-item-padding-40-px"
+      >
         {ImageList?.map((item, index) => {
           return (
             <Link key={index} href={item.url}>
@@ -81,13 +83,14 @@ const ImageSlider = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   position: "relative",
+                  transition: `opacity ${props.duration ? props.duration : 500}ms ease-in-out`,
                 }}
               >
                 <img src={item.ImgPath} alt={item.alt} width={"100%"} height={"100%"} />
                 {item.Title || item.Subtitle || item.desc ? (
                   <Box
                     sx={{
-                      width: { xs: "80%", sm: "45%", md: '35%' },
+                      width: { xs: "80%", sm: "45%", md: "35%" },
                       position: "absolute",
                       left: { xs: "50%", sm: "50%" },
                       top: { xs: "50%", sm: "50%" },
@@ -96,9 +99,10 @@ const ImageSlider = (props) => {
                         md: "translate(-50% , -50%)",
                       },
                       bgcolor: "#f2f3f7cd",
-                      backdropFilter: 'blur(2px)',
+                      backdropFilter: "blur(2px)",
                       p: { xs: 2, sm: 2 },
-                    }}>
+                    }}
+                  >
                     {item.Title && (
                       <Typography
                         sx={{
@@ -112,7 +116,8 @@ const ImageSlider = (props) => {
                           mb: { xs: 1, md: 1 },
                           textAlign: "center",
                         }}
-                        variant="h6">
+                        variant="h6"
+                      >
                         {item.Title}
                       </Typography>
                     )}
@@ -124,14 +129,14 @@ const ImageSlider = (props) => {
                             md: "calc(0.4rem + 1vw)",
                           },
                           color: "#1E4188",
-                          // color: "var(--green)",
                           fontFamily: "LibreBaskerville",
                           lineHeight: 1.2,
                           mt: { xs: -1, md: 0 },
                           mb: 2,
                           textAlign: "center",
                         }}
-                        variant={"subtitle1"}>
+                        variant={"subtitle1"}
+                      >
                         {item.Subtitle}
                       </Typography>
                     )}
@@ -160,10 +165,9 @@ const ImageSlider = (props) => {
             </Link>
           );
         })}
-
-
       </Carousel>
     </>
   );
 };
+
 export default ImageSlider;

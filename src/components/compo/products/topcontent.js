@@ -232,6 +232,7 @@ const TopContent = () => {
                   fontSize: "calc(1rem + 1vw)",
                 }}
                 variant="h1"
+                id="RFID-Tags-Labels"
               >
                 RFID Tags & Labels Portfolio
               </Typography>

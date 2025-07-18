@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import FamiliesAccordian from "@/components/customcompo/accordian/familiesaccordian";
 import * as APIURLS from "@/apis/apiconstant";
 import ProductCard from "@/components/customcompo/cards/productCard";
+import { scrollByID } from "@/helper/helper";
 // import { highlightText } from "@/helper/helper";
 
 const ProductListingContainer = (props) => {
@@ -87,6 +88,9 @@ const ProductListingContainer = (props) => {
       List.map((item) => (item.IsExpanded = value));
       setCategories(List);
       setIsExpandAll(value);
+      if(value){
+        scrollByID("RFID-Tags-Labels")
+      }
     } catch (ex) { }
   };
 
@@ -115,6 +119,7 @@ const ProductListingContainer = (props) => {
           },
           "& > :first-of-type ": {},
         }}
+        id="Labels-Portfolio"
       >
         {filterData().map((item, i) => {
           return (

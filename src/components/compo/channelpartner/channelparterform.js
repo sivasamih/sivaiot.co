@@ -3,7 +3,7 @@ import { Button, InputAdornment } from "@mui/material";
 import Title4 from "@/components/customcompo/Typo/title4";
 import { Box } from "@mui/system";
 import CustomTextField from "@/components/customcompo/custominputfield/textfield";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Countries, validateEmail } from "@/helper/helper";
 import CustomAutoComplete from "@/components/customcompo/custominputfield/autocompleate";
 import Loading from "@/app/loading";
@@ -60,15 +60,12 @@ const ChannelPartnerForm = () => {
         setIsLoading(false);
         setIsOTPvisiable(false);
         setIsEmailValidate(true);
-        showSnackbar(
-          "One Time Password successfully validated. Please fill in the details below",
-          "success"
-        );
+        showSnackbar("One Time Password successfully validated. Please fill in the details below", "success");
       } else {
         showSnackbar("OTP is not valid", "error");
         setIsLoading(false);
       }
-    } catch (ex) {}
+    } catch (ex) { }
   };
 
   const handleSubmit = async (e) => {
@@ -85,23 +82,14 @@ const ChannelPartnerForm = () => {
             subject: "Channel Partner registration",
             company: formData["CompanyName"],
             phone: formData["Phone"],
-            message:
-              "From " +
-              formData["Country"]["value"] +
-              "," +
-              "Job" +
-              "-" +
-              formData.YourJob,
+            message: "From " + formData["Country"]["value"] + "," + "Job" + "-" + formData.YourJob,
             company_website: formData["CompanyWebsite"],
           }),
         },
       };
       setIsLoading(true);
 
-      let res = await FETCHAPI.Fetch(
-        APIURLS.APIURL.Add_Update_WebsiteData,
-        reqData
-      );
+      let res = await FETCHAPI.Fetch(APIURLS.APIURL.Add_Update_WebsiteData, reqData);
       if (res.status === 200) {
         setTimeout(() => {
           setIsLoading(false);
@@ -141,16 +129,13 @@ const ChannelPartnerForm = () => {
         let res = await FETCHAPI.Fetch(APIURLS.APIURL.Registration, reqData);
         if (res.status === 200) {
           setIsLoading(false);
-          showSnackbar(
-            "A One Time Password has been sent to your Email",
-            "success"
-          );
+          showSnackbar("A One Time Password has been sent to your Email", "success");
           setIsOTPvisiable(true);
         } else {
           setIsLoading(false);
         }
       }
-    } catch (ex) {}
+    } catch (ex) { }
   };
   const handleReset = () => {
     setFormData({
@@ -204,16 +189,21 @@ const ChannelPartnerForm = () => {
 
     return isValid;
   };
+  const ValideNameEmail = useCallback(() => {
+    const name = formData.Name?.trim();
+    const email = formData.Email?.trim();
 
+    if (!name || !email) return false;
+    if (!validateEmail(email)) return false;
+
+    return true;
+  }, [formData.Name, formData.Email]);
+
+  const isValidNameEmail = ValideNameEmail()
   return (
     <>
       <Loading open={isLoading} />
-      <SnackBar
-        open={snackbarOpen}
-        onClose={() => setSnackbarOpen(false)}
-        type={snackbarType}
-        message={snackbarMessage}
-      />
+      <SnackBar open={snackbarOpen} onClose={() => setSnackbarOpen(false)} type={snackbarType} message={snackbarMessage} />
       <Title4 text="Become A Siva IoT Channel Partner" />
       <Box
         component="form"
@@ -226,8 +216,7 @@ const ChannelPartnerForm = () => {
           },
           columnGap: 2,
           mb: 2,
-        }}
-      >
+        }}>
         <CustomTextField
           disabled={isOTPVisiable || isEmailValidate}
           variant="outlined"
@@ -239,51 +228,58 @@ const ChannelPartnerForm = () => {
           onChange={handleChange}
         />
         {!isOTPVisiable ? (
-          <CustomTextField
-            disabled={isEmailValidate}
-            variant="outlined"
-            size="large"
-            name="Email"
-            label="Email"
-            required
-            value={formData.Email}
-            onChange={handleChange}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Button
-                    variant="contained"
-                    onClick={handleVarify}
-                  >
-                    Verify
-                  </Button>
-                </InputAdornment>
-              ),
-            }}
-          />
+          <Box sx={{ display: 'flex', alignItems: "center", justifyContent: "center", gap: 1 }}>
+            <CustomTextField
+              disabled={isEmailValidate}
+              variant="outlined"
+              size="large"
+              name="Email"
+              label="Email"
+              required
+              value={formData.Email}
+              onChange={handleChange}
+            // InputProps={{
+            //   endAdornment: (
+            //     <InputAdornment position="end">
+            //       <Button
+            //         variant="contained"
+            //         onClick={handleVarify}
+            //       >
+            //         Verify
+            //       </Button>
+            //     </InputAdornment>
+            //   ),
+            // }}
+            />
+            <Button variant="contained" onClick={handleVarify} disabled={!isValidNameEmail} >
+              Verify
+            </Button>
+          </Box>
         ) : (
-          <CustomTextField
-            disabled={isEmailValidate}
-            variant="outlined"
-            size="large"
-            name="OTP"
-            label="One Time Password"
-            required
-            value={formData.OTP}
-            onChange={handleChange}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Button
-                    variant="contained"
-                    onClick={handleValidate}
-                  >
-                    Validate
-                  </Button>
-                </InputAdornment>
-              ),
-            }}
-          />
+          <Box sx={{ display: 'flex', alignItems: "center", justifyContent: "center", gap: 1 }}>
+            <CustomTextField
+              disabled={isEmailValidate}
+              variant="outlined"
+              size="large"
+              name="OTP"
+              label="One Time Password"
+              required
+              value={formData.OTP}
+              onChange={handleChange}
+            // InputProps={{
+            //   endAdornment: (
+            //     <InputAdornment position="end">
+            //       <Button variant="contained" onClick={handleValidate}>
+            //         Validate
+            //       </Button>
+            //     </InputAdornment>
+            //   ),
+            // }}
+            />
+            <Button variant="contained" onClick={handleValidate}>
+              Validate
+            </Button>
+          </Box>
         )}
         <CustomTextField
           disabled={!isEmailValidate}
@@ -330,19 +326,10 @@ const ChannelPartnerForm = () => {
           options={Countries}
         />
         <Box sx={{ display: "flex", gap: 2 }}>
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{ mt: 1, px: 5 }}
-          >
+          <Button type="submit" variant="contained" sx={{ mt: 1, px: 5 }}>
             Submit
           </Button>
-          <Button
-            type="button"
-            variant="contained"
-            sx={{ mt: 1, px: 5 }}
-            onClick={handleReset}
-          >
+          <Button type="button" variant="contained" sx={{ mt: 1, px: 5 }} onClick={handleReset}>
             Reset
           </Button>
         </Box>

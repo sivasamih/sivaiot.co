@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Box } from "@mui/system";
 import CustomTextField from "@/components/customcompo/custominputfield/textfield";
 import { Button, InputAdornment } from "@mui/material";
@@ -154,7 +154,7 @@ const ContactForm = () => {
           setIsLoading(false);
         }
       }
-    } catch (ex) {}
+    } catch (ex) { }
   };
 
   const handleValidate = async () => {
@@ -180,7 +180,7 @@ const ContactForm = () => {
         showSnackbar("OTP is not valid", "error");
         setIsLoading(false);
       }
-    } catch (ex) {}
+    } catch (ex) { }
   };
   const handleReset = () => {
     setFormData({
@@ -197,6 +197,17 @@ const ContactForm = () => {
     setIsEmailValidate(false);
   };
 
+  const ValideNameEmail = useCallback(() => {
+    const name = formData.Name?.trim();
+    const email = formData.Email?.trim();
+
+    if (!name || !email) return false;
+    if (!validateEmail(email)) return false;
+
+    return true;
+  }, [formData.Name, formData.Email]);
+
+  const isValidNameEmail = ValideNameEmail()
   return (
     <>
       <SnackBar
@@ -231,50 +242,64 @@ const ContactForm = () => {
             onChange={handleChange}
           />
           {!isOTPVisiable ? (
-            <CustomTextField
-              disabled={isEmailValidate}
-              variant="outlined"
-              size="large"
-              name="Email"
-              label="Email"
-              required
-              value={formData.Email}
-              onChange={handleChange}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Button
-                      variant="contained"
-                      onClick={handleVarify}>
-                      Verify
-                    </Button>
-                  </InputAdornment>
-                ),
-              }}
-            />
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <CustomTextField
+                disabled={isEmailValidate}
+                variant="outlined"
+                size="large"
+                name="Email"
+                label="Email"
+                required
+                value={formData.Email}
+                onChange={handleChange}
+              // InputProps={{
+              //   endAdornment: (
+              //     <InputAdornment position="end">
+              //       <Button
+              //         variant="contained"
+              //         onClick={handleVarify}>
+              //         Verify
+              //       </Button>
+              //     </InputAdornment>
+              //   ),
+              // }}
+              />
+              <Button
+                variant="contained"
+                onClick={handleVarify} disabled={!isValidNameEmail}>
+                Verify
+              </Button>
+            </Box>
           ) : (
-            <CustomTextField
-              disabled={isEmailValidate}
-              variant="outlined"
-              size="large"
-              // focused={true}
-              name="OTP"
-              label="One Time Password"
-              required
-              value={formData.OTP}
-              onChange={handleChange}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Button
-                      variant="contained"
-                      onClick={handleValidate}>
-                      Validate
-                    </Button>
-                  </InputAdornment>
-                ),
-              }}
-            />
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <CustomTextField
+                disabled={isEmailValidate}
+                variant="outlined"
+                size="large"
+                // focused={true}
+                name="OTP"
+                label="One Time Password"
+                required
+                value={formData.OTP}
+                onChange={handleChange}
+              // InputProps={{
+              //   endAdornment: (
+              //     <InputAdornment position="end">
+              //       <Button
+              //         variant="contained"
+              //         onClick={handleValidate}>
+              //         Validate
+              //       </Button>
+              //     </InputAdornment>
+              //   ),
+              // }}
+              />
+              <Button
+                variant="contained"
+                onClick={handleValidate} disabled={!formData.OTP}>
+                Validate
+              </Button>
+            </Box>
           )}
           <CustomTextField
             disabled={!isEmailValidate}
