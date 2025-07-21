@@ -6,6 +6,40 @@ import * as APIURLS from "@/apis/apiconstant";
 import Link from "next/link";
 import "react-multi-carousel/lib/styles.css";
 import { Route_Path } from "@/apis/api";
+// let ImageList = [
+//   {
+//     ImgUrl: APIURLS.BASE_PATH.SlidesImage + "design-lab-banner-1.webp",
+//     alt: "SIVA Design Lab- RFID labels/tags fabricated to your specific project needs.",
+//     url: Route_Path.DESIGN_LAB,
+//     caption: {
+//       title: "SIVA Design Lab - RFID labels/tags fabricated to your specific project needs.",
+//       desc: "A consultative approach to fabricating a custom RFID label/tag around the unique needs of the customer",
+//     }
+
+//   },
+//   {
+//     ImgUrl: APIURLS.BASE_PATH.SlidesImage + "High-Temp.webp",
+//     alt: "Heavy Duty Industries",
+//     url: Route_Path.PRODUCTS + "/uhf-hang-tag-for-metal-asset",
+//     caption: {
+//       title: "Tags For HEAVY DUTY INDUSTRIES",
+//       subtitle: "( Metals & Constructions )",
+//       desc: "Hang-tags designed to provide durability and robustness in harsh environments. Including temperature resistance up to 450°C",
+//     },
+
+//   },
+//   {
+//     ImgUrl: APIURLS.BASE_PATH.SlidesImage + "Flora_Web_Banner.webp",
+//     alt: "Flora_Web_Banner",
+//     url: Route_Path.PRODUCTS + "/horticulture-rfid-tag",
+//     caption: {
+//       title: "",
+//       desc: "",
+//     }
+
+//   },
+// ];
+
 
 const ImageSlider = (props) => {
   let ImageList = [
@@ -19,7 +53,7 @@ const ImageSlider = (props) => {
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "High-Temp.webp",
       alt: "Heavy Duty Industries",
-      url: Route_Path.PRODUCTS + "/uhf-hang-tag-for-metal-asset",
+      url: Route_Path.PRODUCTS + "/i200T-Hang-Tag",
       Title: "Tags For HEAVY DUTY INDUSTRIES",
       Subtitle: "( Metals & Constructions )",
       desc: "Hang-tags designed to provide durability and robustness in harsh environments. Including temperature resistance up to 450°C",
@@ -27,7 +61,7 @@ const ImageSlider = (props) => {
     {
       ImgPath: APIURLS.BASE_PATH.SlidesImage + "Flora_Web_Banner.webp",
       alt: "Flora_Web_Banner",
-      url: Route_Path.PRODUCTS + "/horticulture-rfid-tag",
+      url: Route_Path.PRODUCTS + "/Loop-Lock-Plant-Tag",
       Title: "",
       desc: "",
     },
