@@ -6,7 +6,7 @@ const Address = () => {
   const locations = [
     {
       country: "INDIA (HQ)",
-      name: "SIVA INOTAC LIMITED",
+      name: "SIVA INOTEC LIMITED",
       address: "N-6, Verna Industrial Area, Phase - 4, Verna, Goa - 403722, INDIA",
     },
 
