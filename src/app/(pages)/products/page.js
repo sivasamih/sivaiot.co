@@ -6,10 +6,10 @@ import { Route_Path } from "@/apis/api";
 import TopContent from "@/components/compo/products/topcontent";
 import ProductListingContainer from "@/components/compo/products/productListingContainer";
 import { notFound } from "next/navigation";
-
 export const dynamic = "force-dynamic";
+
 export const metadata = {
-  title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
+  title: "SIVA IoT: RFID Beyond Boundaries. Niche RFID Tag Manufacturing",
   description:
     "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
   keywords:
@@ -20,7 +20,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: Route_Path.PRODUCTS,
-    title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
+    title: "SIVA IoT: RFID Beyond Boundaries. Niche RFID Tag Manufacturing",
     description:
       "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
     images: [
@@ -32,24 +32,21 @@ export const metadata = {
       },
     ],
   },
-  // Twitter Metadata
   twitter: {
     card: "summary_large_image",
     site: "@sivaiot.co",
     creator: "@sivaiot.co",
-    title: "RFID Tag Manufacturer | RFID Label Supplier - SIVA IoT",
+    title: "SIVA IoT: RFID Beyond Boundaries. Niche RFID Tag Manufacturing",
     description:
       "SIVA IoT develops and manufactures wireless identification RFID labels & tags that identifies assets, streamlines critical production processes, makes payments secure, supply chains efficient and much more. More than just RFID labels.",
     images: [
       `https://sivafiles.sivagroup.co/1/images/others/Logo-1200x630.jpg`,
     ],
   },
-  // Canonical URL
   alternates: {
     canonical: 'https://sivaiot.co',
 
   },
-  // Additional Metadata
   charset: "UTF-8",
 };
 
@@ -69,20 +66,6 @@ async function GetAllCategoriesWithProduct() {
           id++;
         }
       } catch (ex) { }
-
-      // try {
-      //   let hardCodeedProcuct = NewProduct ? NewProduct : [];
-      //   if (hardCodeedProcuct.length > 0) {
-      //     for (let L of hardCodeedProcuct) {
-      //       L.IsExpanded = false;
-      //       L.IsClickable = true;
-      //       L.IsExternalURL = false;
-      //       L.id = id;
-      //       id++;
-      //     }
-      //   }
-      //   data = [...data, ...hardCodeedProcuct];
-      // } catch (ex) {}
     }
   } catch (ex) {
     console.log("ex>>>", ex);
