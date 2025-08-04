@@ -1,10 +1,10 @@
 import "./globals.css";
 import "./styles/color.css";
 import "@/app/styles/fonts.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import CustomLayOut from "./customLayout";
 import { Route_Path } from "@/apis/api";
-import { GoogleAnalyticsID, GoogleAnalyticsID_Test } from "@/apis/apiconstant";
+import { GoogleAnalyticsID, GoogleAnalyticsID_Test, GoogleTagManagerID } from "@/apis/apiconstant";
 import RedirectionPage from "@/components/compo/redirection/redirection";
 import { Suspense } from "react";
 import Loading from "./loading";
@@ -66,6 +66,7 @@ export default function RootLayout({ children }) {
         </Suspense>
       </body>
       <GoogleAnalytics gaId={GoogleAnalyticsID} />
+      <GoogleTagManager gtmId={GoogleTagManagerID} />
     </html>
   );
 }

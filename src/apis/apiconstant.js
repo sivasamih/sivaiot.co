@@ -4,6 +4,7 @@ let domain = "https://nsimsapi.sivagroup.co/";
 // let domain = "http://10.20.20.18:8082/"
 let basepath = "https://sivafiles.sivagroup.co/1/";
 export const GoogleAnalyticsID = "G-DH0Q67F6M3";
+export const GoogleTagManagerID = "GTM-KGR2TTN3"
 export const WebsiteID = 3
 
 
