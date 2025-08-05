@@ -1197,4 +1197,60 @@ export const RedirectionLinkList = [
     from: "/rfid-product-families/innovative-rfid-labels",
     to: "/product-families/Innotag",
   },
+  {
+    from: "/about-siva-iot",
+    to: "/about/siva-iot",
+  },
+  {
+    from: "/leadership",
+    to: "/about/leadership",
+  },
+  {
+    from: "/blog",
+    to: "/about/blog",
+  },
+  {
+    from: "/careers",
+    to: "/about/careers",
+  },
+  {
+    from: "/blog/uhf-hard-tags-for-tracking-non-metallic-rti",
+    to: "/about/blog/uhf-hard-tags-for-tracking-non-metallic-rti",
+  },
+  {
+    from: "/blog/rfid-wristbands-in-usa",
+    to: "/about/blog/rfid-wristbands-in-usa",
+  },
+  {
+    from: "/blog/temperature-monitoring-uhf-label",
+    to: "/about/blog/temperature-monitoring-uhf-label",
+  },
+  {
+    from: "/blog/smarttech-asia-2025",
+    to: "/about/blog/smarttech-asia-2025",
+  },
+  {
+    from: "/blog/ceramic-rfid-tag",
+    to: "/about/blog/ceramic-rfid-tag",
+  },
+  {
+    from: "/blog/uhf-rfid-labels-for-metal-surface",
+    to: "/about/blog/uhf-rfid-labels-for-metal-surface",
+  },
+  {
+    from: "/blog/rfid-labels-and-the-creation-of-smart-cities",
+    to: "/about/blog/rfid-labels-and-the-creation-of-smart-cities",
+  },
+  {
+    from: "/blog/iot-rfid-india",
+    to: "/about/blog/iot-rfid-india",
+  },
+  {
+    from: "/blog/rfid-tags-on-clothes",
+    to: "/about/blog/rfid-tags-on-clothes",
+  },
+  {
+    from: "/blog/rfid-hard-tag-for-asset-management",
+    to: "/about/blog/rfid-hard-tag-for-asset-management",
+  },
 ];
