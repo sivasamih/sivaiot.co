@@ -236,7 +236,8 @@ const UltimoIdTyvek = () => {
                           fontWeight: "bold",
                         }}
                       >
-                        DuPont™ Tyvek®
+                        {/* DuPont™ Tyvek® */}
+                        HDPE
                       </TableCell>
                     </TableRow>
                     <TableRow>
