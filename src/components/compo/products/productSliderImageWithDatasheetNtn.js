@@ -35,7 +35,7 @@ const ProductSliderWithDatasheetBtn = ({ Name, BannerImage, ImageList = [], Data
                     duration={1200}
                     Content={ImageList?.map((item, index) => {
                         return (
-                            <div key={index} style={{ padding: 0, marginBottom: -10 }}>
+                            <div key={Name + "-" + index} style={{ padding: 0, marginBottom: -10 }}>
                                 {
                                     !isImageError ? (<Box
                                         component={"img"}
@@ -94,6 +94,13 @@ const ProductSliderWithDatasheetBtn = ({ Name, BannerImage, ImageList = [], Data
                     ProductName={Name}
                     ProductImage={BannerImage}
                 />
+                {/* <DatasheetBtnWithModal
+                    id={"DatasheetBtn"}
+                    name={"Download Datasheet"}
+                    Datasheet={Datasheets}
+                    ProductName={Name}
+                    ProductImage={BannerImage}
+                /> */}
             </Box> : null}
         </Box>
     )

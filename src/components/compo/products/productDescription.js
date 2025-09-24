@@ -34,11 +34,12 @@ const ProductDescription = ({ ProductFamilyName, Description, Contents, FamilyUR
                             md: "calc(0.5rem + 1vw)",
                         },
                         fontWeight: "bold",
+                        mb:1
                     }}
                 >
                     Description
                 </Typography>
-                <Divider sx={{ my: 2 }} />
+                {/* <Divider sx={{ my: 2 }} /> */}
                 <Typography
                     variant="h1"
                     sx={{

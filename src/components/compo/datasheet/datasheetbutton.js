@@ -8,18 +8,22 @@ import {
   ListItem,
   ListItemText,
   CircularProgress,
+  ListItemIcon,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  IconButton,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import * as APIURLS from "@/apis/apiconstant";
 import CustomModal from "@/components/customcompo/modal/custommodal";
 import * as FETCHAPI from "@/apis/fetchapi";
-import {
-  getLocalStorage,
-  ValidateIPs,
-  ValidateUser_Data,
-} from "@/helper/helper";
-import { Box } from "@mui/system";
+import { getLocalStorage, ValidateIPs, ValidateUser_Data } from "@/helper/helper";
+import { Box, Stack } from "@mui/system";
 import useMobileLandscape from "@/app/hooks/mobileLandscape";
+import { Close, Description } from "@mui/icons-material";
+import DatasheetListModal from "./DatasheetListModal";
 
 const DatasheetButton = (props) => {
   const [open, setOpen] = useState(false);
@@ -27,8 +31,10 @@ const DatasheetButton = (props) => {
   const [IsUpdatedURL, setIsUpdatedURL] = useState(false);
   const [popoverAnchor, setPopoverAnchor] = useState(null);
   const [loading, setLoading] = useState(false);
-      const isMobileLandscape = useMobileLandscape();
-  
+  const isMobileLandscape = useMobileLandscape();
+
+  const isMultDatasheet = (props.Datasheet.length ?? 0) > 1
+
   const Timer = 15; // Timer duration in minutes
   const currentTime = new Date();
 
@@ -85,7 +91,7 @@ const DatasheetButton = (props) => {
   // };
 
   const handleDownloadClick = (event) => {
-    if (props.Datasheet.length > 1) {
+    if (isMultDatasheet) {
       setPopoverAnchor(event.currentTarget);
     } else {
       const datasheetURL = props.Datasheet[0]?.ProductDatashet || "";
@@ -142,10 +148,7 @@ const DatasheetButton = (props) => {
         };
         console.log("reqData", reqData);
         // return false;
-        let res = await FETCHAPI.Fetch(
-          APIURLS.APIURL.Add_Update_WebsiteData,
-          reqData
-        );
+        let res = await FETCHAPI.Fetch(APIURLS.APIURL.Add_Update_WebsiteData, reqData);
         if (res.status === 2000) {
           // setOpen(false);
         } else {
@@ -164,72 +167,60 @@ const DatasheetButton = (props) => {
           alignItems: "center",
           justifyContent: "center",
           gap: 0.5,
-        }}
-      >
-        {!loading ? (
-          <Typography
-            // variant="button"
-            id={props.id}
-            sx={{
-              borderRadius: "30px",
-              color: "var(--green)",
-              textDecoration: "none",
-              fontWeight: "bold",
-              fontSize: {
-                xs: isMobileLandscape?"calc(0.4rem + 1vw)":"calc(0.8rem + 1vw)",
-                md: "calc(0.1rem + 0.9vw)",
-              },
-              textTransform: "capitalize",
-              py: 0,
-              "&:hover": {
-                cursor: "pointer",
-              },
-              px: 1,
-              visibility: props.Datasheet.length > 0 ? "initial" : "hidden",
-            }}
-            style={{ background: "transparet" }}
-            disabled={
-              props.Datasheet.length > 0 ? (loading ? true : false) : true
-            }
-            component={Button}
-            onClick={handleDownloadClick}
-          >
-            {props.name}
-          </Typography>
-        ) : (
+        }}>
+        {/* {!loading ? ( */}
+        <Typography
+          // variant="button"
+          id={props.id}
+          sx={{
+            borderRadius: "30px",
+            color: "var(--green)",
+            textDecoration: "none",
+            fontWeight: "bold",
+            fontSize: {
+              xs: isMobileLandscape ? "calc(0.4rem + 1vw)" : "calc(0.8rem + 1vw)",
+              md: "calc(0.1rem + 0.9vw)",
+            },
+            textTransform: "capitalize",
+            py: 0,
+            "&:hover": {
+              cursor: "pointer",
+            },
+            px: 1,
+            visibility: props.Datasheet.length > 0 ? "initial" : "hidden",
+
+            ...props.sx,
+          }}
+          style={{ background: "transparet" }}
+          disabled={props.Datasheet.length > 0 ? (loading ? true : false) : true}
+          component={Button}
+          onClick={handleDownloadClick}
+          startIcon={props.startIcon ?? undefined}
+          size="small">
+          {isMultDatasheet ? props.name : !loading ? props.name : "Loading..."}
+        </Typography>
+
+        {/* ): (
           <CircularProgress
             color="secondary"
             size={20}
             thickness={4}
             sx={{ my: 1.5 }}
           />
-        )}
+        )} */}
       </Box>
-      <Popover
+
+
+      <DatasheetListModal
         open={Boolean(popoverAnchor)}
-        anchorEl={popoverAnchor}
+        onClick={(item) => handleDatasheetSelect(item)}
         onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "center",
-          horizontal: "center",
-        }}
-      >
-        <List sx={{}}>
-          {props.Datasheet.map((item, index) => (
-            <ListItem
-              key={index}
-              onClick={() => handleDatasheetSelect(item.ProductDatashet)}
-              sx={{ py: 0 }}
-            >
-              <ListItemText primary={item.ProductDatasheetName} />
-            </ListItem>
-          ))}
-        </List>
-      </Popover>
+        name={props.name}
+        ProductName={props.ProductName}
+        Datasheet={props.Datasheet}
+        loading={loading}
+      />
+
       <CustomModal
         Header="BEGIN DOWNLOAD"
         open={open}
